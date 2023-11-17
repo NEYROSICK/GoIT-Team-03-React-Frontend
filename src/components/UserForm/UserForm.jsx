@@ -21,7 +21,7 @@ import AddPhoto from '../UserPhoto/UserPhoto';
 import { useState } from 'react';
 
 
-const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
+const UserForm = ( ) => {
   // const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
 
