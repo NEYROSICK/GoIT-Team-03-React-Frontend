@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <HeaderContainer>
       <Navigation>
-        <Link to="/hello">Header</Link>
+        <Link to="/home">Header</Link>
       </Navigation>
     </HeaderContainer>
   );
