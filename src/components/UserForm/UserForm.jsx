@@ -38,7 +38,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     phone: '',
   };
 
-  // const handleSubmit = values => {
+  const handleSubmit = values => {
   //   console.log(userPhoto);
     // const formData = new FormData();
     // formData.append('avatar', userPhoto);
@@ -46,8 +46,8 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     //   formData.append(key, value);
     // });
     // dispatch(updateUser(formData));
-    // setIsUserUpdate(state => !state);
-  // };
+    setIsUserUpdate(state => !state);
+  };
 
   // const toggleModal = () => {
   //   setIsShowModal(state => !state);
@@ -55,7 +55,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
 
   return (
     <>
-      <Formik initialValues={initialValues} >{/* onSubmit={handleSubmit} */}
+      <Formik initialValues={initialValues} onSubmit={handleSubmit} >
         <UserFormBody>
           <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
           <UserFormInfo>

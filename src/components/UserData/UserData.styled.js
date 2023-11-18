@@ -5,9 +5,18 @@ export const UserPageItem = styled.div`
   flex-direction: column;
   gap: 40px;
   width: 100%;
-  max-width: 320px;
+  max-width: 280px;
   margin-left: auto;
   margin-right: auto;
+    @media screen and (min-width: 375px) {
+      max-width: 320px;
+  }
+    @media screen and (min-width: 768px) {
+      max-width: 704px;  
+  }
+    @media screen and (min-width: 1280px) {
+      max-width: 394px;  
+  }
 `;
 
 export const UserFormTitle = styled.h2`
@@ -32,6 +41,13 @@ export const UserFormBox = styled.div`
   background-color: #ffffff;
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   border-radius: 20px;
+      @media screen and (min-width: 768px) {
+       padding: 20px ;
+       padding-right:76px;
+  }
+        @media screen and (min-width: 1280px) {
+        padding:20px 24px 21px 16px;
+  }
 `;
 
 export const UserBtnPen = styled.button`
@@ -47,6 +63,10 @@ export const UserBtnPen = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
+        @media screen and (min-width: 768px) {
+  top: 18px;
+  right: 18px;
+  }
 `;
 
 export const UserInputWrapper = styled.div`

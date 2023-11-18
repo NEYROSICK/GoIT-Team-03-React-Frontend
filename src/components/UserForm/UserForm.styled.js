@@ -32,13 +32,22 @@ export const UserFormBody = styled(Form)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 21px;
+  gap: 25px;
+      @media screen and (min-width: 768px) {
+      flex-direction:row-reverse;
+  }
+        @media screen and (min-width: 1280px) {
+        flex-direction: column;
+  }
 `;
 export const UserFormInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 21px;
   width: 100%;
+        @media screen and (min-width: 768px) {
+  gap: 15px 0px;
+  }
 `;
 
 export const UserFormList = styled.ul`
@@ -46,6 +55,9 @@ export const UserFormList = styled.ul`
   flex-direction: column;
   gap: 16px;
   width: 100%;
+         @media screen and (min-width: 768px) {
+      width: 354px;
+  }
 `;
 
 export const UserFormItem = styled.li`
@@ -59,8 +71,11 @@ export const UserFormLabel = styled.label`
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.56px;
-
   color: #111111;
+        @media screen and (min-width: 768px) {
+  font-size: 18px;
+  letter-spacing: 0.72px;
+  }
 `;
 
 export const UserFormInput = styled(Field)`
@@ -83,6 +98,10 @@ export const UserFormInput = styled(Field)`
   font-family: Manrope, sans-serif;
   font-size: 12px;
   letter-spacing: 0.48px;
+
+          @media screen and (min-width: 768px) {
+       max-width: 255px;
+  }
 `;
 
 export const UserFormBtn = styled.div`
