@@ -1,3 +1,5 @@
+
+import { useAuth } from '../context/AuthContext';
 import { Logo } from './Logo';
 import { Nav } from './Navigation/Nav';
 import { AuthNav } from './Navigation/AuthNav';
@@ -9,14 +11,15 @@ import {
 } from './Header.styled';
 
 export const Header = () => {
+  const { isAuthenticated } = useAuth();
+
   return (
     <HeaderContainer>
       <HeaderStyled>
         <Logo />
         <Navigation>
           <Nav />
-          <AuthNav />
-          <UserNav />
+          {isAuthenticated ? <UserNav /> : <AuthNav />}
         </Navigation>
       </HeaderStyled>
     </HeaderContainer>
