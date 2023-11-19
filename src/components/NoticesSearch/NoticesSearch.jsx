@@ -55,8 +55,7 @@ const NoticesSearch = ({ onSubmit, onClear }) => {
             <SearchSubmitIcon
                 type="submit"
                 aria-label="submit"
-                // {...query && (style={rigth: "47px"})}
-                // style = {query && {rigth: "47px"} }
+                active={query && true}
             >
             </SearchSubmitIcon>
             {query && (

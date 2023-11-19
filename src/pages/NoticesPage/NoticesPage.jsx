@@ -1,7 +1,10 @@
 import NoticesSearch from "../../components/NoticesSearch/NoticesSearch"
+import NoticesCategoriesNav from "../../components/NoticesCategoriesNav/NoticesCategoriesNav";
+import NoticesFilter from "../../components/NoticesFilter/NoticesFilter"
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState, useCallback } from 'react';
-import { Container, PageTitle } from "../NoticesPage/NoticesPage.styled";
+import { Container, FilterAndAddContainer, FilterContainer, PageTitle } from "../NoticesPage/NoticesPage.styled";
+import AddPetButton from "../../components/AddPetButton/AddPetButton";
 
 const NoticesPage = () => {
 
@@ -31,6 +34,15 @@ const NoticesPage = () => {
             <div>
                 <NoticesSearch onSubmit={handleSubmit} onClear={handleClear}/>
             </div>
+            <FilterContainer>
+                <NoticesCategoriesNav searchParams={searchParams}/>
+                <div>
+                    <FilterAndAddContainer>
+                        <NoticesFilter/>
+                        <AddPetButton/>
+                    </FilterAndAddContainer>
+                </div>
+            </FilterContainer>
         </Container>
     )
 }
