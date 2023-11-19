@@ -27,11 +27,40 @@ export const PageTitle = styled.h1`
   color: #111111;
 
   @media screen and (min-width: 768px) {
-    .title {
+    
       margin-bottom: 40px;
       font-size: 48px;
       line-height: 66px;
-    }
+  
   }
 `;
 
+export const FilterContainer = styled.div`
+  position: relative;
+  width: 280px;
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1248px; 
+  }
+`
+export const FilterAndAddContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 211px;
+  align-items: end;
+  
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 16px;
+  }
+`
