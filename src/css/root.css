@@ -2,6 +2,8 @@
   /*background colors*/
   --clr-bcg: #fef9f9;
   --clr-bcg-modal: #2b2b2b99;
+  --clr-bcg-user: #ffffff;
+  --clr-backdrop: #57565699;
 
   /*text colors*/
   --clr-primary: #111111;

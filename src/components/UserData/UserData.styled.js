@@ -8,6 +8,7 @@ export const UserPageItem = styled.div`
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom:46px;
     @media screen and (min-width: 375px) {
       max-width: 320px;
   }
@@ -112,3 +113,81 @@ export const UserLabel = styled.label`
 
   cursor: pointer;
 `;
+/////////////////// modal
+export const ModalTitle = styled.h3`
+text-align: center;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.96px;
+
+
+
+            @media screen and (min-width: 768px) {
+    font-size: 36px;
+    letter-spacing: 1.44px;
+
+    margin-bottom:52px;
+  }
+`;
+export const ModalText = styled.p`
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.64px;
+
+margin-bottom:40px;
+
+            @media screen and (min-width: 768px) {
+              font-size: 24px;
+              letter-spacing: 0.94px;
+
+              margin-bottom:60px;
+            }
+`
+export const ModalBtn = styled.button`
+display: flex;
+width: 248px;
+padding: 8px 28px;
+justify-content: center;
+align-items: center;
+margin-left:auto;
+margin-right:auto;
+gap: 12px;
+color: var(--clr-bcg);
+
+border-radius: 40px;
+border:none;
+background: var(--blue-links, #54ADFF);
+`
+
+export const ModalConteiner = styled.div`
+    background-color:var(--clr-bcg-user);
+    border-radius:20px;
+    padding: 68px  16px 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index:5;
+            @media screen and (min-width: 768px) {
+    padding: 60px  129px 60px;
+     width: 608px;
+  }
+`
+
+export const BtnCloseModal = styled.button`
+position:absolute;
+top: 16px;
+right: 16px;
+border: none;
+background-color:transparent;
+`
+
+
+
+

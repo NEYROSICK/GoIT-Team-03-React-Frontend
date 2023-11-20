@@ -35,6 +35,9 @@ export const UserFormBody = styled(Form)`
   gap: 25px;
       @media screen and (min-width: 768px) {
       flex-direction:row-reverse;
+              @media screen and (max-width: 1280px) {
+     gap: 70px;
+  }
   }
         @media screen and (min-width: 1280px) {
         flex-direction: column;
@@ -87,10 +90,10 @@ export const UserFormInput = styled(Field)`
   max-width: 190px;
   height: 28px;
   padding: 4px 12px;
-  background: blue;
+  background: var(--clr-brand-blue);
   background: none;
 
-  border: 1px solid #54adff;
+  border: 1px solid var(--clr-brand-blue);
   border-radius: 40px;
 
   color: #111111;
@@ -104,20 +107,22 @@ export const UserFormInput = styled(Field)`
   }
 `;
 
-export const UserFormBtn = styled.div`
+export const UserFormBtn = styled.button`
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content:center;
+background-color:transparent;
   height: 31px;
-  width: 100%;
-  padding: 0;
   cursor: pointer;
 
   border: none;
 
-  background: white;
-  color: rgba(136, 136, 136, 1);
   font-size: 18px;
+            @media screen and (min-width: 768px) {
+        justify-content:flex-end;
+  
+  }
+
 `;
 
 export const Btn = styled.button`
@@ -128,6 +133,7 @@ export const Btn = styled.button`
   flex: 1 1 auto;
   text-align: center;
   padding: 8px 12px;
+  box-sizing:border-box;
 
   border-radius: 40px;
   border: 1px solid rgba(255, 255, 255, 0.7);
@@ -143,6 +149,9 @@ export const Btn = styled.button`
   transition: all 250ms ease-in-out;
 
   cursor: pointer;
+          @media screen and (min-width: 768px) {
+       max-width: 255px;
+  }
 `;
 export const BtnText = styled.p`
   display: flex;
@@ -150,7 +159,7 @@ export const BtnText = styled.p`
   margin-right: auto;
   gap: 10px;
 
-  color: #888;
+  color: var(--clr-secondary);
 
   padding: 10px;
 
