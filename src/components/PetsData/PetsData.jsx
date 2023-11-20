@@ -10,6 +10,8 @@ import {
     BtnAddPet,
 } from "./PetsData.styled";
 
+import { EmptyPetsList } from "../EmptyPetsList/EmptyPetsList";
+
 export const PetsData = () => {
 
     const [currentPets, setCurrentPets] = useState([{ name: 'Jack', date: '22.04.2018', type: 'Persian cat', comments: "Jack is a gray Persian cat with green eyes.He loves to be pampered and groomed, and enjoys playing with toys.Although a bitshy, he's a loyal and affectionate lap cat", file: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSutFe12GiEdUvTno_bjd-8KnM0m2TaQwst9zoV6vjJG5HDkg065mCUGW7SSUBkcYgRAhc&usqp=CAU' },
@@ -55,7 +57,7 @@ export const PetsData = () => {
                 ))}
             </PetsList>
 
-            {/* {pets?.length === 0 && <EmptyPetsList />} */}
+            {currentPets?.length === 0 && <EmptyPetsList />}
         </div>
     );
 };
