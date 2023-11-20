@@ -761,7 +761,6 @@ margin-bottom:31px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 500px;
 `;function lw(){return k.jsx(Cj,{children:k.jsxs(kj,{children:[k.jsx(hj,{}),k.jsx(Ej,{})]})})}const Tj=()=>k.jsxs(iC,{children:[k.jsx("h1",{children:"Outlet"}),k.jsx(lw,{})]}),Oj=ve.div`
   display: flex;
   justify-content: center;
