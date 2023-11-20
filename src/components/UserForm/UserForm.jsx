@@ -176,7 +176,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
             <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
             <ButtonLogout>Yes 
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </ButtonLogout>
           </ConteinerBtn>
