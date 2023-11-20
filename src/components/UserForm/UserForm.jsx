@@ -22,7 +22,7 @@ import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from '../Modal/Modal';
 
 
-import { useGetUserQuery, useUpdateUserMutation } from '../redux/API/UserApi'
+import { useGetUserQuery, useUpdateUserMutation } from './../../redux/API/UserApi'
 
 
 
