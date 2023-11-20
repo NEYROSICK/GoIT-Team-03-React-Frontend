@@ -4,10 +4,6 @@ export const UserDataWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  @media screen and (min-width: 768px) {
-    /* margin: 0 0; */
-  }
 `;
 
 export const UserPhotoWrapper = styled.div`
@@ -18,7 +14,6 @@ export const UserPhotoWrapper = styled.div`
 
   @media screen and (min-width: 768px) {
     flex-direction: row-reverse;
-    /* margin: 0 0; */
   }
 `;
 
