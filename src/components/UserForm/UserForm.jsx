@@ -1,5 +1,5 @@
 import { Formik } from 'formik';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   UserFormBody,
   UserFormInput,
@@ -11,12 +11,19 @@ import {
   UserFormInfo,
   BtnText,
   UserFormSvg,
+  ModalConteiner,
+  BtnCloseModal,
+  ConteinerBtn,
+  ButtonCansel,
+  ButtonLogout,
+  ModalTitle
 } from './UserForm.styled';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from '../Modal/Modal';
 
 
 import { useGetUserQuery, useUpdateUserMutation } from '../redux/API/UserApi'
+
 
 
 
@@ -36,7 +43,19 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     await updateUser(formData ).unwrap();
     setIsUserUpdate(state => !state);
   };
-
+  const hendleClick = () => {
+    setIsShowModal(true) 
+  
+  } 
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        setIsShowModal(false)
+      }
+    }
+    window.addEventListener('keydown', close)
+    return () => window.removeEventListener('keydown', close)
+  }, [])
 
   return (
     <>
@@ -122,7 +141,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 </UserFormItem>
               </UserFormList>
               {isUserUpdate ? (
-                <UserFormBtn type="button" onClick={() => setIsShowModal(true) }>
+                <UserFormBtn type="button" onClick={hendleClick }>
                   <UserFormSvg>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +169,24 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
             </UserFormInfo>
           </UserFormBody>
         </Formik>}
-      {isShowModal && <Modal> <div>dfadfa</div></Modal> }
+      {isShowModal ? <Modal isOpen={setIsShowModal}>
+        <ModalConteiner>
+          <ModalTitle>Already leaving?</ModalTitle>
+            <ConteinerBtn>
+            <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
+            <ButtonLogout>Yes 
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
+                <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </ButtonLogout>
+          </ConteinerBtn>
+          <BtnCloseModal onClick={() => setIsShowModal(false)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 5L5 19M5.00004 5L19 19" stroke="#54ADFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </BtnCloseModal>
+        </ModalConteiner>
+      </Modal>: <div></div>}
     </>
   );
 };

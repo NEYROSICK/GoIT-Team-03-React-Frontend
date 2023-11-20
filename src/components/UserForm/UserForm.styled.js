@@ -175,3 +175,106 @@ export const UserFormSvg = styled.svg`
 
   stroke: #54adff;
 `;
+
+// modal 
+export const ModalConteiner = styled.div`
+    background-color:var(--clr-bcg-user);
+    border-radius:20px;
+    padding: 70px  12px 60px;
+    width: 280px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index:5;
+            @media screen and (min-width: 768px) {
+    padding: 108px  155px 109px;
+     width: 608px;
+  }
+`
+export const ModalTitle = styled.h3`
+text-align: center;
+font-size: 24px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.96px;
+
+    margin-bottom:44px;
+
+            @media screen and (min-width: 768px) {
+    font-size: 36px;
+    letter-spacing: 1.44px;
+
+    margin-bottom:48px;
+  }
+`;
+
+export const BtnCloseModal = styled.button`
+  position:absolute;
+  top: 12px;
+  right: 12px;
+  border: none;
+  background-color:transparent;
+  @media screen and (min-width: 768px) {
+  top: 24px;
+  right: 24px;
+  }
+`
+export const ConteinerBtn = styled.div`
+  display: flex;
+  flex-direction:column;
+  gap:8px 0px ;
+  @media screen and (min-width: 768px) {
+    flex-direction:row;
+    justify-content:center;
+    gap: 0px  17px;
+  }
+`
+
+export const ButtonCansel = styled.button`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+
+  background-color:transparent;
+  color:var(--clr-brand-blue);
+  border:   2px solid var(--clr-brand-blue);
+  border-radius: 40px;
+  padding: 8px 20px;
+  @media screen and (min-width: 768px) {
+    width: 129px;
+    height: 40px;
+  }
+`
+
+export const ButtonLogout = styled.button`
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  display: flex;
+  justify-content: center;
+  align-items:center;
+  gap:0px 8px;
+
+
+  background-color:var(--clr-brand-blue);
+  color:var(--clr-primary-inv);
+  border: none;
+  border-radius: 40px;
+  padding: 8px 20px;
+
+  @media screen and (min-width: 768px) {
+    width: 129px;
+    height: 40px;
+  }
+`
+
+

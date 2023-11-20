@@ -14,7 +14,7 @@
   --clr-brand-yellow: #ffc107;
   --clr-brand-blue: #54adff;
   --clr-brand-blue-lt: #cce4fb;
-  --clr-brand-blue-grd: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+  --clr-brand-blue-grd: linear-gradient(90deg, #9bd0ff 0% , #419ef1 107.89%);
   --clr-brand-green: #00c3ad;
   --clr-brand-red: #f43f5e;
 }

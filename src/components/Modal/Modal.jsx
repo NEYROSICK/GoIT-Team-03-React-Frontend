@@ -3,7 +3,7 @@ import { Backdrop } from './Modal.styled'
 import { useState } from 'react';
 
 
-function Modal({ children }) {
+function Modal({ children ,isOpen }) {
 
     const [isModal, setIsModal] = useState(true);
 
@@ -11,13 +11,14 @@ function Modal({ children }) {
         if (e.target.id === '4') {
             console.log(e.target.id)
             setIsModal(false)
+            isOpen(false)
         } 
     return
     }
     return (
         isModal && 
         createPortal(
-            <Backdrop  id="4" onClick={(e) => closeModal(e)}> 
+            <Backdrop  id="4" onClick={(e) => closeModal(e) }> 
                 {children}
             </Backdrop>,
             document.getElementById('modal-root')

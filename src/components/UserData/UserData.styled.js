@@ -122,7 +122,7 @@ font-weight: 500;
 line-height: normal;
 letter-spacing: 0.96px;
 
-
+    margin-bottom:24px;
 
             @media screen and (min-width: 768px) {
     font-size: 36px;
@@ -186,6 +186,10 @@ top: 16px;
 right: 16px;
 border: none;
 background-color:transparent;
+            @media screen and (min-width: 768px) {
+      top: 24px;
+      right: 24px;
+  }
 `
 
 
