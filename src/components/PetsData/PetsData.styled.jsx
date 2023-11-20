@@ -137,7 +137,6 @@ export const PetsModalText = styled.p`
   font-family: Manrope-Medium, sans-serif;
   font-weight: 500;
   letter-spacing: -0.14px;
-  color: #000;
   span {
     font-family: Manrope-Bold, sans-serif;
     font-weight: 700;

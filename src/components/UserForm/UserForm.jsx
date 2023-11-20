@@ -33,7 +33,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const { data, isLoading } = useGetUserQuery();
   const [updateUser] = useUpdateUserMutation()
 
-  console.log(userPhoto)
   const handleSubmit = async (values) => {
     const formData = new FormData();
     formData.append('avatar', userPhoto);

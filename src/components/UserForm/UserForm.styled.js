@@ -33,14 +33,14 @@ export const UserFormBody = styled(Form)`
   flex-direction: column;
   align-items: center;
   gap: 25px;
-      @media screen and (min-width: 768px) {
-      flex-direction:row-reverse;
-              @media screen and (max-width: 1280px) {
-     gap: 70px;
+  @media screen and (min-width: 768px) {
+  flex-direction:row-reverse;
+  @media screen and (max-width: 1280px) {
+  gap: 70px;
   }
   }
-        @media screen and (min-width: 1280px) {
-        flex-direction: column;
+  @media screen and (min-width: 1280px) {
+  flex-direction: column;
   }
 `;
 export const UserFormInfo = styled.div`
@@ -48,7 +48,7 @@ export const UserFormInfo = styled.div`
   flex-direction: column;
   gap: 21px;
   width: 100%;
-        @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
   gap: 15px 0px;
   }
 `;
@@ -58,8 +58,8 @@ export const UserFormList = styled.ul`
   flex-direction: column;
   gap: 16px;
   width: 100%;
-         @media screen and (min-width: 768px) {
-      width: 354px;
+  @media screen and (min-width: 768px) {
+  width: 354px;
   }
 `;
 
@@ -70,12 +70,10 @@ export const UserFormItem = styled.li`
 `;
 
 export const UserFormLabel = styled.label`
-  font-family: Manrope, sans-serif;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.56px;
-  color: #111111;
-        @media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
   font-size: 18px;
   letter-spacing: 0.72px;
   }
@@ -96,14 +94,11 @@ export const UserFormInput = styled(Field)`
   border: 1px solid var(--clr-brand-blue);
   border-radius: 40px;
 
-  color: #111111;
-
-  font-family: Manrope, sans-serif;
   font-size: 12px;
   letter-spacing: 0.48px;
 
-          @media screen and (min-width: 768px) {
-       max-width: 255px;
+  @media screen and (min-width: 768px) {
+  max-width: 255px;
   }
 `;
 
@@ -111,15 +106,13 @@ export const UserFormBtn = styled.button`
   align-items: center;
   display: flex;
   justify-content:center;
-background-color:transparent;
+  background-color:transparent;
   height: 31px;
   cursor: pointer;
-
   border: none;
-
   font-size: 18px;
-            @media screen and (min-width: 768px) {
-        justify-content:flex-end;
+  @media screen and (min-width: 768px) {
+  justify-content:flex-end;
   
   }
 
@@ -136,12 +129,9 @@ export const Btn = styled.button`
   box-sizing:border-box;
 
   border-radius: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-
-  color: #fef9f9;
-  background-color: #54adff;
-
-  font-family: Manrope, sans-serif;
+  border: 1px solid var(--clr-primary-inv);
+  color: var(--clr-primary-inv);
+  background-color:var(--clr-brand-blue);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 0.56px;
@@ -149,8 +139,8 @@ export const Btn = styled.button`
   transition: all 250ms ease-in-out;
 
   cursor: pointer;
-          @media screen and (min-width: 768px) {
-       max-width: 255px;
+  @media screen and (min-width: 768px) {
+  max-width: 255px;
   }
 `;
 export const BtnText = styled.p`
@@ -163,7 +153,6 @@ export const BtnText = styled.p`
 
   padding: 10px;
 
-  font-family: Manrope, sans-serif;
   font-size: 16px;
   font-weight: 500;
   font-style: normal;
@@ -172,7 +161,6 @@ export const BtnText = styled.p`
 export const UserFormSvg = styled.svg`
   width: 24px;
   height: 24px;
-
   stroke: #54adff;
 `;
 
@@ -188,9 +176,9 @@ export const ModalConteiner = styled.div`
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     z-index:5;
-            @media screen and (min-width: 768px) {
+    @media screen and (min-width: 768px) {
     padding: 108px  155px 109px;
-     width: 608px;
+    width: 608px;
   }
 `
 export const ModalTitle = styled.h3`
@@ -200,14 +188,12 @@ font-style: normal;
 font-weight: 500;
 line-height: normal;
 letter-spacing: 0.96px;
+margin-bottom:44px;
 
-    margin-bottom:44px;
-
-            @media screen and (min-width: 768px) {
-    font-size: 36px;
-    letter-spacing: 1.44px;
-
-    margin-bottom:48px;
+  @media screen and (min-width: 768px) {
+  font-size: 36px;
+  letter-spacing: 1.44px;
+  margin-bottom:48px;
   }
 `;
 
