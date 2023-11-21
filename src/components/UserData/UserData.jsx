@@ -33,6 +33,7 @@ const UserData = () => {
                 />
               </svg>
               <IconComponent iconId="iconArrowLeft" />
+              <IconComponent iconId="another-icon" />
             </UserBtnPen>
           ) : (
             <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
