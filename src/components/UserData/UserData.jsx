@@ -1,4 +1,5 @@
 import UserForm from '../UserForm/UserForm';
+import IconComponent from '../IconExtraction/IconComponent';
 
 import {
   UserPageItem,
@@ -18,7 +19,7 @@ const UserData = () => {
         <UserFormTitle>My information:</UserFormTitle>
         <UserFormBox>
           {isUserUpdate ? (
-            <UserBtnPen onClick={() => setIsUserUpdate(state => !state)}>
+            <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -31,9 +32,10 @@ const UserData = () => {
                   fill="#54ADFF"
                 />
               </svg>
+              <IconComponent iconId="iconArrowLeft" />
             </UserBtnPen>
           ) : (
-            <UserBtnPen onClick={() => setIsUserUpdate(state => !state)}>
+            <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

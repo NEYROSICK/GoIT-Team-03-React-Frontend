@@ -1,65 +1,27 @@
-// IconComponent.js
+import React from 'react';
+import './IconComponent.styled.jsx'; // Import your CSS file for icon styling
 
-import React, { useEffect, useState } from 'react';
-import './IconComponent.css'; // Import your CSS file for icon styling
-
-const IconComponent = ({ iconId, width, height, color, iconClass }) => {
-  const [icon, setIcon] = useState(null);
-
-  useEffect(() => {
-    // Dynamically import the SVG sprite file
-    import('./sprite.svg')
-      .then((module) => {
-        // Extract the specific icon using its ID
-        const iconElement = module.default.getElementById(iconId);
-
-        // Store the original color before any changes
-        const originalColor = iconElement.getAttribute('fill');
-
-        // Set the color of the icon
-        if (color) {
-          iconElement.setAttribute('fill', color);
-        } else {
-          // Set default to the original color if not specified
-          iconElement.setAttribute('fill', originalColor || 'transparent');
-        }
-
-        // Set the width and height of the icon
-        if (width && height) {
-          iconElement.setAttribute('width', width);
-          iconElement.setAttribute('height', height);
-        } else {
-          // Set default size as 32 if not specified
-          iconElement.setAttribute('width', 32);
-          iconElement.setAttribute('height', 32);
-        }
-
-        // Add default class .icon to the icon
-        iconElement.classList.add('icon');
-
-        // Add custom class based on the icon ID
-        if (iconId) {
-          iconElement.classList.add(iconId);
-        }
-
-        // Add additional custom class if provided
-        if (iconClass) {
-          iconElement.classList.add(iconClass);
-        }
-
-        setIcon(iconElement);
-      })
-      .catch((error) => {
-        console.error('Error loading SVG sprite:', error);
-      });
-  }, [iconId, color, iconClass, width, height]);
-
-  return (
-    <div className={`custom-icon-wrapper ${iconClass}`} style={{ width, height }}>
-      {icon && <svg className={`custom-icon ${iconClass}`} width={width} height={height}>{icon.cloneNode(true)}</svg>}
-
-    </div>
-  );
+const IconComponent = ({ iconId }) => {
+  switch (iconId) {
+    case 'iconArrowLeft':
+      return (
+        <svg id="icon-arrow-left" viewBox="0 0 32 32">
+          <path d="M5.333 16h21.333M5.333 16l8-8M5.333 16l8 8"></path>
+        </svg>
+      );
+    // Add more cases for different icons as needed
+    case 'another-icon':
+      return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          {/* Include the SVG paths for another icon */}
+          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" />
+        </svg>
+      );
+    // Add more cases for different icons as needed
+    default:
+      // If the id is not recognized, return an empty SVG element
+      return <svg></svg>;
+  }
 };
 
 export default IconComponent;
