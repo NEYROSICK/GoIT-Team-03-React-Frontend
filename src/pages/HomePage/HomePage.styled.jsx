@@ -9,6 +9,6 @@ export const Container = styled.div`
 `;
 
 export const ImageDiv = styled.div`
-  padding-top: 0px;
+  padding-top: 10px;
   display: flex;
 `;
