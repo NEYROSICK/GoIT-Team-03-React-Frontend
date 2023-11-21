@@ -1,4 +1,9 @@
-import { Field, Form, Formik} from "formik";
+import { Field, Form, Formik, ErrorMessage } from "formik";
+import { object, string} from 'yup';
+
+const schema = object({
+  category: string().required("Select a category"),
+});
 
 const AddPetChooseOption = (props) => {
 
@@ -8,7 +13,7 @@ const AddPetChooseOption = (props) => {
   }
 
   return (
-    <Formik initialValues={props.data} onSubmit={handleSubmit}>
+    <Formik initialValues={props.data} validationSchema={schema} onSubmit={handleSubmit}>
       <Form> 
         <label>
           your pet
@@ -26,6 +31,7 @@ const AddPetChooseOption = (props) => {
           in good hands
           <Field type="radio" name="category" value="in good hands" />
         </label>
+        <ErrorMessage name="category" component={"div"}/>
         <button type="submit">Next</button>
       </Form>
     </Formik>

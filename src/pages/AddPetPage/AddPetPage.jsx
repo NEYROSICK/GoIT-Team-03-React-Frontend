@@ -7,19 +7,6 @@ import AddPetPersonalDetailsYourPet from '../../components/AddPetPersonalDetails
 import AddPetMoreInfoYourPet from '../../components/AddPetMoreInfo/AddPetMoreInfoYourPet';
 import AddPetMoreInfoNotices from '../../components/AddPetMoreInfo/AddPetMoreInfoNotices';
 import AddPetMoreInfoSell from '../../components/AddPetMoreInfo/AddPetMoreInfoSell';
-// import { object, string, date, number } from 'yup';
-
-// const schema = object({
-//     title: string().required(),
-//     name: string().required(),
-//     date: date().required(),
-//     type: string().required(),
-//     sex: string().required(),
-//     location: string().required(),
-//     price: number().required(),
-//     comments: string().required(),
-//     category: string().required(),
-//  });
 
 const AddPetPage = () => {
     const [step, setStep] = useState(0)
