@@ -8,6 +8,7 @@ export const UserPageItem = styled.div`
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom:46px;
     @media screen and (min-width: 375px) {
       max-width: 320px;
   }
@@ -23,12 +24,9 @@ export const UserFormTitle = styled.h2`
   display: flex;
   flex-direction: row;
 
-  font-family: Manrope, sans-serif;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
-
-  color: #000000;
 `;
 
 export const UserFormBox = styled.div`
@@ -38,15 +36,15 @@ export const UserFormBox = styled.div`
   flex-direction: column;
   padding: 20px 8px;
 
-  background-color: #ffffff;
+  background-color: var(--clr-bcg-use);
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   border-radius: 20px;
       @media screen and (min-width: 768px) {
-       padding: 20px ;
-       padding-right:76px;
+  padding: 20px ;
+  padding-right:76px;
   }
-        @media screen and (min-width: 1280px) {
-        padding:20px 24px 21px 16px;
+  @media screen and (min-width: 1280px) {
+  padding:20px 24px 21px 16px;
   }
 `;
 
@@ -59,7 +57,6 @@ export const UserBtnPen = styled.button`
   width: 24px;
   height: 24px;
 
-  background-color: inherit;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -89,7 +86,6 @@ export const UserBtn = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: Manrope, sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 12px;
@@ -112,3 +108,82 @@ export const UserLabel = styled.label`
 
   cursor: pointer;
 `;
+/////////////////// modal
+export const ModalTitle = styled.h3`
+  text-align: center;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0.96px;
+
+  margin-bottom:24px;
+
+  @media screen and (min-width: 768px) {
+  font-size: 36px;
+  letter-spacing: 1.44px;
+  margin-bottom:52px;
+  }
+`;
+export const ModalText = styled.p`
+text-align: center;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+letter-spacing: 0.64px;
+
+margin-bottom:40px;
+
+  @media screen and (min-width: 768px) {
+  font-size: 24px;
+  letter-spacing: 0.94px;
+  margin-bottom:60px;
+  }
+`
+export const ModalBtn = styled.button`
+  display: flex;
+  width: 248px;
+  padding: 8px 28px;
+  justify-content: center;
+  align-items: center;
+  margin-left:auto;
+  margin-right:auto;
+  gap: 12px;
+  color: var(--clr-bcg);
+  border-radius: 40px;
+  border:none;
+  background: var(--blue-links, #54ADFF);
+`
+
+export const ModalConteiner = styled.div`
+    background-color:var(--clr-bcg-user);
+    border-radius:20px;
+    padding: 68px  16px 60px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    z-index:5;
+    @media screen and (min-width: 768px) {
+    padding: 60px  129px 60px;
+    width: 608px;
+  }
+`
+
+export const BtnCloseModal = styled.button`
+    position:absolute;
+    top: 16px;
+    right: 16px;
+    border: none;
+    background-color:transparent;
+      @media screen and (min-width: 768px) {
+      top: 24px;
+      right: 24px;
+  }
+`
+
+
+
+
