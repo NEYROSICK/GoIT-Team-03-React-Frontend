@@ -82,11 +82,8 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
                           strokeLinejoin="round"
                         />
                       </svg>
-
                     </UserPhotoBtnCheck>
-
                     <UserPhotoTitle>Confirm</UserPhotoTitle>
-
                     <UserPhotoBtn
                       type="button"
                       onClick={() => setSelectedFile(null)}

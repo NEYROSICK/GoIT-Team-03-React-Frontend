@@ -1,11 +1,11 @@
 import styled from "styled-components";
 
 export const PetsDataTitle = styled.h2`
-font-size: 20px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-margin-bottom:31px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
 `
 
 export const PetsList = styled.ul`
@@ -27,6 +27,7 @@ export const PetsCardContainer = styled.li`
   background:var(--clr-bcg-user);
  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   width: 280px;
+  position: relative;
   @media only screen and (min-width: 768px) {
     width: 703px;
     height: 256px;
@@ -35,7 +36,8 @@ export const PetsCardContainer = styled.li`
     align-items: flex-start;
     border-radius: 40px;
   }
-  @media only screen and (min-width: 1280px) {
+  @media only screen and (min-width: 1280px) {  
+    width: 821px;;
     height: 100%;
     padding: 20px 28px 20px 20px;
   }
@@ -160,8 +162,31 @@ export const PetsModalBtnContainer = styled.div`
     gap: 17px;
   }
 `;
+export const BtnDelite = styled.button`
+  position: absolute;
+  top: 272px;
+  right: 16px;
+  
+  border: none;
+  background-color:transparent;
+  padding: 0px;
+  @media only screen and (min-width: 768px) {
+  top: 20px;
+  right: 20px;
+  }
+
+`
+
 //Add pet
 export const ConteinerTitle = styled.div`
+  display: flex;
+  margin-bottom: 31px;
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 20px;
+  }
+  @media only screen and (min-width: 768px) {
+    margin-bottom: 24px;
+  }
 
 `
 export const BtnAddPet = styled.button`
@@ -185,6 +210,19 @@ export const BtnAddPet = styled.button`
   position: fixed;
   bottom:30px;
   right: 20px;
+  z-index:1;
+  @media only screen and (min-width: 768px) {
+    position: static;
+    
+    flex-direction:row-reverse;
+    padding: 8px 20px;
+    gap: 0px 8px ;
+    border-radius:40px;
+    
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.64px;
+  }
 
 `
 
