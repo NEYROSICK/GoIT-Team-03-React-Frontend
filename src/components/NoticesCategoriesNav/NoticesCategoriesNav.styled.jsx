@@ -2,8 +2,8 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const NavContaier = styled.div`
-  width: 172px;
-  height: 78px;
+  width: 205px;
+  height: 121px;
 
   @media screen and (min-width: 768px) {
     width: 319px;
@@ -18,6 +18,21 @@ export const NavList = styled.ul`
 
   @media screen and (min-width: 768px) {
     flex-direction:  row;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+`;
+
+export const UserNavList = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-wrap: no-wrap;
+  gap: 8px;
+  flex-direction: row;
+  margin-top: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 12px;
     flex-wrap: wrap;
     gap: 12px;
   }
