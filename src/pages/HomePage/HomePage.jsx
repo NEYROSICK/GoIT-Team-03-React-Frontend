@@ -1,10 +1,8 @@
 import { Container } from './HomePage.styled';
-import UserPage from '../UserPage/UserPage';
 const HomePage = () => {
   return (
     <Container>
-      <h1>Outlet</h1>
-      <UserPage />
+      <h1>Take good care of your small pets</h1>
     </Container>
   );
 };
