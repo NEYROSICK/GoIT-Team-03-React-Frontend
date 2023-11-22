@@ -1,40 +1,37 @@
-
 import { createSlice } from '@reduxjs/toolkit';
-import { register, logIn, logOut } from './operations';
+import { register, login, logOut } from './operations';
 
 const initialState = {
   user: { userName: null, email: null },
   isAuthenticated: false,
-   token: null,
+  token: null,
 };
 
 const handleFulfilledRegister = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
-  state.isAuthenticated = true;
 };
 
-const handleFulfilledLogIn = (state, { payload }) => {
+const handleFulfilledLogin = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isAuthenticated = true;
 };
 
-const handleFulfilledLogOut = state => {
+const handleFulfilledLogOut = (state) => {
   state.user = { userName: null, email: null };
   state.token = null;
   state.isAuthenticated = false;
 };
 
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, handleFulfilledRegister)
-      .addCase(logIn.fulfilled, handleFulfilledLogIn)
-      .addCase(logOut.fulfilled, handleFulfilledLogOut)
+      .addCase(login.fulfilled, handleFulfilledLogin)
+      .addCase(logOut.fulfilled, handleFulfilledLogOut);
   },
 });
 
