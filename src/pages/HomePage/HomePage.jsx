@@ -1,8 +1,12 @@
-import { Container } from './HomePage.styled';
+import { Container, ImageDiv } from './HomePage.styled';
+import image from '../../images/main-page.png'
 const HomePage = () => {
   return (
     <Container>
-      <h1>Take good care of your small pets</h1>
+      <ImageDiv>
+        <h1>Take good care of your small pets</h1>
+        <img src={image} />
+      </ImageDiv>
     </Container>
   );
 };
