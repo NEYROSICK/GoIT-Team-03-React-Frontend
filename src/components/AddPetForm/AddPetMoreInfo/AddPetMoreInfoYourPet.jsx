@@ -9,7 +9,7 @@ const schema = object({
 });
 
 const AddPetMoreInfoYourPet = (props) => {
-  const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState((props.selectedFile || null));
 
   const onDrop =  useCallback (acceptedFiles => {
     setSelectedFile(acceptedFiles[0]);
@@ -46,7 +46,7 @@ const AddPetMoreInfoYourPet = (props) => {
           <ErrorMessage name="comments" component={"div"}/>
         </label>
 
-        <button type="button" onClick={()=> props.prev(values)}>Back</button>
+        <button type="button" onClick={()=> props.prev(values, selectedFile)}>Back</button>
         <button type="submit">Done</button>
       </Form>
     )}

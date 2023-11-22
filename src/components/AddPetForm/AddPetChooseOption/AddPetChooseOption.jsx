@@ -6,6 +6,9 @@ const schema = object({
 });
 
 const AddPetChooseOption = (props) => {
+  const handleCancel = () => { 
+    console.log("Cancel")
+  }
 
   const handleSubmit = (values) => {
     props.next(values);
@@ -31,7 +34,8 @@ const AddPetChooseOption = (props) => {
           in good hands
           <Field type="radio" name="category" value="in good hands" />
         </label>
-        <ErrorMessage name="category" component={"div"}/>
+        <ErrorMessage name="category" component={"div"} />
+        <button type="button" onClick={handleCancel}>Сancel</button>
         <button type="submit">Next</button>
       </Form>
     </Formik>
