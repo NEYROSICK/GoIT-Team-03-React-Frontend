@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {Field} from "formik";
+// import {Field} from "formik";
 
 export const PhotoContainer = styled.img`
     background: gray;
@@ -17,6 +17,6 @@ export const LabelInputFile = styled.label`
     border-radius: 40px;
 `;
 
-export const InputFile = styled(Field)`
+export const InputFile = styled.input`
     display: none;
 `;
