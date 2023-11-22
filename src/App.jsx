@@ -5,17 +5,21 @@ import HomePage from './pages/HomePage/HomePage';
 import AddPetPage from './pages/AddPetPage/AddPetPage';
 import NoticesPage from './pages/NoticesPage/NoticesPage';
 import UserPage from './pages/UserPage/UserPage';
+import RegisterPage from './pages/RegisterPage/RegisterPage';
+import LoginPage from './pages/LoginPage/LoginPage';
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Navigate to="/main" />} />
-          <Route path="main" element={<HomePage />} />
+          <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="main" element={<Navigate to="/" />} />
+          <Route path="notices" element={<NoticesPage />} />
           <Route path="add-pet" element={<AddPetPage />} />
           <Route path="user" element={<UserPage />} />
-          <Route path="notices" element={<NoticesPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>

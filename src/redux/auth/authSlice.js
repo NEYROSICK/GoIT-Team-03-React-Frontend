@@ -1,28 +1,41 @@
 
 import { createSlice } from '@reduxjs/toolkit';
+import { register, logIn, logOut } from './operations';
 
 const initialState = {
+  user: { userName: null, email: null },
   isAuthenticated: false,
-  userName: '',
+   token: null,
 };
+
+const handleFulfilledRegister = (state, { payload }) => {
+  state.user = payload.user;
+  state.token = payload.token;
+  state.isAuthenticated = true;
+};
+
+const handleFulfilledLogIn = (state, { payload }) => {
+  state.user = payload.user;
+  state.token = payload.token;
+  state.isAuthenticated = true;
+};
+
+const handleFulfilledLogOut = state => {
+  state.user = { userName: null, email: null };
+  state.token = null;
+  state.isAuthenticated = false;
+};
+
 
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    login: (state, action) => {
-      state.isAuthenticated = true;
-      state.userName = action.payload.userName;
-    },
-    logout: (state) => {
-      state.isAuthenticated = false;
-      state.userName = '';
-    },
+  extraReducers: builder => {
+    builder
+      .addCase(register.fulfilled, handleFulfilledRegister)
+      .addCase(logIn.fulfilled, handleFulfilledLogIn)
+      .addCase(logOut.fulfilled, handleFulfilledLogOut)
   },
 });
 
-export const { login, logout } = authSlice.actions;
-export const selectIsAuthenticated = (state) => state.auth.isAuthenticated;
-export const selectUserName = (state) => state.auth.userName;
-
-export default authSlice.reducer;
+export const authReducer = authSlice.reducer;
