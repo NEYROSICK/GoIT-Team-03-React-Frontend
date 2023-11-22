@@ -66,6 +66,8 @@ body {
   background-color: var(--clr-bcg);
   color: var(--clr-primary);
   width: 100%;
+  line-height: 1.36;
+  letter-spacing: 0.04em;
 }
 h1,
 h2,
@@ -90,3 +92,4 @@ img {
 button {
   cursor: pointer;
 }
+
