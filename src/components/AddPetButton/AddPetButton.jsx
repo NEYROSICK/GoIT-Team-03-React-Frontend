@@ -6,7 +6,7 @@ const AddPetButton = () => {
         console.log('Sign in to add your own notice.')
     };
     return (
-        <AddButton onClick={handleClick}>
+        <AddButton onClick={handleClick} to={'/addPet'}>
             <StyledPlusIcon/>
             <AddButtonText>Add Pet</AddButtonText>
             <StyledPlusIconSmall/>

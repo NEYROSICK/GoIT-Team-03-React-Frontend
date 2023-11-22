@@ -30,7 +30,7 @@ const NoticesPage = () => {
 
     return (
         <Container>
-            <PageTitle>Find your favourite pet</PageTitle>
+            <PageTitle>Find your favorite pet</PageTitle>
             <div>
                 <NoticesSearch onSubmit={handleSubmit} onClear={handleClear}/>
             </div>
