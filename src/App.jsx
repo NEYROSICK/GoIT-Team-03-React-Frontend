@@ -13,13 +13,13 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route path="/login" element={<LoginPage />}/>
-          <Route path="/register" element={<RegisterPage/>}/>
           <Route index element={<HomePage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="main" element={<Navigate to="/" />} />
-          <Route path="addPet" element={<AddPetPage />} />
-          <Route path="user" element={<UserPage />} />
           <Route path="notices" element={<NoticesPage />} />
+          <Route path="add-pet" element={<AddPetPage />} />
+          <Route path="user" element={<UserPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
