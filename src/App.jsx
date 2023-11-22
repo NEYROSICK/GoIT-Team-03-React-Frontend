@@ -11,8 +11,8 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="main" element={<Navigate to="/" />} />
+          <Route index element={<Navigate to="/main" />} />
+          <Route path="main" element={<HomePage />} />
           <Route path="add-pet" element={<AddPetPage />} />
           <Route path="user" element={<UserPage />} />
           <Route path="notices" element={<NoticesPage />} />
