@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Logo } from './Logo';
-import { Nav } from './Navigation/Nav';
-import { AuthNav } from './Navigation/AuthNav';
-import { UserNav } from './Navigation/UserNav';
+import { Nav } from './Navigation/nav/Nav';
+import { AuthNav } from './Navigation/AuthNav/AuthNav';
+import { UserNav } from './Navigation/UserNav/UserNav';
 import { HeaderContainer, Navigation, HeaderStyled } from './Header.styled';
 import { selectIsAuthenticated } from '../../redux/auth/authSlice';
 
@@ -13,8 +13,8 @@ export const Header = () => {
       <HeaderStyled>
         <Logo />
         <Navigation>
-          <Nav />
           {isAuthenticated ? <UserNav /> : <AuthNav />}
+          <Nav />
         </Navigation>
       </HeaderStyled>
     </HeaderContainer>

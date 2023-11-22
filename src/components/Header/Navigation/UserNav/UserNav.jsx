@@ -1,5 +1,4 @@
-
-import { LogoutButton } from '../LogoutButton';
+import { LogoutButton } from '../../LogoutButton';
 import { Link } from 'react-router-dom';
 
 export const UserNav = () => {
