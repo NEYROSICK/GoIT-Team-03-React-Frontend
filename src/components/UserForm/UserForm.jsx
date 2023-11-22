@@ -32,15 +32,19 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
   const [updateUser] = useUpdateUserMutation()
+  // console.log(data) 
 
   const handleSubmit = async (values) => {
+    console.log(values)
     const formData = new FormData();
     formData.append('avatar', userPhoto);
+
     Object.entries(values).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    await updateUser(formData ).unwrap();
+    await updateUser(values ).unwrap();
     setIsUserUpdate(state => !state);
+    console.log(userPhoto)
   };
   const hendleClick = () => {
     setIsShowModal(true) 
@@ -99,12 +103,13 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 <UserFormItem>
                   <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel>
                   <UserFormInput
-                    type="text"
+                    type="date"
                     name="birthday"
                     id="birthday"
                     autoComplete="off"
                     placeholder={'00-00-0000'}
                     disabled={isUserUpdate}
+                    // value={"2004-12-12"}
                     minLength="10"
                     required
                   />
