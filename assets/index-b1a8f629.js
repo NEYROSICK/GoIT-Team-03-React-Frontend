@@ -497,7 +497,7 @@ color: #54ADFF;
     letter-spacing: 0.04em;
     text-align: left;
   }
-`,Q6=()=>{const e=()=>{console.log("Sign in to add your own notice.")};return x.jsxs(B6,{onClick:e,to:"/addPet",children:[x.jsx(V6,{}),x.jsx(W6,{children:"Add Pet"}),x.jsx(q6,{})]})},H6=()=>{const[e,t]=n4(),n=e.get("query"),r=({query:a})=>{e.set("query",a),t(e),o()},i=()=>{e.delete("query",n),t(e),o()},o=C.useCallback(()=>{t(e)},[e,t]);return x.jsxs(D6,{children:[x.jsx(M6,{children:"Find your favorite pet"}),x.jsx("div",{children:x.jsx(w6,{onSubmit:r,onClear:i})}),x.jsxs(L6,{children:[x.jsx(T6,{searchParams:e}),x.jsx("div",{children:x.jsxs(N6,{children:[x.jsx(I6,{}),x.jsx(Q6,{})]})})]})]})};q.div`
+`,Q6=()=>{const e=()=>{console.log("Sign in to add your own notice.")};return x.jsxs(B6,{onClick:e,to:"/add-pet",children:[x.jsx(V6,{}),x.jsx(W6,{children:"Add Pet"}),x.jsx(q6,{})]})},H6=()=>{const[e,t]=n4(),n=e.get("query"),r=({query:a})=>{e.set("query",a),t(e),o()},i=()=>{e.delete("query",n),t(e),o()},o=C.useCallback(()=>{t(e)},[e,t]);return x.jsxs(D6,{children:[x.jsx(M6,{children:"Find your favorite pet"}),x.jsx("div",{children:x.jsx(w6,{onSubmit:r,onClear:i})}),x.jsxs(L6,{children:[x.jsx(T6,{searchParams:e}),x.jsx("div",{children:x.jsxs(N6,{children:[x.jsx(I6,{}),x.jsx(Q6,{})]})})]})]})};q.div`
   margin-bottom: 32px;
   position: relative;
   img {
