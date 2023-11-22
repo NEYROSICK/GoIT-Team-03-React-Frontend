@@ -1,8 +1,9 @@
-import AddPetComponents from "../../components/AddPetComponents/AddPetComponents";
+import AddPetForm from "../../components/AddPetForm/AddPetForm";
+
 
 const AddPetPage = () => {
     return (
-        <AddPetComponents/>
+        <AddPetForm/>
     )
 };
 

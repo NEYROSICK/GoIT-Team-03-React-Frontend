@@ -1,14 +1,14 @@
 /* eslint-disable react/jsx-key */
 import { useState } from 'react';
-import AddPetChooseOption from '../AddPetComponents/AddPetChooseOption/AddPetChooseOption'
-import AddPetPersonalDetailsNotices from '../AddPetComponents/AddPetPersonalDetails/AddPetPersonalDetailsNotices';
-import AddPetPersonalDetailsYourPet from '../AddPetComponents/AddPetPersonalDetails/AddPetPersonalDetailsYourPet';
-import AddPetMoreInfoYourPet from '../AddPetComponents/AddPetMoreInfo/AddPetMoreInfoYourPet';
-import AddPetMoreInfoNotices from '../AddPetComponents/AddPetMoreInfo/AddPetMoreInfoNotices';
-import AddPetMoreInfoSell from '../AddPetComponents/AddPetMoreInfo/AddPetMoreInfoSell';
+import AddPetChooseOption from './AddPetChooseOption/AddPetChooseOption'
+import AddPetPersonalDetailsNotices from './AddPetPersonalDetails/AddPetPersonalDetailsNotices';
+import AddPetPersonalDetailsYourPet from './AddPetPersonalDetails/AddPetPersonalDetailsYourPet';
+import AddPetMoreInfoYourPet from './AddPetMoreInfo/AddPetMoreInfoYourPet';
+import AddPetMoreInfoNotices from './AddPetMoreInfo/AddPetMoreInfoNotices';
+import AddPetMoreInfoSell from './AddPetMoreInfo/AddPetMoreInfoSell';
 
-const AddPetComponents = () => {
-    const [step, setStep] = useState(0)
+const AddPetForm = () => {
+    const [step, setStep] = useState(0);
 
     const [formData, setFormData] = useState({
         category: '',
@@ -33,23 +33,23 @@ const AddPetComponents = () => {
             sex: '',
             location: '',
             price: '',
-            image: '',
             comments: '',
         });
     };
 
-    const makeRequest = (formData) => { 
+    const makeRequest = (formData, selectedFile) => { 
         console.log(formData);
+        console.log(selectedFile);
     }
 
-    const handleNextPage = (newData, final = false) => {
+    const handleNextPage = (newData, final = false, selectedFile = '') => {
         if (step === 0 && newData.category !== formData.category) {
             resetFormData(newData.category);
         }
         setFormData(prev => ({ ...prev, ...newData }))
-        
+        console.log(newData)
         if (final) {
-            makeRequest(newData)
+            makeRequest(newData, selectedFile)
             return
         }
         
@@ -144,4 +144,4 @@ const AddPetComponents = () => {
     )
 };
 
-export default AddPetComponents
+export default AddPetForm
