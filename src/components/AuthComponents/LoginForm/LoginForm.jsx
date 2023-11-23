@@ -29,13 +29,14 @@ const Login = () => {
         )
         .required('Password is required'),
     });
-  
+
   const formik = useFormik({
     initialValues: {
       email: '',
       password: '',
      
     },
+
     validationSchema: validationSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(
@@ -44,6 +45,7 @@ const Login = () => {
           password: values.password,
         }),
       );
+
       resetForm();
       if (isAuthenticated) {
         navigate('/user');

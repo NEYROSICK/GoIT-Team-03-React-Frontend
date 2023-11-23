@@ -23,9 +23,9 @@ import Modal from './../../Modal/Modal';
 
 
 import { useGetUserQuery, useUpdateUserMutation } from '../../../redux/API/UserApi'
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
-import { logOut } from '../../../redux/auth/authSlice';
+// import { useDispatch } from 'react-redux';
+// import { useNavigate } from 'react-router-dom';
+// import logOut  from '../../../redux/auth/authSlice';
 
 
 
@@ -34,9 +34,9 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
   const [updateUser] = useUpdateUserMutation()
-  const token = useSelector(state => state.auth.token);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const token = useSelector(state => state.auth.token);
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
 
 
   const handleSubmit = async (values) => {
@@ -54,10 +54,10 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleClick = () => {
     setIsShowModal(true) 
   } 
-  const hendleLogout =()=> {
-    dispatch(logOut());
-    navigate('/login');
-  }
+  // const hendleLogout =()=> {
+  //   dispatch(logOut());
+  //   navigate('/login');
+  // }
 
   useEffect(() => {
     const close = (e) => {
@@ -187,7 +187,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
           <ModalTitle>Already leaving?</ModalTitle>
             <ConteinerBtn>
             <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
-            <ButtonLogout onClick={()=>hendleLogout()}>Yes 
+            <ButtonLogout >Yes 
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                 <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>

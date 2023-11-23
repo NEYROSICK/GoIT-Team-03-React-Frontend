@@ -9,7 +9,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import   authReducer  from './auth/authSlice';
+import   {authReducer } from './auth/authSlice';
 import { UserApi } from './API/UserApi';
 import { noticesApi } from './API/noticesApi';
 
