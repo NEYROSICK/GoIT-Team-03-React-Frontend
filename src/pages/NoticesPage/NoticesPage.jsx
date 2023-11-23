@@ -10,37 +10,38 @@ import {
   PageTitle,
 } from '../NoticesPage/NoticesPage.styled';
 import AddPetButton from '../../components/AddPetButton/AddPetButton';
-import {
-  useGetNoticesQuery,
-  useGetOneNoticeQuery,
-  useGetMyNoticesQuery,
-} from '../../redux/API/noticesApi';
+// import {
+//   useGetNoticesQuery,
+//   useGetOneNoticeQuery,
+//   useGetMyNoticesQuery,
+// } from '../../redux/API/noticesApi';
 const NoticesPage = () => {
-  const {
-    data: allNotices,
-    error: allNoticesError,
-    isLoading: loadAllNotices,
-  } = useGetNoticesQuery({
-    // your params
-  });
+  //   const {
+  //     data: allNotices,
+  //     error: allNoticesError,
+  //     isLoading: loadAllNotices,
+  //   } = useGetNoticesQuery({
+  //     // your params
+  //   });
+  //   const [searchParams, setSearchParams] = useSearchParams();
+  //   const {
+  //     data: myNotices,
+  //     error: myNoticesError,
+  //     isLoading: loadMyNotices,
+  //   } = useGetMyNoticesQuery({
+  //     // your params
+  //   });
+  //   const {
+  //     data: oneNotice,
+  //     error: oneNoticeError,
+  //     isLoading: loadOneNotice,
+  //   } = useGetOneNoticeQuery({
+  //     id: 'your-notice-id',
+  //     params: {
+  //       /* your params */
+  //     },
+  //   });
   const [searchParams, setSearchParams] = useSearchParams();
-  const {
-    data: myNotices,
-    error: myNoticesError,
-    isLoading: loadMyNotices,
-  } = useGetMyNoticesQuery({
-    // your params
-  });
-  const {
-    data: oneNotice,
-    error: oneNoticeError,
-    isLoading: loadOneNotice,
-  } = useGetOneNoticeQuery({
-    id: 'your-notice-id',
-    params: {
-      /* your params */
-    },
-  });
 
   const query = searchParams.get('query');
 
