@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import   authReducer  from './auth/authSlice';
 import { UserApi } from './API/UserApi';
-import {noticesApi} from './API/noticesApi'
+import { noticesApi } from './API/noticesApi';
 
 import  {authApi}  from './API/authApi';
 import storage from 'redux-persist/lib/storage';
@@ -40,7 +40,7 @@ export const store = configureStore({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }).concat( authApi.middleware,UserApi.middleware)
+  }).concat( authApi.middleware,UserApi.middleware, noticesApi.middleware)
 });
 
 
