@@ -1,5 +1,6 @@
 import { Error } from '../../components/Error/Error';
-import { Container } from './ErrorPage.styled';
+import Container from '../../components/Layout/Container/Container';
+
 
 const ErrorPage = () => {
   return (
