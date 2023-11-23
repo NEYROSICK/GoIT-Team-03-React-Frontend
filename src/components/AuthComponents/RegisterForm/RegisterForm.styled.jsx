@@ -1,8 +1,6 @@
 import styled from 'styled-components';
-import '../../index.css';
+import '../../../index.css';
 import { NavLink } from 'react-router-dom';
-
-
 
 export const RegisterForm = styled.form`
   margin-left: auto;
@@ -25,14 +23,12 @@ export const ConfirmValidation = styled.div`
 `;
 
 export const Title = styled.h1`
-  
   font-weight: 500;
   margin-bottom: 20px;
   text-align: center;
   color: var(--clr-primary);
 `;
 export const Validation = styled.p`
-
   margin-left: 15px;
   font-size: 12px;
   font-weight: 400;
@@ -78,4 +74,3 @@ export const Link = styled(NavLink)`
   color: var(--clr-brand-blue);
   text-decoration-line: underline;
 `;
-

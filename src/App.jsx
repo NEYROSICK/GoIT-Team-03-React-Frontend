@@ -11,6 +11,9 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
+import AllNotices from './components/FindPetComponents/allNotices/AllNotices';
+import FavoriteNotices from './components/FindPetComponents/favoriteNotices/FavoriteNotices';
+import MyAds from './components/FindPetComponents/myAds/MyAds';
 
 function App() {
   return (
@@ -18,9 +21,14 @@ function App() {
       <Route path="/" element={<SharedLayout />}>
         <Route index element={<Navigate to="main" />} />
         <Route path="main" element={<HomePage />} />
-        <Route path="notices" element={<NoticesPage />} />
+        <Route path="notices" element={<NoticesPage />}>
+          <Route path="sell" element={<AllNotices />} />
+          <Route path="in-good-hands" element={<AllNotices />} />
+          <Route path="lost-found" element={<AllNotices />} />
+          <Route path="favorite" element={<FavoriteNotices />} />
+          <Route path="my-ads" element={<MyAds />} />
+        </Route>
         <Route path="add-pet" element={<AddPetPage />} />
-        <Route path="*" element={<ErrorPage />} />
         <Route
           path="/register"
           element={

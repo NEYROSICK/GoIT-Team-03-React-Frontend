@@ -1,47 +1,21 @@
-import NoticesSearch from '../../components/NoticesSearch/NoticesSearch';
-import NoticesCategoriesNav from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
-import NoticesFilter from '../../components/NoticesFilter/NoticesFilter';
+import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
+import NoticesCategoriesNav from '../../components/FindPetComponents/NoticesCategoriesNav/NoticesCategoriesNav';
+import NoticesFilter from '../../components/FindPetComponents/NoticesFilter/NoticesFilter';
+import { Outlet, NavLink } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState, useCallback } from 'react';
+import { useEffect, useState, useCallback, Suspense } from 'react';
 import {
   Container,
   FilterAndAddContainer,
   FilterContainer,
   PageTitle,
 } from '../NoticesPage/NoticesPage.styled';
-import AddPetButton from '../../components/AddPetButton/AddPetButton';
-// import {
-//   useGetNoticesQuery,
-//   useGetOneNoticeQuery,
-//   useGetMyNoticesQuery,
-// } from '../../redux/API/noticesApi';
+import AddPetButton from '../../ui/AddPetButton/AddPetButton';
+
+import NoticeItem from '../../components/FindPetComponents/NoticeItem/NoticeItem';
+
 const NoticesPage = () => {
-
   const [searchParams, setSearchParams] = useSearchParams();
-  // refactor the use of the RTK query lower for the cases of the filters in component
-
-  // const {
-  //   data: allNotices,
-  //   error: allNoticesError,
-  //   isLoading: loadAllNotices,
-  // } = useGetNoticesQuery({
-  //   params: { searchParams },
-  // });
-  // const {
-  //   data: myNotices,
-  //   error: myNoticesError,
-  //   isLoading: loadMyNotices,
-  // } = useGetMyNoticesQuery({
-  //   params: { searchParams },
-  // });
-  // const {
-  //   data: oneNotice,
-  //   error: oneNoticeError,
-  //   isLoading: loadOneNotice,
-  // } = useGetOneNoticeQuery({
-  //   id: {id},
-  //   params: { searchParams },
-  // });
 
   const query = searchParams.get('query');
 
@@ -76,6 +50,10 @@ const NoticesPage = () => {
           </FilterAndAddContainer>
         </div>
       </FilterContainer>
+      <NoticeItem />
+      <Suspense fallback={<p>Loading...</p>}>
+        <Outlet searchParams={searchParams} />
+      </Suspense>
     </Container>
   );
 };
