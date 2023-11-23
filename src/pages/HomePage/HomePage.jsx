@@ -13,47 +13,44 @@
 
 //export default HomePage;
 
-import { StyledPicture, StyledTittle, Wrapper } from './HomePage.styled';
-import mainImgMobileWebp from '../../images/HomePageImg/main_mob@1x.webp';
-import mainImgMobileRetinaWebp from '../../images/HomePageImg/main_mob@2x.webp';
-import mainImgTabWebp from '../../images/HomePageImg/main_tab@1x.webp';
-import mainImgTabWebpRetina from '../../images/HomePageImg/main_tab@2x.webp';
-import mainImgDescWebp from '../../images/HomePageImg/main_desc@1x.webp';
-import mainImgDescWebpRetina from '../../images/HomePageImg/main_desc@2x.webp';
-import { BackgroundImgWrapper } from '../../components/BackgroundImgWrapper/BackgroundImgWrapper.styled';
-import Container from '../../components/Layout/Container/Container';
+import { ImageMainPage, StyledTittle, ContainerMainPage } from './HomePage.styled';
+import mainImgMobile from '../../images/HomePageImg/main_mob@1x.png';
+import mainImgMobileRetina from '../../images/HomePageImg/main_mob@2x.png';
+import mainImgTab from '../../images/HomePageImg/main_tab@1x.png';
+import mainImgTabRetina from '../../images/HomePageImg/main_tab@2x.png';
+import mainImgDesc from '../../images/HomePageImg/main_desk@1x.png';
+import mainImgDescRetina from '../../images/HomePageImg/main_desk@2x.png';
+import { BackgroundImgWrapper } from '../../components/BackgroundImgWrapper/BackgroundImgWrapper';
+//import Container from '../../components/Layout/Container/Container';
 
 const HomePage = () => {
   return (
-    <BackgroundImgWrapper $variant="main">
-      <Container>
+    <BackgroundImgWrapper >
+      <ContainerMainPage>
         <StyledTittle>Take good care of your small pets</StyledTittle>
 
-        <StyledPicture>
+        <picture>
           <source
             media="(min-width: 1280px)"
-            srcSet={`${mainImgDescWebp} 1x, ${mainImgDescWebpRetina} 2x`}
-            type="image/webp"
+            srcSet={`${mainImgDesc} 1x, ${mainImgDescRetina} 2x`}
+            type="image/png"
+            alt="desktop image"
           />
           <source
             media="(min-width: 768px)"
-            srcSet={`${mainImgTabWebp} 1x, ${mainImgTabWebpRetina} 2x`}
-            type="image/webp"
+            srcSet={`${mainImgTab} 1x, ${mainImgTabRetina} 2x`}
+            type="image/png"
+            alt="tablet image"
           />
           <source
             media="(max-width: 767px)"
-            srcSet={`${mainImgMobileWebp} 1x, ${mainImgMobileRetinaWebp} 2x`}
-            type="image/webp"
+            srcSet={`${mainImgMobile} 1x, ${mainImgMobileRetina} 2x`}
+            type="image/png"
+            alt="mobile image"
           />
-
-          <img
-            src={mainImgDescWebpRetina}
-            alt="Pets"
-            width={917}
-            height={670}
-          />
-        </StyledPicture>
-      </Container>
+          <ImageMainPage srcSet={mainImgDesc} alt="Pets" />
+        </picture>
+      </ContainerMainPage>
     </BackgroundImgWrapper>
   );
 };
