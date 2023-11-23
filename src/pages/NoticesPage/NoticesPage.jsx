@@ -16,6 +16,7 @@ import {
   useGetMyNoticesQuery,
 } from '../../redux/API/noticesApi';
 const NoticesPage = () => {
+<<<<<<< Updated upstream
   const {
     data: allNotices,
     error: allNoticesError,
@@ -41,6 +42,34 @@ const NoticesPage = () => {
       /* your params */
     },
   });
+=======
+  const [searchParams, setSearchParams] = useSearchParams();
+  // refactor the use of the RTK query lower for the cases of the filters in component
+
+  // const {
+  //   data: allNotices,
+  //   error: allNoticesError,
+  //   isLoading: loadAllNotices,
+  // } = useGetNoticesQuery({
+  //   params: { searchParams },
+  // });
+  // const {
+  //   data: myNotices,
+  //   error: myNoticesError,
+  //   isLoading: loadMyNotices,
+  // } = useGetMyNoticesQuery({
+  //   params: { searchParams },
+  // });
+  // const {
+  //   data: oneNotice,
+  //   error: oneNoticeError,
+  //   isLoading: loadOneNotice,
+  // } = useGetOneNoticeQuery({
+  //   id: {id},
+  //   params: { searchParams },
+  // });
+
+>>>>>>> Stashed changes
 
   const query = searchParams.get('query');
 

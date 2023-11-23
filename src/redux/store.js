@@ -1,7 +1,7 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { authReducer } from './auth/authSlice';
 import { UserApi } from './API/UserApi';
-import {noticesApi} from './API/noticesApi'
+import { noticesApi } from './API/noticesApi';
 
 const rootReducer = combineReducers({
   auth: authReducer,
@@ -12,5 +12,5 @@ const rootReducer = combineReducers({
 export const store = configureStore({
   reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(UserApi.middleware),
+    getDefaultMiddleware().concat(UserApi.middleware, noticesApi.middleware),
 });

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const noticesApi = createApi({
   reducerPath: 'noticesApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://goit-team-03-node.onrender.com/api',
+    baseUrl: 'https://goit-team-03-node.onrender.com/api/notices',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -15,7 +15,7 @@ export const noticesApi = createApi({
   endpoints: (builder) => ({
     getNotices: builder.query({
       query: (params) => ({
-        url: '/notices',
+        url: '/',
         params,
       }),
       providesTags: ['Notices'],
