@@ -17,6 +17,7 @@ const NoticeItem = () => {
         }
       >
         <ItemCatogory>CATEGORY</ItemCatogory>
+
         <ItemFavoriteBtn />
       </TopPart>
     </ItemContainer>
