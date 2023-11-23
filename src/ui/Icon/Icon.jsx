@@ -1,7 +1,4 @@
-import React from 'react';
-import './IconComponent.styled.jsx';
-
-const IconComponent = ({ iconId }) => {
+const Icon = ({ iconId }) => {
   switch (iconId) {
     case 'iconArrowLeft':
       return (
@@ -20,4 +17,4 @@ const IconComponent = ({ iconId }) => {
   }
 };
 
-export default IconComponent;
+export default Icon;
