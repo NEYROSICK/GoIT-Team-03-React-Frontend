@@ -1,11 +1,11 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
-import bgTab from "../../images/BackgroundImg/bg_tab@1x.png";
-import bgTabRetina from "../../images/BackgroundImg/bg_tab@2x.png";
-import bgDesk from "../../images/BackgroundImg/bg_desc@1x.png";
-import bgDeskRetina from "../../images/BackgroundImg/bg_desc@2x.png";
+import bgTab from '../../images/BackgroundImg/bg_tab@1x.png';
+import bgTabRetina from '../../images/BackgroundImg/bg_tab@2x.png';
+import bgDesk from '../../images/BackgroundImg/bg_desc@1x.png';
+import bgDeskRetina from '../../images/BackgroundImg/bg_desc@2x.png';
 
-export const BackgroundImgWrapper = styled.div`
+export const BackgroundImgWrapper = styled.main`
   min-height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
@@ -35,7 +35,7 @@ export const BackgroundImgWrapper = styled.div`
   }
 
   ${({ $variant }) =>
-    $variant === "main" &&
+    $variant === 'main' &&
     css`
       padding-top: 60px;
       background-position: -15px -50px;

@@ -1,17 +1,4 @@
-//import styled from '@emotion/styled';
-
-//export const Container = styled.div`
- // display: flex;
- // justify-content: center;
-  //align-items: center;
-//`;
-
-//export const ImageDiv = styled.div`
- // padding-top: 10px;
- // display: flex;
-//`;
-
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -51,9 +38,7 @@ export const StyledTittle = styled.h1`
   }
 
   @media only screen and (min-width: 1280px) {
-    position: absolute;
     max-width: 500px;
-    top: 25%;
     margin-left: 16px;
 
     font-family: Manrope-ExtraBold, sans-serif;

@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
-  padding: 10px;
-`;
-
-export const HeaderStyled = styled.header`
+export const HeaderSection = styled.header`
   padding: 10px;
   font-weight: 500;
 `;

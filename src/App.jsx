@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import SharedLayout from './components/SharedLayout/SharedLayout';
+import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import HomePage from './pages/HomePage/HomePage';
 import AddPetPage from './pages/AddPetPage/AddPetPage';
@@ -13,10 +13,10 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<HomePage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="main" element={<Navigate to="/" />} />
+          <Route index element={<Navigate to="main" />} />
+          <Route path="main" element={<HomePage />} />
+          <Route path="register" element={<RegisterPage />} />
+          <Route path="login" element={<LoginPage />} />
           <Route path="notices" element={<NoticesPage />} />
           <Route path="add-pet" element={<AddPetPage />} />
           <Route path="user" element={<UserPage />} />

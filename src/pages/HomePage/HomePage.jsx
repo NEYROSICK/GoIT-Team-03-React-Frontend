@@ -1,31 +1,32 @@
 //import { Container, ImageDiv } from './HomePage.styled';
 //import image from '../../images/main-page.png'
 //const HomePage = () => {
-  //return (
-    //<Container>
-      //<ImageDiv>
-        //<h1>Take good care of your small pets</h1>
-        //<img src={image} />
-      //</ImageDiv>
-    //</Container>
-  //);
+//return (
+//<Container>
+//<ImageDiv>
+//<h1>Take good care of your small pets</h1>
+//<img src={image} />
+//</ImageDiv>
+//</Container>
+//);
 //};
 
 //export default HomePage;
 
-import { StyledPicture, StyledTittle, Wrapper } from "./HomePage.styled";
-import mainImgMobileWebp from "../../images/HomePageImg/main_mob@1x.webp";
-import mainImgMobileRetinaWebp from "../../images/HomePageImg/main_mob@2x.webp";
-import mainImgTabWebp from "../../images/HomePageImg/main_tab@1x.webp";
-import mainImgTabWebpRetina from "../../images/HomePageImg/main_tab@2x.webp";
-import mainImgDescWebp from "../../images/HomePageImg/main_desc@1x.webp";
-import mainImgDescWebpRetina from "../../images/HomePageImg/main_desc@2x.webp";
-import { BackgroundImgWrapper } from "../../components/BackgroundImgWrapper/BackgroundImgWrapper.styled";
+import { StyledPicture, StyledTittle, Wrapper } from './HomePage.styled';
+import mainImgMobileWebp from '../../images/HomePageImg/main_mob@1x.webp';
+import mainImgMobileRetinaWebp from '../../images/HomePageImg/main_mob@2x.webp';
+import mainImgTabWebp from '../../images/HomePageImg/main_tab@1x.webp';
+import mainImgTabWebpRetina from '../../images/HomePageImg/main_tab@2x.webp';
+import mainImgDescWebp from '../../images/HomePageImg/main_desc@1x.webp';
+import mainImgDescWebpRetina from '../../images/HomePageImg/main_desc@2x.webp';
+import { BackgroundImgWrapper } from '../../components/BackgroundImgWrapper/BackgroundImgWrapper.styled';
+import Container from '../../components/Layout/Container/Container';
 
 const HomePage = () => {
   return (
     <BackgroundImgWrapper $variant="main">
-      <Wrapper>
+      <Container>
         <StyledTittle>Take good care of your small pets</StyledTittle>
 
         <StyledPicture>
@@ -52,7 +53,7 @@ const HomePage = () => {
             height={670}
           />
         </StyledPicture>
-      </Wrapper>
+      </Container>
     </BackgroundImgWrapper>
   );
 };
