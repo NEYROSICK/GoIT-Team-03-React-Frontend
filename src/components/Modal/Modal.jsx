@@ -11,7 +11,7 @@ function Modal({ children ,isOpen }) {
         if (e.target.id === '4') {
             console.log(e.target.id)
             setIsModal(false)
-            isOpen(false)
+            if(isOpen)isOpen(false)
         } 
     return
     }

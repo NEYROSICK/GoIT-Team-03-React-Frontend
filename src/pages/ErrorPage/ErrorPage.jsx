@@ -1,9 +1,10 @@
+import { Error } from '../../components/Error/Error';
 import { Container } from './ErrorPage.styled';
 
 const ErrorPage = () => {
   return (
     <Container>
-      <h1>404</h1>
+      <Error />
     </Container>
   );
 };
