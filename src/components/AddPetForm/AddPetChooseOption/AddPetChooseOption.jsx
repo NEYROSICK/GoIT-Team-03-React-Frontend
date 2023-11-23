@@ -20,7 +20,7 @@ const AddPetChooseOption = (props) => {
       <Form> 
         <label>
           your pet
-          <Field type="radio" name="category" value="your pet" />
+          <Field type="radio" name="category" value="your-pet" />
         </label>
         <label>
           sell
@@ -28,11 +28,11 @@ const AddPetChooseOption = (props) => {
         </label>
         <label>
           lost/found
-          <Field type="radio" name="category" value="lost/found" />
+          <Field type="radio" name="category" value="lost-found" />
         </label>
         <label>
           in good hands
-          <Field type="radio" name="category" value="in good hands" />
+          <Field type="radio" name="category" value="in-good-hands" />
         </label>
         <ErrorMessage name="category" component={"div"} />
         <button type="button" onClick={handleCancel}>Сancel</button>
