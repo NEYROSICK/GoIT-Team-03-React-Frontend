@@ -71,7 +71,7 @@ const AddPetMoreInfoNotices = (props) => {
         <label>
           Comments
           <Field type="text" name="comments" placeholder="Type of pet"/>
-          <ErrorMessage name="comments" component={"div"}/>
+          <ErrorMessage required name="comments" component={"div"}/>
         </label>
         
         <button type="button" onClick={()=> props.prev(values, selectedFile)}>Back</button>

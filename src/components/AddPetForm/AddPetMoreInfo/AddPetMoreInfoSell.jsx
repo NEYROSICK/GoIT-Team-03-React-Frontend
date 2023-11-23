@@ -73,7 +73,7 @@ const AddPetMoreInfoSell = (props) => {
             </div>
           ) : (<></>)}
           </div>
-          <InputFile type="file" name="image" {...getInputProps()} />
+          <InputFile required type="file" name="image" {...getInputProps()} />
         </LabelInputFile>
           
         <label>

@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable react/jsx-key */
 import { useState } from 'react';
 import AddPetChooseOption from './AddPetChooseOption/AddPetChooseOption'
@@ -6,12 +7,16 @@ import AddPetPersonalDetailsYourPet from './AddPetPersonalDetails/AddPetPersonal
 import AddPetMoreInfoYourPet from './AddPetMoreInfo/AddPetMoreInfoYourPet';
 import AddPetMoreInfoNotices from './AddPetMoreInfo/AddPetMoreInfoNotices';
 import AddPetMoreInfoSell from './AddPetMoreInfo/AddPetMoreInfoSell';
-import { useNavigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
+// import { useAddPetMutation } from '../../redux/API/petsApi';
+// import { useAddNoticeMutation } from '../../redux/API/noticesApi';
 
 const AddPetForm = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [step, setStep] = useState(0);
     const [petPhoto, setPetPhoto] = useState(null);
+    // const [addPet] = useAddPetMutation();
+    // const [addNotice] = useAddNoticeMutation()
 
     const [formData, setFormData] = useState({
         category: '',
@@ -39,11 +44,21 @@ const AddPetForm = () => {
         });
     };
 
-    const makeRequest = (formData, selectedFile) => { 
-        console.log(formData);
+    const makeRequest = (newData, selectedFile) => {
+        const formData = new FormData();
+        formData.append('avatarURL', selectedFile);
+
+        // const fileData = Object.entries(newData)
+        // const Done = fileData.forEach(([key, value]) => {
+        //     if (value !== '' && value !== null && value !== undefined) {
+        //         formData.append(key, value);
+        //     }
+        // });
+
+        console.log(newData);
         console.log(selectedFile);
-        const redirectTo = formData.category === 'your pet' ? '/user' : '/notices';
-        navigate(redirectTo)
+        // const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
+        // navigate(redirectTo)
     }
 
     const handleNextPage = (newData, final = false, selectedFile = '') => {
@@ -55,7 +70,7 @@ const AddPetForm = () => {
         }
         
         switch (newData.category) {
-            case "your pet":
+            case "your-pet":
                 setStep(prev => prev + 1);
                 if (step === 0 && newData.category !== formData.category) {
                     resetFormData(newData.category);
@@ -93,7 +108,7 @@ const AddPetForm = () => {
     const handleBackPage = (newData, selectedFile = '') => {
         setFormData(prev => ({ ...prev, ...newData })) 
         switch (newData.category) {
-            case "your pet":
+            case "your-pet":
                 setStep(prev => prev - 1);
                 if (selectedFile !== "") {
                     setPetPhoto(selectedFile);
