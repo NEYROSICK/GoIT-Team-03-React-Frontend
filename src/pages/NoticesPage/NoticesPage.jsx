@@ -43,9 +43,6 @@ const NoticesPage = () => {
   //   params: { searchParams },
   // });
 
-
-  const [searchParams, setSearchParams] = useSearchParams();
-
   const query = searchParams.get('query');
 
   const handleSubmit = ({ query }) => {
