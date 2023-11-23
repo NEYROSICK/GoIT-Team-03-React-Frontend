@@ -4,7 +4,7 @@ import { Nav } from './Navigation/nav/Nav';
 import { AuthNav } from './Navigation/AuthNav/AuthNav';
 import { UserNav } from './Navigation/UserNav/UserNav';
 import { HeaderContainer, Navigation, HeaderStyled } from './Header.styled';
-import { selectIsAuthenticated } from '../../redux/auth/authSlice';
+import { selectIsAuthenticated } from '../../redux/auth/selectors';
 
 export const Header = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);

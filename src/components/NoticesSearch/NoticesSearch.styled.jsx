@@ -29,7 +29,7 @@ export const Input = styled.input`
   border: none;
   border-radius: 24px;
 
-  font-family: Inter;
+  font-family: sans-serif;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
