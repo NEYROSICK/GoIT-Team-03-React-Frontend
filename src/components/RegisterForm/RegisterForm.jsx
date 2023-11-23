@@ -1,44 +1,56 @@
 import { useDispatch } from 'react-redux';
-import { register } from '../../redux/auth/operations';
+import {  useNavigate } from 'react-router-dom';
+
+import { useLoginMutation, useRegisterMutation } from '../../redux/API/authApi';
 
 import { useFormik } from 'formik'
+import { setToken } from '../../redux/auth/authSlice';
 
 
 export default function Register() {
     const dispatch = useDispatch();
+    const [register] = useRegisterMutation();
+    const [login] = useLoginMutation();
+    const navigate = useNavigate();
    
     const formik = useFormik({
         initialValues: {
-            userName: '',
+            name: '',
             email: '',
             password: '',
             
         },
         
         
-     onSubmit: (values, { resetForm }) => {
-    dispatch(
-        register({
-            name: values.userName,
-            email: values.email,
-            password: values.password,
-        }),
-    );
-    
+     onSubmit: async (values, { resetForm })  => {
+        const {name,email,password} = values
+        if (name && email && password) {
+            const response = await register(values);
+            if (response) {
+              const { data } = await login({
+                email: email,
+                password: password,
+              });
+              dispatch(setToken(data.token));
+              navigate('/');
+            } else if (!response) {
+              alert("You made a mistake try again!");
+            }
+          }
     resetForm();
-},
-    });
+
+        }})
         
     return (
         <form onSubmit={formik.handleSubmit}>
             
             <input
-                id="userName"
-                name="userName"
+                id="name"
+                name="name"
                 type="text"
-                placeholder='userName'
+                placeholder='name'
                 onChange={formik.handleChange}
-                value={formik.values.userName}
+                value={formik.values.name}
             />
             
             <input
