@@ -1,16 +1,10 @@
-import AddPetForm from '../../components/AddPetForm/AddPetForm';
-import sprite from '../../ui/Icons/sprite.svg';
-import { ArrowLeft } from './icon.styled';
+import AddPetForm from "../../components/AddPetForm/AddPetForm";
+
 
 const AddPetPage = () => {
-  return (
-    <>
-      <AddPetForm />
-      <ArrowLeft>
-        <use href={sprite + '#iconPawprint'} />
-      </ArrowLeft>
-    </>
-  );
+    return (
+        <AddPetForm/>
+    )
 };
 
-export default AddPetPage;
+export default AddPetPage
