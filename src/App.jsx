@@ -1,4 +1,5 @@
-import {  Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
+
 // import { lazy } from 'react';
 import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
@@ -15,10 +16,11 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<HomePage  />} />
+        <Route index element={<Navigate to="main" />} />
+        <Route path="main" element={<HomePage />} />
         <Route path="notices" element={<NoticesPage />} />
-          <Route path="add-pet" element={<AddPetPage />} />
-          <Route path="*" element={<ErrorPage />} />
+        <Route path="add-pet" element={<AddPetPage />} />
+        <Route path="*" element={<ErrorPage />} />
         <Route
           path="/register"
           element={
@@ -27,9 +29,7 @@ function App() {
         />
         <Route
           path="/login"
-          element={
-            <PublicRoute redirectTo="/user" component={<LoginPage />} />
-          }
+          element={<PublicRoute redirectTo="/user" component={<LoginPage />} />}
         />
         <Route
           path="/user"
@@ -41,6 +41,5 @@ function App() {
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
-
 }
 export default App;
