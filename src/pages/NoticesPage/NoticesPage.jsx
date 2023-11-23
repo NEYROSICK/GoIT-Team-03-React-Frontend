@@ -2,7 +2,7 @@ import NoticesSearch from '../../components/NoticesSearch/NoticesSearch';
 import NoticesCategoriesNav from '../../components/NoticesCategoriesNav/NoticesCategoriesNav';
 import NoticesFilter from '../../components/NoticesFilter/NoticesFilter';
 import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState, useCallback } from 'react';
+import {useCallback } from 'react'; // useEffect, useState, 
 import {
   Container,
   FilterAndAddContainer,
@@ -17,7 +17,7 @@ import AddPetButton from '../../components/AddPetButton/AddPetButton';
 // } from '../../redux/API/noticesApi';
 const NoticesPage = () => {
 
-  const [searchParams, setSearchParams] = useSearchParams();
+  // const [searchParams, setSearchParams] = useSearchParams();
   // refactor the use of the RTK query lower for the cases of the filters in component
 
   // const {
