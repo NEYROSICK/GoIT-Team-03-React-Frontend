@@ -1,5 +1,5 @@
 import UserForm from '../UserForm/UserForm';
-import Modal from '../Modal/Modal';
+import Modal from '../../Modal/Modal';
 
 import {
   UserPageItem,

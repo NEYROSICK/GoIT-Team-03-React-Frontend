@@ -1,5 +1,5 @@
-import UserData from '../../components/UserData/UserData'
-import { PetsData } from '../../components/PetsData/PetsData';
+import UserData from '../../components/UserPageComponents/UserData/UserData'
+import { PetsData } from '../../components/UserPageComponents/PetsData/PetsData';
 import { UserPageContainer,Container } from './UserPage.styled';
 
 function UserPage() {
