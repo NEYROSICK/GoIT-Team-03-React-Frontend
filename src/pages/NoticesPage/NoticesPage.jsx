@@ -16,31 +16,34 @@ import AddPetButton from '../../components/AddPetButton/AddPetButton';
 //   useGetMyNoticesQuery,
 // } from '../../redux/API/noticesApi';
 const NoticesPage = () => {
-  //   const {
-  //     data: allNotices,
-  //     error: allNoticesError,
-  //     isLoading: loadAllNotices,
-  //   } = useGetNoticesQuery({
-  //     // your params
-  //   });
-  //   const [searchParams, setSearchParams] = useSearchParams();
-  //   const {
-  //     data: myNotices,
-  //     error: myNoticesError,
-  //     isLoading: loadMyNotices,
-  //   } = useGetMyNoticesQuery({
-  //     // your params
-  //   });
-  //   const {
-  //     data: oneNotice,
-  //     error: oneNoticeError,
-  //     isLoading: loadOneNotice,
-  //   } = useGetOneNoticeQuery({
-  //     id: 'your-notice-id',
-  //     params: {
-  //       /* your params */
-  //     },
-  //   });
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  // refactor the use of the RTK query lower for the cases of the filters in component
+
+  // const {
+  //   data: allNotices,
+  //   error: allNoticesError,
+  //   isLoading: loadAllNotices,
+  // } = useGetNoticesQuery({
+  //   params: { searchParams },
+  // });
+  // const {
+  //   data: myNotices,
+  //   error: myNoticesError,
+  //   isLoading: loadMyNotices,
+  // } = useGetMyNoticesQuery({
+  //   params: { searchParams },
+  // });
+  // const {
+  //   data: oneNotice,
+  //   error: oneNoticeError,
+  //   isLoading: loadOneNotice,
+  // } = useGetOneNoticeQuery({
+  //   id: {id},
+  //   params: { searchParams },
+  // });
+
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get('query');
