@@ -90,11 +90,8 @@ export default function Register() {
         console.error('Registration error:', error);
       }
     },
-  });
-
-     
-    
-  return (
+  }); 
+return (
     <RegisterForm onSubmit={formik.handleSubmit}>
       <Title>Registration</Title>
       <InputValidation>
@@ -157,4 +154,3 @@ export default function Register() {
     </RegisterForm>
   );
 }
-
