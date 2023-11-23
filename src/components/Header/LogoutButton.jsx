@@ -1,6 +1,6 @@
 
 // import { ModalApproveAction } from './ModalApproveAction';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 // import { Logout } from '../../redux/auth/authSlice';
 
 export const LogoutButton = () => {
@@ -11,5 +11,5 @@ export const LogoutButton = () => {
     // Обробка логіки виходу
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return <button onClick={handleLogout}>Log out</button>;
 };
