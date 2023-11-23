@@ -10,39 +10,13 @@ import {
   PageTitle,
 } from '../NoticesPage/NoticesPage.styled';
 import AddPetButton from '../../components/AddPetButton/AddPetButton';
-import {
-  useGetNoticesQuery,
-  useGetOneNoticeQuery,
-  useGetMyNoticesQuery,
-} from '../../redux/API/noticesApi';
+// import {
+//   useGetNoticesQuery,
+//   useGetOneNoticeQuery,
+//   useGetMyNoticesQuery,
+// } from '../../redux/API/noticesApi';
 const NoticesPage = () => {
-<<<<<<< Updated upstream
-  const {
-    data: allNotices,
-    error: allNoticesError,
-    isLoading: loadAllNotices,
-  } = useGetNoticesQuery({
-    // your params
-  });
-  const [searchParams, setSearchParams] = useSearchParams();
-  const {
-    data: myNotices,
-    error: myNoticesError,
-    isLoading: loadMyNotices,
-  } = useGetMyNoticesQuery({
-    // your params
-  });
-  const {
-    data: oneNotice,
-    error: oneNoticeError,
-    isLoading: loadOneNotice,
-  } = useGetOneNoticeQuery({
-    id: 'your-notice-id',
-    params: {
-      /* your params */
-    },
-  });
-=======
+
   const [searchParams, setSearchParams] = useSearchParams();
   // refactor the use of the RTK query lower for the cases of the filters in component
 
@@ -69,7 +43,8 @@ const NoticesPage = () => {
   //   params: { searchParams },
   // });
 
->>>>>>> Stashed changes
+
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const query = searchParams.get('query');
 
