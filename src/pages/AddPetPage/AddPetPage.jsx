@@ -1,5 +1,5 @@
 import AddPetForm from '../../components/AddPetForm/AddPetForm';
-import sprite from '../../ui/Icon/sprite.svg';
+import sprite from '../../ui/Icons/sprite.svg';
 import { ArrowLeft } from './icon.styled';
 
 const AddPetPage = () => {
