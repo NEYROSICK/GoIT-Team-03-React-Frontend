@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { ReactComponent as FilterIcon } from '../../images/filter.svg';
-import { ReactComponent as ChevronDownIcon } from '../../images/chevron-down.svg';
+import { ReactComponent as FilterIcon } from '../../../images/filter.svg';
+import { ReactComponent as ChevronDownIcon } from '../../../images/chevron-down.svg';
 
 export const FilterButton = styled.button`
   width: 40px;
@@ -66,20 +66,19 @@ export const DropContainer = styled.div`
   border-radius: 20px;
   background-color: #ffffff;
   box-shadow: 3px 8px 14px 0px #88c6fd30;
-  
+
   transition: opacity 400ms;
 `;
 
 export const DropDown = styled.div``;
 
 export const FilterHeader = styled.h4`
-margin-bottom: 8px;
-font-weight: 700;
-font-size: 16px;
-line-height: 22px;
-letter-spacing: 0.04em;
-color: #54ADFF;
-}  
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.04em;
+  color: #54adff;
 `;
 
 export const FilterMenu = styled.div`
@@ -89,8 +88,6 @@ export const FilterMenu = styled.div`
   transition: 300ms;
   padding: 8px;
   padding: ${(props) => props.active && '14px'};
-  
-  
 `;
 
 export const FilterBtn = styled.button`

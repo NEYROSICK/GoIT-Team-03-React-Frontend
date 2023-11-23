@@ -6,7 +6,7 @@ import {
   UserNavList,
 } from './NoticesCategoriesNav.styled';
 import { publicCategories, userCategories } from './categories';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const NoticesCategoriesNav = () => {
   const { pathname, search } = useLocation();

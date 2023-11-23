@@ -1,6 +1,6 @@
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../../redux/auth/operations';
+import { register } from '../../../redux/auth/operations';
 import {
   RegisterForm,
   Input,
@@ -15,41 +15,41 @@ import {
 } from './RegisterForm.styled';
 import { useFormik } from 'formik';
 
-import { login } from '../../redux/auth/operations';
+import { login } from '../../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
-import {selectIsAuthenticated} from "../../redux/auth/selectors"
+import { selectIsAuthenticated } from '../../../redux/auth/selectors';
 
 export default function Register() {
   const dispatch = useDispatch();
-    const navigate = useNavigate();
-      const isAuthenticated = useSelector(selectIsAuthenticated);
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector(selectIsAuthenticated);
 
-    const validationSchema = Yup.object({
-      userName: Yup.string()
-        .min(2, 'Name must be at least 2 characters long')
-        .max(16, 'Name can be at most 16 characters long')
-        .matches(/^[a-zA-Z\s]+$/, 'Name must contain only letters and spaces')
-        .required('Name is required'),
-      email: Yup.string()
-        .email('Invalid email format')
-        .matches(
-          /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
-          'Invalid Email format',
-        )
-        .required('Email is required'),
-      password: Yup.string()
-        .min(6, 'Password must be at least 6 characters long')
-        .max(16, 'Password can be at most 16 characters long')
-        .matches(
-          /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/,
-          'Password must contain at least one digit, one lowercase letter, and one uppercase letter',
-        )
-        .required('Password is required'),
-      confirmPassword: Yup.string()
-        .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required('Confirm Password is required'),
-    });
-    
+  const validationSchema = Yup.object({
+    userName: Yup.string()
+      .min(2, 'Name must be at least 2 characters long')
+      .max(16, 'Name can be at most 16 characters long')
+      .matches(/^[a-zA-Z\s]+$/, 'Name must contain only letters and spaces')
+      .required('Name is required'),
+    email: Yup.string()
+      .email('Invalid email format')
+      .matches(
+        /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+        'Invalid Email format',
+      )
+      .required('Email is required'),
+    password: Yup.string()
+      .min(6, 'Password must be at least 6 characters long')
+      .max(16, 'Password can be at most 16 characters long')
+      .matches(
+        /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/,
+        'Password must contain at least one digit, one lowercase letter, and one uppercase letter',
+      )
+      .required('Password is required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('Confirm Password is required'),
+  });
+
   const formik = useFormik({
     initialValues: {
       userName: '',
@@ -90,8 +90,8 @@ export default function Register() {
         console.error('Registration error:', error);
       }
     },
-  }); 
-return (
+  });
+  return (
     <RegisterForm onSubmit={formik.handleSubmit}>
       <Title>Registration</Title>
       <InputValidation>
