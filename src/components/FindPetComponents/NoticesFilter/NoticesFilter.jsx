@@ -13,6 +13,7 @@ import {
   StyledFilterIcon,
 } from './NoticesFilter.styled';
 import { useState } from 'react';
+import sprite from '../../../ui/Icons/sprite.svg';
 
 const NoticesFilter = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,21 +40,24 @@ const NoticesFilter = () => {
     <div>
       <FilterButton type="button" onClick={handleBtnClick}>
         <FilterText>Filter</FilterText>
-        <StyledFilterIcon />
+        <StyledFilterIcon>
+          <use href={sprite + '#iconFilters3'}></use>
+        </StyledFilterIcon>
       </FilterButton>
 
       {isOpen && (
         <DropContainer active={true}>
           <DropDown>
             <FilterHeader>Filters</FilterHeader>
-            <FilterMenu active={ageOpen && true}>
+            <FilterMenu active={ageOpen ? true : undefined}>
               <FilterBtn
                 type="button"
                 onClick={handleAgeClick}
                 aria-label="toggle age options"
-                
               >
-                <StyledChevronDownIcon active={ageOpen && true} />
+                <StyledChevronDownIcon active={ageOpen ? true : undefined}>
+                <use href={sprite + '#iconChevronDown'}></use>
+                </StyledChevronDownIcon>
                 By age
               </FilterBtn>
               {ageOpen && (
@@ -88,13 +92,15 @@ const NoticesFilter = () => {
                 </FilterForm>
               )}
             </FilterMenu>
-            <FilterMenu active={genderOpen && true}>
+            <FilterMenu active={genderOpen ? true : undefined}>
               <FilterBtn
                 type="button"
                 onClick={handleGenderClick}
                 aria-label="toggle gender options"
               >
-                <StyledChevronDownIcon active={genderOpen && true}/>
+                <StyledChevronDownIcon active={genderOpen ? true : undefined}>
+                <use href={sprite + '#iconChevronDown'}></use>
+                </StyledChevronDownIcon>
                 By gender
               </FilterBtn>
               {genderOpen && (

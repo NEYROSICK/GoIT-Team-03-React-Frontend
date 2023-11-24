@@ -1,6 +1,6 @@
 import { nanoid } from 'nanoid';
 
-export const publicCategories = [
+ const publicCategories = [
   {
     id: nanoid(),
     to: '/notices/sell',
@@ -18,7 +18,7 @@ export const publicCategories = [
   },
 ];
 
-export const userCategories = [
+ const userCategories = [
   {
     id: nanoid(),
     to: '/notices/favorite',
@@ -30,3 +30,6 @@ export const userCategories = [
     text: 'my ads',
   },
 ];
+const categories = { publicCategories, userCategories };
+
+export default categories;

@@ -4,16 +4,20 @@ import {
   StyledPlusIconSmall,
   AddButtonText,
 } from './AddPetButton.styled';
-
+import sprite from '../../ui/Icons/sprite.svg';
 const AddPetButton = () => {
   const handleClick = () => {
     console.log('Sign in to add your own notice.');
   };
   return (
     <AddButton onClick={handleClick} to={'/add-pet'}>
-      <StyledPlusIcon />
+      <StyledPlusIcon>
+        <use href={sprite + '#iconPlus'}></use>
+      </StyledPlusIcon>
       <AddButtonText>Add Pet</AddButtonText>
-      <StyledPlusIconSmall />
+      <StyledPlusIconSmall>
+        <use href={sprite + '#iconPlusSmall'}></use>
+      </StyledPlusIconSmall>
     </AddButton>
   );
 };

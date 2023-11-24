@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-import { ReactComponent as SearchIcon } from '../../images/search.svg';
-import { ReactComponent as CleanIcon } from '../../images/cross-small.svg';
+// import { ReactComponent as SearchIcon } from '../../images/search.svg';
+// import { ReactComponent as CleanIcon } from '../../images/cross-small.svg';
 
 export const SearchForm = styled.form`
   position: relative;
@@ -56,7 +56,7 @@ export const Input = styled.input`
   }
 `;
 
-export const SearchSubmitIcon = styled(SearchIcon)`
+export const SearchSubmitIcon = styled.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -65,13 +65,18 @@ export const SearchSubmitIcon = styled(SearchIcon)`
   top: 10px;
   transition: 250ms;
   right: ${(props) => props.active && '47px'};
+  stroke: #54ADFF;
+  fill: #54ADFF;
+
 `;
 
-export const SearchCleanIcon = styled(CleanIcon)`
+export const SearchCleanIcon = styled.svg`
   width: 24px;
   height: 24px;
   padding: 0;
   position: absolute;
   right: 13px;
   top: 10px;
+  stroke: #FFC107;
+
 `;

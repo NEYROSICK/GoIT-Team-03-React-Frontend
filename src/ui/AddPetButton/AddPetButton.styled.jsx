@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
-import { ReactComponent as PlusIcon } from '../../images/plus.svg';
-import { ReactComponent as PlusIconSmall } from '../../images/plus-small.svg';
 
 export const AddButton = styled(Link)`
   width: 80px;
@@ -18,7 +16,7 @@ export const AddButton = styled(Link)`
   text-decoration: none;
   background: #54adff;
   color: #ffffff;
-  transition: 300ms;
+  
 
   &:hover,
   &:focus {
@@ -31,20 +29,24 @@ export const AddButton = styled(Link)`
     border-radius: 40px;
     padding: 9px 16px;
     flex-direction: row;
+    
   }
 
   @media screen and (min-width: 1280px) {
   }
 `;
 
-export const StyledPlusIcon = styled(PlusIcon)`
+export const StyledPlusIcon = styled.svg`
+  stroke: #FEF9F9;
+  width: 24px;
+  height: 24px;
   @media screen and (min-width: 768px) {
     display: none;
   }
 `;
-export const StyledPlusIconSmall = styled(PlusIconSmall)`
+export const StyledPlusIconSmall = styled.svg`
   display: none;
-
+  stroke: #FEF9F9;
   @media screen and (min-width: 768px) {
     display: block;
     width: 24px;

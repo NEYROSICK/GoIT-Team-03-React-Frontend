@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Input, SearchCleanIcon, SearchForm, SearchSubmitIcon } from "./NoticesSearch.styled";
-
+import sprite from '../../ui/Icons/sprite.svg';
 const initialState = {
     query: '',
 };
@@ -56,11 +56,11 @@ const NoticesSearch = ({ onSubmit, onClear }) => {
                 type="submit"
                 aria-label="submit"
                 active={query && true}
-            >
+            >   <use href={sprite + '#iconSearch'}></use>
             </SearchSubmitIcon>
             {query && (
                 <SearchCleanIcon type="button" onClick={handleClear} aria-label="clear">
-                   
+                   <use href={sprite + '#iconCross'}></use>
                 </SearchCleanIcon>
             )}
         </SearchForm>
