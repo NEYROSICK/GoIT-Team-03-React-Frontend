@@ -20,12 +20,11 @@ import {
 } from './UserForm.styled';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
-
+import { useDispatch} from 'react-redux'; // useSelector 
 
 import { useGetUserQuery, useUpdateUserMutation } from '../../../redux/API/UserApi'
-// import { useDispatch } from 'react-redux';
-// import { useNavigate } from 'react-router-dom';
-// import logOut  from '../../../redux/auth/authSlice';
+import { useNavigate } from 'react-router-dom';
+import { logOut } from '../../../redux/auth/operations';
 
 
 
@@ -34,30 +33,38 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
   const [updateUser] = useUpdateUserMutation()
-  // const token = useSelector(state => state.auth.token);
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  // const state = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+if(!isLoading){
+  console.log(data)
 
+}
+const {email,name,date,phone,city} = data.user
 
   const handleSubmit = async (values) => {
-    console.log(values)
+    // values.date = values.date.split('-').reverse().join('-') 
+
     const formData = new FormData();
     formData.append('avatar', userPhoto);
 
     Object.entries(values).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    await updateUser(values ).unwrap();
+    console.log(values)
+    // const update = values.date.split('-').reverse().join('-') 
+// console.log(update)
+    await updateUser(values).unwrap();
     setIsUserUpdate(state => !state);
     console.log(userPhoto)
   };
   const hendleClick = () => {
     setIsShowModal(true) 
   } 
-  // const hendleLogout =()=> {
-  //   dispatch(logOut());
-  //   navigate('/login');
-  // }
+  const hendleLogout =()=> {
+    dispatch(logOut());
+    navigate('/login');
+  }
 
   useEffect(() => {
     const close = (e) => {
@@ -73,11 +80,11 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     <>
       {isLoading ? <h1>loading..</h1> : 
         <Formik initialValues={{
-          name: data[0].name, 
-          birthday: data[0].birthday,
-          email: data[0].email, 
-          city: data[0].city,
-          phone: data[0].phone,
+          name: '' || name, 
+          date: ''|| date.split('-').reverse().join('-'),
+          email: ''|| email, 
+          city: '' || city,
+          phone: ''|| phone,
 }} onSubmit={handleSubmit}  >
           <UserFormBody>
             <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
@@ -113,8 +120,8 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel>
                   <UserFormInput
                     type="date"
-                    name="birthday"
-                    id="birthday"
+                    name="date"
+                    id="date"
                     autoComplete="off"
                     placeholder={'00-00-0000'}
                     disabled={isUserUpdate}
@@ -176,7 +183,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 </UserFormBtn>
               ) : (
                 <UserFormBtn>
-                  <Btn type="submit">Save</Btn>
+                  <Btn type="submit" >Save</Btn>
                 </UserFormBtn>
               )}
             </UserFormInfo>
@@ -187,7 +194,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
           <ModalTitle>Already leaving?</ModalTitle>
             <ConteinerBtn>
             <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
-            <ButtonLogout >Yes 
+            <ButtonLogout  onClick={()=>hendleLogout()}>Yes 
               <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
                 <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
