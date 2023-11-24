@@ -5,6 +5,8 @@ import HomePage from './pages/HomePage/HomePage';
 import AddPetPage from './pages/AddPetPage/AddPetPage';
 import NoticesPage from './pages/NoticesPage/NoticesPage';
 import UserPage from './pages/UserPage/UserPage';
+import NewsPage from './pages/NewsPage/NewsPage';
+import FriendsPage from './pages/FriendsPage/FriendsPage';
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
           <Route path="user" element={<UserPage />} />
           <Route path="notices" element={<NoticesPage />} />
           <Route path="*" element={<ErrorPage />} />
+          <Route path="news" element={<NewsPage />} />
+          <Route path="friends" element={<FriendsPage />} />
         </Route>
       </Routes>
     </>

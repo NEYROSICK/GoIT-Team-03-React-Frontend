@@ -1,4 +1,3 @@
-import React from 'react';
 import './IconComponent.styled.jsx';
 
 const IconComponent = ({ iconId }) => {
