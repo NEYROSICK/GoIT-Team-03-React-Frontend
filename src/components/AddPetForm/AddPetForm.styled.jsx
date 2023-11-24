@@ -61,12 +61,53 @@ export const StepList = styled.ul`
       }
     }
 
-    &.is-done{
+    &.is-done {
       color: var(--clr-brand-green);
       &:after {
-        background-color: var(--clr-brand-green);        
-      }      
+        background-color: var(--clr-brand-green);
+      }
     }
-
   }
+`;
+
+export const ButtonNextBack = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  width: 100%;
+  height: 40px;
+
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.64px;
+
+  &.buttonNext {
+    margin-bottom: 10px;
+    background-color: var(--clr-brand-blue);
+    border: none;
+    border-radius: 40px;
+    color: var(--clr-primary-inv);
+  }
+
+  &.buttonBack {
+    color: var(--clr-brand-blue);
+    background: none;
+    border: none;
+  }
+`;
+
+export const IconPaw = styled.svg`
+  width: 24px;
+  height: 24px;
+  fill: var(--clr-primary-inv);
+`;
+
+export const IconArrow = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--clr-brand-blue);
 `;
