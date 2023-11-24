@@ -55,7 +55,7 @@ transition: 300ms;
 
 &:hover,
 &:focus {
-    background-color: #54ADFF;
+    
     color: #FEF9F9;
     
 }
@@ -64,8 +64,11 @@ export const StyledLink = styled(Link)`
 padding: 8px 16px;
 text-decoration: none;
 color: #54ADFF;
-
+color: ${(props) => props.active && '#FEF9F9'};
+background-color: ${(props) => props.active && '#54ADFF'};
+border-radius: 40px;
 &:focus, &:hover {
     color: #FEF9F9;
+    background-color: #54ADFF;
 }
 `
