@@ -65,6 +65,29 @@ export const UserBtnPen = styled.button`
   right: 18px;
   }
 `;
+export const PenSvg = styled.svg`
+fill: var(--clr-brand-blue);
+width: 24px;
+height: 24px;
+`
+export const CloseEdit = styled.svg`
+stroke: var(--clr-brand-blue);
+width: 24px;
+height: 24px;
+`
+
+export const PawSvg = styled.svg`
+fill: var(--clr-primary-inv);
+width: 24px;
+height: 24px;
+
+`
+export const CloseSvg = styled.svg`
+stroke: var(--clr-brand-blue);
+width: 24px;
+height: 24px;
+
+`
 
 export const UserInputWrapper = styled.div`
   display: flex;

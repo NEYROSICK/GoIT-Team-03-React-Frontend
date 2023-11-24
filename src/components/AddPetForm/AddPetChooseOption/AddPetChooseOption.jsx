@@ -1,15 +1,9 @@
 import { Form, Formik, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import {
-  ButtonBack,
-  ButtonNext,
-  IconArrow,
-  IconPaw,
-  Input,
-  OptionList,
-} from './AddPetChooseOption.styled';
+import { Input, OptionList } from './AddPetChooseOption.styled';
 
 import sprite from '../../../ui/Icons/sprite.svg';
+import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
 
 const schema = object({
   category: string().required('Select a category'),
@@ -58,18 +52,22 @@ const AddPetChooseOption = (props) => {
           <ErrorMessage name="category" component={'div'} />
         </OptionList>
 
-        <ButtonNext type="submit">
+        <ButtonNextBack className="buttonNext" type="submit">
           Next
           <IconPaw>
             <use href={sprite + '#iconPaw'}></use>
           </IconPaw>
-        </ButtonNext>
-        <ButtonBack type="button" onClick={handleCancel}>
+        </ButtonNextBack>
+        <ButtonNextBack
+          className="buttonBack"
+          type="button"
+          onClick={handleCancel}
+        >
           <IconArrow>
             <use href={sprite + '#iconArrowLeft'}></use>
           </IconArrow>
           Сancel
-        </ButtonBack>
+        </ButtonNextBack>
       </Form>
     </Formik>
   );

@@ -7,6 +7,8 @@ import {
   LabelInputFile,
   PhotoContainer,
 } from './AddPetMoreInfo.styled';
+import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
   sex: string().required('Select a sex'),
@@ -88,13 +90,23 @@ const AddPetMoreInfoNotices = (props) => {
             <ErrorMessage name="comments" component={'div'} />
           </label>
 
-          <button
+          <ButtonNextBack className="buttonNext" type="submit">
+            Done
+            <IconPaw>
+              <use href={sprite + '#iconPaw'}></use>
+            </IconPaw>
+          </ButtonNextBack>
+
+          <ButtonNextBack
+            className="buttonBack"
             type="button"
             onClick={() => props.prev(values, selectedFile)}
           >
+            <IconArrow>
+              <use href={sprite + '#iconArrowLeft'}></use>
+            </IconArrow>
             Back
-          </button>
-          <button type="submit">Done</button>
+          </ButtonNextBack>
         </Form>
       )}
     </Formik>
