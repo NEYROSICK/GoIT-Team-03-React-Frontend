@@ -1,4 +1,4 @@
-const OurFriendsItem = () => {
+const FriendItem = () => {
   return (
     <a href="" className="friend-name">
       <div className="friend-image">
@@ -14,4 +14,4 @@ const OurFriendsItem = () => {
   );
 };
 
-export default OurFriendsItem;
+export default FriendItem;

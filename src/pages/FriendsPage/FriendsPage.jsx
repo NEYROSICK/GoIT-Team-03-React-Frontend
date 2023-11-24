@@ -1,5 +1,5 @@
 import { Container, PageTitle } from './FriendsPage.styled';
-import OurFriendsItem from '../../components/FriendsItem/FriendsItem';
+import FriendItem from '../../components/FriendsItem/FriendsItem';
 
 function FriendsPage() {
   return (
