@@ -53,5 +53,20 @@ export const StepList = styled.ul`
       background-color: var(--clr-brand-blue-lt);
       border-radius: 8px;
     }
+
+    &.is-selected {
+      color: var(--clr-brand-blue);
+      &:after {
+        background-color: var(--clr-brand-blue);
+      }
+    }
+
+    &.is-done{
+      color: var(--clr-brand-green);
+      &:after {
+        background-color: var(--clr-brand-green);        
+      }      
+    }
+
   }
 `;
