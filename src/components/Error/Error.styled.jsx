@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+export const ErrorPicture = styled.picture`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+`;
+
 export const ErrorH2 = styled.h2`
-weight: 600px;
+font-weight: 600;
 font-size: 32px;
 line-height: 41.6px;
 text-align: center;
@@ -11,17 +17,23 @@ padding-top: 60px;
 `;
 
 export const ErrorLink = styled(Link)`
-  display: block;
+  display: flex;
+  justify-content: center;
   cursor: pointer;
   margin: 18px auto 100px;
-  weight: 700px;
+  font-weight: 700px;
   font-size: 16px;
   line-height: 21.86px;
   text-align: center;
   border-radius: 40px;
-  cursor: pointer;
   background-color: var(--clr-brand-blue);
   color: var(--clr-primary-inv);
   padding: 9px;
   width: 248px;
 `;
+
+export const ErrorIcon = styled.svg`
+margin-left:12px;
+width:24px;
+height:24px;
+`
