@@ -8,8 +8,11 @@ import {
     PetsDataTitle,
     ConteinerTitle,
     BtnAddPet,
-    BtnDelite
+    BtnDelite,
+    // TrashSvg,
+    PlussSvg,
 } from "./PetsData.styled";
+import sprite from '.././../../ui/Icons/sprite.svg'
 
 import { EmptyPetsList } from "../EmptyPetsList/EmptyPetsList";
 
@@ -27,10 +30,10 @@ export const PetsData = () => {
         <div>
             <ConteinerTitle>
             <PetsDataTitle>My pets:</PetsDataTitle>
-            <BtnAddPet>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-            <path d="M12 20V12M12 12V4M12 12H20M12 12H4" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
+            <BtnAddPet to={'/add-pet'}>
+            <PlussSvg>
+            <use href={sprite + '#iconPlusSmall'}></use>
+            </PlussSvg>
             Add pet
             </BtnAddPet>
             </ConteinerTitle>
@@ -38,9 +41,12 @@ export const PetsData = () => {
                 {currentPets && currentPets.map((el) => (
                     <PetsCardContainer key={el.id}>
                         <BtnDelite   onClick={()=>hendleDelete(el.id)}>
+                        {/* <TrashSvg>
+                        <use href={sprite + '#iconTrash'}></use>
+                        </TrashSvg> */}
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6M4 6H20M10 10V16M14 10V16" stroke="#54ADFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                        </svg>
+                            <path d="M18 6V18C18 19.1046 17.1046 20 16 20H8C6.89543 20 6 19.1046 6 18V6M15 6V5C15 3.89543 14.1046 3 13 3H11C9.89543 3 9 3.89543 9 5V6M4 6H20M10 10V16M14 10V16" stroke="#54ADFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
                         </BtnDelite>
                         <PetsCardImg src={el.file} alt="default" />
                         <ul>

@@ -162,7 +162,20 @@ export const UserFormSvg = styled.svg`
   width: 24px;
   height: 24px;
   stroke: #54adff;
+  fill: none;
 `;
+export const YesSvg = styled.svg`
+  stroke: var(--clr-bcg-user);
+  fill: none;
+  width: 24px;
+  height: 24px;
+`
+export const CloseSvg = styled.svg`
+  stroke: var(--clr-brand-blue);
+  width: 24px;
+  height: 24px;
+`
+
 
 // modal 
 export const ModalConteiner = styled.div`
