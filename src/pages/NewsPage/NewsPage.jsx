@@ -2,7 +2,7 @@ import { Container, PageTitle } from './NewsPage.styled';
 import { useSearchParams } from 'react-router-dom';
 import { useCallback } from 'react';
 import NewsList from '../../components/NewsList/NewsList';
-import NoticesSearch from '../../components/NoticesSearch/NoticesSearch';
+import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 
 function NewsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
