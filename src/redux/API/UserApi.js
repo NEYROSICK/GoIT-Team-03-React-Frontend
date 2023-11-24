@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const UserApi = createApi({
     reducerPath: 'UserApi',
@@ -27,4 +27,4 @@ export const UserApi = createApi({
     })
 })
 
-export const { useGetUserQuery,useUpdateUserMutation } = UserApi
+export const { useGetUserQuery, useUpdateUserMutation } = UserApi;

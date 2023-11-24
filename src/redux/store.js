@@ -9,24 +9,20 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import   {authReducer } from './auth/authSlice';
+import { authReducer } from './auth/authSlice';
 import { UserApi } from './API/UserApi';
 import { noticesApi } from './API/noticesApi';
 import { petsApi } from './API/petsApi';
-import  {authApi}  from './API/authApi';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: [ 'authApi'],
+  blacklist: ['authApi'],
 };
-
-
 
 const rootReducer = combineReducers({
   auth: authReducer,
-  [authApi.reducerPath]: authApi.reducer,
   [UserApi.reducerPath]: UserApi.reducer,
   [noticesApi.reducerPath]: noticesApi.reducer,
   [petsApi.reducerPath]: petsApi.reducer,
@@ -37,14 +33,11 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
   reducer: persistedReducer,
   middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware({
-    serializableCheck: {
-      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-    },
-  }).concat( authApi.middleware,UserApi.middleware, noticesApi.middleware, petsApi.middleware)
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }).concat(UserApi.middleware, noticesApi.middleware, petsApi.middleware),
 });
-
-
-
 
 export const persistor = persistStore(store);
