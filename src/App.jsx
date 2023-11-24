@@ -7,6 +7,8 @@ import HomePage from './pages/HomePage/HomePage';
 import AddPetPage from './pages/AddPetPage/AddPetPage';
 import NoticesPage from './pages/NoticesPage/NoticesPage';
 import UserPage from './pages/UserPage/UserPage';
+import NewsPage from './pages/NewsPage/NewsPage';
+import FriendsPage from './pages/FriendsPage/FriendsPage';
 import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import PublicRoute from './routes/PublicRoute';
@@ -28,6 +30,8 @@ function App() {
           <Route path="favorite" element={<FavoriteNotices />} />
           <Route path="my-ads" element={<MyAds />} />
         </Route>
+        <Route path="news" element={<NewsPage />} />
+        <Route path="friends" element={<FriendsPage />} />
         <Route path="add-pet" element={<AddPetPage />} />
         <Route
           path="/register"
