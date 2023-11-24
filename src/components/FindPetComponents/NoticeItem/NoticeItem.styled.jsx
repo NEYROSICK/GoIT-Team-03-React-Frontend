@@ -3,7 +3,6 @@ import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
 const ItemContainer = styled.div`
-  position: relative;
   display: flex;
   flex-direction: column;
 
@@ -16,6 +15,10 @@ const ItemContainer = styled.div`
 `;
 
 const TopPart = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
   background-image: ${(props) => {
     return `url(${props.imgUrl})`;
   }};
@@ -39,7 +42,15 @@ const ItemCatogory = styled.p`
   border-radius: 0px 16px 16px 0px;
   background: var(--clr-brand-blue-lt);
 
-  padding: 11px 17px;
+  padding: 6.5px 12.98px;
+
+  color: #111;
+  text-align: center;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
 
 const ItemFavoriteBtn = styled.button`
@@ -51,21 +62,60 @@ const ItemFavoriteBtn = styled.button`
   justify-content: center;
   align-items: center;
 
-  border-radius: 100%;
   background: var(--clr-brand-blue-lt);
+  border-radius: 100%;
+  border: none;
+  outline: none;
 
   padding: 9px 8px 7px 8px;
 `;
 
 const FavoriteIcon = styled.svg`
   stroke: var(--clr-brand-blue);
-  fill: none;
-  width: 20px;
-  height: 20px;
+  fill: ${(props) => {
+    return props.isFavorite ? '--clr-brand-blue' : 'none';
+  }};
+
+  width: 24px;
+  height: 24px;
 `;
 
-// const FavoriteBtn = styled.
+const ItemDataWrapper = styled.div`
+  display: flex;
+  justify-content: center;
 
-//? --clr-brand-blue лінк колор
+  width: 280px;
+  height: 30px;
+  background-color: #888888;
 
-export { ItemContainer, TopPart, ItemCatogory, ItemFavoriteBtn, FavoriteIcon };
+  z-index: 2;
+`;
+
+const ItemData = styled.p`
+  color: var(--, #111);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 0.48px;
+`;
+
+const ItemDataIcon = styled.svg`
+  stroke: var(--clr-brand-blue);
+  fill: none;
+
+  width: 24px;
+  height: 24px;
+`;
+
+export {
+  ItemContainer,
+  TopPart,
+  ItemCatogory,
+  ItemFavoriteBtn,
+  FavoriteIcon,
+  ItemDataWrapper,
+  ItemData,
+  ItemDataIcon,
+};
