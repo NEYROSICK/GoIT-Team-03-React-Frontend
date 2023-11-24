@@ -57,8 +57,15 @@ const ItemFavoriteBtn = styled.button`
   padding: 9px 8px 7px 8px;
 `;
 
+const FavoriteIcon = styled.svg`
+  stroke: var(--clr-brand-blue);
+  fill: none;
+  width: 20px;
+  height: 20px;
+`;
+
 // const FavoriteBtn = styled.
 
 //? --clr-brand-blue лінк колор
 
-export { ItemContainer, TopPart, ItemCatogory, ItemFavoriteBtn };
+export { ItemContainer, TopPart, ItemCatogory, ItemFavoriteBtn, FavoriteIcon };

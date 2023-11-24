@@ -1,4 +1,5 @@
 import { useRef, Suspense } from 'react';
+import sprite from '../../../ui/Icons/sprite.svg';
 // import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import {
@@ -6,6 +7,7 @@ import {
   TopPart,
   ItemCatogory,
   ItemFavoriteBtn,
+  FavoriteIcon,
 } from './NoticeItem.styled';
 
 const NoticeItem = () => {
@@ -18,7 +20,11 @@ const NoticeItem = () => {
       >
         <ItemCatogory>CATEGORY</ItemCatogory>
 
-        <ItemFavoriteBtn />
+        <ItemFavoriteBtn>
+          <FavoriteIcon>
+            <use href={sprite + '#iconHeart'} />
+          </FavoriteIcon>
+        </ItemFavoriteBtn>
       </TopPart>
     </ItemContainer>
   );

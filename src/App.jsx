@@ -11,7 +11,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage';
 import LoginPage from './pages/LoginPage/LoginPage';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
-import AllNotices from './components/FindPetComponents/allNotices/AllNotices';
+import AllNotices from './components/FindPetComponents/AllNotices/AllNotices';
 import FavoriteNotices from './components/FindPetComponents/favoriteNotices/FavoriteNotices';
 import MyAds from './components/FindPetComponents/myAds/MyAds';
 
