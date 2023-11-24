@@ -7,24 +7,25 @@ import AddPetPersonalDetailsYourPet from './AddPetPersonalDetails/AddPetPersonal
 import AddPetMoreInfoYourPet from './AddPetMoreInfo/AddPetMoreInfoYourPet';
 import AddPetMoreInfoNotices from './AddPetMoreInfo/AddPetMoreInfoNotices';
 import AddPetMoreInfoSell from './AddPetMoreInfo/AddPetMoreInfoSell';
+import { useNavigate } from 'react-router-dom';
+import { useAddPetMutation } from '../../redux/API/petsApi';
+import { useAddNoticeMutation } from '../../redux/API/noticesApi';
+
 import {
-  FakeHeader,
+  // FakeHeader,
   FormContainer,
   FormStyled,
   StepList,
   Title,
 } from './AddPetForm.styled';
 import { Container } from '../Layout/Container/Container';
-// import { useNavigate } from 'react-router-dom';
-// import { useAddPetMutation } from '../../redux/API/petsApi';
-// import { useAddNoticeMutation } from '../../redux/API/noticesApi';
 
 const AddPetForm = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [step, setStep] = useState(0);
   const [petPhoto, setPetPhoto] = useState(null);
-  // const [addPet] = useAddPetMutation();
-  // const [addNotice] = useAddNoticeMutation()
+  const [addPet] = useAddPetMutation();
+  const [addNotice] = useAddNoticeMutation();
 
   const [formData, setFormData] = useState({
     category: '',
@@ -54,19 +55,69 @@ const AddPetForm = () => {
 
   const makeRequest = (newData, selectedFile) => {
     const formData = new FormData();
-    formData.append('avatarURL', selectedFile);
+    const formatToDDMMYYYY = (dateString) => {
+      const dateObject = new Date(dateString);
+      const day = String(dateObject.getDate()).padStart(2, '0');
+      const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+      const year = dateObject.getFullYear();
 
-    // const fileData = Object.entries(newData)
-    // const Done = fileData.forEach(([key, value]) => {
-    //     if (value !== '' && value !== null && value !== undefined) {
-    //         formData.append(key, value);
-    //     }
-    // });
+      return `${day}-${month}-${year}`;
+    };
+    let data = {};
+    if (newData.category === 'your-pet') {
+      data = {
+        name: newData.name,
+        date: formatToDDMMYYYY(newData.date),
+        type: newData.type,
+        comments: newData.comments,
+        image: selectedFile,
+      };
+    }
+    if (newData.category === 'sell') {
+      data = {
+        category: newData.category,
+        title: newData.title,
+        name: newData.name,
+        date: formatToDDMMYYYY(newData.date),
+        type: newData.type,
+        sex: newData.sex,
+        location: newData.location,
+        comments: newData.comments,
+        price: newData.price,
+        image: selectedFile,
+      };
+    }
+    if (
+      newData.category === 'lost-found' ||
+      newData.category === 'in-good-hands'
+    ) {
+      data = {
+        category: newData.category,
+        title: newData.title,
+        name: newData.name,
+        date: formatToDDMMYYYY(newData.date),
+        type: newData.type,
+        sex: newData.sex,
+        location: newData.location,
+        comments: newData.comments,
+        image: selectedFile,
+      };
+    }
 
-    console.log(newData);
-    console.log(selectedFile);
-    // const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
-    // navigate(redirectTo)
+    console.log(data);
+    for (const [key, value] of Object.entries(data)) {
+      formData.append(key, value);
+    }
+    if (newData.category === 'your-pet') {
+      addPet(formData);
+    } else {
+      addNotice(formData);
+    }
+
+    resetFormData();
+    console.log('Send request');
+    const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
+    navigate(redirectTo);
   };
 
   const handleNextPage = (newData, final = false, selectedFile = '') => {

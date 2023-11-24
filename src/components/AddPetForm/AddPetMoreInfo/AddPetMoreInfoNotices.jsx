@@ -12,14 +12,22 @@ const schema = object({
 
 const AddPetMoreInfoNotices = (props) => {
   const [selectedFile, setSelectedFile] = useState((props.selectedFile || null));
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const onDrop =  useCallback (acceptedFiles => {
     setSelectedFile(acceptedFiles[0]);
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({onDrop});
+  const { getRootProps, getInputProps} = useDropzone({
+    onDrop,
+    accept: 'image/*',
+  });
 
   const handleSubmit = (values) => {
+    if (!selectedFile) {
+      setFormSubmitted(true);
+      return;
+    }    
     props.next(values, true, selectedFile);
   }
   return (
@@ -54,7 +62,7 @@ const AddPetMoreInfoNotices = (props) => {
           <ErrorMessage name="location" component={"div"}/>
         </label>
           
-        <LabelInputFile >
+        <LabelInputFile className={(formSubmitted && !selectedFile) ? 'no-image-selected' : ''}>
           <div {...getRootProps()}>{selectedFile ? (
             <div>
               <PhotoContainer
@@ -71,7 +79,7 @@ const AddPetMoreInfoNotices = (props) => {
         <label>
           Comments
           <Field type="text" name="comments" placeholder="Type of pet"/>
-          <ErrorMessage required name="comments" component={"div"}/>
+          <ErrorMessage name="comments" component={"div"}/>
         </label>
         
         <button type="button" onClick={()=> props.prev(values, selectedFile)}>Back</button>
