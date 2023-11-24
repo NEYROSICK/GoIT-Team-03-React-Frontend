@@ -12,7 +12,7 @@ import {
 import   authReducer  from './auth/authSlice';
 import { UserApi } from './API/UserApi';
 import { noticesApi } from './API/noticesApi';
-
+import { petsApi } from './API/petsApi';
 import  {authApi}  from './API/authApi';
 import storage from 'redux-persist/lib/storage';
 
@@ -29,6 +29,7 @@ const rootReducer = combineReducers({
   [authApi.reducerPath]: authApi.reducer,
   [UserApi.reducerPath]: UserApi.reducer,
   [noticesApi.reducerPath]: noticesApi.reducer,
+  [petsApi.reducerPath]: petsApi.reducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -40,7 +41,7 @@ export const store = configureStore({
     serializableCheck: {
       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
     },
-  }).concat( authApi.middleware,UserApi.middleware, noticesApi.middleware)
+  }).concat( authApi.middleware,UserApi.middleware, noticesApi.middleware, petsApi.middleware)
 });
 
 

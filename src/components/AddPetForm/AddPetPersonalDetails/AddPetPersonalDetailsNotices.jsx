@@ -3,9 +3,9 @@ import { object, string, date} from 'yup';
 
 const schema = object({
     title: string().required("Enter a title for add"),
-    name: string().required("Enter a name pet"),
-    date: date().required("Enter a date of birth"),
-    type: string().required("Enter a type of pet"),
+    name: string().min(2).max(16).required("Enter a name pet"),
+    date: date().required("Enter a date of birth").max(new Date(), 'Date cannot be in the future'),
+    type: string().min(2).max(16).required("Enter a type of pet"),
  });
 
 const AddPetPersonalDetailsNotices = (props) => {
@@ -31,7 +31,7 @@ const AddPetPersonalDetailsNotices = (props) => {
         </label>
         <label>
           Date of Birth
-          <Field type="date" name="date" placeholder="Type date of birth"/>
+          <Field name="date" type="date"  placeholder="Type date of birth"/>
           <ErrorMessage name="date" component={"div"}/>
         </label>
         <label>
