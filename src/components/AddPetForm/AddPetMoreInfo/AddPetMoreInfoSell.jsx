@@ -7,20 +7,28 @@ import { useDropzone } from "react-dropzone";
 const schema = object({
     sex: string().required("Select a sex"),
     location: string().required("Enter a location"),
-    price: number().required("Enter a price"),
+    price: number().min(1).required("Enter a price"),
     comments: string().required("Enter a comment"),
  });
 
 const AddPetMoreInfoSell = (props) => {
   const [selectedFile, setSelectedFile] = useState((props.selectedFile || null));
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const onDrop =  useCallback (acceptedFiles => {
     setSelectedFile(acceptedFiles[0]);
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({onDrop});
+  const { getRootProps, getInputProps} = useDropzone({
+    onDrop,
+    accept: 'image/*',
+  });
 
   const handleSubmit = (values) => {
+    if (!selectedFile) {
+      setFormSubmitted(true);
+      return;
+    }    
     props.next(values, true, selectedFile);
   }
 
@@ -62,7 +70,7 @@ const AddPetMoreInfoSell = (props) => {
           <ErrorMessage name="price" component={"div"}/>
         </label>
           
-        <LabelInputFile >
+        <LabelInputFile className={(formSubmitted && !selectedFile) ? 'no-image-selected' : ''}>
           <div {...getRootProps()}>{selectedFile ? (
             <div>
               <PhotoContainer
@@ -73,7 +81,7 @@ const AddPetMoreInfoSell = (props) => {
             </div>
           ) : (<></>)}
           </div>
-          <InputFile required type="file" name="image" {...getInputProps()} />
+          <InputFile type="file" name="image" {...getInputProps()} />
         </LabelInputFile>
           
         <label>

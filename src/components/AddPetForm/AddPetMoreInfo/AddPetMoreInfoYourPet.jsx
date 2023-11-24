@@ -10,14 +10,22 @@ const schema = object({
 
 const AddPetMoreInfoYourPet = (props) => {
   const [selectedFile, setSelectedFile] = useState((props.selectedFile || null));
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const onDrop =  useCallback (acceptedFiles => {
     setSelectedFile(acceptedFiles[0]);
   }, []);
 
-  const { getRootProps, getInputProps } = useDropzone({onDrop});
+  const { getRootProps, getInputProps} = useDropzone({
+    onDrop,
+    accept: 'image/*',
+  });
 
   const handleSubmit = (values) => {
+    if (!selectedFile) {
+      setFormSubmitted(true);
+      return;
+    }
     props.next(values, true, selectedFile);
   }
 
@@ -28,7 +36,7 @@ const AddPetMoreInfoYourPet = (props) => {
           
         <p>Load the pet’s image:</p>
         
-        <LabelInputFile >
+          <LabelInputFile className={(formSubmitted && !selectedFile) ? 'no-image-selected' : ''}>
           <div {...getRootProps()}>{selectedFile ? (
             <div>
               <PhotoContainer
@@ -39,7 +47,7 @@ const AddPetMoreInfoYourPet = (props) => {
             </div>
           ) : (<></>)}
           </div>
-          <InputFile required type="file" name="image" {...getInputProps()} />
+          <InputFile type="file" name="image" {...getInputProps()} />
         </LabelInputFile>
           
         <label>

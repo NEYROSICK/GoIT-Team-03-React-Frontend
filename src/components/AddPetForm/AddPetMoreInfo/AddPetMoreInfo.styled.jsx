@@ -15,6 +15,10 @@ export const LabelInputFile = styled.label`
     width: 182px;
     height: 182px;
     border-radius: 40px;
+
+    &.no-image-selected {
+        border: 2px solid red;
+    }
 `;
 
 export const InputFile = styled.input`
