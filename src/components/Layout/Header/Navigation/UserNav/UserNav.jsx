@@ -1,11 +1,11 @@
-import { LogoutButton } from '../../LogoutButton';
-import { Link } from 'react-router-dom';
+// import { LogoutButton } from '../../LogoutButton';
+import { UserNavStyledDiv, LinkUser, LogoutButton } from './UserNavStyled';
 
 export const UserNav = () => {
   return (
-    <div>
-      <Link to="/user">UserPage</Link>
+    <UserNavStyledDiv>
+      <LinkUser to="/user">UserPage</LinkUser>
       <LogoutButton />
-    </div>
+    </UserNavStyledDiv>
   );
 };
