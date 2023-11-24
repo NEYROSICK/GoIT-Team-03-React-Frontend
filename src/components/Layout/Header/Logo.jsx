@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+// import { LogoIcon } from './Log.Styled';
 
 export const Logo = () => {
   return (
@@ -7,3 +8,7 @@ export const Logo = () => {
     </>
   );
 };
+
+// /* <LogoIcon>
+//   <use href={sprite + '#iconPaw'}></use>
+// </LogoIcon>; */

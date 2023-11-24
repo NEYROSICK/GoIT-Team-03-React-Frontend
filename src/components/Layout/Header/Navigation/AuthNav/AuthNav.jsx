@@ -1,28 +1,30 @@
-import { Link } from 'react-router-dom';
+import sprite from '../../../../../ui/Icons/sprite.svg';
 import {
   AuthNavStyled,
   LoginStyled,
   RegisterStyled,
-  LogRegStyled,
+  LogLink,
+  RegLink,
+  // IconLogin,
 } from './AuthNavStyled';
 
 export const AuthNav = () => {
   return (
     <AuthNavStyled>
-      <ul>
-        <LogRegStyled>
-          <LoginStyled>
-            <li>
-              <Link to="/login">Log IN</Link>
-            </li>
-          </LoginStyled>
-          <RegisterStyled>
-            <li>
-              <Link to="/register">Registration</Link>
-            </li>
-          </RegisterStyled>
-        </LogRegStyled>
-      </ul>
+      <LoginStyled>
+        <LogLink to="/login">
+          Log IN
+          
+        </LogLink>
+      </LoginStyled>
+
+      <RegisterStyled>
+        <RegLink to="/register">Registration</RegLink>
+      </RegisterStyled>
     </AuthNavStyled>
   );
 };
+
+{/* <IconLogin>
+  <use href={sprite + '#iconPaw'}></use>
+</IconLogin>; */}
