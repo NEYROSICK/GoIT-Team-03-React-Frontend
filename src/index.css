@@ -64,8 +64,13 @@ body {
   font-weight: 400;
   font-style: normal;
   background-color: var(--clr-bcg);
+  background-image: url('./images/BackgroundImg/bg_mob@1x.png');
+  background-size: 100% auto;
+
+  background-position: top;
   color: var(--clr-primary);
   width: 100%;
+  min-height: 100vh;
   line-height: 1.36;
   letter-spacing: 0.04em;
 }
@@ -91,6 +96,36 @@ img {
 }
 button {
   cursor: pointer;
+}
+
+@media (min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    background-image: url('./images/BackgroundImg/bg_mob@2x.png');
+  }
+}
+
+@media (min-width: 768px) {
+  body {
+    background-image: url('./images/BackgroundImg/bg_tab@1x.png');
+  }
+}
+
+@media (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    background-image: url('./images/BackgroundImg/bg_tab@2x.png');
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    background-image: url('./images/BackgroundImg/bg_desc@1x.png');
+  }
+}
+
+@media (min-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {
+  body {
+    background-image: url('./images/BackgroundImg/bg_desc@2x.png');
+  }
 }
 
 /* width */

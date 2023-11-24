@@ -8,7 +8,7 @@ import bgDesk from '../../images/BackgroundImg/bg_desc@1x.png';
 import bgDeskRetina from '../../images/BackgroundImg/bg_desc@2x.png';
 
 export const BackgroundImgWrapper = styled.div`
-position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -18,7 +18,7 @@ position: fixed;
   background-size: cover;
   background-attachment: scroll;
 
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
     background-image: url(${bgMobRetina});
   }
 
@@ -28,7 +28,7 @@ position: fixed;
     background-image: url(${bgTab});
     background-position-y: -68px;
 
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @media (webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgTabRetina});
       background-position-y: -68px;
     }
@@ -39,7 +39,7 @@ position: fixed;
     background-position-y: -68px;
     height: 100vh;
 
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    @media (webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
       background-image: url(${bgDeskRetina});
       background-position-y: -68px;
     }

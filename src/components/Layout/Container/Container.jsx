@@ -1,7 +1,5 @@
 import { StyledContainer } from './Container.styled';
 
-const Container = ({ children }) => {
+export const Container = ({ children }) => {
   return <StyledContainer>{children}</StyledContainer>;
 };
-
-export default Container;

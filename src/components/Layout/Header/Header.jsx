@@ -5,10 +5,10 @@ import { AuthNav } from './Navigation/AuthNav/AuthNav';
 import { UserNav } from './Navigation/UserNav/UserNav';
 import { Navigation, HeaderSection } from './Header.styled';
 // import { selectIsAuthenticated } from '../../../redux/auth/selectors';
-import Container from '../Container/Container';
+import { Container } from '../Container/Container';
 
 export const Header = () => {
-  const { token } = useSelector(state => state.auth);
+  const { token } = useSelector((state) => state.auth);
   return (
     <HeaderSection>
       <Container>

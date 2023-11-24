@@ -1,188 +1,232 @@
 /* eslint-disable no-case-declarations */
 /* eslint-disable react/jsx-key */
 import { useState } from 'react';
-import AddPetChooseOption from './AddPetChooseOption/AddPetChooseOption'
+import AddPetChooseOption from './AddPetChooseOption/AddPetChooseOption';
 import AddPetPersonalDetailsNotices from './AddPetPersonalDetails/AddPetPersonalDetailsNotices';
 import AddPetPersonalDetailsYourPet from './AddPetPersonalDetails/AddPetPersonalDetailsYourPet';
 import AddPetMoreInfoYourPet from './AddPetMoreInfo/AddPetMoreInfoYourPet';
 import AddPetMoreInfoNotices from './AddPetMoreInfo/AddPetMoreInfoNotices';
 import AddPetMoreInfoSell from './AddPetMoreInfo/AddPetMoreInfoSell';
+import {
+  FakeHeader,
+  FormContainer,
+  FormStyled,
+  StepList,
+  Title,
+} from './AddPetForm.styled';
+import { Container } from '../Layout/Container/Container';
 // import { useNavigate } from 'react-router-dom';
 // import { useAddPetMutation } from '../../redux/API/petsApi';
 // import { useAddNoticeMutation } from '../../redux/API/noticesApi';
 
 const AddPetForm = () => {
-    // const navigate = useNavigate();
-    const [step, setStep] = useState(0);
-    const [petPhoto, setPetPhoto] = useState(null);
-    // const [addPet] = useAddPetMutation();
-    // const [addNotice] = useAddNoticeMutation()
+  // const navigate = useNavigate();
+  const [step, setStep] = useState(0);
+  const [petPhoto, setPetPhoto] = useState(null);
+  // const [addPet] = useAddPetMutation();
+  // const [addNotice] = useAddNoticeMutation()
 
-    const [formData, setFormData] = useState({
-        category: '',
-        title: '',
-        name: '',
-        date: '',
-        type: '',
-        sex: '',
-        location: '',
-        price: '',
-        comments: '',
+  const [formData, setFormData] = useState({
+    category: '',
+    title: '',
+    name: '',
+    date: '',
+    type: '',
+    sex: '',
+    location: '',
+    price: '',
+    comments: '',
+  });
+
+  const resetFormData = (category) => {
+    setFormData({
+      category: category,
+      title: '',
+      name: '',
+      date: '',
+      type: '',
+      sex: '',
+      location: '',
+      price: '',
+      comments: '',
     });
+  };
 
-    const resetFormData = (category) => {
-        setFormData({
-            category: category,
-            title: '',
-            name: '',
-            date: '',
-            type: '',
-            sex: '',
-            location: '',
-            price: '',
-            comments: '',
-        });
-    };
+  const makeRequest = (newData, selectedFile) => {
+    const formData = new FormData();
+    formData.append('avatarURL', selectedFile);
 
-    const makeRequest = (newData, selectedFile) => {
-        const formData = new FormData();
-        formData.append('avatarURL', selectedFile);
+    // const fileData = Object.entries(newData)
+    // const Done = fileData.forEach(([key, value]) => {
+    //     if (value !== '' && value !== null && value !== undefined) {
+    //         formData.append(key, value);
+    //     }
+    // });
 
-        // const fileData = Object.entries(newData)
-        // const Done = fileData.forEach(([key, value]) => {
-        //     if (value !== '' && value !== null && value !== undefined) {
-        //         formData.append(key, value);
-        //     }
-        // });
+    console.log(newData);
+    console.log(selectedFile);
+    // const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
+    // navigate(redirectTo)
+  };
 
-        console.log(newData);
-        console.log(selectedFile);
-        // const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
-        // navigate(redirectTo)
+  const handleNextPage = (newData, final = false, selectedFile = '') => {
+    setFormData((prev) => ({ ...prev, ...newData }));
+
+    if (final) {
+      makeRequest(newData, selectedFile);
+      return;
     }
 
-    const handleNextPage = (newData, final = false, selectedFile = '') => {
-        setFormData(prev => ({ ...prev, ...newData }))
-
-        if (final) {
-            makeRequest(newData, selectedFile)
-            return
+    switch (newData.category) {
+      case 'your-pet':
+        setStep((prev) => prev + 1);
+        if (step === 0 && newData.category !== formData.category) {
+          resetFormData(newData.category);
+          setPetPhoto(null);
         }
-        
-        switch (newData.category) {
-            case "your-pet":
-                setStep(prev => prev + 1);
-                if (step === 0 && newData.category !== formData.category) {
-                    resetFormData(newData.category);
-                    setPetPhoto(null)
-                }                
-            break;
+        break;
 
-            case "sell":
-                if (step === 0) {
-                    if (newData.category !== formData.category) {
-                        resetFormData(newData.category);
-                        setPetPhoto(null)
-                    } 
-                    setStep(prev => prev + 3); 
-                }
-                if (step === 3) {
-                    setStep(prev => prev + 2); 
-                }
-                break;
-            
-            default :
-                if (step === 0) {
-                    if (newData.category !== formData.category) {
-                        resetFormData(newData.category);
-                        setPetPhoto(null)
-                    }                
-                    setStep(prev => prev + 3); 
-                }
-                if (step === 3) {
-                    setStep(prev => prev + 1); 
-                }
+      case 'sell':
+        if (step === 0) {
+          if (newData.category !== formData.category) {
+            resetFormData(newData.category);
+            setPetPhoto(null);
+          }
+          setStep((prev) => prev + 3);
         }
-    };
-
-    const handleBackPage = (newData, selectedFile = '') => {
-        setFormData(prev => ({ ...prev, ...newData })) 
-        switch (newData.category) {
-            case "your-pet":
-                setStep(prev => prev - 1);
-                if (selectedFile !== "") {
-                    setPetPhoto(selectedFile);
-                }                
-            break;
-
-            case "sell":
-                if (step === 3) {
-                    setStep(prev => prev - 3);
-                    if (selectedFile !== "") {
-                        setPetPhoto(selectedFile);
-                    }
-                }
-                if (step === 5) {
-                    setStep(prev => prev - 2);
-                    if (selectedFile !== "") {
-                        setPetPhoto(selectedFile);
-                    }
-                }
-            break;
-            
-            default:
-                if (step === 3) {
-                    setStep(prev => prev - 3);
-                    if (selectedFile !== "") {
-                        setPetPhoto(selectedFile);
-                    }                    
-                }
-                if (step === 4) {
-                    setStep(prev => prev - 1);
-                    if (selectedFile !== "") {
-                        setPetPhoto(selectedFile);
-                    }                    
-                }
+        if (step === 3) {
+          setStep((prev) => prev + 2);
         }
-    };
+        break;
 
-    const steps = [
-        <AddPetChooseOption next={handleNextPage} data={formData} selectedFile={petPhoto}/>,
-        <AddPetPersonalDetailsYourPet next={handleNextPage} prev={handleBackPage} data={formData} selectedFile={petPhoto}/>,
-        <AddPetMoreInfoYourPet next={handleNextPage} prev={handleBackPage} data={formData} selectedFile={petPhoto} />,        
-        <AddPetPersonalDetailsNotices next={handleNextPage} prev={handleBackPage} data={formData} selectedFile={petPhoto}/>,
-        <AddPetMoreInfoNotices next={handleNextPage} prev={handleBackPage} data={formData} selectedFile={petPhoto}/>,
-        <AddPetMoreInfoSell next={handleNextPage} prev={handleBackPage} data={formData} selectedFile={petPhoto}/>
-    ];   
-
-    const getTitle = () => {
-        switch (formData.category) {
-            case 'your pet':
-                return 'Add pet';
-            case 'sell':
-                return 'Add pet for sale';
-            case 'lost/found':
-                return 'Add lost pet';
-            case 'in good hands':
-                return 'In good hands';
-            default:
-                return 'Add pet';
+      default:
+        if (step === 0) {
+          if (newData.category !== formData.category) {
+            resetFormData(newData.category);
+            setPetPhoto(null);
+          }
+          setStep((prev) => prev + 3);
         }
-    };
+        if (step === 3) {
+          setStep((prev) => prev + 1);
+        }
+    }
+  };
 
-    return (
-        <div>
+  const handleBackPage = (newData, selectedFile = '') => {
+    setFormData((prev) => ({ ...prev, ...newData }));
+    switch (newData.category) {
+      case 'your-pet':
+        setStep((prev) => prev - 1);
+        if (selectedFile !== '') {
+          setPetPhoto(selectedFile);
+        }
+        break;
+
+      case 'sell':
+        if (step === 3) {
+          setStep((prev) => prev - 3);
+          if (selectedFile !== '') {
+            setPetPhoto(selectedFile);
+          }
+        }
+        if (step === 5) {
+          setStep((prev) => prev - 2);
+          if (selectedFile !== '') {
+            setPetPhoto(selectedFile);
+          }
+        }
+        break;
+
+      default:
+        if (step === 3) {
+          setStep((prev) => prev - 3);
+          if (selectedFile !== '') {
+            setPetPhoto(selectedFile);
+          }
+        }
+        if (step === 4) {
+          setStep((prev) => prev - 1);
+          if (selectedFile !== '') {
+            setPetPhoto(selectedFile);
+          }
+        }
+    }
+  };
+
+  const steps = [
+    <AddPetChooseOption
+      next={handleNextPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+    <AddPetPersonalDetailsYourPet
+      next={handleNextPage}
+      prev={handleBackPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+    <AddPetMoreInfoYourPet
+      next={handleNextPage}
+      prev={handleBackPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+    <AddPetPersonalDetailsNotices
+      next={handleNextPage}
+      prev={handleBackPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+    <AddPetMoreInfoNotices
+      next={handleNextPage}
+      prev={handleBackPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+    <AddPetMoreInfoSell
+      next={handleNextPage}
+      prev={handleBackPage}
+      data={formData}
+      selectedFile={petPhoto}
+    />,
+  ];
+
+  const getTitle = () => {
+    switch (formData.category) {
+      case 'your pet':
+        return 'Add pet';
+      case 'sell':
+        return 'Add pet for sale';
+      case 'lost/found':
+        return 'Add lost pet';
+      case 'in good hands':
+        return 'In good hands';
+      default:
+        return 'Add pet';
+    }
+  };
+
+  return (
+    <>
+      {/* <FakeHeader /> */}
+      <Container>
+        <FormContainer>
+          <FormStyled>
             <div>
-                <h1>{step === 0 ? 'Add pet' : getTitle()}</h1>
-                <ul>
-                    <li>Choose option</li>
-                    <li>Personal details</li>
-                    <li>More info</li>
-                </ul>
+              <Title>{step === 0 ? 'Add pet' : getTitle()}</Title>
+              <StepList>
+                <li>Choose option</li>
+                <li>Personal details</li>
+                <li>More info</li>
+              </StepList>
             </div>
             {steps[step]}
-        </div>
-    )
+          </FormStyled>
+        </FormContainer>
+      </Container>
+    </>
+  );
 };
 
-export default AddPetForm
+export default AddPetForm;
