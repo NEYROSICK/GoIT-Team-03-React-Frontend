@@ -1,6 +1,6 @@
 import { useGetNoticesQuery } from '../../../redux/API/noticesApi';
 
-function AllNotices({ searchParams = 'ara' }) {
+function AllNotices({ searchParams }) {
   const { data, error, isLoading } = useGetNoticesQuery({
     params: searchParams ? { searchParams } : '',
   });

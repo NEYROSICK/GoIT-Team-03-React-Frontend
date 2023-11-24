@@ -10,15 +10,15 @@ import {
   FavoriteIcon,
 } from './NoticeItem.styled';
 
-const NoticeItem = () => {
+const NoticeItem = ({id, category, location, age, sex, title}) => {
   return (
-    <ItemContainer>
+    <ItemContainer key={id}>
       <TopPart
         imgUrl={
           'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'
         }
       >
-        <ItemCatogory>CATEGORY</ItemCatogory>
+        <ItemCatogory>{category}</ItemCatogory>
 
         <ItemFavoriteBtn>
           <FavoriteIcon>
