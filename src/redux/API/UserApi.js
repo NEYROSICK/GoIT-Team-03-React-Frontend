@@ -17,12 +17,12 @@ export const UserApi = createApi({
             query: () => 'pets',
         }),
         updateUser: build.mutation({
-            query: ({ ...patch }) => ({
+            query: (patch) => ({
                 url: `/users/updateUser`,
                 method: 'PUTCH',
                 body: patch,
             }),
-            invalidatesTags: (result, error, { id }) => [{ type: 'User', id }],
+            invalidatesTags: ["User"]
         }),
     })
 })

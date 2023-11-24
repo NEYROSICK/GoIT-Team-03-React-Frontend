@@ -20,9 +20,10 @@ import {
   YesSvg,
   CloseSvg
 } from './UserForm.styled';
+import { useDispatch} from 'react-redux';
+// import { updateUser } from '../../../redux/auth/operations';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
-import { useDispatch} from 'react-redux'; 
 
 import { useGetUserQuery, useUpdateUserMutation } from '../../../redux/API/UserApi'
 import { useNavigate } from 'react-router-dom';
@@ -35,29 +36,34 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
-  const [updateUser] = useUpdateUserMutation()
+  const [updateUser] = useUpdateUserMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+
 if(!isLoading){
   console.log(data)
-
-}
+}  
 
   const handleSubmit = async (values) => {
-    // values.date = values.date.split('-').reverse().join('-') 
 
-    const formData = new FormData();
-    formData.append('avatar', userPhoto);
+    values.date.split('-').reverse().join('-')
+    // const formData = new FormData();
+    // formData.append('avatar', userPhoto);
 
-    Object.entries(values).forEach(([key, value]) => {
-      formData.append(key, value);
-    });
-    console.log(values)
+    // Object.entries(values).forEach(([key, value]) => {
+    //   formData.append(key, value);
+    // });
+    // console.log(values)
     // const update = values.date.split('-').reverse().join('-') 
 // console.log(update)
-    await updateUser(values).unwrap();
+console.log({values })
+  await updateUser({values}).unwrap(); 
+
+    
+
     setIsUserUpdate(state => !state);
-    console.log(userPhoto)
+   
   };
   const hendleClick = () => {
     setIsShowModal(true) 
@@ -82,7 +88,7 @@ if(!isLoading){
       {isLoading ? <h1>loading..</h1> : 
         <Formik initialValues={{
           name: '' || data.user.name, 
-          date: ''|| data.user.date.split('-').reverse().join('-'),
+          date: ''|| data.user.date, //.split('-').reverse().join('-')
           email: ''|| data.user.email, 
           city: '' || data.user.city,
           phone: ''|| data.user.phone,

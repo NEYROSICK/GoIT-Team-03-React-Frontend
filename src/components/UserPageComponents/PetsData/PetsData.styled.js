@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 export const PetsDataTitle = styled.h2`
   font-size: 20px;
@@ -189,7 +190,7 @@ export const ConteinerTitle = styled.div`
   }
 
 `
-export const BtnAddPet = styled.button`
+export const BtnAddPet = styled(Link)`
   border-radius: 50%;
   padding: 20px 18px 16px;
   color: var(--clr-primary-inv);
@@ -225,4 +226,15 @@ export const BtnAddPet = styled.button`
   }
 
 `
+// export const TrashSvg = styled.svg`
+//   fill:var(--clr-brand-blue-grd);
+
+// `
+export const PlussSvg = styled.svg`
+  stroke:var(--clr-bcg);
+  width: 24px;
+  height: 24px;
+
+`
+
 
