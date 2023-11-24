@@ -74,8 +74,8 @@ export  const UserPhotoIcon = styled.svg`
   height: 24px;
   stroke: #54adff;
 `;
-export const UserPhotoIconDell = styled.svg`
-  width: 34px;
-  height: 34px;
-  stroke: red;
-`;
+
+export const CameraSvg = styled.svg`
+  fill: none;
+
+`

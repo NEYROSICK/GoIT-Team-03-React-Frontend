@@ -16,15 +16,18 @@ import {
   ConteinerBtn,
   ButtonCansel,
   ButtonLogout,
-  ModalTitle
+  ModalTitle,
+  YesSvg,
+  CloseSvg
 } from './UserForm.styled';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
-import { useDispatch} from 'react-redux'; // useSelector 
+import { useDispatch} from 'react-redux'; 
 
 import { useGetUserQuery, useUpdateUserMutation } from '../../../redux/API/UserApi'
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../../redux/auth/operations';
+import sprite from '.././../../ui/Icons/sprite.svg'
 
 
 
@@ -33,14 +36,12 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
   const [updateUser] = useUpdateUserMutation()
-  // const state = useSelector(state => state.auth);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 if(!isLoading){
   console.log(data)
 
 }
-const {email,name,date,phone,city} = data.user
 
   const handleSubmit = async (values) => {
     // values.date = values.date.split('-').reverse().join('-') 
@@ -80,11 +81,11 @@ const {email,name,date,phone,city} = data.user
     <>
       {isLoading ? <h1>loading..</h1> : 
         <Formik initialValues={{
-          name: '' || name, 
-          date: ''|| date.split('-').reverse().join('-'),
-          email: ''|| email, 
-          city: '' || city,
-          phone: ''|| phone,
+          name: '' || data.user.name, 
+          date: ''|| data.user.date.split('-').reverse().join('-'),
+          email: ''|| data.user.email, 
+          city: '' || data.user.city,
+          phone: ''|| data.user.phone,
 }} onSubmit={handleSubmit}  >
           <UserFormBody>
             <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
@@ -163,21 +164,7 @@ const {email,name,date,phone,city} = data.user
               {isUserUpdate ? (
                 <UserFormBtn type="button" onClick={hendleClick }>
                   <UserFormSvg>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                    >
-                      <path
-                        d="M14 4L18 4C19.1046 4 20 4.89543 20 6V18C20 19.1046 19.1046 20 18 20H14M3 12L15 12M3 12L7 8M3 12L7 16"
-                        stroke="#54ADFF"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <use href={sprite + '#iconLogout'}></use>
                   </UserFormSvg>
                   <BtnText>Log Out</BtnText>
                 </UserFormBtn>
@@ -195,15 +182,15 @@ const {email,name,date,phone,city} = data.user
             <ConteinerBtn>
             <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
             <ButtonLogout  onClick={()=>hendleLogout()}>Yes 
-              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-                <path d="M14.5 4L18.5 4C19.6046 4 20.5 4.89543 20.5 6V18C20.5 19.1046 19.6046 20 18.5 20H14.5M3.5 12L15.5 12M3.5 12L7.5 8M3.5 12L7.5 16" stroke="#FEF9F9" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <YesSvg>
+               <use href={sprite + '#iconLogout'}></use>
+             </YesSvg>
             </ButtonLogout>
           </ConteinerBtn>
           <BtnCloseModal onClick={() => setIsShowModal(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-              <path d="M19 5L5 19M5.00004 5L19 19" stroke="#54ADFF" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <CloseSvg>
+            <use href={sprite + '#iconCross'}></use>
+            </CloseSvg>
           </BtnCloseModal>
         </ModalConteiner>
       </Modal>: <div></div>}
