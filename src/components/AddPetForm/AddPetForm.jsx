@@ -114,7 +114,7 @@ const AddPetForm = () => {
       addNotice(formData);
     }
 
-    resetFormData();
+    resetFormData('');
     console.log('Send request');
     const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
     navigate(redirectTo);

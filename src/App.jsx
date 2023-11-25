@@ -32,7 +32,6 @@ function App() {
         </Route>
         <Route path="news" element={<NewsPage />} />
         <Route path="friends" element={<FriendsPage />} />
-        <Route path="add-pet" element={<AddPetPage />} />
         <Route
           path="/register"
           element={
@@ -47,6 +46,12 @@ function App() {
           path="/user"
           element={
             <PrivateRoute redirectTo="/login" component={<UserPage />} />
+          }
+        />
+        <Route
+          path="add-pet"
+          element={
+            <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
           }
         />
       </Route>

@@ -1,9 +1,9 @@
 import { Field, ErrorMessage, Form, Formik } from 'formik';
-import { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useState } from 'react';
 import { object, string } from 'yup';
 import {
   AvatarContainer,
+  ErMsFile,
   IconFemale,
   IconMale,
   IconPlus,
@@ -25,15 +25,19 @@ const schema = object({
 const AddPetMoreInfoNotices = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [erMessage, setErMessage] = useState('');
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setSelectedFile(acceptedFiles[0]);
-  }, []);
+  const handleFileChange = (e) => { 
+    const file = e.target.files[0];
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: 'image/jpeg, image/png',
-  });
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      setSelectedFile(file);
+      setErMessage('');
+    } else {
+      setSelectedFile(null);
+      setErMessage('Please select a JPEG or PNG');
+    }
+  }
 
   const handleSubmit = (values) => {
     if (!selectedFile) {
@@ -75,27 +79,27 @@ const AddPetMoreInfoNotices = (props) => {
               <p>Choose pet image:</p>
               <LabelInputFile
                 className={
-                  formSubmitted && !selectedFile ? 'no-image-selected' : ''
+                  (erMessage !== '') || formSubmitted && !selectedFile ? 'no-image-selected' : ''
                 }
               >
-                <div {...getRootProps()}>
-                  {selectedFile ? (
-                    <div>
-                      <PhotoContainer
-                        src={URL.createObjectURL(selectedFile)}
-                        alt="User's file"
-                        style={{ maxWidth: '300px' }}
-                      />
-                    </div>
-                  ) : (
-                    <IconPlus>
-                      <use href={sprite + '#iconPlusAvatar'} />
-                    </IconPlus>
-                  )}
-                </div>
-                <InputFile type="file" name="image" {...getInputProps()} />
+                {selectedFile ? (
+                  <div>
+                    <PhotoContainer
+                      src={URL.createObjectURL(selectedFile)}
+                      alt="User's file"
+                      style={{ maxWidth: '300px' }}
+                    />
+                  </div>
+                ) : (
+                  <IconPlus>
+                    <use href={sprite + '#iconPlusAvatar'} />
+                  </IconPlus>
+                )}
+                <InputFile type="file" name="image" accept='image/jpeg, image/png' onChange={handleFileChange}/>
               </LabelInputFile>
             </AvatarContainer>
+
+            {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
 
             <label>
               Location
