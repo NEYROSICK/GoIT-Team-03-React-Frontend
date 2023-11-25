@@ -6,13 +6,16 @@ function AllNotices() {
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
   const [searchParams] = useSearchParams();
-
+  const searchParamsObject = Object.fromEntries(searchParams.entries());
   const { data, error, isLoading } = useGetNoticesQuery({
     category,
-    searchParams,
+    params: {
+      page: 1,
+      limit: 12,
+      ...searchParamsObject,
+    },
   });
-  console.log(searchParams);
-  console.log(data);
+
   return (
     <>
       {isLoading && <div>Loading...</div>}
@@ -20,10 +23,10 @@ function AllNotices() {
         <NoticeList>
           {data.length > 0 ? (
             data.map(
-              ({ id, title, category, date, sex, location, avatarURL }) => (
+              ({ _id, title, category, date, sex, location, avatarURL }) => (
                 <NoticeItem
-                  key={id}
-                  id={id}
+                  key={_id}
+                  id={_id}
                   title={title}
                   category={category}
                   date={date}

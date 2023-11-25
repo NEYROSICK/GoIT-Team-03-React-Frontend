@@ -4,7 +4,7 @@ import {
   ItemContainer,
   TopPart,
   ItemImg,
-  ItemCatogory,
+  ItemCategory,
   ItemFavoriteBtn,
   FavoriteIcon,
   ItemDataWrapper,
@@ -14,6 +14,8 @@ import {
   ItemLearnMoreBtn,
   ItemLearnMoreBtnIcon,
 } from './NoticeItem.styled';
+import { useUpdateFavoriteMutation } from '../../../redux/API/UserApi';
+import { useState } from 'react';
 
 const NoticeItem = ({
   id,
@@ -25,6 +27,24 @@ const NoticeItem = ({
   avatarUrl,
   isFavorite,
 }) => {
+  const [updateFavorite] = useUpdateFavoriteMutation();
+
+  const [message, setMessage] = useState('');
+
+  const handleFavoriteClick = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await updateFavorite(id);
+      if (response.data && response.data.message) {
+        setMessage(response.data.message);
+      }
+      console.log(message);
+    } catch (error) {
+      setMessage('Failed to update favorite status');
+    }
+  };
+
   const today = new Date();
 
   const noticeDate = new Date(date);
@@ -37,9 +57,9 @@ const NoticeItem = ({
     <ItemContainer key={id}>
       <TopPart>
         <ItemImg src={avatarUrl} />
-        <ItemCatogory>{category}</ItemCatogory>
+        <ItemCategory>{category}</ItemCategory>
 
-        <ItemFavoriteBtn>
+        <ItemFavoriteBtn type="submit" onClick={handleFavoriteClick}>
           <FavoriteIcon isFavorite={isFavorite}>
             <use href={sprite + '#iconHeart'} />
           </FavoriteIcon>

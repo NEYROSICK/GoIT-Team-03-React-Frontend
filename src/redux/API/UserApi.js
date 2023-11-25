@@ -20,12 +20,22 @@ export const UserApi = createApi({
     updateUser: build.mutation({
       query: (patch) => ({
         url: `/users/updateUser`,
-        method: 'PUTCH',
+        method: 'PATCH',
         body: patch,
       }),
       invalidatesTags: ['User'],
     }),
+    updateFavorite: build.mutation({
+      query: (id) => ({
+        url: `/users/favorite/${id}`,
+        method: 'PATCH',
+      }),
+    }),
   }),
 });
 
-export const { useGetUserQuery, useUpdateUserMutation } = UserApi;
+export const {
+  useGetUserQuery,
+  useUpdateUserMutation,
+  useUpdateFavoriteMutation,
+} = UserApi;

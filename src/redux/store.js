@@ -18,7 +18,7 @@ import storage from 'redux-persist/lib/storage';
 const persistConfig = {
   key: 'root',
   storage,
-  blacklist: ['authApi'],
+  blacklist: ['authApi', 'noticesApi'],
 };
 
 const rootReducer = combineReducers({
