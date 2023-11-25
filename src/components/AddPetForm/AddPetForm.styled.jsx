@@ -9,7 +9,8 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
+  margin-bottom: 20px;
 `;
 
 export const FormStyled = styled.div`

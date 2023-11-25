@@ -1,9 +1,13 @@
 import { Field, ErrorMessage, Form, Formik } from 'formik';
 import { object, string, number } from 'yup';
 import {
+  AvatarContainer,
+  IconPlus,
   InputFile,
+  InputList,
   LabelInputFile,
   PhotoContainer,
+  SexList,
 } from './AddPetMoreInfo.styled';
 import { useCallback, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
@@ -46,57 +50,67 @@ const AddPetMoreInfoSell = (props) => {
     >
       {({ values }) => (
         <Form>
-          <div>
-            The Sex
-            <label>
-              Female
-              <Field type="radio" name="sex" value="female" />
-            </label>
-            <label>
-              Male
-              <Field type="radio" name="sex" value="male" />
-            </label>
-            <ErrorMessage name="sex" component={'div'} />
-          </div>
+          <InputList>
+            <p>The Sex</p>
+            <SexList>
+              <Field type="radio" name="sex" id="female" value="female" />
+              <label htmlFor="female">Female</label>
 
-          <label>
-            Location
-            <Field type="text" name="location" placeholder="Type of location" />
-            <ErrorMessage name="location" component={'div'} />
-          </label>
+              <Field type="radio" name="sex" id="male" value="male" />
+              <label htmlFor="male">Male</label>
+              <ErrorMessage name="sex" component={'div'} />
+            </SexList>
 
-          <label>
-            Price
-            <Field type="text" name="price" placeholder="Type of price" />
-            <ErrorMessage name="price" component={'div'} />
-          </label>
+            <AvatarContainer>
+              <p>Choose pet image</p>
 
-          <LabelInputFile
-            className={
-              formSubmitted && !selectedFile ? 'no-image-selected' : ''
-            }
-          >
-            <div {...getRootProps()}>
-              {selectedFile ? (
-                <div>
-                  <PhotoContainer
-                    src={URL.createObjectURL(selectedFile)}
-                    alt="User's file"
-                    style={{ maxWidth: '300px' }}
-                  />
+              <LabelInputFile
+                className={
+                  formSubmitted && !selectedFile ? 'no-image-selected' : ''
+                }
+              >
+                <IconPlus>
+                  <use href={sprite + '#iconPlusAvatar'} />
+                </IconPlus>
+                <div {...getRootProps()}>
+                  {selectedFile ? (
+                    <div>
+                      <PhotoContainer
+                        src={URL.createObjectURL(selectedFile)}
+                        alt="User's file"
+                        style={{ maxWidth: '300px' }}
+                      />
+                    </div>
+                  ) : (
+                    <></>
+                  )}
                 </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            <InputFile type="file" name="image" {...getInputProps()} />
-          </LabelInputFile>
+                <InputFile type="file" name="image" {...getInputProps()} />
+              </LabelInputFile>
+            </AvatarContainer>
 
-          <label>
-            Comments
-            <Field type="text" name="comments" placeholder="Type of pet" />
-            <ErrorMessage name="comments" component={'div'} />
-          </label>
+            <label>
+              Location
+              <Field
+                type="text"
+                name="location"
+                placeholder="Type of location"
+              />
+              <ErrorMessage name="location" component={'div'} />
+            </label>
+
+            <label>
+              Price
+              <Field type="text" name="price" placeholder="Type of price" />
+              <ErrorMessage name="price" component={'div'} />
+            </label>
+
+            <label>
+              Comments
+              <Field type="text" name="comments" placeholder="Type of pet" />
+              <ErrorMessage name="comments" component={'div'} />
+            </label>
+          </InputList>
 
           <ButtonNextBack className="buttonNext" type="submit">
             Done

@@ -57,12 +57,6 @@ const AddPetMoreInfoNotices = (props) => {
             <ErrorMessage name="sex" component={'div'} />
           </div>
 
-          <label>
-            Location
-            <Field type="text" name="location" placeholder="Type of location" />
-            <ErrorMessage name="location" component={'div'} />
-          </label>
-
           <LabelInputFile
             className={
               formSubmitted && !selectedFile ? 'no-image-selected' : ''
@@ -83,6 +77,12 @@ const AddPetMoreInfoNotices = (props) => {
             </div>
             <InputFile type="file" name="image" {...getInputProps()} />
           </LabelInputFile>
+
+          <label>
+            Location
+            <Field type="text" name="location" placeholder="Type of location" />
+            <ErrorMessage name="location" component={'div'} />
+          </label>
 
           <label>
             Comments
