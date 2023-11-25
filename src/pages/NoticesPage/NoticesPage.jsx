@@ -1,9 +1,8 @@
 import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 import NoticesCategoriesNav from '../../components/FindPetComponents/NoticesCategoriesNav/NoticesCategoriesNav';
 import NoticesFilter from '../../components/FindPetComponents/NoticesFilter/NoticesFilter';
-import { Outlet, NavLink } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState, useCallback, Suspense } from 'react';
+import { Outlet, useSearchParams } from 'react-router-dom';
+import { useCallback, Suspense } from 'react';
 import {
   Container,
   FilterAndAddContainer,
@@ -11,8 +10,6 @@ import {
   PageTitle,
 } from '../NoticesPage/NoticesPage.styled';
 import AddPetButton from '../../ui/AddPetButton/AddPetButton';
-
-import NoticeItem from '../../components/FindPetComponents/NoticeItem/NoticeItem';
 
 const NoticesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -50,9 +47,8 @@ const NoticesPage = () => {
           </FilterAndAddContainer>
         </div>
       </FilterContainer>
-      <NoticeItem />
       <Suspense fallback={<p>Loading...</p>}>
-        <Outlet searchParams={searchParams} />
+        <Outlet />
       </Suspense>
     </Container>
   );

@@ -1,6 +1,7 @@
-// Add favorite route
+import { useGetMyFavoriteQuery } from '../../../redux/API/noticesApi';
 
-function FavoriteNotices() {
+function FavoriteNotices({ searchParams }) {
+  const { data, error, isLoading } = useGetMyFavoriteQuery({ searchParams });
   return <div>FavoriteNotices</div>;
 }
 

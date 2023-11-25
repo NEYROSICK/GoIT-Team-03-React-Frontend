@@ -135,8 +135,7 @@ button {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  /* background: #f1f1f1; */
-  background: #ffffffbb;
+  background: inherit;
 }
 
 /* Handle */

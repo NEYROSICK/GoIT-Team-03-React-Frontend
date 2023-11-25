@@ -1,35 +1,43 @@
-import { useRef, Suspense } from 'react';
 import sprite from '../../../ui/Icons/sprite.svg';
-// import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 import {
   ItemContainer,
   TopPart,
+  ItemImg,
   ItemCatogory,
   ItemFavoriteBtn,
   FavoriteIcon,
   ItemDataWrapper,
   ItemData,
   ItemDataIcon,
+  ItemTitle,
+  ItemLearnMoreBtn,
+  ItemLearnMoreBtnIcon,
 } from './NoticeItem.styled';
 
 const NoticeItem = ({
   id,
-  category,
-  location,
-  age,
-  sex,
   title,
+  date,
+  category,
+  sex,
+  location,
+  avatarUrl,
   isFavorite,
 }) => {
+  const today = new Date();
+
+  const noticeDate = new Date(date);
+
+  const noticeAge = today.getFullYear() - noticeDate.getFullYear();
+
+  const ageText = noticeAge % 2 ? 'year' : 'years';
+
   return (
     <ItemContainer key={id}>
-      <TopPart
-        imgUrl={
-          'https://i.natgeofe.com/n/548467d8-c5f1-4551-9f58-6817a8d2c45e/NationalGeographic_2572187_square.jpg'
-        }
-      >
-        <ItemCatogory>In good hands</ItemCatogory>
+      <TopPart>
+        <ItemImg src={avatarUrl} />
+        <ItemCatogory>{category}</ItemCatogory>
 
         <ItemFavoriteBtn>
           <FavoriteIcon isFavorite={isFavorite}>
@@ -42,13 +50,13 @@ const NoticeItem = ({
             <ItemDataIcon>
               <use href={sprite + '#iconLocation'} />
             </ItemDataIcon>
-            Lviv
+            {location}
           </ItemData>
           <ItemData>
             <ItemDataIcon>
               <use href={sprite + '#iconClock'} />
             </ItemDataIcon>
-            1 year
+            {noticeAge} {ageText}
           </ItemData>
           <ItemData>
             <ItemDataIcon>
@@ -57,13 +65,18 @@ const NoticeItem = ({
                   sex === 'male' ? sprite + '#iconMale' : sprite + '#iconFemale'
                 }
               />
-              {/* sprite + '#iconFemale' */}
-              {/* iconMale */}
             </ItemDataIcon>
             female
           </ItemData>
         </ItemDataWrapper>
       </TopPart>
+      <ItemTitle>{title}</ItemTitle>
+      <ItemLearnMoreBtn>
+        Learn more
+        <ItemLearnMoreBtnIcon>
+          <use href={sprite + '#iconPaw'} />
+        </ItemLearnMoreBtnIcon>
+      </ItemLearnMoreBtn>
     </ItemContainer>
   );
 };

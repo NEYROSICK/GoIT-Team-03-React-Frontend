@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const UserApi = createApi({
-    reducerPath: 'UserApi',
-    tagTypes: ['User'],
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://goit-team-03-node.onrender.com/api/' ,
+  reducerPath: 'UserApi',
+  tagTypes: ['User'],
+  baseQuery: fetchBaseQuery({
+    baseUrl: 'https://goit-team-03-node.onrender.com/api/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -12,19 +13,19 @@ export const UserApi = createApi({
       return headers;
     },
   }),
-    endpoints: (build) => ({
-        getUser: build.query({
-            query: () => 'pets',
-        }),
-        updateUser: build.mutation({
-            query: (patch) => ({
-                url: `/users/updateUser`,
-                method: 'PUTCH',
-                body: patch,
-            }),
-            invalidatesTags: ["User"]
-        }),
-    })
-})
+  endpoints: (build) => ({
+    getUser: build.query({
+      query: () => 'pets',
+    }),
+    updateUser: build.mutation({
+      query: (patch) => ({
+        url: `/users/updateUser`,
+        method: 'PUTCH',
+        body: patch,
+      }),
+      invalidatesTags: ['User'],
+    }),
+  }),
+});
 
 export const { useGetUserQuery, useUpdateUserMutation } = UserApi;
