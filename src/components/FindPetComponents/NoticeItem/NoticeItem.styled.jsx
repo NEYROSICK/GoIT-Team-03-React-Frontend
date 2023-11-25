@@ -61,7 +61,7 @@ const ItemImg = styled.img`
   transition: 300ms;
 `;
 
-const ItemCatogory = styled.p`
+const ItemCategory = styled.p`
   position: absolute;
   top: 16px;
   left: 0;
@@ -227,7 +227,7 @@ export {
   ItemContainer,
   TopPart,
   ItemImg,
-  ItemCatogory,
+  ItemCategory,
   ItemFavoriteBtn,
   FavoriteIcon,
   ItemDataWrapper,

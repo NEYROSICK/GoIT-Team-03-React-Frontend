@@ -14,24 +14,38 @@ export const noticesApi = createApi({
   }),
   endpoints: (builder) => ({
     getNotices: builder.query({
-      query: ({ category, params }) => ({
-        url: `/${category}?page=1&limit=12`,
-        params,
-      }),
+      query: ({ category, params }) => {
+        const { page = 1, limit = 12, ...otherParams } = params;
+        return {
+          url: `/${category}`,
+          params: {
+            page,
+            limit,
+            ...otherParams,
+          },
+        };
+      },
       providesTags: ['Notices'],
       refetchOnMountOrArgChange: true,
     }),
     getMyFavorite: builder.query({
-      query: (params) => ({
-        url: '/myFavorite',
-        params,
-      }),
+      query: ({ params }) => {
+        const { page = 1, limit = 12, ...otherParams } = params;
+        return {
+          url: `/myFavorite`,
+          params: {
+            page,
+            limit,
+            ...otherParams,
+          },
+        };
+      },
       providesTags: ['Notices'],
+      refetchOnMountOrArgChange: true,
     }),
     getOneNotice: builder.query({
-      query: (id, params) => ({
+      query: (id) => ({
         url: `/getOne/${id}`,
-        params,
       }),
     }),
     getMyNotices: builder.query({
