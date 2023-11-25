@@ -1,11 +1,11 @@
-import{n as r,L,u as v,j as e,r as l,a as k,C,O as $}from"./index-a581f74b.js";import{N as D}from"./NoticesSearch-438922fa.js";import{s as g}from"./sprite-183f090d.js";const I=r.div`
+import{n as r,L,u as v,a as k,j as e,r as l,b as C,C as I,O as $}from"./index-77519cfc.js";import{N as D}from"./NoticesSearch-c549ae3f.js";import{s as q}from"./selectors-87b94965.js";import{s as g}from"./sprite-fa127c97.js";const E=r.div`
   max-width: 205px;
   height: 121px;
 
   @media screen and (min-width: 768px) {
     max-width: 319px;
   }
-`,q=r.ul`
+`,G=r.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -16,7 +16,7 @@ import{n as r,L,u as v,j as e,r as l,a as k,C,O as $}from"./index-a581f74b.js";i
     flex-wrap: wrap;
     gap: 12px;
   }
-`,E=r.ul`
+`,M=r.ul`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -61,7 +61,7 @@ border-radius: 40px;
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
 }
-`;let u=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const G=[{id:u(),to:"/notices/sell",text:"sell"},{id:u(),to:"/notices/lost-found",text:"lost/found"},{id:u(),to:"/notices/in-good-hands",text:"in good hands"}],M=[{id:u(),to:"/notices/favorite",text:"favorite ads"},{id:u(),to:"/notices/my-ads",text:"my ads"}],Q={publicCategories:G,userCategories:M},{publicCategories:T,userCategories:U}=Q,R=()=>{const{pathname:n,search:t}=v(),i=v();return e.jsxs(I,{children:[e.jsx(q,{children:T.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:t},active:i.pathname===o?!0:void 0,children:s})},a))}),e.jsx(E,{children:U.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:t},active:i.pathname===o?!0:void 0,children:s})},a))})]})},H=r.button`
+`;let u=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const Q=[{id:u(),to:"/notices/sell",text:"sell"},{id:u(),to:"/notices/lost-found",text:"lost/found"},{id:u(),to:"/notices/in-good-hands",text:"in good hands"}],T=[{id:u(),to:"/notices/favorite",text:"favorite ads"},{id:u(),to:"/notices/my-ads",text:"my ads"}],U={publicCategories:Q,userCategories:T},{publicCategories:R,userCategories:H}=U,_=()=>{const{search:n}=v(),t=v(),i=k(q);return console.log(i),e.jsxs(E,{children:[e.jsx(G,{children:R.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))}),i&&e.jsx(M,{children:H.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))})]})},J=r.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -102,16 +102,16 @@ border-radius: 40px;
 
   @media screen and (min-width: 1280px) {
   }
-`,_=r.svg`
+`,K=r.svg`
   stroke: currentColor;
   fill: none;
-`,J=r.span`
+`,V=r.span`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
   }
-`,K=r.div`
+`,W=r.div`
   width: 152px;
   position: absolute;
   right: 0;
@@ -127,7 +127,7 @@ border-radius: 40px;
   @media screen and (min-width: 768px) {
     right: auto;
   }
-`,V=r.div``,W=r.h4`
+`,X=r.div``,Y=r.h4`
   margin-bottom: 8px;
   font-weight: 700;
   font-size: 16px;
@@ -174,13 +174,13 @@ border-radius: 40px;
   line-height: 16px;
   letter-spacing: 0px;
   text-align: left;
-`,P=r.input``,A=r.svg`
+`,A=r.input``,P=r.svg`
   stroke: currentColor;
   fill: none;
   width: 24px;
   height: 24px;
   display: ${n=>n.active&&"none"};
-  `,X=({checkboxValue:n,setCheckboxValue:t})=>{const[i,a]=l.useState(!1),[o,s]=l.useState(!1),[c,h]=l.useState(!1),f=()=>{a(d=>!d)},B=()=>{s(d=>!d)},O=()=>{h(d=>!d)},p=d=>{const{name:m}=d.target;t(b=>({...b,[m]:!b[m]}))};return e.jsxs("div",{children:[e.jsxs(H,{type:"button",onClick:f,children:[e.jsx(J,{children:"Filter"}),e.jsx(_,{children:e.jsx("use",{href:g+"#iconFilters3"})})]}),i&&e.jsx(K,{active:!0,children:e.jsxs(V,{children:[e.jsx(W,{children:"Filters"}),e.jsxs(y,{active:o?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:B,"aria-label":"toggle age options",children:[e.jsx(A,{active:o?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(F,{children:[e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to2",checked:n.to2}),"up to 2 years"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"from2",checked:n.from2}),"from 2 years"]})]})]}),e.jsxs(y,{active:c?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:O,"aria-label":"toggle gender options",children:[e.jsx(A,{active:c?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By gender"]}),c&&e.jsxs(F,{children:[e.jsxs(x,{children:[e.jsx(P,{onChange:p,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(x,{children:[e.jsx(P,{onChange:p,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},Y=r.div`
+  `,Z=({checkboxValue:n,setCheckboxValue:t})=>{const[i,a]=l.useState(!1),[o,s]=l.useState(!1),[c,h]=l.useState(!1),f=()=>{a(d=>!d)},B=()=>{s(d=>!d)},O=()=>{h(d=>!d)},p=d=>{const{name:m}=d.target;t(b=>({...b,[m]:!b[m]}))};return e.jsxs("div",{children:[e.jsxs(J,{type:"button",onClick:f,children:[e.jsx(V,{children:"Filter"}),e.jsx(K,{children:e.jsx("use",{href:g+"#iconFilters3"})})]}),i&&e.jsx(W,{active:!0,children:e.jsxs(X,{children:[e.jsx(Y,{children:"Filters"}),e.jsxs(y,{active:o?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:B,"aria-label":"toggle age options",children:[e.jsx(P,{active:o?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(F,{children:[e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to2",checked:n.to2}),"up to 2 years"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"from2",checked:n.from2}),"from 2 years"]})]})]}),e.jsxs(y,{active:c?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:O,"aria-label":"toggle gender options",children:[e.jsx(P,{active:c?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By gender"]}),c&&e.jsxs(F,{children:[e.jsxs(x,{children:[e.jsx(A,{onChange:p,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(x,{children:[e.jsx(A,{onChange:p,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},ee=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -196,7 +196,7 @@ border-radius: 40px;
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,Z=r.h1`
+`,ne=r.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -211,7 +211,7 @@ border-radius: 40px;
       line-height: 66px;
   
   }
-`,ee=r.div`
+`,te=r.div`
   position: relative;
   width: 280px;
   display: flex;
@@ -224,7 +224,7 @@ border-radius: 40px;
   @media screen and (min-width: 1280px) {
     width: 1248px; 
   }
-`,ne=r.div`
+`,ie=r.div`
   display: flex;
   flex-direction: column;
   gap: 211px;
@@ -238,7 +238,7 @@ border-radius: 40px;
   @media screen and (min-width: 1280px) {
     gap: 16px;
   }
-`,te=r(L)`
+`,re=r(L)`
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -271,14 +271,14 @@ border-radius: 40px;
 
   @media screen and (min-width: 1280px) {
   }
-`,ie=r.svg`
+`,oe=r.svg`
   stroke: var(--clr-primary-inv);
   width: 24px;
   height: 24px;
   @media screen and (min-width: 768px) {
     display: none;
   }
-`,re=r.svg`
+`,ae=r.svg`
   display: none;
   stroke: var(--clr-primary-inv);
   @media screen and (min-width: 768px) {
@@ -287,7 +287,7 @@ border-radius: 40px;
     height: 24px;
     fill: var(--clr-primary-inv);
   }
-`,oe=r.span`
+`,se=r.span`
   font-family: Manrope;
   font-size: 12px;
   font-weight: 600;
@@ -303,4 +303,4 @@ border-radius: 40px;
     letter-spacing: 0.04em;
     text-align: left;
   }
-`,ae=()=>{const n=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(te,{onClick:n,to:"/add-pet",children:[e.jsx(ie,{children:e.jsx("use",{href:g+"#iconPlus"})}),e.jsx(oe,{children:"Add Pet"}),e.jsx(re,{children:e.jsx("use",{href:g+"#iconPlusSmall"})})]})},N=(n,t)=>t&&!n?{gender:"male"}:!t&&n?{gender:"female"}:{},z=(n,t,i)=>{if(n&&!t&&!i)return{age:"to1"};if(n&&t&&!i)return{age:"to1",age:"to2"};if(n&&!t&&i)return{age:"to1",age:"from2"};if(!n&&t&&!i)return{age:"to2"};if(!n&&t&&i)return{age:"to2",age:"from2"};if(!n&&!t&&i)return{age:"from2"}},se=(n,t,i,a,o)=>n&&t&&i||!n&&!t&&!i?{...N(a,o)}:o&&a||!o&&!a?{...z(n,t,i)}:{...z(n,t,i),...N(a,o)},de={to1:!1,to2:!1,from2:!1,female:!1,male:!1},xe=()=>{const[n,t]=k(),[i,a]=l.useState(de),o=n.get("query");l.useEffect(()=>{t({...se(i.to1,i.to2,i.from2,i.female,i.male)})},[i,n]);const s=({query:f})=>{n.set("query",f),t(n),h()},c=()=>{n.delete("query",o),t(n),h()},h=l.useCallback(()=>{t(n)},[n,t]);return e.jsx(C,{children:e.jsxs(Y,{children:[e.jsx(Z,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(D,{onSubmit:s,onClear:c})}),e.jsxs(ee,{children:[e.jsx(R,{searchParams:n}),e.jsx("div",{children:e.jsxs(ne,{children:[e.jsx(X,{setCheckboxValue:a,checkboxValue:i}),e.jsx(ae,{})]})})]}),e.jsx(l.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx($,{})})]})})};export{xe as default};
+`,de=()=>{const n=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(re,{onClick:n,to:"/add-pet",children:[e.jsx(oe,{children:e.jsx("use",{href:g+"#iconPlus"})}),e.jsx(se,{children:"Add Pet"}),e.jsx(ae,{children:e.jsx("use",{href:g+"#iconPlusSmall"})})]})},N=(n,t)=>t&&!n?{gender:"male"}:!t&&n?{gender:"female"}:{},z=(n,t,i)=>{if(n&&!t&&!i)return{age:"to1"};if(n&&t&&!i)return{age:"to1",age:"to2"};if(n&&!t&&i)return{age:"to1",age:"from2"};if(!n&&t&&!i)return{age:"to2"};if(!n&&t&&i)return{age:"to2",age:"from2"};if(!n&&!t&&i)return{age:"from2"}},le=(n,t,i,a,o)=>n&&t&&i||!n&&!t&&!i?{...N(a,o)}:o&&a||!o&&!a?{...z(n,t,i)}:{...z(n,t,i),...N(a,o)},ce={to1:!1,to2:!1,from2:!1,female:!1,male:!1},he=()=>{const[n,t]=C(),[i,a]=l.useState(ce),o=n.get("query");l.useEffect(()=>{t({...le(i.to1,i.to2,i.from2,i.female,i.male)})},[i,n]);const s=({query:f})=>{n.set("query",f),t(n),h()},c=()=>{n.delete("query",o),t(n),h()},h=l.useCallback(()=>{t(n)},[n,t]);return e.jsx(I,{children:e.jsxs(ee,{children:[e.jsx(ne,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(D,{onSubmit:s,onClear:c})}),e.jsxs(te,{children:[e.jsx(_,{searchParams:n}),e.jsx("div",{children:e.jsxs(ie,{children:[e.jsx(Z,{setCheckboxValue:a,checkboxValue:i}),e.jsx(de,{})]})})]}),e.jsx(l.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx($,{})})]})})};export{he as default};
