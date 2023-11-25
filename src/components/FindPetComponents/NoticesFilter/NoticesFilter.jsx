@@ -15,7 +15,7 @@ import {
 import { useState } from 'react';
 import sprite from '../../../ui/Icons/sprite.svg';
 
-const NoticesFilter = () => {
+const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
@@ -33,7 +33,11 @@ const NoticesFilter = () => {
   };
 
   const handleCheckboxChange = (e) => {
-    onFilter(e.target);
+    const { name } = e.target;
+    setCheckboxValue((prevState) => ({
+      ...prevState,
+      [name]: !prevState[name],
+    }));
   };
 
   return (
@@ -56,7 +60,7 @@ const NoticesFilter = () => {
                 aria-label="toggle age options"
               >
                 <StyledChevronDownIcon active={ageOpen ? true : undefined}>
-                <use href={sprite + '#iconChevronDown'}></use>
+                  <use href={sprite + '#iconChevronDown'}></use>
                 </StyledChevronDownIcon>
                 By age
               </FilterBtn>
@@ -66,8 +70,8 @@ const NoticesFilter = () => {
                     <input
                       onChange={handleCheckboxChange}
                       type="checkbox"
-                      name="age"
-                      value="0-12 m"
+                      name="to1"
+                      checked={checkboxValue.to1}
                     />
                     up to 1 year
                   </FormLabel>
@@ -75,8 +79,8 @@ const NoticesFilter = () => {
                     <input
                       onChange={handleCheckboxChange}
                       type="checkbox"
-                      name="age"
-                      value="1 year"
+                      name="to2"
+                      checked={checkboxValue.to2}
                     />
                     up to 2 years
                   </FormLabel>
@@ -84,8 +88,8 @@ const NoticesFilter = () => {
                     <input
                       onChange={handleCheckboxChange}
                       type="checkbox"
-                      name="age"
-                      value="2 years +"
+                      name="from2"
+                      checked={checkboxValue.from2}
                     />
                     from 2 years
                   </FormLabel>
@@ -99,7 +103,7 @@ const NoticesFilter = () => {
                 aria-label="toggle gender options"
               >
                 <StyledChevronDownIcon active={genderOpen ? true : undefined}>
-                <use href={sprite + '#iconChevronDown'}></use>
+                  <use href={sprite + '#iconChevronDown'}></use>
                 </StyledChevronDownIcon>
                 By gender
               </FilterBtn>
@@ -109,8 +113,8 @@ const NoticesFilter = () => {
                     <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
-                      name="gender"
-                      value="male"
+                      name="male"
+                      checked={checkboxValue.male}
                     />
                     male
                   </FormLabel>
@@ -118,8 +122,8 @@ const NoticesFilter = () => {
                     <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
-                      name="gender"
-                      value="female"
+                      name="female"
+                      checked={checkboxValue.female}
                     />
                     female
                   </FormLabel>

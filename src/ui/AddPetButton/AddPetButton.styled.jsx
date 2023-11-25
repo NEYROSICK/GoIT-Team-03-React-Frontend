@@ -14,8 +14,8 @@ export const AddButton = styled(Link)`
   gap: 4px;
 
   text-decoration: none;
-  background: #54adff;
-  color: #ffffff;
+  background: var(--clr-brand-blue);
+  color: var(--clr-bcg-user);
   
 
   &:hover,
@@ -37,7 +37,7 @@ export const AddButton = styled(Link)`
 `;
 
 export const StyledPlusIcon = styled.svg`
-  stroke: #FEF9F9;
+  stroke: var(--clr-primary-inv);
   width: 24px;
   height: 24px;
   @media screen and (min-width: 768px) {
@@ -46,12 +46,12 @@ export const StyledPlusIcon = styled.svg`
 `;
 export const StyledPlusIconSmall = styled.svg`
   display: none;
-  stroke: #FEF9F9;
+  stroke: var(--clr-primary-inv);
   @media screen and (min-width: 768px) {
     display: block;
     width: 24px;
     height: 24px;
-    fill: #fef9f9;
+    fill: var(--clr-primary-inv);
   }
 `;
 

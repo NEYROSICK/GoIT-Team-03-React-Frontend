@@ -37,7 +37,7 @@ export const Input = styled.input`
   text-align: left;
 
   box-shadow: 3px 8px 14px 0px #88c6fd30;
-  color: #888888;
+  color: var(--clr-secondary);
 
   &:hover,
   &:focus {
@@ -65,8 +65,8 @@ export const SearchSubmitIcon = styled.svg`
   top: 10px;
   transition: 250ms;
   right: ${(props) => props.active && '47px'};
-  stroke: #54ADFF;
-  fill: #54ADFF;
+  stroke: var(--clr-brand-blue);
+  fill: var(--clr-brand-blue);
 
 `;
 
@@ -77,6 +77,6 @@ export const SearchCleanIcon = styled.svg`
   position: absolute;
   right: 13px;
   top: 10px;
-  stroke: #FFC107;
+  stroke: var(--clr-brand-yellow);
 
 `;

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const Container = styled.div`
+export const NoticesContainer = styled.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -24,7 +24,7 @@ export const PageTitle = styled.h1`
   font-size: 24px;
   line-height: 33px;
   text-align: center;
-  color: #111111;
+  color: var(--clr-primary);
 
   @media screen and (min-width: 768px) {
     

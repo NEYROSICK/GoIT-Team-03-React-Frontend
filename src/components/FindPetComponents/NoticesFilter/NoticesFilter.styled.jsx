@@ -11,17 +11,17 @@ export const FilterButton = styled.button`
   align-items: center;
 
   background-color: #c5dff6;
-  color: #54adff;
+  color: var(--clr-brand-blue);
 
   &:hover,
   &:focus {
-    color: #ffffff;
+    color: var(--clr-bcg-user);
     background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
   }
   @media screen and (min-width: 768px) {
     padding: 9px 38px;
     width: 152px;
-    border: 2px solid #54adff;
+    border: 2px solid var(--clr-brand-blue);
     border-radius: 40px;
     color: #54adff;
     display: flex;
@@ -34,7 +34,7 @@ export const FilterButton = styled.button`
 
     &:hover,
     &:focus {
-      color: #fef9f9;
+      color: var(--clr-primary-inv);
       border: none;
       background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
     }
@@ -60,14 +60,19 @@ export const FilterText = styled.span`
 export const DropContainer = styled.div`
   width: 152px;
   position: absolute;
+  right: 0;
   margin-top: 16px;
   padding: 8px;
   padding: ${(props) => props.active && '14px 8px'};
   border-radius: 20px;
-  background-color: #ffffff;
+  background-color: var(--clr-bcg-user);
   box-shadow: 3px 8px 14px 0px #88c6fd30;
   z-index: 30;
   transition: opacity 400ms;
+
+  @media screen and (min-width: 768px) {
+    right: auto;
+  }
 `;
 
 export const DropDown = styled.div``;
@@ -78,7 +83,7 @@ export const FilterHeader = styled.h4`
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.04em;
-  color: #54adff;
+  color: var(--clr-brand-blue);
 `;
 
 export const FilterMenu = styled.div`
@@ -99,7 +104,7 @@ export const FilterBtn = styled.button`
   display: flex;
   gap: 10px;
   align-items: center;
-  color: #54adff;
+  color: var(--clr-brand-blue);
   transition: 300ms;
   font-family: sans-serif;
   font-size: 14px;
