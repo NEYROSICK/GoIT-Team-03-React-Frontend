@@ -13,8 +13,7 @@ function FavoriteNotices() {
       ...searchParamsObject,
     },
   });
-  console.log(data);
-  console.log(searchParamsObject);
+
   return (
     <>
       {isLoading && <div>Loading...</div>}
