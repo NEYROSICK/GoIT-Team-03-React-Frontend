@@ -27,7 +27,7 @@ export const LabelInputFile = styled.label`
   transition: border-color 0.3s;
 
   &.no-image-selected {
-    border: 2px solid red;
+    border: 2px solid var(--clr-brand-red);
   }
 
   & svg {
@@ -45,11 +45,16 @@ export const LabelInputFile = styled.label`
   }
 `;
 
-export const InputFile = styled.input.attrs({
-  type: 'file',
-  accept: 'image/png, image/jpeg',
-})`
+export const InputFile = styled.input`
   display: none;
+`;
+
+export const ErMsFile = styled.div`
+  color: var(--clr-brand-red);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
 
 export const InputList = styled.div`
