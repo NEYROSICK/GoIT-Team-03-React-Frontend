@@ -192,3 +192,4 @@ export const SexList = styled.div`
     transition: stroke 0.3s;
   }
 `;
+

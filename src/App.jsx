@@ -1,21 +1,22 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
+import { lazy } from 'react';
 
-// import { lazy } from 'react';
-import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
-import HomePage from './pages/HomePage/HomePage';
-import AddPetPage from './pages/AddPetPage/AddPetPage';
-import NoticesPage from './pages/NoticesPage/NoticesPage';
-import UserPage from './pages/UserPage/UserPage';
-import NewsPage from './pages/NewsPage/NewsPage';
-import FriendsPage from './pages/FriendsPage/FriendsPage';
-import RegisterPage from './pages/RegisterPage/RegisterPage';
-import LoginPage from './pages/LoginPage/LoginPage';
 import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
-import AllNotices from './components/FindPetComponents/allNotices/AllNotices';
-import FavoriteNotices from './components/FindPetComponents/favoriteNotices/FavoriteNotices';
-import MyAds from './components/FindPetComponents/myAds/MyAds';
+import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
+
+const HomePage = lazy(() => import('./pages/HomePage/HomePage')) ;
+const NoticesPage = lazy(() => import('./pages/NoticesPage/NoticesPage')) ;
+const UserPage = lazy(() => import('./pages/UserPage/UserPage')) ;
+const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage')) ;
+const FriendsPage = lazy(() => import('./pages/FriendsPage/FriendsPage')) ;
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage')) ;
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage')) ;
+const AllNotices = lazy(() => import('./components/FindPetComponents/allNotices/AllNotices')) ;
+const FavoriteNotices = lazy(() => import('./components/FindPetComponents/favoriteNotices/FavoriteNotices')) ;
+const MyAds = lazy(() => import('./components/FindPetComponents/myAds/MyAds')) ;
+const AddPetPage = lazy(() => import('./pages/AddPetPage/AddPetPage'));
 
 function App() {
   return (

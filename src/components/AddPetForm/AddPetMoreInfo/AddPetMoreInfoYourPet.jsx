@@ -48,7 +48,7 @@ const AddPetMoreInfoYourPet = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, touched, errors  }) => (
         <Form>
           <InputList>
             <AvatarContainer>
@@ -79,7 +79,7 @@ const AddPetMoreInfoYourPet = (props) => {
 
             <label>
               Comments
-              <Field type="text" name="comments" placeholder="Type of pet" />
+              <Field type="text" name="comments" placeholder="Type of pet" className={`${touched.comments && errors.comments ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="comments" component={'div'} />
             </label>
 

@@ -54,12 +54,12 @@ const AddPetMoreInfoSell = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, touched, errors  }) => (
         <Form>
           <InputList>
             <p>The Sex</p>
             <SexList>
-              <Field type="radio" name="sex" id="female" value="female" />
+              <Field type="radio" name="sex" id="female" value="female" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
               <label htmlFor="female">
                 <IconFemale className="iconFemale">
                   <use href={sprite + '#iconFemale'} />
@@ -67,7 +67,7 @@ const AddPetMoreInfoSell = (props) => {
                 Female
               </label>
 
-              <Field type="radio" name="sex" id="male" value="male" />
+              <Field type="radio" name="sex" id="male" value="male" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
               <label htmlFor="male">
                 <IconMale className="iconMale">
                   <use href={sprite + '#iconMale'} />
@@ -107,6 +107,7 @@ const AddPetMoreInfoSell = (props) => {
             <label>
               Location
               <Field
+                className={`${touched.location && errors.location ? 'is-invalid' : ''}`}
                 type="text"
                 name="location"
                 placeholder="Type of location"
@@ -116,14 +117,14 @@ const AddPetMoreInfoSell = (props) => {
 
             <label>
               Price
-              <Field type="text" name="price" placeholder="Type of price" />
+              <Field type="text" name="price" placeholder="Type of price" className={`${touched.price && errors.price ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="price" component={'div'} />
             </label>
 
             <label>
               Comments
               <Field
-                className="commentsField"
+                className={`commentsField ${touched.comments && errors.comments ? 'is-invalid' : ''}`}
                 as="textarea"
                 type="text"
                 name="comments"
