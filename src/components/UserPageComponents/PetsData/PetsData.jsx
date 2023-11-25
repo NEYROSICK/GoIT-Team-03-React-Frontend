@@ -6,14 +6,14 @@ import {
     PlussSvg,
 } from "./PetsData.styled";
 
-import { useGetUserQuery} from '../../../redux/API/UserApi'
+import { useGetMeAndPetsQuery} from '../../../redux/API/petsApi'
 import { EmptyPetsList } from "../EmptyPetsList/EmptyPetsList";
 import  PetsItem  from "../PetsItem/PetsItem";
 import sprite from '.././../../ui/Icons/sprite.svg'
 
 export const PetsData = () => {
 
-    const { data=[] } = useGetUserQuery();
+    const { data =[] } = useGetMeAndPetsQuery();
     console.log(data)
     return (
         <div>

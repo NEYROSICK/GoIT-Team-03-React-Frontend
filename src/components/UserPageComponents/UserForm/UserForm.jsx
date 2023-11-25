@@ -21,11 +21,11 @@ import {
   CloseSvg
 } from './UserForm.styled';
 import { useDispatch} from 'react-redux';
-// import { updateUser } from '../../../redux/auth/operations';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
 
-import { useGetUserQuery, useUpdateUserMutation } from '../../../redux/API/UserApi'
+
+import { useGetMeAndPetsQuery ,useUpdateUserMutation} from '../../../redux/API/petsApi'
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../../redux/auth/operations';
 import sprite from '.././../../ui/Icons/sprite.svg'
@@ -34,19 +34,12 @@ import sprite from '.././../../ui/Icons/sprite.svg'
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
-  const { data, isLoading } = useGetUserQuery();
-  const [updateUser] = useUpdateUserMutation()
- 
+  const { data, isLoading } = useGetMeAndPetsQuery();
+  const [updateUser]= useUpdateUserMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-
-if(!isLoading){
-  console.log(data)
-}  
-
   const handleSubmit =  (values) => {
-
     values.date.split('-').reverse().join('-')
     const formData = new FormData();
       const formatToDDMMYYYY = (dateString) => {
@@ -63,19 +56,20 @@ if(!isLoading){
         date: formatToDDMMYYYY(values.date),
         phone: values.phone,
         city: values.city,
-        image: userPhoto,
-        };
-    // formData.append('image', userPhoto);
-
+    };
+    if (userPhoto) {
+      let data = {
+        name: values.name,
+        email: values.email,
+        date: formatToDDMMYYYY(values.date),
+        phone: values.phone,
+        city: values.city,
+        image: userPhoto,}
+    }
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    //     for (const [key, value] of Object.entries(data)) {
-    //   formData.append(key, value);
-    // }
     console.log(data.date)
-    // const update = values.date.split('-').reverse().join('-') 
-// console.log(update)
   console.log(formData)
   updateUser(formData).unwrap()
 
@@ -107,13 +101,12 @@ if(!isLoading){
       {isLoading ? <h1>loading..</h1> : 
         <Formik initialValues={{
           name: '' || data.user.name, 
-          date: ''|| data.user.date.split('-').reverse().join('-'), //.split('-').reverse().join('-')
+          date: ''|| data.user.date.split('-').reverse().join('-'), 
           email: ''|| data.user.email, 
           city: '' || data.user.city,
-          phone: ''|| data.user.phone,
-}} onSubmit={handleSubmit}  >
+          phone: ''|| data.user.phone,}} onSubmit={handleSubmit}  > 
           <UserFormBody>
-            <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
+            <AddPhoto  isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
             <UserFormInfo>
               <UserFormList>
                 <UserFormItem>

@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export const UserApi = createApi({
     reducerPath: 'UserApi',
-    tagTypes: ['User'],
+    // tagTypes: ['User'],
     baseQuery: fetchBaseQuery({ baseUrl: 'https://goit-team-03-node.onrender.com/api/' ,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
@@ -14,7 +14,8 @@ export const UserApi = createApi({
   }),
     endpoints: (build) => ({
         getUser: build.query({
-            query: () => 'pets',
+          query: () => 'pets',
+          providesTags: ['User'],
         }),
         updateUser: build.mutation({
             query: (patch) => ({
