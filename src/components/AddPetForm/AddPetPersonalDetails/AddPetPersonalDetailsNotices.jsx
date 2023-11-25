@@ -25,27 +25,27 @@ const AddPetPersonalDetailsNotices = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, touched, errors }) => (
         <Form>
           <InputList>
             <label>
               Title of Ad
-              <Field type="text" name="title" placeholder="Type name pet" />
+              <Field type="text" name="title" placeholder="Type name pet" className={`${touched.title && errors.title ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="title" component={'div'} />
             </label>
             <label>
               Pet’s name
-              <Field type="text" name="name" placeholder="Type name pet" />
+              <Field type="text" name="name" placeholder="Type name pet" className={`${touched.name && errors.name ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="name" component={'div'} />
             </label>
             <label>
               Date of Birth
-              <Field name="date" type="date" placeholder="Type date of birth" />
+              <Field name="date" type="date" placeholder="Type date of birth" className={`${touched.date && errors.date ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="date" component={'div'} />
             </label>
             <label>
               Type
-              <Field type="text" name="type" placeholder="Type of pet" />
+              <Field type="text" name="type" placeholder="Type of pet" className={`${touched.type && errors.type ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="type" component={'div'} />
             </label>
           </InputList>

@@ -26,5 +26,19 @@ export const InputList = styled.div`
 
     border-radius: 40px;
     border: 1px solid var(--clr-brand-blue);
+    
+    &:focus{
+      outline: none;
+      border: 2px solid var(--clr-brand-blue);
+    }
+    
+    &.is-invalid {
+      border-color: var(--clr-brand-red);
+
+      &:focus{
+        outline: none;
+        border: 2px solid var(--clr-brand-red);
+      }
+    }
   }
 `;

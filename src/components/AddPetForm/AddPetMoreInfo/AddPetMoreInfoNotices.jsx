@@ -52,12 +52,12 @@ const AddPetMoreInfoNotices = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values }) => (
+      {({ values, touched, errors  }) => (
         <Form>
           <InputList>
             <p>The Sex</p>
             <SexList>
-              <Field type="radio" name="sex" id="female" value="female" />
+              <Field type="radio" name="sex" id="female" value="female" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
               <label htmlFor="female">
                 <IconFemale className="iconFemale">
                   <use href={sprite + '#iconFemale'} />
@@ -65,7 +65,7 @@ const AddPetMoreInfoNotices = (props) => {
                 Female
               </label>
 
-              <Field type="radio" name="sex" id="male" value="male" />
+              <Field type="radio" name="sex" id="male" value="male" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
               <label htmlFor="male">
                 <IconMale className="iconMale">
                   <use href={sprite + '#iconMale'} />
@@ -104,6 +104,7 @@ const AddPetMoreInfoNotices = (props) => {
             <label>
               Location
               <Field
+                className={`${touched.location && errors.location ? 'is-invalid' : ''}`}
                 type="text"
                 name="location"
                 placeholder="Type of location"
@@ -113,7 +114,7 @@ const AddPetMoreInfoNotices = (props) => {
 
             <label>
               Comments
-              <Field type="text" name="comments" placeholder="Type of pet" />
+              <Field type="text" name="comments" placeholder="Type of pet" className={`${touched.comments && errors.comments ? 'is-invalid' : ''}`}/>
               <ErrorMessage name="comments" component={'div'} />
             </label>
 
