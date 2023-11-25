@@ -10,6 +10,7 @@ export const OptionList = styled.div`
   flex-direction: column;
   gap: 12px;
 
+  position: relative;
   font-size: 14px;
   font-weight: 500;
   line-height: normal;
@@ -30,6 +31,7 @@ export const OptionList = styled.div`
     background-color: var(--clr-brand-blue-lt);
     border: 3px solid var(--clr-brand-blue-lt);
     transition:
+      scale 0.3s,
       background-color 0.3s,
       border-color 0.2s,
       color 0.3s;
@@ -38,6 +40,10 @@ export const OptionList = styled.div`
     &:hover {
       border-color: var(--clr-brand-blue);
     }
+
+    &:active {
+      scale: 0.9;
+    }
   }
 
   & input[type='radio']:checked + label {
@@ -45,4 +51,16 @@ export const OptionList = styled.div`
     border-color: var(--clr-brand-blue);
     color: var(--clr-primary-inv);
   }
+`;
+
+export const ErrorCategoryText = styled.p`
+  position: absolute;
+  bottom: -26px;
+  left: 18px;
+
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--clr-brand-red);
 `;

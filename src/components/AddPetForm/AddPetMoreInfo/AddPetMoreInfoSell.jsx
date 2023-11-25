@@ -2,6 +2,8 @@ import { Field, ErrorMessage, Form, Formik } from 'formik';
 import { object, string, number } from 'yup';
 import {
   AvatarContainer,
+  IconFemale,
+  IconMale,
   IconPlus,
   InputFile,
   InputList,
@@ -54,24 +56,31 @@ const AddPetMoreInfoSell = (props) => {
             <p>The Sex</p>
             <SexList>
               <Field type="radio" name="sex" id="female" value="female" />
-              <label htmlFor="female">Female</label>
+              <label htmlFor="female">
+                <IconFemale className="iconFemale">
+                  <use href={sprite + '#iconFemale'} />
+                </IconFemale>
+                Female
+              </label>
 
               <Field type="radio" name="sex" id="male" value="male" />
-              <label htmlFor="male">Male</label>
+              <label htmlFor="male">
+                <IconMale className="iconMale">
+                  <use href={sprite + '#iconMale'} />
+                </IconMale>
+                Male
+              </label>
               <ErrorMessage name="sex" component={'div'} />
             </SexList>
 
             <AvatarContainer>
-              <p>Choose pet image</p>
+              <p>Choose pet image:</p>
 
               <LabelInputFile
                 className={
                   formSubmitted && !selectedFile ? 'no-image-selected' : ''
                 }
               >
-                <IconPlus>
-                  <use href={sprite + '#iconPlusAvatar'} />
-                </IconPlus>
                 <div {...getRootProps()}>
                   {selectedFile ? (
                     <div>
@@ -82,7 +91,9 @@ const AddPetMoreInfoSell = (props) => {
                       />
                     </div>
                   ) : (
-                    <></>
+                    <IconPlus>
+                      <use href={sprite + '#iconPlusAvatar'} />
+                    </IconPlus>
                   )}
                 </div>
                 <InputFile type="file" name="image" {...getInputProps()} />
@@ -107,7 +118,13 @@ const AddPetMoreInfoSell = (props) => {
 
             <label>
               Comments
-              <Field type="text" name="comments" placeholder="Type of pet" />
+              <Field
+                className="commentsField"
+                as="textarea"
+                type="text"
+                name="comments"
+                placeholder="Type of pet"
+              />
               <ErrorMessage name="comments" component={'div'} />
             </label>
           </InputList>

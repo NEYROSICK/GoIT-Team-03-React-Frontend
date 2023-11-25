@@ -5,12 +5,16 @@ import styled from '@emotion/styled';
 //   background-color: #000000;
 // `;
 
+//* Icons Sizes
+
+const ICON_PAW_SIZE = '24px';
+const ICON_ARROW_SIZE = '24px';
+
 export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 64px);
-  margin-bottom: 20px;
 `;
 
 export const FormStyled = styled.div`
@@ -18,6 +22,7 @@ export const FormStyled = styled.div`
   background-color: var(--clr-bcg);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   padding: 20px 8px 16px 8px;
+  margin-bottom: 20px;
 `;
 
 export const Title = styled.h1`
@@ -75,7 +80,7 @@ export const ButtonNextBack = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 0px;
 
   width: 100%;
   height: 40px;
@@ -85,6 +90,7 @@ export const ButtonNextBack = styled.button`
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.64px;
+  transition: gap 0.3s;
 
   &.buttonNext {
     margin-bottom: 10px;
@@ -99,16 +105,28 @@ export const ButtonNextBack = styled.button`
     background: none;
     border: none;
   }
+
+  & svg {
+    width: 0;
+    transition: width 0.3s;
+  }
+
+  &:hover {
+    gap: 12px;
+    & svg {
+      width: ${ICON_PAW_SIZE};
+    }
+  }
 `;
 
 export const IconPaw = styled.svg`
-  width: 24px;
-  height: 24px;
+  width: ${ICON_PAW_SIZE};
+  height: ${ICON_PAW_SIZE};
   fill: var(--clr-primary-inv);
 `;
 
 export const IconArrow = styled.svg`
-  width: 24px;
-  height: 24px;
+  width: ${ICON_ARROW_SIZE};
+  height: ${ICON_ARROW_SIZE};
   stroke: var(--clr-brand-blue);
 `;

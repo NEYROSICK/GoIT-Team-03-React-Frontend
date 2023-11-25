@@ -1,6 +1,10 @@
 import { Form, Formik, ErrorMessage } from 'formik';
 import { object, string } from 'yup';
-import { Input, OptionList } from './AddPetChooseOption.styled';
+import {
+  ErrorCategoryText,
+  Input,
+  OptionList,
+} from './AddPetChooseOption.styled';
 
 import sprite from '../../../ui/Icons/sprite.svg';
 import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
@@ -49,7 +53,7 @@ const AddPetChooseOption = (props) => {
           />
           <label htmlFor="in-good-hands">in good hands</label>
 
-          <ErrorMessage name="category" component={'div'} />
+          <ErrorMessage name="category" component={ErrorCategoryText} />
         </OptionList>
 
         <ButtonNextBack className="buttonNext" type="submit">

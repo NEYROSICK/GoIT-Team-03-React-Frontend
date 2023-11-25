@@ -4,9 +4,9 @@ import styled from 'styled-components';
 export const PhotoContainer = styled.img`
   background: var(--clr-brand-blue-lt);
   display: block;
-  width: 182px;
-  height: 182px;
-  border-radius: 40px;
+  width: 112px;
+  height: 112px;
+  border-radius: 20px;
 `;
 
 export const LabelInputFile = styled.label`
@@ -23,8 +23,25 @@ export const LabelInputFile = styled.label`
   border-radius: 20px;
   margin-right: 29.3%;
 
+  border: 5px solid transparent;
+  transition: border-color 0.3s;
+
   &.no-image-selected {
     border: 2px solid red;
+  }
+
+  & svg {
+    transition:
+      transform 0.3s,
+      scale 0.3s;
+  }
+
+  &:hover {
+    border-color: var(--clr-brand-blue);
+
+    & svg {
+      transform: rotate(180deg) scale(1.4);
+    }
   }
 `;
 
@@ -36,8 +53,6 @@ export const InputFile = styled.input.attrs({
 `;
 
 export const InputList = styled.div`
-  margin-bottom: 24px;
-
   & p {
     margin-bottom: 4px;
   }
@@ -57,7 +72,8 @@ export const InputList = styled.div`
     margin-bottom: 20px;
   }
 
-  & input[type='text'] {
+  & input[type='text'],
+  textarea {
     padding: 8px 16px;
 
     font-size: 14px;
@@ -69,41 +85,11 @@ export const InputList = styled.div`
     border-radius: 40px;
     border: 1px solid var(--clr-brand-blue);
   }
-`;
 
-export const SexList = styled.div`
-  display: flex;
-  gap: 8px;
-
-  & > label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    height: 35px;
-    width: 100%;
-    padding: 8px 16px;
-    border-radius: 40px;
-    border: 3px solid transparent;
-    transition:
-      background-color 0.3s,
-      border-color 0.2s,
-      color 0.3s;
-    cursor: pointer;
-
-    &:hover {
-      border-color: var(--clr-brand-blue);
-    }
-  }
-
-  & input[type='radio']:checked + label {
-    background-color: var(--clr-brand-blue);
-    border-color: var(--clr-brand-blue);
-    color: var(--clr-primary-inv);
-  }
-
-  & input {
-    display: none;
+  & textarea.commentsField {
+    height: 92px;
+    border-radius: 20px;
+    resize: none;
   }
 `;
 
@@ -113,7 +99,91 @@ export const AvatarContainer = styled.div`
 `;
 
 export const IconPlus = styled.svg`
-  width: 46px;
-  height: 46px;
+  width: 40px;
+  height: 40px;
   stroke: var(--clr-brand-blue);
+`;
+
+export const IconFemale = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--clr-brand-red);
+  fill: transparent;
+`;
+
+export const IconMale = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--clr-brand-blue);
+  fill: transparent;
+`;
+
+export const SexList = styled.div`
+  display: flex;
+  gap: 8px;
+
+  & > label {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    height: 35px;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 40px;
+    border: 3px solid transparent;
+
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 24px */
+    letter-spacing: 0.64px;
+
+    color: var(--clr-secondary);
+    transition:
+      background-color 0.3s,
+      border-color 0.2s,
+      color 0.3s;
+    cursor: pointer;
+
+    & > .iconMale {
+      transition: transform 0.7s cubic-bezier(0.65, 1.79, 0.78, 1.02);
+      transform-origin: 12px 16px;
+    }
+
+    & > .iconFemale {
+      transition: transform 0.7s cubic-bezier(0.61, 0.7, 0.55, 1.24);
+    }
+
+    &:hover {
+      border-color: var(--clr-brand-blue);
+
+      & > .iconMale {
+        transform: rotate(320deg);
+      }
+
+      & > .iconFemale {
+        transform: rotate(-360deg);
+      }
+    }
+  }
+
+  & input[type='radio']:checked + label {
+    background-color: var(--clr-brand-blue);
+    border-color: var(--clr-brand-blue);
+    color: var(--clr-primary-inv);
+  }
+
+  & input[type='radio']:checked + label > svg {
+    stroke: var(--clr-primary-inv);
+  }
+
+  & input {
+    display: none;
+  }
+
+  & svg {
+    transition: stroke 0.3s;
+  }
 `;
