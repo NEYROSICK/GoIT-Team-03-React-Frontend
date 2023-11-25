@@ -2,6 +2,7 @@ import { useGetNoticesQuery } from '../../../redux/API/noticesApi';
 import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
 import NoticeItem from '../NoticeItem/NoticeItem';
 import { useLocation, useSearchParams } from 'react-router-dom';
+
 function AllNotices() {
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];

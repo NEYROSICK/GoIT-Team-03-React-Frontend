@@ -1,4 +1,5 @@
 import sprite from '../../../ui/Icons/sprite.svg';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import {
   ItemContainer,
@@ -43,18 +44,19 @@ const NoticeItem = ({
   const noticeAge = today.getFullYear() - noticeDate.getFullYear();
 
   const ageText = noticeAge % 2 ? 'year' : 'years';
-  
+
   const handleFavoriteClick = async (e) => {
     e.preventDefault();
 
     try {
       const response = await updateFavorite(id);
       if (response.data && response.data.message) {
-        setMessage(response.data.message);
+        await setMessage(response.data.message);
       }
-      console.log(message);
+      Notify.success(message);
     } catch (error) {
       setMessage('Failed to update favorite status');
+      Notify.failure(message);
     }
   };
   const handleDeleteClick = async (e) => {
@@ -62,12 +64,11 @@ const NoticeItem = ({
 
     try {
       const response = await deleteNotice(id);
-      if (response.data && response.data.message) {
-        setMessage(response.data.message);
+      if (response.data) {
+        Notify.success(response.data.name + ' was deleted successfully');
       }
-      console.log(message);
     } catch (error) {
-      setMessage('Failed to delete notice');
+      Notify.failure('Failed to delete notice');
     }
   };
 
