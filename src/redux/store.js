@@ -16,22 +16,22 @@ import { petsApi } from './API/petsApi';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
-  key: 'root',
+  key: 'auth',
   storage,
-  blacklist: ['authApi'],
+  whitelist: ['token'],
 };
 
 const rootReducer = combineReducers({
-  auth: authReducer,
+  auth: persistReducer(persistConfig, authReducer),
   [UserApi.reducerPath]: UserApi.reducer,
   [noticesApi.reducerPath]: noticesApi.reducer,
   [petsApi.reducerPath]: petsApi.reducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+// const persistedReducer =
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

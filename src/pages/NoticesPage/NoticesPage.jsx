@@ -1,23 +1,42 @@
 import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 import NoticesCategoriesNav from '../../components/FindPetComponents/NoticesCategoriesNav/NoticesCategoriesNav';
 import NoticesFilter from '../../components/FindPetComponents/NoticesFilter/NoticesFilter';
-import { Outlet, NavLink } from 'react-router-dom';
-import { useSearchParams } from 'react-router-dom';
-import { useEffect, useState, useCallback, Suspense } from 'react';
+import { Outlet, useSearchParams } from 'react-router-dom';
+import { useCallback, Suspense, useState, useEffect } from 'react';
 import {
-  Container,
   FilterAndAddContainer,
   FilterContainer,
+  NoticesContainer,
   PageTitle,
 } from '../NoticesPage/NoticesPage.styled';
 import AddPetButton from '../../ui/AddPetButton/AddPetButton';
-
-import NoticeItem from '../../components/FindPetComponents/NoticeItem/NoticeItem';
+import { AllFilterQueries } from '../../helpers/filtersQueries';
+import { Container } from '../../components/Layout/Container/Container';
+const initialFiltersValue = {
+  to1: false,
+  to2: false,
+  from2: false,
+  female: false,
+  male: false,
+};
 
 const NoticesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [checkboxValue, setCheckboxValue] = useState(initialFiltersValue);
 
   const query = searchParams.get('query');
+
+  useEffect(() => {
+    setSearchParams({
+      ...AllFilterQueries(
+        checkboxValue.to1,
+        checkboxValue.to2,
+        checkboxValue.from2,
+        checkboxValue.female,
+        checkboxValue.male,
+      ),
+    });
+  }, [checkboxValue, searchParams]);
 
   const handleSubmit = ({ query }) => {
     searchParams.set('query', query);
@@ -37,6 +56,7 @@ const NoticesPage = () => {
 
   return (
     <Container>
+      <NoticesContainer>
       <PageTitle>Find your favorite pet</PageTitle>
       <div>
         <NoticesSearch onSubmit={handleSubmit} onClear={handleClear} />
@@ -45,15 +65,18 @@ const NoticesPage = () => {
         <NoticesCategoriesNav searchParams={searchParams} />
         <div>
           <FilterAndAddContainer>
-            <NoticesFilter />
+            <NoticesFilter
+              setCheckboxValue={setCheckboxValue}
+              checkboxValue={checkboxValue}
+            />
             <AddPetButton />
           </FilterAndAddContainer>
         </div>
       </FilterContainer>
-      <NoticeItem />
       <Suspense fallback={<p>Loading...</p>}>
-        <Outlet searchParams={searchParams} />
+        <Outlet />
       </Suspense>
+      </NoticesContainer>
     </Container>
   );
 };

@@ -1,12 +1,18 @@
 import { Field, ErrorMessage, Form, Formik } from 'formik';
 import { object, string, number } from 'yup';
 import {
+  AvatarContainer,
+  ErMsFile,
+  IconFemale,
+  IconMale,
+  IconPlus,
   InputFile,
+  InputList,
   LabelInputFile,
   PhotoContainer,
+  SexList,
 } from './AddPetMoreInfo.styled';
-import { useCallback, useState } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { useState } from 'react';
 import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 
@@ -20,15 +26,19 @@ const schema = object({
 const AddPetMoreInfoSell = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [erMessage, setErMessage] = useState('');
 
-  const onDrop = useCallback((acceptedFiles) => {
-    setSelectedFile(acceptedFiles[0]);
-  }, []);
+  const handleFileChange = (e) => { 
+    const file = e.target.files[0];
 
-  const { getRootProps, getInputProps } = useDropzone({
-    onDrop,
-    accept: 'image/jpeg, image/png',
-  });
+    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+      setSelectedFile(file);
+      setErMessage('');
+    } else {
+      setSelectedFile(null);
+      setErMessage('Please select a JPEG or PNG');
+    }
+  }
 
   const handleSubmit = (values) => {
     if (!selectedFile) {
@@ -46,57 +56,82 @@ const AddPetMoreInfoSell = (props) => {
     >
       {({ values }) => (
         <Form>
-          <div>
-            The Sex
+          <InputList>
+            <p>The Sex</p>
+            <SexList>
+              <Field type="radio" name="sex" id="female" value="female" />
+              <label htmlFor="female">
+                <IconFemale className="iconFemale">
+                  <use href={sprite + '#iconFemale'} />
+                </IconFemale>
+                Female
+              </label>
+
+              <Field type="radio" name="sex" id="male" value="male" />
+              <label htmlFor="male">
+                <IconMale className="iconMale">
+                  <use href={sprite + '#iconMale'} />
+                </IconMale>
+                Male
+              </label>
+              <ErrorMessage name="sex" component={'div'} />
+            </SexList>
+
+            <AvatarContainer>
+              <p>Choose pet image:</p>
+
+              <LabelInputFile
+                className={
+                  (erMessage !== '') || formSubmitted && !selectedFile ? 'no-image-selected' : ''
+                }
+              >
+                {selectedFile ? (
+                  <div>
+                    <PhotoContainer
+                      src={URL.createObjectURL(selectedFile)}
+                      alt="User's file"
+                      style={{ maxWidth: '300px' }}
+                    />
+                  </div>
+                ) : (
+                  <IconPlus>
+                    <use href={sprite + '#iconPlusAvatar'} />
+                  </IconPlus>
+                )}
+                <InputFile type="file" name="image" accept='image/jpeg, image/png' onChange={handleFileChange}/>
+              </LabelInputFile>
+            </AvatarContainer>
+            
+            {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
+
             <label>
-              Female
-              <Field type="radio" name="sex" value="female" />
+              Location
+              <Field
+                type="text"
+                name="location"
+                placeholder="Type of location"
+              />
+              <ErrorMessage name="location" component={'div'} />
             </label>
+
             <label>
-              Male
-              <Field type="radio" name="sex" value="male" />
+              Price
+              <Field type="text" name="price" placeholder="Type of price" />
+              <ErrorMessage name="price" component={'div'} />
             </label>
-            <ErrorMessage name="sex" component={'div'} />
-          </div>
 
-          <label>
-            Location
-            <Field type="text" name="location" placeholder="Type of location" />
-            <ErrorMessage name="location" component={'div'} />
-          </label>
-
-          <label>
-            Price
-            <Field type="text" name="price" placeholder="Type of price" />
-            <ErrorMessage name="price" component={'div'} />
-          </label>
-
-          <LabelInputFile
-            className={
-              formSubmitted && !selectedFile ? 'no-image-selected' : ''
-            }
-          >
-            <div {...getRootProps()}>
-              {selectedFile ? (
-                <div>
-                  <PhotoContainer
-                    src={URL.createObjectURL(selectedFile)}
-                    alt="User's file"
-                    style={{ maxWidth: '300px' }}
-                  />
-                </div>
-              ) : (
-                <></>
-              )}
-            </div>
-            <InputFile type="file" name="image" {...getInputProps()} />
-          </LabelInputFile>
-
-          <label>
-            Comments
-            <Field type="text" name="comments" placeholder="Type of pet" />
-            <ErrorMessage name="comments" component={'div'} />
-          </label>
+            <label>
+              Comments
+              <Field
+                className="commentsField"
+                as="textarea"
+                type="text"
+                name="comments"
+                placeholder="Type of pet"
+              />
+              <ErrorMessage name="comments" component={'div'} />
+            </label>
+          </InputList>
 
           <ButtonNextBack className="buttonNext" type="submit">
             Done

@@ -121,6 +121,10 @@
       <path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2.6667"
         d="M16 26.667v-10.667M16 16v-10.667M16 16h10.667M16 16h-10.667"></path>
     </symbol>
+    <symbol id="iconPlusAvatar" viewBox="0 0 32 32">
+      <path stroke-linejoin="miter" stroke-linecap="round" stroke-miterlimit="4" stroke-width="1.5"
+        d="M16 26.667v-10.667M16 16v-10.667M16 16h10.667M16 16h-10.667"></path>
+    </symbol>
     <symbol id="iconPlusSmall" viewBox="0 0 32 32">
       <path stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="4" stroke-width="2"
         d="M16 9.333v13.333M9.333 16h13.333"></path>

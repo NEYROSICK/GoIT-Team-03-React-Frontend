@@ -2,11 +2,11 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const NavContaier = styled.div`
-  width: 205px;
+  max-width: 205px;
   height: 121px;
 
   @media screen and (min-width: 768px) {
-    width: 319px;
+    max-width: 319px;
   }
 `;
 
@@ -26,7 +26,7 @@ export const NavList = styled.ul`
 export const UserNavList = styled.ul`
   width: 100%;
   display: flex;
-  flex-wrap: no-wrap;
+  flex-wrap: wrap;
   gap: 8px;
   flex-direction: row;
   margin-top: 8px;
@@ -44,7 +44,7 @@ border: none;
 text-decoration: none;
 justify-content: center;
 align-items: center;
-background-color: #CCE4FB;
+background-color: var(--clr-brand-blue-lt);
 border-radius: 40px;
 font-weight: 500;
 font-size: 14px;
@@ -56,19 +56,19 @@ transition: 300ms;
 &:hover,
 &:focus {
     
-    color: #FEF9F9;
+    color: var(--clr-primary-inv);
     
 }
 `
 export const StyledLink = styled(Link)`
 padding: 8px 16px;
 text-decoration: none;
-color: #54ADFF;
-color: ${(props) => props.active && '#FEF9F9'};
-background-color: ${(props) => props.active && '#54ADFF'};
+color: var(--clr-brand-blue);
+color: ${(props) => props.active && 'var(--clr-primary-inv)'};
+background-color: ${(props) => props.active && 'var(--clr-brand-blue)'};
 border-radius: 40px;
 &:focus, &:hover {
-    color: #FEF9F9;
-    background-color: #54ADFF;
+    color: var(--clr-primary-inv);
+    background-color: var(--clr-brand-blue);
 }
 `

@@ -114,7 +114,7 @@ const AddPetForm = () => {
       addNotice(formData);
     }
 
-    resetFormData();
+    resetFormData('');
     console.log('Send request');
     const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
     navigate(redirectTo);
@@ -257,7 +257,7 @@ const AddPetForm = () => {
         return 'Add pet';
     }
   };
-    
+
   return (
     <>
       {/* <FakeHeader /> */}
@@ -267,9 +267,27 @@ const AddPetForm = () => {
             <div>
               <Title>{step === 0 ? 'Add pet' : getTitle()}</Title>
               <StepList>
-                <li className={step === 0  ? 'is-selected' : 'is-done'}>Choose option </li>
-                <li className={(step === 1 || step === 3)  ? 'is-selected' : ((step === 0)  ? '' :'is-done')}>Personal details</li>
-                <li className={(step === 2 || step === 4 || step === 5)  ? 'is-selected' : ''}>More info</li>
+                <li className={step === 0 ? 'is-selected' : 'is-done'}>
+                  Choose option{' '}
+                </li>
+                <li
+                  className={
+                    step === 1 || step === 3
+                      ? 'is-selected'
+                      : step === 0
+                      ? ''
+                      : 'is-done'
+                  }
+                >
+                  Personal details
+                </li>
+                <li
+                  className={
+                    step === 2 || step === 4 || step === 5 ? 'is-selected' : ''
+                  }
+                >
+                  More info
+                </li>
               </StepList>
             </div>
             {steps[step]}
