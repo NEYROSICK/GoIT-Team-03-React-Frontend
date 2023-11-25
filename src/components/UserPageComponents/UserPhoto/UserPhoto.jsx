@@ -16,7 +16,7 @@ import {
 } from './UserPhoto.styled';
 import sprite from '.././../../ui/Icons/sprite.svg'
 
-const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
+const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSelected, setisSelected] = useState(false);
 
@@ -31,6 +31,10 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
       'image/png': [],
     },
   });
+  // const isPhoto = () => {
+  // return userPhoto ? userPhoto : 'https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png'
+
+  // }
 
   useEffect(() => {
     setisSelected(false);
@@ -45,7 +49,7 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
     <>
       <UserDataWrapper>
         <UserDataWrapper>
-          <input {...getInputProps()} />
+          <input type="file" name="image" {...getInputProps()} />
           <UserPhotoBtnEmpty>
             {selectedFile ? (
               <UserPhotoWrapper>
@@ -58,7 +62,7 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
             ) : (
               <UserPhotoWrapper>
                 <PhotoContainer
-                  src="https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png"
+                  src={ 'https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png'}
                   alt="Default avatar"
                   style={{ maxWidth: '300px' }}
                 />

@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const petsApi = createApi({
   reducerPath: 'petsApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://goit-team-03-node.onrender.com/api/pets',
+    baseUrl: 'https://goit-team-03-node.onrender.com/api/',
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -14,12 +14,12 @@ export const petsApi = createApi({
   }),
   endpoints: (builder) => ({
     getMeAndPets: builder.query({
-      query: () => '/',
+      query: () => '/pets',
       providesTags: ['Pets'],
     }),
     addPet: builder.mutation({
       query: (body) => ({
-        url: `/add`,
+        url: `/pets/add`,
         method: 'POST',
         body,
       }),
@@ -27,15 +27,24 @@ export const petsApi = createApi({
     }),
     deletePet: builder.mutation({
       query: (PetId) => ({
-        url: `/delete/${PetId}`,
+        url: `/pets/delete/${PetId}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Pets'],
     }),
+      updateUser: builder.mutation({
+      query: (patch) => ({
+          url: `/users/updateUser`,
+          method: 'PATCH',
+          body: patch,
+        }),
+        invalidatesTags: ['Pets'],
+          })
   }),
 });
 export const {
   useGetMeAndPetsQuery,
   useAddPetMutation,
   useDeletePetMutation,
+  useUpdateUserMutation,
 } = petsApi;
