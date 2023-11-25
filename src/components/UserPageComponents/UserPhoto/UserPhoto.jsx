@@ -45,7 +45,7 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
     <>
       <UserDataWrapper>
         <UserDataWrapper>
-          <input {...getInputProps()} />
+          <input type="file" name="image" {...getInputProps()} />
           <UserPhotoBtnEmpty>
             {selectedFile ? (
               <UserPhotoWrapper>

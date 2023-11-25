@@ -31,12 +31,12 @@ import { logOut } from '../../../redux/auth/operations';
 import sprite from '.././../../ui/Icons/sprite.svg'
 
 
-
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetUserQuery();
-  const [updateUser] = useUpdateUserMutation();
+  const [updateUser] = useUpdateUserMutation()
+ 
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -45,20 +45,39 @@ if(!isLoading){
   console.log(data)
 }  
 
-  const handleSubmit = async (values) => {
+  const handleSubmit =  (values) => {
 
     values.date.split('-').reverse().join('-')
-    // const formData = new FormData();
-    // formData.append('avatar', userPhoto);
+    const formData = new FormData();
+      const formatToDDMMYYYY = (dateString) => {
+      const dateObject = new Date(dateString);
+      const day = String(dateObject.getDate()).padStart(2, '0');
+      const month = String(dateObject.getMonth() + 1).padStart(2, '0');
+      const year = dateObject.getFullYear();
 
-    // Object.entries(values).forEach(([key, value]) => {
+      return `${day}-${month}-${year}`;
+      };
+    let data = {
+        name: values.name,
+        email: values.email,
+        date: formatToDDMMYYYY(values.date),
+        phone: values.phone,
+        city: values.city,
+        image: userPhoto,
+        };
+    // formData.append('image', userPhoto);
+
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    //     for (const [key, value] of Object.entries(data)) {
     //   formData.append(key, value);
-    // });
-    // console.log(values)
+    // }
+    console.log(data.date)
     // const update = values.date.split('-').reverse().join('-') 
 // console.log(update)
-console.log({values })
-  await updateUser({values}).unwrap(); 
+  console.log(formData)
+  updateUser(formData).unwrap()
 
     
 
@@ -88,7 +107,7 @@ console.log({values })
       {isLoading ? <h1>loading..</h1> : 
         <Formik initialValues={{
           name: '' || data.user.name, 
-          date: ''|| data.user.date, //.split('-').reverse().join('-')
+          date: ''|| data.user.date.split('-').reverse().join('-'), //.split('-').reverse().join('-')
           email: ''|| data.user.email, 
           city: '' || data.user.city,
           phone: ''|| data.user.phone,

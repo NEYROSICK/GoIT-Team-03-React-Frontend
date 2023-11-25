@@ -19,7 +19,7 @@ export const UserApi = createApi({
         updateUser: build.mutation({
             query: (patch) => ({
                 url: `/users/updateUser`,
-                method: 'PUTCH',
+                method: 'PATCH',
                 body: patch,
             }),
             invalidatesTags: ["User"]
