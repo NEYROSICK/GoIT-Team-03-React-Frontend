@@ -55,8 +55,8 @@ function App() {
             <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
           }
         />
+        <Route path="*" element={<ErrorPage />} />
       </Route>
-      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 }
