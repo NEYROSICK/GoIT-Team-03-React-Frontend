@@ -5,6 +5,7 @@ import { register, login, logOut } from './operations';
 const initialState = {
   user: { userName: null, email: null },
   isAuthenticated: false,
+  isNewUser:null,
    token: null,
 };
 
@@ -12,6 +13,7 @@ const handleFulfilledRegister = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isAuthenticated = true;
+  state.isNewUser = true;
 };
 
 const handleFulfilledLogin = (state, { payload }) => {
@@ -36,6 +38,15 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, handleFulfilledLogin)
       .addCase(logOut.fulfilled, handleFulfilledLogOut)
   },
+  reducers:{
+    changeIsNewUser(state, action) {
+      return {
+        ...state,
+        isNewUser: action.payload
+      }
+    },
+  }
 });
 
+export const { changeIsNewUser } = authSlice.actions;
 export const authReducer = authSlice.reducer;
