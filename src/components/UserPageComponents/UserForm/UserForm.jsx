@@ -18,44 +18,45 @@ import {
   ButtonLogout,
   ModalTitle,
   YesSvg,
-  CloseSvg
+  CloseSvg,
 } from './UserForm.styled';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
 
-
-import { useGetMeAndPetsQuery ,useUpdateUserMutation} from '../../../redux/API/petsApi'
+import {
+  useGetMeAndPetsQuery,
+  useUpdateUserMutation,
+} from '../../../redux/API/petsApi';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../../redux/auth/operations';
-import sprite from '.././../../ui/Icons/sprite.svg'
-
+import sprite from '.././../../ui/Icons/sprite.svg';
 
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetMeAndPetsQuery();
-  const [updateUser]= useUpdateUserMutation();
+  const [updateUser] = useUpdateUserMutation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const handleSubmit =  (values) => {
-    values.date.split('-').reverse().join('-')
+  const handleSubmit = (values) => {
+    values.date.split('-').reverse().join('-');
     const formData = new FormData();
-      const formatToDDMMYYYY = (dateString) => {
+    const formatToDDMMYYYY = (dateString) => {
       const dateObject = new Date(dateString);
       const day = String(dateObject.getDate()).padStart(2, '0');
       const month = String(dateObject.getMonth() + 1).padStart(2, '0');
       const year = dateObject.getFullYear();
 
       return `${day}-${month}-${year}`;
-      };
+    };
     let data = {
-        name: values.name,
-        email: values.email,
-        date: formatToDDMMYYYY(values.date),
-        phone: values.phone,
-        city: values.city,
+      name: values.name,
+      email: values.email,
+      date: formatToDDMMYYYY(values.date),
+      phone: values.phone,
+      city: values.city,
     };
     if (userPhoto) {
       let data = {
@@ -64,49 +65,53 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
         date: formatToDDMMYYYY(values.date),
         phone: values.phone,
         city: values.city,
-        image: userPhoto,}
+        image: userPhoto,
+      };
     }
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    console.log(data.date)
-  console.log(formData)
-  updateUser(formData).unwrap()
+    console.log(data.date);
+    console.log(formData);
+    updateUser(formData).unwrap();
 
-    
-
-    setIsUserUpdate(state => !state);
-   
+    setIsUserUpdate((state) => !state);
   };
   const hendleClick = () => {
-    setIsShowModal(true) 
-  } 
-  const hendleLogout =()=> {
+    setIsShowModal(true);
+  };
+  const hendleLogout = () => {
     dispatch(logOut());
     navigate('/login');
-  }
+  };
 
   useEffect(() => {
     const close = (e) => {
       if (e.keyCode === 27) {
-        setIsShowModal(false)
+        setIsShowModal(false);
       }
-    }
-    window.addEventListener('keydown', close)
-    return () => window.removeEventListener('keydown', close)
-  }, [])
+    };
+    window.addEventListener('keydown', close);
+    return () => window.removeEventListener('keydown', close);
+  }, []);
 
   return (
     <>
-      {isLoading ? <h1>loading..</h1> : 
-        <Formik initialValues={{
-          name: '' || data.user.name, 
-          date: ''|| data.user.date.split('-').reverse().join('-'), 
-          email: ''|| data.user.email, 
-          city: '' || data.user.city,
-          phone: ''|| data.user.phone,}} onSubmit={handleSubmit}  > 
+      {isLoading ? (
+        <h1>loading..</h1>
+      ) : (
+        <Formik
+          initialValues={{
+            name: '' || data.user.name,
+            date: '' || data.user.date,
+            email: '' || data.user.email,
+            city: '' || data.user.city,
+            phone: '' || data.user.phone,
+          }}
+          onSubmit={handleSubmit}
+        >
           <UserFormBody>
-            <AddPhoto  isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
+            <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
             <UserFormInfo>
               <UserFormList>
                 <UserFormItem>
@@ -180,7 +185,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 </UserFormItem>
               </UserFormList>
               {isUserUpdate ? (
-                <UserFormBtn type="button" onClick={hendleClick }>
+                <UserFormBtn type="button" onClick={hendleClick}>
                   <UserFormSvg>
                     <use href={sprite + '#iconLogout'}></use>
                   </UserFormSvg>
@@ -188,30 +193,38 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 </UserFormBtn>
               ) : (
                 <UserFormBtn>
-                  <Btn type="submit" >Save</Btn>
+                  <Btn type="submit">Save</Btn>
                 </UserFormBtn>
               )}
             </UserFormInfo>
           </UserFormBody>
-        </Formik>}
-      {isShowModal ? <Modal isOpen={setIsShowModal}>
-        <ModalConteiner>
-          <ModalTitle>Already leaving?</ModalTitle>
+        </Formik>
+      )}
+      {isShowModal ? (
+        <Modal isOpen={setIsShowModal}>
+          <ModalConteiner>
+            <ModalTitle>Already leaving?</ModalTitle>
             <ConteinerBtn>
-            <ButtonCansel onClick={() => setIsShowModal(false)}>Cancel</ButtonCansel>
-            <ButtonLogout  onClick={()=>hendleLogout()}>Yes 
-            <YesSvg>
-               <use href={sprite + '#iconLogout'}></use>
-             </YesSvg>
-            </ButtonLogout>
-          </ConteinerBtn>
-          <BtnCloseModal onClick={() => setIsShowModal(false)}>
-            <CloseSvg>
-            <use href={sprite + '#iconCross'}></use>
-            </CloseSvg>
-          </BtnCloseModal>
-        </ModalConteiner>
-      </Modal>: <div></div>}
+              <ButtonCansel onClick={() => setIsShowModal(false)}>
+                Cancel
+              </ButtonCansel>
+              <ButtonLogout onClick={() => hendleLogout()}>
+                Yes
+                <YesSvg>
+                  <use href={sprite + '#iconLogout'}></use>
+                </YesSvg>
+              </ButtonLogout>
+            </ConteinerBtn>
+            <BtnCloseModal onClick={() => setIsShowModal(false)}>
+              <CloseSvg>
+                <use href={sprite + '#iconCross'}></use>
+              </CloseSvg>
+            </BtnCloseModal>
+          </ModalConteiner>
+        </Modal>
+      ) : (
+        <div></div>
+      )}
     </>
   );
 };

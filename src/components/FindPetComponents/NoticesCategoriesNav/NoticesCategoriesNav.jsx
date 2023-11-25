@@ -7,13 +7,15 @@ import {
 } from '../NoticesCategoriesNav/NoticesCategoriesNav.styled.jsx';
 import categories from '../NoticesCategoriesNav/categories.js';
 import { useLocation } from 'react-router-dom';
-
+import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
+import { useSelector } from 'react-redux';
 const { publicCategories, userCategories } = categories;
 
 const NoticesCategoriesNav = () => {
-  const { pathname, search } = useLocation();
+  const { search } = useLocation();
   const location = useLocation();
-
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  console.log(isAuthenticated);
   return (
     <NavContaier>
       <NavList>
@@ -29,18 +31,20 @@ const NoticesCategoriesNav = () => {
         ))}
       </NavList>
 
-      <UserNavList>
-        {userCategories.map(({ id, to, text }) => (
-          <NavLi key={id}>
-            <StyledLink
-              to={{ pathname: to, search }}
-              active={location.pathname === to ? true : undefined}
-            >
-              {text}
-            </StyledLink>
-          </NavLi>
-        ))}
-      </UserNavList>
+      {isAuthenticated && (
+        <UserNavList>
+          {userCategories.map(({ id, to, text }) => (
+            <NavLi key={id}>
+              <StyledLink
+                to={{ pathname: to, search }}
+                active={location.pathname === to ? true : undefined}
+              >
+                {text}
+              </StyledLink>
+            </NavLi>
+          ))}
+        </UserNavList>
+      )}
     </NavContaier>
   );
 };
