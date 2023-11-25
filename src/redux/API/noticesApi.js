@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 export const noticesApi = createApi({
   reducerPath: 'noticesApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://goit-team-03-node.onrender.com/api/notices',
+    baseUrl: `https://goit-team-03-node.onrender.com/api/notices`,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -14,8 +14,16 @@ export const noticesApi = createApi({
   }),
   endpoints: (builder) => ({
     getNotices: builder.query({
+      query: ({ category, params }) => ({
+        url: `/${category}?page=1&limit=12`,
+        params,
+      }),
+      providesTags: ['Notices'],
+      refetchOnMountOrArgChange: true,
+    }),
+    getMyFavorite: builder.query({
       query: (params) => ({
-        url: '/',
+        url: '/myFavorite',
         params,
       }),
       providesTags: ['Notices'],
@@ -49,6 +57,7 @@ export const noticesApi = createApi({
 });
 export const {
   useGetNoticesQuery,
+  useGetMyFavoriteQuery,
   useGetOneNoticeQuery,
   useGetMyNoticesQuery,
   useAddNoticeMutation,
