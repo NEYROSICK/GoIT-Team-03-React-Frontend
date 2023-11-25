@@ -101,6 +101,23 @@ const ItemFavoriteBtn = styled.button`
   padding: 9px 8px 7px 8px;
 `;
 
+const ItemDeleteBtn = styled.button`
+  position: absolute;
+  top: 58px;
+  right: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: var(--clr-brand-blue-lt);
+  border-radius: 100%;
+  border: none;
+  outline: none;
+
+  padding: 9px 8px 7px 8px;
+`;
+
 const FavoriteIcon = styled.svg`
   stroke: var(--clr-brand-blue);
   fill: ${(props) => {
@@ -236,4 +253,5 @@ export {
   ItemTitle,
   ItemLearnMoreBtn,
   ItemLearnMoreBtnIcon,
+  ItemDeleteBtn,
 };

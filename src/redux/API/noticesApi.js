@@ -14,32 +14,26 @@ export const noticesApi = createApi({
   }),
   endpoints: (builder) => ({
     getNotices: builder.query({
-      query: ({ category, params }) => {
-        const { page = 1, limit = 12, ...otherParams } = params;
-        return {
-          url: `/${category}`,
-          params: {
-            page,
-            limit,
-            ...otherParams,
-          },
-        };
-      },
+      query: ({ category, params }) => ({
+        url: `/${category}`,
+        params,
+      }),
       providesTags: ['Notices'],
       refetchOnMountOrArgChange: true,
     }),
     getMyFavorite: builder.query({
-      query: ({ params }) => {
-        const { page = 1, limit = 12, ...otherParams } = params;
-        return {
-          url: `/myFavorite`,
-          params: {
-            page,
-            limit,
-            ...otherParams,
-          },
-        };
-      },
+      query: ({ params }) => ({
+        url: `/myFavorite`,
+        params,
+      }),
+      providesTags: ['Notices'],
+      refetchOnMountOrArgChange: true,
+    }),
+    getMyNotices: builder.query({
+      query: ({ params }) => ({
+        url: `/myNotices`,
+        params,
+      }),
       providesTags: ['Notices'],
       refetchOnMountOrArgChange: true,
     }),
@@ -47,10 +41,6 @@ export const noticesApi = createApi({
       query: (id) => ({
         url: `/getOne/${id}`,
       }),
-    }),
-    getMyNotices: builder.query({
-      query: () => '/myNotices',
-      providesTags: ['Notices'],
     }),
     addNotice: builder.mutation({
       query: (body) => ({

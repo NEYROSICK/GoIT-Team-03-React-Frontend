@@ -13,8 +13,10 @@ import {
   ItemTitle,
   ItemLearnMoreBtn,
   ItemLearnMoreBtnIcon,
+  ItemDeleteBtn,
 } from './NoticeItem.styled';
 import { useUpdateFavoriteMutation } from '../../../redux/API/UserApi';
+import { useDeleteNoticeMutation } from '../../../redux/API/noticesApi';
 import { useState } from 'react';
 
 const NoticeItem = ({
@@ -26,11 +28,22 @@ const NoticeItem = ({
   location,
   avatarUrl,
   isFavorite,
+  showDelete,
 }) => {
   const [updateFavorite] = useUpdateFavoriteMutation();
 
+  const [deleteNotice] = useDeleteNoticeMutation();
+
   const [message, setMessage] = useState('');
 
+  const today = new Date();
+
+  const noticeDate = new Date(date);
+
+  const noticeAge = today.getFullYear() - noticeDate.getFullYear();
+
+  const ageText = noticeAge % 2 ? 'year' : 'years';
+  
   const handleFavoriteClick = async (e) => {
     e.preventDefault();
 
@@ -44,14 +57,19 @@ const NoticeItem = ({
       setMessage('Failed to update favorite status');
     }
   };
+  const handleDeleteClick = async (e) => {
+    e.preventDefault();
 
-  const today = new Date();
-
-  const noticeDate = new Date(date);
-
-  const noticeAge = today.getFullYear() - noticeDate.getFullYear();
-
-  const ageText = noticeAge % 2 ? 'year' : 'years';
+    try {
+      const response = await deleteNotice(id);
+      if (response.data && response.data.message) {
+        setMessage(response.data.message);
+      }
+      console.log(message);
+    } catch (error) {
+      setMessage('Failed to delete notice');
+    }
+  };
 
   return (
     <ItemContainer key={id}>
@@ -64,6 +82,14 @@ const NoticeItem = ({
             <use href={sprite + '#iconHeart'} />
           </FavoriteIcon>
         </ItemFavoriteBtn>
+
+        {showDelete && (
+          <ItemDeleteBtn type="submit" onClick={handleDeleteClick}>
+            <FavoriteIcon isFavorite={isFavorite}>
+              <use href={sprite + '#iconTrash'} />
+            </FavoriteIcon>
+          </ItemDeleteBtn>
+        )}
 
         <ItemDataWrapper>
           <ItemData>
@@ -86,7 +112,7 @@ const NoticeItem = ({
                 }
               />
             </ItemDataIcon>
-            female
+            {sex}
           </ItemData>
         </ItemDataWrapper>
       </TopPart>
