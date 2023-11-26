@@ -19,19 +19,31 @@ import {
 
 import { useState, useEffect } from 'react';
 import sprite from '.././../../ui/Icons/sprite.svg'
+import { useDispatch, useSelector} from 'react-redux';
+import { changeIsNewUser } from '../../../redux/auth/authSlice';
+import { selectIsNewUser } from '../../../redux/auth/selectors';
+
 
 const UserData = () => {
+  const dispatch = useDispatch();
+  const isNewUser = useSelector(selectIsNewUser);
+
   useEffect(() => {
     const close = (e) => {
       if (e.keyCode === 27) {
-        setIsModal(false);
+        dispatch(changeIsNewUser(false));
+        console.log("im here");
       }
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
+
   const [isUserUpdate, setIsUserUpdate] = useState(true);
-  const [isModal, setIsModal] = useState(true);
+
+  const handleModalClose = () => {
+    dispatch(changeIsNewUser(false));
+  }
 
   return (
     <>
@@ -57,18 +69,18 @@ const UserData = () => {
             setIsUserUpdate={setIsUserUpdate}
           />
 
-          {isModal && (
+          {isNewUser && (
             <Modal>
               <ModalConteiner>
                 <ModalTitle>Congrats!</ModalTitle>
                 <ModalText>Youre registration is success</ModalText>
-                <ModalBtn onClick={() => setIsModal(false)} type="button">
+                <ModalBtn onClick={()=>{handleModalClose()}} type="button">
                   Go to profile
                   <PawSvg>
                   <use href={sprite + '#iconPaw'}></use>
                   </PawSvg>
                 </ModalBtn>
-                <BtnCloseModal onClick={() => setIsModal(false)}>
+                <BtnCloseModal onClick={()=>{handleModalClose()}}>
                   <CloseSvg>
                   <use href={sprite + '#iconCross'}></use>
                   </CloseSvg>

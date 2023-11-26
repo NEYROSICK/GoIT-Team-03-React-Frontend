@@ -1,15 +1,20 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import sprite from '../../../ui/Icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../redux/auth/operations';
+import {Container} from '../../Layout/Container/Container';
 import {
   Form,
+  Svg,
   Email,
   Password,
   Button,
+  SvgEye,
   Text,
   Title,
   Link,
+  ClearButton,
   Validation,
   EmailValidation,
   PasswordValidation,
@@ -61,39 +66,76 @@ const Login = () => {
     },
   });
   return (
-    <Form onSubmit={formik.handleSubmit}>
-      <Title>Login</Title>
-      <EmailValidation>
-        <Email
-          id="email"
-          name="email"
-          type="email"
-          placeholder="Email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
-        {formik.touched.email && formik.errors.email ? (
-          <Validation>{formik.errors.email}</Validation>
-        ) : null}
-      </EmailValidation>
-      <PasswordValidation>
-        <Password
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={formik.handleChange}
-          value={formik.values.password}
-        />
-        {formik.touched.password && formik.errors.password ? (
-          <Validation>{formik.errors.password}</Validation>
-        ) : null}
-      </PasswordValidation>
-      <Button type="submit">Login</Button>
-      <Text>
-        Dont have an account? <Link to="/register">Register</Link>
-      </Text>
-    </Form>
+    <Container>
+      <Form onSubmit={formik.handleSubmit}>
+        <Title>Login</Title>
+        <EmailValidation>
+          <Email
+            id="email"
+            name="email"
+            type="text"
+            placeholder="Email"
+            onChange={formik.handleChange}
+            value={formik.values.email.toLocaleLowerCase()}
+            isValid={!formik.touched.email || !formik.errors.email}
+          />
+
+          {formik.touched.email && formik.errors.email ? (
+            <>
+              {formik.values.email && (
+                <ClearButton
+                  type="button"
+                  onClick={() => {
+                    formik.setFieldValue('email', '');
+                    formik.setFieldTouched('email', false);
+                  }}
+                >
+                  <Svg>
+                    <use href={sprite + '#iconCross'}></use>
+                  </Svg>
+                </ClearButton>
+              )}
+              <Validation>{formik.errors.email}</Validation>
+            </>
+          ) : null}
+        </EmailValidation>
+        <PasswordValidation>
+          <Password
+            id="password"
+            name="password"
+            type={formik.values.showPassword ? 'text' : 'password'}
+            placeholder="Password"
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            isValid={!formik.touched.password || !formik.errors.password}
+          />
+          <ClearButton
+            type="button"
+            onClick={() => {
+              formik.setFieldTouched('password', false);
+              formik.setFieldValue('showPassword', !formik.values.showPassword);
+            }}
+          >
+            {formik.values.showPassword ? (
+              <SvgEye>
+                <use href={sprite + '#iconEyeOpen'}></use>
+              </SvgEye>
+            ) : (
+              <SvgEye>
+                <use href={sprite + '#iconEyeClosed'}></use>
+              </SvgEye>
+            )}
+          </ClearButton>
+          {formik.touched.password && formik.errors.password ? (
+            <Validation>{formik.errors.password}</Validation>
+          ) : null}
+        </PasswordValidation>
+        <Button type="submit">Login</Button>
+        <Text>
+          Dont have an account? <Link to="/register">Register</Link>
+        </Text>
+      </Form>
+    </Container>
   );
 };
 export default Login;
