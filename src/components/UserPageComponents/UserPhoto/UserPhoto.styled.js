@@ -72,10 +72,24 @@ export const UserPhotoEdit = styled.div`
 export  const UserPhotoIcon = styled.svg`
   width: 24px;
   height: 24px;
-  stroke: #54adff;
+  stroke:var(--clr-brand-blue);
 `;
 
 export const CameraSvg = styled.svg`
   fill: none;
 
+`;
+export const CheckSvg = styled.svg`
+  fill: none;
+  stroke:var(--clr-brand-blue);
+  width: 24px;
+  height: 24px;
+`;
+
+export const XSvg = styled.svg`
+  stroke:var(--clr-brand-red);
+  width: 24px;
+  height: 24px;
 `
+
+
