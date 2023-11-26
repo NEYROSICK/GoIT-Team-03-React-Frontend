@@ -14,12 +14,11 @@ import sprite from '.././../../ui/Icons/sprite.svg'
 export const PetsData = () => {
 
     const { data =[] } = useGetMeAndPetsQuery();
-    console.log(data)
     return (
         <div>
             <ConteinerTitle>
             <PetsDataTitle>My pets:</PetsDataTitle>
-                <BtnAddPet to={'/add-pet'} state={{ from: '/user'}}>
+            <BtnAddPet to={'/add-pet'} state={{ from: '/user'}}>
             <PlussSvg>
             <use href={sprite + '#iconPlusSmall'}></use>
             </PlussSvg>

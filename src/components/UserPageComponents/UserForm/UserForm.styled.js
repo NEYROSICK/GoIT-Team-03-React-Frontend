@@ -58,6 +58,7 @@ export const UserFormList = styled.ul`
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  color:var(--clr-primary);
   @media screen and (min-width: 768px) {
   width: 354px;
   }

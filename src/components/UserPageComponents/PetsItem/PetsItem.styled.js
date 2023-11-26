@@ -50,6 +50,7 @@ export const PetsCardImg = styled.img`
     width: 161px;
     height: 161px;
     margin-right: 32px;
+    border-radius: 40px;
   }
 `;
 
@@ -65,20 +66,23 @@ export const PetsCardText = styled.li`
   
   h3 {
     display: inline;
-    font-family: Manrope-Bold, sans-serif;
     font-weight: 700;
+    font-size: 14px;
     @media only screen and (min-width: 768px) {
-      font-family: Manrope-SemiBold, sans-serif;
       font-weight: 600;
+        font-size: 14px;
+    }
+        @media only screen and (min-width: 1280px) {
+        font-size:16px;
     }
   }
   p {
     display: inline;
-    font-family: Manrope-Regular, sans-serif;
+    word-break: break-all;
+    white-space: normal;
     font-weight: 400;
-    @media only screen and (min-width: 768px) {
-      font-family: Manrope-Regular, sans-serif;
-      font-weight: 400;
+    @media only screen and (min-width: 1280px) {
+        font-size:16px;
     }
   }
 `

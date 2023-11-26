@@ -70,10 +70,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    console.log(data);
-    console.log(userPhoto);
     updateUser(formData).unwrap();
-
     setIsUserUpdate((state) => !state);
   };
   const hendleClick = () => {

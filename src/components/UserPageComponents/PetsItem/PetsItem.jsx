@@ -15,11 +15,6 @@ function PetsItem({ pets }) {
         }
         return (
                         <PetsItemli >
-                        <BtnDelite   onClick={()=>hendleDelete(pets._id)}>
-                        <TrashSvg>
-                        <use href={sprite + '#iconTrash'}></use>
-                        </TrashSvg>
-                        </BtnDelite>
                         <PetsCardImg src={pets.avatarURL} alt="user-pet"/>
                         <ul>
                             <PetsCardText>
@@ -38,7 +33,12 @@ function PetsItem({ pets }) {
                                 <h3> Comments: </h3>
                                 <p>{pets.comments}</p>
                             </PetsCardText>
-                        </ul>
+                            </ul>
+                        <BtnDelite   onClick={()=>hendleDelete(pets._id)}>
+                        <TrashSvg>
+                        <use href={sprite + '#iconTrash'}></use>
+                        </TrashSvg>
+                        </BtnDelite>
                     </PetsItemli>
   )
 }

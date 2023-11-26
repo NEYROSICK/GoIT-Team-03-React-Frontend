@@ -46,10 +46,6 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
     setisSelected(true);
   };
 
-      console.log(isLoading)
-  
-
-
   return (
     <>
         {isLoading ? (
@@ -82,7 +78,7 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
                   <Box>
                         <UserPhotoBtnCheck type="button" onClick={onSubmit}>
                           <CheckSvg>
-                             <use href={sprite+'#iconCheck'}></use>
+                            <use href={sprite+'#iconCheck'}></use>
                       </CheckSvg>
                     </UserPhotoBtnCheck>
                     <UserPhotoTitle>Confirm</UserPhotoTitle>
@@ -91,7 +87,7 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
                       onClick={() => setSelectedFile(null)}
                         >
                           <XSvg>
-                             <use href={sprite+'#iconCross'}></use>
+                            <use href={sprite+'#iconCross'}></use>
                       </XSvg>
                       {/* </UserPhotoIconDell> */}
                     </UserPhotoBtn>

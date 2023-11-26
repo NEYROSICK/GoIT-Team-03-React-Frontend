@@ -42,6 +42,7 @@ export const UserFormBox = styled.div`
       @media screen and (min-width: 768px) {
   padding: 20px ;
   padding-right:76px;
+  border-radius:40px;
   }
   @media screen and (min-width: 1280px) {
   padding:20px 24px 21px 16px;
