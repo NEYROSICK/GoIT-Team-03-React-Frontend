@@ -1,4 +1,4 @@
-import{n as t,j as e,c as o,r as p}from"./index-b23a84d6.js";import{N as l}from"./NoticesSearch-41d19e31.js";import"./sprite-54f5b953.js";const m=t.div`
+import{n as t,j as e,d as o,r as p}from"./index-f70267fe.js";import{N as l}from"./NoticesSearch-65d6e391.js";const m=t.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -79,4 +79,4 @@ import{n as t,j as e,c as o,r as p}from"./index-b23a84d6.js";import{N as l}from"
   @media screen and (min-width: 1280px) {
     max-width: 1233px;
   }
-`;function f(){return e.jsxs(b,{children:[e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{})]})}function S(){const[i,n]=o(),r=i.get("query"),s=p.useCallback(()=>{n(i)},[i,n]),d=({query:c})=>{i.set("query",c),n(i),s()},x=()=>{i.delete("query",r),n(i),s()};return e.jsxs(m,{children:[e.jsx(h,{children:"News"}),e.jsx(l,{onSubmit:d,onClear:x}),e.jsx(f,{})]})}export{S as default};
+`;function f(){return e.jsxs(b,{children:[e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{}),e.jsx(a,{})]})}function P(){const[i,n]=o(),r=i.get("query"),s=p.useCallback(()=>{n(i)},[i,n]),d=({query:c})=>{i.set("query",c),n(i),s()},x=()=>{i.delete("query",r),n(i),s()};return e.jsxs(m,{children:[e.jsx(h,{children:"News"}),e.jsx(l,{onSubmit:d,onClear:x}),e.jsx(f,{})]})}export{P as default};

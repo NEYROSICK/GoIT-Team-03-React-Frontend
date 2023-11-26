@@ -1,4 +1,4 @@
-import{n as r,r as g,j as t}from"./index-b23a84d6.js";import{s as x}from"./sprite-54f5b953.js";const b=r.form`
+import{n,r as g,j as t,b as x}from"./index-f70267fe.js";const b=n.form`
   position: relative;
   width: 280px;
   margin-left: auto;
@@ -14,7 +14,7 @@ import{n as r,r as g,j as t}from"./index-b23a84d6.js";import{s as x}from"./sprit
   @media screen and (min-width: 1280px) {
     margin-bottom: 43px;
   }
-`,f=r.input`
+`,f=n.input`
   width: 100%;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -48,7 +48,7 @@ import{n as r,r as g,j as t}from"./index-b23a84d6.js";import{s as x}from"./sprit
     font-size: 20px;
     line-height: 24px;
   }
-`,v=r.svg`
+`,v=n.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -60,7 +60,7 @@ import{n as r,r as g,j as t}from"./index-b23a84d6.js";import{s as x}from"./sprit
   stroke: var(--clr-brand-blue);
   fill: var(--clr-brand-blue);
 
-`,w=r.svg`
+`,w=n.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -69,4 +69,4 @@ import{n as r,r as g,j as t}from"./index-b23a84d6.js";import{s as x}from"./sprit
   top: 10px;
   stroke: var(--clr-brand-yellow);
 
-`,e={query:""},j=({onSubmit:i,onClear:c})=>{const[n,a]=g.useState({...e}),l=s=>{const{name:u,value:d}=s.target;if(!d){p();return}a(m=>({...m,[u]:d}))},p=()=>{a({...e}),c({...e})},h=s=>{if(s.preventDefault(),n.query.trim()===""){a({...e});return}i({...n})},{query:o}=n;return t.jsxs(b,{onSubmit:h,children:[t.jsx(f,{type:"text",name:"query",required:!0,value:o,onChange:l,placeholder:"Search"}),t.jsxs(v,{type:"submit","aria-label":"submit",active:o&&!0,children:["   ",t.jsx("use",{href:x+"#iconSearch"})]}),o&&t.jsx(w,{type:"button",onClick:p,"aria-label":"clear",children:t.jsx("use",{href:x+"#iconCross"})})]})};export{j as N};
+`,e={query:""},y=({onSubmit:i,onClear:c})=>{const[r,a]=g.useState({...e}),l=s=>{const{name:u,value:d}=s.target;if(!d){p();return}a(m=>({...m,[u]:d}))},p=()=>{a({...e}),c({...e})},h=s=>{if(s.preventDefault(),r.query.trim()===""){a({...e});return}i({...r})},{query:o}=r;return t.jsxs(b,{onSubmit:h,children:[t.jsx(f,{type:"text",name:"query",required:!0,value:o,onChange:l,placeholder:"Search"}),t.jsxs(v,{type:"submit","aria-label":"submit",active:o&&!0,children:["   ",t.jsx("use",{href:x+"#iconSearch"})]}),o&&t.jsx(w,{type:"button",onClick:p,"aria-label":"clear",children:t.jsx("use",{href:x+"#iconCross"})})]})};export{y as N};
