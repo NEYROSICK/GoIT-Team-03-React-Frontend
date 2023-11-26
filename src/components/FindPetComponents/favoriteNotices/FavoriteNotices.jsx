@@ -17,12 +17,13 @@ function FavoriteNotices() {
       limit: 12,
       ...searchParamsObject,
     },
+    refetchOnMountOrArgChange: true,
   });
-
+  
   let userFavorites = [];
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  if (isAuthenticated) {
-    userFavorites = userData.user.favoritesArr;
+  if (isAuthenticated && userData && userData.user) {
+    userFavorites = userData.user.favoritesArr || [];
   }
 
   return (

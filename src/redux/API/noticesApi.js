@@ -12,6 +12,7 @@ export const noticesApi = createApi({
       return headers;
     },
   }),
+  tagTypes: ['Notices'],
   endpoints: (builder) => ({
     getNotices: builder.query({
       query: ({ category, params }) => ({
@@ -19,7 +20,6 @@ export const noticesApi = createApi({
         params,
       }),
       providesTags: ['Notices'],
-      refetchOnMountOrArgChange: true,
     }),
     getMyFavorite: builder.query({
       query: ({ params }) => ({
@@ -27,7 +27,6 @@ export const noticesApi = createApi({
         params,
       }),
       providesTags: ['Notices'],
-      refetchOnMountOrArgChange: true,
     }),
     getMyNotices: builder.query({
       query: ({ params }) => ({
@@ -35,7 +34,6 @@ export const noticesApi = createApi({
         params,
       }),
       providesTags: ['Notices'],
-      refetchOnMountOrArgChange: true,
     }),
     getOneNotice: builder.query({
       query: (id) => ({

@@ -30,6 +30,7 @@ export const UserApi = createApi({
         url: `/users/favorite/${id}`,
         method: 'PATCH',
       }),
+      invalidatesTags: ['Notices', 'User'],
     }),
   }),
 });

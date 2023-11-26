@@ -12,6 +12,7 @@ function MyAds() {
       limit: 12,
       ...searchParamsObject,
     },
+    refetchOnMountOrArgChange: true,
   });
   return (
     <>
