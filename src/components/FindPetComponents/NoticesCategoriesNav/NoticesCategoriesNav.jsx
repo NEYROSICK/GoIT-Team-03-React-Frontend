@@ -31,7 +31,7 @@ const NoticesCategoriesNav = () => {
         ))}
       </NavList>
       {isAuthenticated && (
-        <UserNavList>
+        <NavList>
           {userCategories.map(({ id, to, text }) => (
             <NavLi key={id}>
               <StyledLink
@@ -42,7 +42,7 @@ const NoticesCategoriesNav = () => {
               </StyledLink>
             </NavLi>
           ))}
-        </UserNavList>
+        </NavList>
       )}
     </NavContaier>
   );
