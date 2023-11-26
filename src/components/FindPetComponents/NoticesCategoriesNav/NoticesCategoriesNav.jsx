@@ -15,7 +15,7 @@ const NoticesCategoriesNav = () => {
   const { search } = useLocation();
   const location = useLocation();
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  console.log(isAuthenticated);
+
   return (
     <NavContaier>
       <NavList>
@@ -30,7 +30,6 @@ const NoticesCategoriesNav = () => {
           </NavLi>
         ))}
       </NavList>
-
       {isAuthenticated && (
         <UserNavList>
           {userCategories.map(({ id, to, text }) => (
