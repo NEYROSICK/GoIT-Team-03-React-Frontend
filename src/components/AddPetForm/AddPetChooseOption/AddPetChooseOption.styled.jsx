@@ -55,10 +55,10 @@ export const OptionList = styled.div`
 
 export const ErrorCategoryText = styled.p`
   position: absolute;
-  bottom: -26px;
-  left: 18px;
+  bottom: -20px;
+  left: 10px;
 
-  font-size: 12px;
+  font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

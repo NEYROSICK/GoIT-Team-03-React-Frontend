@@ -3,6 +3,7 @@ import { object, string } from 'yup';
 import {
   AvatarContainer,
   ErMsFile,
+  ErrorMoreInfoText,
   IconPlus,
   InputFile,
   InputList,
@@ -22,7 +23,7 @@ const AddPetMoreInfoYourPet = (props) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
 
-  const handleFileChange = (e) => { 
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
 
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
@@ -32,7 +33,7 @@ const AddPetMoreInfoYourPet = (props) => {
       setSelectedFile(null);
       setErMessage('Please select a JPEG or PNG');
     }
-  }
+  };
 
   const handleSubmit = (values) => {
     if (!selectedFile) {
@@ -48,14 +49,16 @@ const AddPetMoreInfoYourPet = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors  }) => (
+      {({ values, touched, errors }) => (
         <Form>
           <InputList>
             <AvatarContainer>
               <p>Choose pet image:</p>
               <LabelInputFile
                 className={
-                  (erMessage !== '') || formSubmitted && !selectedFile ? 'no-image-selected' : ''
+                  erMessage !== '' || (formSubmitted && !selectedFile)
+                    ? 'no-image-selected'
+                    : ''
                 }
               >
                 {selectedFile ? (
@@ -71,7 +74,12 @@ const AddPetMoreInfoYourPet = (props) => {
                     <use href={sprite + '#iconPlusAvatar'} />
                   </IconPlus>
                 )}
-                <InputFile type="file" name="image" accept='image/jpeg, image/png' onChange={handleFileChange}/>
+                <InputFile
+                  type="file"
+                  name="image"
+                  accept="image/jpeg, image/png"
+                  onChange={handleFileChange}
+                />
               </LabelInputFile>
             </AvatarContainer>
 
@@ -79,8 +87,16 @@ const AddPetMoreInfoYourPet = (props) => {
 
             <label>
               Comments
-              <Field type="text" name="comments" placeholder="Type of pet" className={`${touched.comments && errors.comments ? 'is-invalid' : ''}`}/>
-              <ErrorMessage name="comments" component={'div'} />
+              <Field
+                as="textarea"
+                type="text"
+                name="comments"
+                placeholder="Type of pet"
+                className={`${
+                  touched.comments && errors.comments ? 'is-invalid' : ''
+                }`}
+              />
+              <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>
 
             <ButtonNextBack className="buttonNext" type="submit">

@@ -11,6 +11,9 @@ import {
   LabelInputFile,
   PhotoContainer,
   SexList,
+  ErrorMoreInfoText,
+  SexContainer,
+  ErrorSex,
 } from './AddPetMoreInfo.styled';
 import { useState } from 'react';
 import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
@@ -28,7 +31,7 @@ const AddPetMoreInfoSell = (props) => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
 
-  const handleFileChange = (e) => { 
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
 
     if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
@@ -38,7 +41,7 @@ const AddPetMoreInfoSell = (props) => {
       setSelectedFile(null);
       setErMessage('Please select a JPEG or PNG');
     }
-  }
+  };
 
   const handleSubmit = (values) => {
     if (!selectedFile) {
@@ -54,35 +57,51 @@ const AddPetMoreInfoSell = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors  }) => (
+      {({ values, touched, errors }) => (
         <Form>
           <InputList>
-            <p>The Sex</p>
-            <SexList>
-              <Field type="radio" name="sex" id="female" value="female" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
-              <label htmlFor="female">
-                <IconFemale className="iconFemale">
-                  <use href={sprite + '#iconFemale'} />
-                </IconFemale>
-                Female
-              </label>
+            <SexContainer>
+              <p>The Sex</p>
+              <SexList>
+                <Field
+                  type="radio"
+                  name="sex"
+                  id="female"
+                  value="female"
+                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                />
+                <label htmlFor="female">
+                  <IconFemale className="iconFemale">
+                    <use href={sprite + '#iconFemale'} />
+                  </IconFemale>
+                  Female
+                </label>
 
-              <Field type="radio" name="sex" id="male" value="male" className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}/>
-              <label htmlFor="male">
-                <IconMale className="iconMale">
-                  <use href={sprite + '#iconMale'} />
-                </IconMale>
-                Male
-              </label>
-              <ErrorMessage name="sex" component={'div'} />
-            </SexList>
+                <Field
+                  type="radio"
+                  name="sex"
+                  id="male"
+                  value="male"
+                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                />
+                <label htmlFor="male">
+                  <IconMale className="iconMale">
+                    <use href={sprite + '#iconMale'} />
+                  </IconMale>
+                  Male
+                </label>
+                <ErrorMessage name="sex" component={ErrorSex} />
+              </SexList>
+            </SexContainer>
 
             <AvatarContainer>
               <p>Choose pet image:</p>
 
               <LabelInputFile
                 className={
-                  (erMessage !== '') || formSubmitted && !selectedFile ? 'no-image-selected' : ''
+                  erMessage !== '' || (formSubmitted && !selectedFile)
+                    ? 'no-image-selected'
+                    : ''
                 }
               >
                 {selectedFile ? (
@@ -98,39 +117,55 @@ const AddPetMoreInfoSell = (props) => {
                     <use href={sprite + '#iconPlusAvatar'} />
                   </IconPlus>
                 )}
-                <InputFile type="file" name="image" accept='image/jpeg, image/png' onChange={handleFileChange}/>
+                <InputFile
+                  type="file"
+                  name="image"
+                  accept="image/jpeg, image/png"
+                  onChange={handleFileChange}
+                />
               </LabelInputFile>
             </AvatarContainer>
-            
+
             {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
 
             <label>
               Location
               <Field
-                className={`${touched.location && errors.location ? 'is-invalid' : ''}`}
+                className={`${
+                  touched.location && errors.location ? 'is-invalid' : ''
+                }`}
                 type="text"
                 name="location"
                 placeholder="Type of location"
               />
-              <ErrorMessage name="location" component={'div'} />
+              <ErrorMessage name="location" component={ErrorMoreInfoText} />
             </label>
 
             <label>
               Price
-              <Field type="text" name="price" placeholder="Type of price" className={`${touched.price && errors.price ? 'is-invalid' : ''}`}/>
-              <ErrorMessage name="price" component={'div'} />
+              <Field
+                type="text"
+                name="price"
+                placeholder="Type of price"
+                className={`${
+                  touched.price && errors.price ? 'is-invalid' : ''
+                }`}
+              />
+              <ErrorMessage name="price" component={ErrorMoreInfoText} />
             </label>
 
             <label>
               Comments
               <Field
-                className={`commentsField ${touched.comments && errors.comments ? 'is-invalid' : ''}`}
+                className={`${
+                  touched.comments && errors.comments ? 'is-invalid' : ''
+                }`}
                 as="textarea"
                 type="text"
                 name="comments"
                 placeholder="Type of pet"
               />
-              <ErrorMessage name="comments" component={'div'} />
+              <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>
           </InputList>
 

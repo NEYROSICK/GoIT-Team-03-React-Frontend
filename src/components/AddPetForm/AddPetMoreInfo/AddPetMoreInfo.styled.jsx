@@ -16,18 +16,21 @@ export const LabelInputFile = styled.label`
   align-items: center;
   cursor: pointer;
 
+  position: relative;
   width: 100vh;
   height: 100vw;
   max-width: 112px;
   max-height: 112px;
+  border: 3px solid transparent;
   border-radius: 20px;
   margin-right: 29.3%;
 
-  border: 5px solid transparent;
-  transition: border-color 0.3s;
+  transition:
+    border-color 0.3s,
+    scale 0.3s;
 
   &.no-image-selected {
-    border: 2px solid var(--clr-brand-red);
+    border-color: var(--clr-brand-red);
   }
 
   & svg {
@@ -37,11 +40,30 @@ export const LabelInputFile = styled.label`
   }
 
   &:hover {
-    border-color: var(--clr-brand-blue);
-
     & svg {
       transform: rotate(180deg) scale(1.4);
     }
+  }
+
+  &:active,
+  &:active & svg {
+    scale: 0.9;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 112px;
+    height: 112px;
+    border: 3px solid transparent;
+    z-index: 100;
+    transition: border-color 0.3s;
+    border-radius: inherit;
+  }
+
+  &:hover::after {
+    border-color: var(--clr-brand-blue);
   }
 `;
 
@@ -58,23 +80,20 @@ export const ErMsFile = styled.div`
 `;
 
 export const InputList = styled.div`
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+
   & p {
     margin-bottom: 4px;
   }
 
-  & p,
-  label {
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-  }
-
   & label {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-bottom: 20px;
   }
 
   & input[type='text'],
@@ -89,9 +108,26 @@ export const InputList = styled.div`
 
     border-radius: 40px;
     border: 1px solid var(--clr-brand-blue);
+    margin-bottom: 20px;
+
+    outline: 3px solid transparent;
+    outline-offset: -3px;
+    transition: outline-color 0.3s;
+
+    &:focus {
+      outline: 3px solid var(--clr-brand-blue);
+    }
+
+    &.is-invalid {
+      outline-color: var(--clr-brand-red);
+
+      &:focus {
+        outline: 3px solid var(--clr-brand-red);
+      }
+    }
   }
 
-  & textarea.commentsField {
+  & textarea {
     height: 92px;
     border-radius: 20px;
     resize: none;
@@ -101,6 +137,7 @@ export const InputList = styled.div`
 export const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 14px;
 `;
 
 export const IconPlus = styled.svg`
@@ -123,11 +160,17 @@ export const IconMale = styled.svg`
   fill: transparent;
 `;
 
+export const SexContainer = styled.div`
+  position: relative;
+`;
+
 export const SexList = styled.div`
   display: flex;
   gap: 8px;
+  margin-bottom: 14px;
 
   & > label {
+    touch-action: none;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -149,6 +192,7 @@ export const SexList = styled.div`
     transition:
       background-color 0.3s,
       border-color 0.2s,
+      scale 0.3s,
       color 0.3s;
     cursor: pointer;
 
@@ -172,6 +216,10 @@ export const SexList = styled.div`
         transform: rotate(-360deg);
       }
     }
+
+    &:active {
+      scale: 0.9;
+    }
   }
 
   & input[type='radio']:checked + label {
@@ -193,3 +241,26 @@ export const SexList = styled.div`
   }
 `;
 
+export const ErrorMoreInfoText = styled.p`
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--clr-brand-red);
+`;
+
+export const ErrorSex = styled.p`
+  position: absolute;
+  bottom: -18px;
+  left: 12px;
+
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--clr-brand-red);
+`;
