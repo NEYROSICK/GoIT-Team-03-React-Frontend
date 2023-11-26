@@ -36,7 +36,7 @@ const NoticesPage = () => {
         checkboxValue.male,
       ),
     });
-  }, [checkboxValue, searchParams]);
+  }, [checkboxValue]);
 
   const handleSubmit = ({ query }) => {
     searchParams.set('query', query);
@@ -57,25 +57,25 @@ const NoticesPage = () => {
   return (
     <Container>
       <NoticesContainer>
-      <PageTitle>Find your favorite pet</PageTitle>
-      <div>
-        <NoticesSearch onSubmit={handleSubmit} onClear={handleClear} />
-      </div>
-      <FilterContainer>
-        <NoticesCategoriesNav searchParams={searchParams} />
+        <PageTitle>Find your favorite pet</PageTitle>
         <div>
-          <FilterAndAddContainer>
-            <NoticesFilter
-              setCheckboxValue={setCheckboxValue}
-              checkboxValue={checkboxValue}
-            />
-            <AddPetButton />
-          </FilterAndAddContainer>
+          <NoticesSearch onSubmit={handleSubmit} onClear={handleClear} />
         </div>
-      </FilterContainer>
-      <Suspense fallback={<p>Loading...</p>}>
-        <Outlet />
-      </Suspense>
+        <FilterContainer>
+          <NoticesCategoriesNav searchParams={searchParams} />
+          <div>
+            <FilterAndAddContainer>
+              <NoticesFilter
+                setCheckboxValue={setCheckboxValue}
+                checkboxValue={checkboxValue}
+              />
+              <AddPetButton />
+            </FilterAndAddContainer>
+          </div>
+        </FilterContainer>
+        <Suspense fallback={<p>Loading...</p>}>
+          <Outlet />
+        </Suspense>
       </NoticesContainer>
     </Container>
   );

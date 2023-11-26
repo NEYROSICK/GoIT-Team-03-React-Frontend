@@ -23,7 +23,7 @@ const ItemContainer = styled.li`
     box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 1);
 
     & img {
-      scale: 1.2;
+      scale: 1.1;
     }
   }
 
@@ -53,7 +53,7 @@ const TopPart = styled.div`
 const ItemImg = styled.img`
   position: absolute;
   object-position: center;
-  object-fit: contain;
+  object-fit: cover;
 
   width: 100%;
   height: 100%;
@@ -121,7 +121,7 @@ const ItemDeleteBtn = styled.button`
 const FavoriteIcon = styled.svg`
   stroke: var(--clr-brand-blue);
   fill: ${(props) => {
-    return props.isFavorite ? '--clr-brand-blue' : 'none';
+    return props.isFavorite ? 'var(--clr-brand-blue)' : 'none';
   }};
 
   width: 24px;

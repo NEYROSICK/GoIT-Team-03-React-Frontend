@@ -28,9 +28,11 @@ const NoticeItem = ({
   sex,
   location,
   avatarUrl,
-  isFavorite,
+  userFavoritesArr,
   showDelete,
 }) => {
+  const [isFavorite, setIsFavorite] = useState(userFavoritesArr.includes(id));
+
   const [updateFavorite] = useUpdateFavoriteMutation();
 
   const [deleteNotice] = useDeleteNoticeMutation();
@@ -54,11 +56,14 @@ const NoticeItem = ({
         await setMessage(response.data.message);
       }
       Notify.success(message);
+
+      setIsFavorite((prevState) => !prevState);
     } catch (error) {
       setMessage('Failed to update favorite status');
       Notify.failure(message);
     }
   };
+
   const handleDeleteClick = async (e) => {
     e.preventDefault();
 
