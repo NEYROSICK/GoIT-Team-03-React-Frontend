@@ -21,15 +21,22 @@ import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
   sex: string().required('Select a sex'),
-  location: string().required('Enter a location'),
+  location: string().matches(/^[a-zA-Z\s]+$/, 'Enter only English letters').min(2).required('Enter a location'),
   price: number().min(1).required('Enter a price'),
-  comments: string().required('Enter a comment'),
+  comments: string().min(2).required('Enter a comment'),
 });
 
 const AddPetMoreInfoSell = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
+
+  const [validationPerformed, setValidationPerformed] = useState({
+    sex: false,
+    location: false,
+    price: false,
+    comments: false,
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -41,6 +48,10 @@ const AddPetMoreInfoSell = (props) => {
       setSelectedFile(null);
       setErMessage('Please select a JPEG or PNG');
     }
+  };
+
+  const handleBlur = (field) => {
+    setValidationPerformed((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSubmit = (values) => {
@@ -57,7 +68,7 @@ const AddPetMoreInfoSell = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors }) => (
+      {({ values, touched, errors, setFieldTouched }) => (
         <Form>
           <InputList>
             <SexContainer>
@@ -68,7 +79,7 @@ const AddPetMoreInfoSell = (props) => {
                   name="sex"
                   id="female"
                   value="female"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                  className={`${(touched.sex || validationPerformed.sex) && errors.sex ? 'is-invalid' : ''}`}
                 />
                 <label htmlFor="female">
                   <IconFemale className="iconFemale">
@@ -82,7 +93,7 @@ const AddPetMoreInfoSell = (props) => {
                   name="sex"
                   id="male"
                   value="male"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                  className={`${(touched.sex || validationPerformed.sex) && errors.sex ? 'is-invalid' : ''}`}
                 />
                 <label htmlFor="male">
                   <IconMale className="iconMale">
@@ -132,11 +143,13 @@ const AddPetMoreInfoSell = (props) => {
               Location
               <Field
                 className={`${
-                  touched.location && errors.location ? 'is-invalid' : ''
+                  (touched.location || validationPerformed.location) && errors.location ? 'is-invalid' : ''
                 }`}
                 type="text"
                 name="location"
                 placeholder="Type of location"
+                onBlur={() => handleBlur('location')}
+                onFocus={() => setFieldTouched('location')}
               />
               <ErrorMessage name="location" component={ErrorMoreInfoText} />
             </label>
@@ -148,8 +161,10 @@ const AddPetMoreInfoSell = (props) => {
                 name="price"
                 placeholder="Type of price"
                 className={`${
-                  touched.price && errors.price ? 'is-invalid' : ''
+                  (touched.price || validationPerformed.price) && errors.price ? 'is-invalid' : ''
                 }`}
+                onBlur={() => handleBlur('price')}
+                onFocus={() => setFieldTouched('price')}
               />
               <ErrorMessage name="price" component={ErrorMoreInfoText} />
             </label>
@@ -158,12 +173,14 @@ const AddPetMoreInfoSell = (props) => {
               Comments
               <Field
                 className={`${
-                  touched.comments && errors.comments ? 'is-invalid' : ''
+                  (touched.comments || validationPerformed.comments) && errors.comments ? 'is-invalid' : ''
                 }`}
                 as="textarea"
                 type="text"
                 name="comments"
                 placeholder="Type of pet"
+                onBlur={() => handleBlur('comments')}
+                onFocus={() => setFieldTouched('comments')}
               />
               <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>

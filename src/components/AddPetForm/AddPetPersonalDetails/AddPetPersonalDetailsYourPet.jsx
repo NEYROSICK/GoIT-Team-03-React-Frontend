@@ -6,16 +6,27 @@ import {
   ErrorPersonalInfoText,
   InputList,
 } from './AddPetPersonalDetails.styled';
+import { useState } from 'react';
 
 const schema = object({
-  name: string().min(2).max(16).required('Enter a name pet'),
+  name: string().matches(/^[a-zA-Z\s]+$/, 'Enter only English letters').min(2).max(16).required('Enter a name pet'),
   date: date()
     .required('Enter a date of birth')
     .max(new Date(), 'Date cannot be in the future'),
-  type: string().min(2).max(16).required('Enter a type of pet'),
+  type: string().matches(/^[a-zA-Z\s]+$/, 'Enter only English letters').max(16).required('Enter a type of pet'),
 });
 
 const AddPetPersonalDetailsYourPet = (props) => {
+  const [validationPerformed, setValidationPerformed] = useState({
+    name: false,
+    date: false,
+    type: false,
+  });
+
+  const handleBlur = (field) => {
+    setValidationPerformed((prev) => ({ ...prev, [field]: true }));
+  };
+
   const handleSubmit = (values) => {
     props.next(values);
     console.log(values);
@@ -27,7 +38,7 @@ const AddPetPersonalDetailsYourPet = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors }) => (
+      {({ values, touched, errors, setFieldTouched }) => (
         <Form>
           <InputList>
             <label>
@@ -36,7 +47,9 @@ const AddPetPersonalDetailsYourPet = (props) => {
                 type="text"
                 name="name"
                 placeholder="Type name pet"
-                className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
+                className={`${((touched.name || validationPerformed.name) && errors.name) ? 'is-invalid' : ''}`}
+                onBlur={() => handleBlur('name')}
+                onFocus={() => setFieldTouched('name')}
               />
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
@@ -46,7 +59,9 @@ const AddPetPersonalDetailsYourPet = (props) => {
                 type="date"
                 name="date"
                 placeholder="Type date of birth"
-                className={`${touched.date && errors.date ? 'is-invalid' : ''}`}
+                className={`${((touched.date || validationPerformed.date) && errors.date) ? 'is-invalid' : ''}`}
+                onBlur={() => handleBlur('date')}
+                onFocus={() => setFieldTouched('date')}
               />
               <ErrorMessage name="date" component={ErrorPersonalInfoText} />
             </label>
@@ -56,7 +71,9 @@ const AddPetPersonalDetailsYourPet = (props) => {
                 type="text"
                 name="type"
                 placeholder="Type of pet"
-                className={`${touched.type && errors.type ? 'is-invalid' : ''}`}
+                className={`${((touched.type || validationPerformed.type) && errors.type) ? 'is-invalid' : ''}`}
+                onBlur={() => handleBlur('type')}
+                onFocus={() => setFieldTouched('type')}
               />
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
             </label>

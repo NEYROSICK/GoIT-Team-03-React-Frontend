@@ -15,13 +15,17 @@ import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
-  comments: string().required('Enter a comment'),
+  comments: string().min(2).required('Enter a comment'),
 });
 
 const AddPetMoreInfoYourPet = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
+
+  const [validationPerformed, setValidationPerformed] = useState({
+    comments: false,
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -33,6 +37,10 @@ const AddPetMoreInfoYourPet = (props) => {
       setSelectedFile(null);
       setErMessage('Please select a JPEG or PNG');
     }
+  };
+
+  const handleBlur = (field) => {
+    setValidationPerformed((prev) => ({ ...prev, [field]: true }));
   };
 
   const handleSubmit = (values) => {
@@ -49,7 +57,7 @@ const AddPetMoreInfoYourPet = (props) => {
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors }) => (
+      {({ values, touched, errors, setFieldTouched }) => (
         <Form>
           <InputList>
             <AvatarContainer>
@@ -93,8 +101,10 @@ const AddPetMoreInfoYourPet = (props) => {
                 name="comments"
                 placeholder="Type of pet"
                 className={`${
-                  touched.comments && errors.comments ? 'is-invalid' : ''
+                  (touched.comments || validationPerformed.comments) && errors.comments ? 'is-invalid' : ''
                 }`}
+                onBlur={() => handleBlur('comments')}
+                onFocus={() => setFieldTouched('comments')}
               />
               <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>

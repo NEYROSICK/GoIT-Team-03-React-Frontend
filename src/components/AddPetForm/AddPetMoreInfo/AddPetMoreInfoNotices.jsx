@@ -21,14 +21,20 @@ import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
   sex: string().required('Select a sex'),
-  location: string().required('Enter a location'),
-  comments: string().required('Enter a comment'),
+  location: string().matches(/^[a-zA-Z\s]+$/, 'Enter only English letters').min(2).required('Enter a location'),
+  comments: string().min(2).required('Enter a comment'),
 });
 
 const AddPetMoreInfoNotices = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
+
+  const [validationPerformed, setValidationPerformed] = useState({
+    sex: false,
+    location: false,
+    comments: false,
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -42,6 +48,10 @@ const AddPetMoreInfoNotices = (props) => {
     }
   };
 
+  const handleBlur = (field) => {
+    setValidationPerformed((prev) => ({ ...prev, [field]: true }));
+  };
+
   const handleSubmit = (values) => {
     if (!selectedFile) {
       setFormSubmitted(true);
@@ -49,13 +59,14 @@ const AddPetMoreInfoNotices = (props) => {
     }
     props.next(values, true, selectedFile);
   };
+
   return (
     <Formik
       initialValues={props.data}
       validationSchema={schema}
       onSubmit={handleSubmit}
     >
-      {({ values, touched, errors }) => (
+      {({ values, touched, errors, setFieldTouched }) => (
         <Form>
           <InputList>
             <SexContainer>
@@ -66,7 +77,7 @@ const AddPetMoreInfoNotices = (props) => {
                   name="sex"
                   id="female"
                   value="female"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                  className={`${(touched.sex || validationPerformed.sex) && errors.sex ? 'is-invalid' : ''}`}
                 />
                 <label htmlFor="female">
                   <IconFemale className="iconFemale">
@@ -80,7 +91,7 @@ const AddPetMoreInfoNotices = (props) => {
                   name="sex"
                   id="male"
                   value="male"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
+                  className={`${(touched.sex || validationPerformed.sex) && errors.sex ? 'is-invalid' : ''}`}
                 />
                 <label htmlFor="male">
                   <IconMale className="iconMale">
@@ -129,11 +140,13 @@ const AddPetMoreInfoNotices = (props) => {
               Location
               <Field
                 className={`${
-                  touched.location && errors.location ? 'is-invalid' : ''
+                  (touched.location || validationPerformed.location) && errors.location ? 'is-invalid' : ''
                 }`}
                 type="text"
                 name="location"
                 placeholder="Type of location"
+                onBlur={() => handleBlur('location')}
+                onFocus={() => setFieldTouched('location')}
               />
               <ErrorMessage name="location" component={ErrorMoreInfoText} />
             </label>
@@ -146,8 +159,10 @@ const AddPetMoreInfoNotices = (props) => {
                 name="comments"
                 placeholder="Type of pet"
                 className={`${
-                  touched.comments && errors.comments ? 'is-invalid' : ''
+                  (touched.comments || validationPerformed.comments) && errors.comments ? 'is-invalid' : ''
                 }`}
+                onBlur={() => handleBlur('comments')}
+                onFocus={() => setFieldTouched('comments')}
               />
               <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>
