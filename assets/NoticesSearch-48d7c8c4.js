@@ -1,4 +1,4 @@
-import{n as r,r as g,j as t}from"./index-6532b15c.js";import{s as x}from"./sprite-6f002047.js";const b=r.form`
+import{n as r,r as g,j as t}from"./index-6053f046.js";import{s as x}from"./sprite-aa7412ec.js";const b=r.form`
   position: relative;
   width: 280px;
   margin-left: auto;
