@@ -3,18 +3,15 @@ import styled from 'styled-components';
 
 export const PetsItemli = styled.li`
   padding: 16px 20px 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   border-radius: 20px;
   background:var(--clr-bcg-user);
  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   width: 280px;
   position: relative;
   @media only screen and (min-width: 768px) {
+    display:flex;
     width: 703px;
-    height: 256px;
-    padding: 20px 20px 0 20px;
+    padding: 20px;
     flex-direction: row;
     align-items: flex-start;
     border-radius: 40px;

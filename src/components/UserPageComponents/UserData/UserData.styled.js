@@ -36,7 +36,7 @@ export const UserFormBox = styled.div`
   flex-direction: column;
   padding: 20px 8px;
 
-  background-color: var(--clr-bcg-use);
+  background-color: var(--clr-bcg);
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   border-radius: 20px;
       @media screen and (min-width: 768px) {
