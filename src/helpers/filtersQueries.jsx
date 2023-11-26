@@ -1,26 +1,32 @@
 const getGenderQueries = (femaleCheck, maleCheck) => {
-  if (maleCheck && !femaleCheck) {
-    return { gender: 'male' };
-  } else if (!maleCheck && femaleCheck) {
-    return { gender: 'female' };
-  } else {
-    return {};
+  if (maleCheck) {
+    return { sex: 'male' };
+  } else if (femaleCheck) {
+    return { sex: 'female' };
   }
 };
 
+//! I AM AN UPGRADE
+
 const getAgesQueries = (to1Check, to2Check, from2Check) => {
-  if (to1Check && !to2Check && !from2Check) {
-    return { age: 'to1' };
-  } else if (to1Check && to2Check && !from2Check) {
-    return { age: 'to1', age: 'to2' };
-  } else if (to1Check && !to2Check && from2Check) {
-    return { age: 'to1', age: 'from2' };
-  } else if (!to1Check && to2Check && !from2Check) {
-    return { age: 'to2' };
-  } else if (!to1Check && to2Check && from2Check) {
-    return { age: 'to2', age: 'from2' };
-  } else if (!to1Check && !to2Check && from2Check) {
-    return { age: 'from2' };
+  if (to1Check) {
+    return { age: 'to-1' };
+  }
+
+  if (to2Check) {
+    return { age: 'to-2' };
+  }
+
+  if (from2Check) {
+    return { age: 'from-2' };
+  }
+
+  if (to1Check && to2Check) {
+    return { age: 'to-2' };
+  }
+
+  if (to1Check && from2Check) {
+    return { age: 'to-1-from-2' };
   }
 };
 
