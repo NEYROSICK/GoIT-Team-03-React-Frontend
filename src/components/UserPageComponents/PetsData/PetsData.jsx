@@ -19,7 +19,7 @@ export const PetsData = () => {
         <div>
             <ConteinerTitle>
             <PetsDataTitle>My pets:</PetsDataTitle>
-            <BtnAddPet to={'/add-pet'}>
+                <BtnAddPet to={'/add-pet'} state={{ from: '/user'}}>
             <PlussSvg>
             <use href={sprite + '#iconPlusSmall'}></use>
             </PlussSvg>

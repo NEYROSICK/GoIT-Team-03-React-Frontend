@@ -8,14 +8,19 @@ import {
 
 import sprite from '../../../ui/Icons/sprite.svg';
 import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const schema = object({
   category: string().required('Select a category'),
 });
 
 const AddPetChooseOption = (props) => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const handleCancel = () => {
-    console.log('Cancel');
+    const redirectTo = location.state.from;
+    navigate(redirectTo);
   };
 
   const handleSubmit = (values) => {
