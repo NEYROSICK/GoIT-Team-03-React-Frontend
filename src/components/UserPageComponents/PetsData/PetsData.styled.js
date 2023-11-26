@@ -31,7 +31,6 @@ export const PetsItem = styled.li`
   position: relative;
   @media only screen and (min-width: 768px) {
     width: 703px;
-    height: 256px;
     padding: 20px 20px 0 20px;
     flex-direction: row;
     align-items: flex-start;

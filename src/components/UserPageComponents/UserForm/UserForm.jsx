@@ -99,20 +99,20 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     date:  date().required('Enter a date of birth').max(new Date(), 'Date cannot be in the future'),
     email: string().email('Invalid email').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',).required('Required'),
     city: string().min(2, 'City Too Short!').required('Required'),
-    phone: string().min(13, 'Phone Too Short!').required('Required'),
+    phone: string().min(13, 'Phone Too Short!').max(13).required('Required'),
  });
   return (
     <>
       {isLoading ? (
         <h1>loading..</h1>
       ) : (
-        <Formik
+          <Formik
           initialValues={{
-            name: '' || data.user.name,
-            date: '' || data.user.date ? data.user.date.split("-").reverse().join("-") : '',
-            email: '' || data.user.email,
-            city: '' || data.user.city,
-            phone: '' || data.user.phone,
+            name: data.user.name ? data.user.name : '',
+            date: data.user.date ? data.user.date.split("-").reverse().join("-") : '',
+            email:  data.user.email ?  data.user.email : '',
+            city: data.user.city ? data.user.city : data.user.city,
+            phone: data.user.phone ? data.user.phone : '',
             }}
             validationSchema={Schema}
           onSubmit={handleSubmit}
@@ -129,7 +129,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     type="text"
                     name="name"
                     id="name"
-                    autoComplete="off"
                     placeholder={'Anna'}
                     disabled={isUserUpdate}
                       />
@@ -143,7 +142,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                         type="email"
                         name="email"
                         id="email"
-                        autoComplete="off"
+  
                         placeholder={'anna00@gmail.com|'}
                         disabled={isUserUpdate}
                         className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
@@ -158,7 +157,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     type="date"
                     name="date"
                     id="date"
-                    autoComplete="off"
                     placeholder={'00-00-0000'}
                     disabled={isUserUpdate}
                     // value={"2004-12-12"}
@@ -175,7 +173,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     type="text"
                     name="phone"
                     id="phone"
-                    autoComplete="off"
                     placeholder={'+38000000000'}
                     disabled={isUserUpdate}
                     minLength="11"
@@ -194,7 +191,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     type="text"
                     name="city"
                     id="city"
-                    autoComplete="off"
                     placeholder={'Kyiv'}
                     disabled={isUserUpdate}
                     minLength="3"
