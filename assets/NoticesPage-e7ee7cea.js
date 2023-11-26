@@ -1,4 +1,4 @@
-import{n as r,L as N,u as v,a as B,j as e,r as l,b as O,C as I,O as $}from"./index-e06992a8.js";import{N as D}from"./NoticesSearch-d038025c.js";import{s as q}from"./selectors-9c63f203.js";import{s as g}from"./sprite-30046adb.js";const E=r.div`
+import{n as r,L as P,u as f,a as B,j as e,r as l,b as O,c as I,C as $,O as D}from"./index-5bab7372.js";import{N as q}from"./NoticesSearch-97179765.js";import{s as T}from"./selectors-9c63f203.js";import{s as h}from"./sprite-f80a4bcd.js";const E=r.div`
   max-width: 205px;
   height: 121px;
 
@@ -50,7 +50,7 @@ transition: 300ms;
     color: var(--clr-primary-inv);
     
 }
-`,j=r(N)`
+`,j=r(P)`
 padding: 8px 16px;
 text-decoration: none;
 color: var(--clr-brand-blue);
@@ -61,7 +61,7 @@ border-radius: 40px;
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
 }
-`;let h=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const Q=[{id:h(),to:"/notices/sell",text:"sell"},{id:h(),to:"/notices/lost-found",text:"lost/found"},{id:h(),to:"/notices/in-good-hands",text:"in good hands"}],T=[{id:h(),to:"/notices/favorite",text:"favorite ads"},{id:h(),to:"/notices/my-ads",text:"my ads"}],U={publicCategories:Q,userCategories:T},{publicCategories:R,userCategories:H}=U,_=()=>{const{search:n}=v(),t=v(),i=B(q);return e.jsxs(E,{children:[e.jsx(G,{children:R.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))}),i&&e.jsx(M,{children:H.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))})]})},J=r.button`
+`;let g=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const Q=[{id:g(),to:"/notices/sell",text:"sell"},{id:g(),to:"/notices/lost-found",text:"lost/found"},{id:g(),to:"/notices/in-good-hands",text:"in good hands"}],U=[{id:g(),to:"/notices/favorite",text:"favorite ads"},{id:g(),to:"/notices/my-ads",text:"my ads"}],R={publicCategories:Q,userCategories:U},{publicCategories:H,userCategories:_}=R,J=()=>{const{search:n}=f(),t=f(),i=B(T);return e.jsxs(E,{children:[e.jsx(G,{children:H.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))}),i&&e.jsx(M,{children:_.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))})]})},K=r.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -102,16 +102,16 @@ border-radius: 40px;
 
   @media screen and (min-width: 1280px) {
   }
-`,K=r.svg`
+`,V=r.svg`
   stroke: currentColor;
   fill: none;
-`,V=r.span`
+`,W=r.span`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
   }
-`,W=r.div`
+`,X=r.div`
   width: 152px;
   position: absolute;
   right: 0;
@@ -127,7 +127,7 @@ border-radius: 40px;
   @media screen and (min-width: 768px) {
     right: auto;
   }
-`,X=r.div``,Y=r.h4`
+`,Y=r.div``,Z=r.h4`
   margin-bottom: 8px;
   font-weight: 700;
   font-size: 16px;
@@ -180,7 +180,7 @@ border-radius: 40px;
   width: 24px;
   height: 24px;
   display: ${n=>n.active&&"none"};
-  `,Z=({checkboxValue:n,setCheckboxValue:t})=>{const[i,a]=l.useState(!1),[o,s]=l.useState(!1),[c,u]=l.useState(!1),m=()=>{a(d=>!d)},z=()=>{s(d=>!d)},L=()=>{u(d=>!d)},p=d=>{const{name:f}=d.target;t(b=>({...b,[f]:!b[f]}))};return e.jsxs("div",{children:[e.jsxs(J,{type:"button",onClick:m,children:[e.jsx(V,{children:"Filter"}),e.jsx(K,{children:e.jsx("use",{href:g+"#iconFilters3"})})]}),i&&e.jsx(W,{active:!0,children:e.jsxs(X,{children:[e.jsx(Y,{children:"Filters"}),e.jsxs(y,{active:o?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:z,"aria-label":"toggle age options",children:[e.jsx(F,{active:o?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(k,{children:[e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to2",checked:n.to2}),"up to 2 years"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"from2",checked:n.from2}),"from 2 years"]})]})]}),e.jsxs(y,{active:c?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:L,"aria-label":"toggle gender options",children:[e.jsx(F,{active:c?!0:void 0,children:e.jsx("use",{href:g+"#iconChevronDown"})}),"By gender"]}),c&&e.jsxs(k,{children:[e.jsxs(x,{children:[e.jsx(C,{onChange:p,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(x,{children:[e.jsx(C,{onChange:p,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},ee=r.div`
+  `,ee=({checkboxValue:n,setCheckboxValue:t})=>{const[i,a]=l.useState(!1),[o,s]=l.useState(!1),[c,u]=l.useState(!1),m=()=>{a(d=>!d)},z=()=>{s(d=>!d)},L=()=>{u(d=>!d)},p=d=>{const{name:b}=d.target;t(v=>({...v,[b]:!v[b]}))};return e.jsxs("div",{children:[e.jsxs(K,{type:"button",onClick:m,children:[e.jsx(W,{children:"Filter"}),e.jsx(V,{children:e.jsx("use",{href:h+"#iconFilters3"})})]}),i&&e.jsx(X,{active:!0,children:e.jsxs(Y,{children:[e.jsx(Z,{children:"Filters"}),e.jsxs(y,{active:o?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:z,"aria-label":"toggle age options",children:[e.jsx(F,{active:o?!0:void 0,children:e.jsx("use",{href:h+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(k,{children:[e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"to2",checked:n.to2}),"up to 2 years"]}),e.jsxs(x,{children:[e.jsx("input",{onChange:p,type:"checkbox",name:"from2",checked:n.from2}),"from 2 years"]})]})]}),e.jsxs(y,{active:c?!0:void 0,children:[e.jsxs(S,{type:"button",onClick:L,"aria-label":"toggle gender options",children:[e.jsx(F,{active:c?!0:void 0,children:e.jsx("use",{href:h+"#iconChevronDown"})}),"By gender"]}),c&&e.jsxs(k,{children:[e.jsxs(x,{children:[e.jsx(C,{onChange:p,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(x,{children:[e.jsx(C,{onChange:p,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},ne=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -196,7 +196,7 @@ border-radius: 40px;
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,ne=r.h1`
+`,te=r.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -211,7 +211,7 @@ border-radius: 40px;
       line-height: 66px;
   
   }
-`,te=r.div`
+`,ie=r.div`
   position: relative;
   width: 280px;
   display: flex;
@@ -224,7 +224,7 @@ border-radius: 40px;
   @media screen and (min-width: 1280px) {
     width: 1248px; 
   }
-`,ie=r.div`
+`,re=r.div`
   display: flex;
   flex-direction: column;
   gap: 211px;
@@ -238,7 +238,7 @@ border-radius: 40px;
   @media screen and (min-width: 1280px) {
     gap: 16px;
   }
-`,re=r(N)`
+`,oe=r(P)`
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -271,14 +271,14 @@ border-radius: 40px;
 
   @media screen and (min-width: 1280px) {
   }
-`,oe=r.svg`
+`,ae=r.svg`
   stroke: var(--clr-primary-inv);
   width: 24px;
   height: 24px;
   @media screen and (min-width: 768px) {
     display: none;
   }
-`,ae=r.svg`
+`,se=r.svg`
   display: none;
   stroke: var(--clr-primary-inv);
   @media screen and (min-width: 768px) {
@@ -287,7 +287,7 @@ border-radius: 40px;
     height: 24px;
     fill: var(--clr-primary-inv);
   }
-`,se=r.span`
+`,de=r.span`
   font-family: Manrope;
   font-size: 12px;
   font-weight: 600;
@@ -303,5 +303,5 @@ border-radius: 40px;
     letter-spacing: 0.04em;
     text-align: left;
   }
-`,de=()=>{const n=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(re,{onClick:n,to:"/add-pet",children:[e.jsx(oe,{children:e.jsx("use",{href:g+"#iconPlus"})}),e.jsx(se,{children:"Add Pet"}),e.jsx(ae,{children:e.jsx("use",{href:g+"#iconPlusSmall"})})]})},A=(n,t)=>{if(t)return{sex:"male"};if(n)return{sex:"female"}};//! I AM AN UPGRADE
-const P=(n,t,i)=>{if(n)return{age:"to-1"};if(t)return{age:"to-2"};if(i)return{age:"from-2"};if(n&&t)return{age:"to-2"};if(n&&i)return{age:"to-1-from-2"}},le=(n,t,i,a,o)=>n&&t&&i||!n&&!t&&!i?{...A(a,o)}:o&&a||!o&&!a?{...P(n,t,i)}:{...P(n,t,i),...A(a,o)},ce={to1:!1,to2:!1,from2:!1,female:!1,male:!1},ue=()=>{const[n,t]=O(),[i,a]=l.useState(ce),o=n.get("query");l.useEffect(()=>{t({...le(i.to1,i.to2,i.from2,i.female,i.male)})},[i]);const s=({query:m})=>{n.set("query",m),t(n),u()},c=()=>{n.delete("query",o),t(n),u()},u=l.useCallback(()=>{t(n)},[n,t]);return e.jsx(I,{children:e.jsxs(ee,{children:[e.jsx(ne,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(D,{onSubmit:s,onClear:c})}),e.jsxs(te,{children:[e.jsx(_,{searchParams:n}),e.jsx("div",{children:e.jsxs(ie,{children:[e.jsx(Z,{setCheckboxValue:a,checkboxValue:i}),e.jsx(de,{})]})})]}),e.jsx(l.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx($,{})})]})})};export{ue as default};
+`,le=()=>{const n=f();O();const t=n.pathname+n.search,i=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(oe,{onClick:i,to:"/add-pet",state:{from:t},children:[e.jsx(ae,{children:e.jsx("use",{href:h+"#iconPlus"})}),e.jsx(de,{children:"Add Pet"}),e.jsx(se,{children:e.jsx("use",{href:h+"#iconPlusSmall"})})]})},A=(n,t)=>{if(t)return{sex:"male"};if(n)return{sex:"female"}};//! I AM AN UPGRADE
+const N=(n,t,i)=>{if(n)return{age:"to-1"};if(t)return{age:"to-2"};if(i)return{age:"from-2"};if(n&&t)return{age:"to-2"};if(n&&i)return{age:"to-1-from-2"}},ce=(n,t,i,a,o)=>n&&t&&i||!n&&!t&&!i?{...A(a,o)}:o&&a||!o&&!a?{...N(n,t,i)}:{...N(n,t,i),...A(a,o)},pe={to1:!1,to2:!1,from2:!1,female:!1,male:!1},me=()=>{const[n,t]=I(),[i,a]=l.useState(pe),o=n.get("query");l.useEffect(()=>{t({...ce(i.to1,i.to2,i.from2,i.female,i.male)})},[i]);const s=({query:m})=>{n.set("query",m),t(n),u()},c=()=>{n.delete("query",o),t(n),u()},u=l.useCallback(()=>{t(n)},[n,t]);return e.jsx($,{children:e.jsxs(ne,{children:[e.jsx(te,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(q,{onSubmit:s,onClear:c})}),e.jsxs(ie,{children:[e.jsx(J,{searchParams:n}),e.jsx("div",{children:e.jsxs(re,{children:[e.jsx(ee,{setCheckboxValue:a,checkboxValue:i}),e.jsx(le,{})]})})]}),e.jsx(l.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx(D,{})})]})})};export{me as default};
