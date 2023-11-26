@@ -1,4 +1,4 @@
-import{n as r,L as P,u as f,a as B,j as e,r as l,b as O,c as I,C as $,O as D}from"./index-5bab7372.js";import{N as q}from"./NoticesSearch-97179765.js";import{s as T}from"./selectors-9c63f203.js";import{s as h}from"./sprite-f80a4bcd.js";const E=r.div`
+import{n as r,L as P,u as f,a as B,j as e,r as l,b as O,c as I,C as $,O as D}from"./index-b23a84d6.js";import{N as q}from"./NoticesSearch-41d19e31.js";import{s as T}from"./selectors-9c63f203.js";import{s as h}from"./sprite-54f5b953.js";const E=r.div`
   max-width: 205px;
   height: 121px;
 
