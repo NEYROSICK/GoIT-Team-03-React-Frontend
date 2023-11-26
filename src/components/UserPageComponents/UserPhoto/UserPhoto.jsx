@@ -13,10 +13,15 @@ import {
   UserPhotoWrapper,
   UserPhotoBtnEmpty,
   CameraSvg,
+  CheckSvg,
+  XSvg,
 } from './UserPhoto.styled';
 import sprite from '.././../../ui/Icons/sprite.svg'
 
-const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
+import { useGetMeAndPetsQuery, } from '../../../redux/API/petsApi';
+
+const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
+  const { data = [], isLoading } = useGetMeAndPetsQuery();
   const [selectedFile, setSelectedFile] = useState(null);
   const [isSelected, setisSelected] = useState(false);
 
@@ -31,11 +36,7 @@ const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
       'image/png': [],
     },
   });
-  // const isPhoto = () => {
-  // return userPhoto ? userPhoto : 'https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png'
-
-  // }
-
+  
   useEffect(() => {
     setisSelected(false);
   }, [selectedFile]);
@@ -45,8 +46,15 @@ const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
     setisSelected(true);
   };
 
+      console.log(isLoading)
+  
+
+
   return (
     <>
+        {isLoading ? (
+        <h1>loading..</h1>
+      ) : (
       <UserDataWrapper>
         <UserDataWrapper>
           <input type="file" name="image" {...getInputProps()} />
@@ -62,7 +70,7 @@ const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
             ) : (
               <UserPhotoWrapper>
                 <PhotoContainer
-                  src={ 'https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png'}
+                  src={ data.user.avatarURL ? data.user.avatarURL : 'https://res.cloudinary.com/de2bdafop/image/upload/v1690014491/default-avatar_zfllbo.png'}
                   alt="Default avatar"
                   style={{ maxWidth: '300px' }}
                 />
@@ -72,51 +80,19 @@ const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
               <Box>
                 {selectedFile && !isSelected ? (
                   <Box>
-                    <UserPhotoBtnCheck type="button" onClick={onSubmit}>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="13"
-                        viewBox="0 0 18 13"
-                        fill="none"
-                      >
-                        <path
-                          d="M17 1L6 12L1 7"
-                          stroke="#54ADFF"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
+                        <UserPhotoBtnCheck type="button" onClick={onSubmit}>
+                          <CheckSvg>
+                             <use href={sprite+'#iconCheck'}></use>
+                      </CheckSvg>
                     </UserPhotoBtnCheck>
                     <UserPhotoTitle>Confirm</UserPhotoTitle>
                     <UserPhotoBtn
                       type="button"
                       onClick={() => setSelectedFile(null)}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                      >
-                        <path
-                          d="M18 6L6 18"
-                          stroke="#F43F5E"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                        <path
-                          d="M6 6L18 18"
-                          stroke="#F43F5E"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-
+                        >
+                          <XSvg>
+                             <use href={sprite+'#iconCross'}></use>
+                      </XSvg>
                       {/* </UserPhotoIconDell> */}
                     </UserPhotoBtn>
                   </Box>
@@ -138,8 +114,10 @@ const AddPhoto = ({isUserUpdate, setUserPhoto }) => {
             )}
           </UserPhotoBtnEmpty>
         </UserDataWrapper>
-      </UserDataWrapper>
+          </UserDataWrapper>
+            )}
     </>
+
   );
 };
 

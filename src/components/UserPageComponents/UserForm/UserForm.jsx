@@ -1,4 +1,4 @@
-import { Formik } from 'formik';
+import {  Formik, } from 'formik';
 import { useState, useEffect } from 'react';
 import {
   UserFormBody,
@@ -19,18 +19,19 @@ import {
   ModalTitle,
   YesSvg,
   CloseSvg,
+  InputConteiner,
+  ErrorMessage,
 } from './UserForm.styled';
 import { useDispatch } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
 
-import {
-  useGetMeAndPetsQuery,
-  useUpdateUserMutation,
-} from '../../../redux/API/petsApi';
+import {useGetMeAndPetsQuery,useUpdateUserMutation,} from '../../../redux/API/petsApi';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../../redux/auth/operations';
-import sprite from '.././../../ui/Icons/sprite.svg';
+import sprite from '.././../../ui/Icons/sprite.svg'
+import { object, string, date} from 'yup';
+
 
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -51,28 +52,26 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
 
       return `${day}-${month}-${year}`;
     };
-    let data = {
+    let data;
+    userPhoto ?  data = {
+        name: values.name,
+        email: values.email,
+        date: formatToDDMMYYYY(values.date),
+        phone: values.phone,
+        city: values.city,
+      image: userPhoto,} :
+      data = {
       name: values.name,
       email: values.email,
       date: formatToDDMMYYYY(values.date),
       phone: values.phone,
       city: values.city,
     };
-    if (userPhoto) {
-      let data = {
-        name: values.name,
-        email: values.email,
-        date: formatToDDMMYYYY(values.date),
-        phone: values.phone,
-        city: values.city,
-        image: userPhoto,
-      };
-    }
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
-    console.log(data.date);
-    console.log(formData);
+    console.log(data);
+    console.log(userPhoto);
     updateUser(formData).unwrap();
 
     setIsUserUpdate((state) => !state);
@@ -83,6 +82,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleLogout = () => {
     dispatch(logOut());
     navigate('/login');
+    localStorage.removeItem("persist:auth")
   };
 
   useEffect(() => {
@@ -94,7 +94,13 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
-
+    const Schema = object({
+    name: string().min(3, 'Name Too Short!').max(16, 'Too Long!').required('Required'),
+    date:  date().required('Enter a date of birth').max(new Date(), 'Date cannot be in the future'),
+    email: string().email('Invalid email').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',).required('Required'),
+    city: string().min(2, 'City Too Short!').required('Required'),
+    phone: string().min(13, 'Phone Too Short!').required('Required'),
+ });
   return (
     <>
       {isLoading ? (
@@ -103,19 +109,22 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
         <Formik
           initialValues={{
             name: '' || data.user.name,
-            date: '' || data.user.date,
+            date: '' || data.user.date ? data.user.date.split("-").reverse().join("-") : '',
             email: '' || data.user.email,
             city: '' || data.user.city,
             phone: '' || data.user.phone,
-          }}
+            }}
+            validationSchema={Schema}
           onSubmit={handleSubmit}
-        >
+          >
+            {({ errors, touched }) => (
           <UserFormBody>
             <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
             <UserFormInfo>
               <UserFormList>
-                <UserFormItem>
-                  <UserFormLabel htmlFor={`name`}>Name:</UserFormLabel>
+                    <UserFormItem>
+                      <InputConteiner>
+                      <UserFormLabel htmlFor={`name`}>Name:</UserFormLabel>
                   <UserFormInput
                     type="text"
                     name="name"
@@ -123,25 +132,28 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     autoComplete="off"
                     placeholder={'Anna'}
                     disabled={isUserUpdate}
-                    minLength="3"
-                    required
-                  />
+                      />
+                      </InputConteiner>
+                      {errors.name && touched.name ? ( <ErrorMessage>{errors.name}</ErrorMessage>) : null}
                 </UserFormItem>
-                <UserFormItem>
-                  <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
+                    <UserFormItem>
+                      <InputConteiner>
+                      <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
                   <UserFormInput
-                    type="email"
-                    name="email"
-                    id="email"
-                    autoComplete="off"
-                    placeholder={'anna00@gmail.com|'}
-                    disabled={isUserUpdate}
-                    minLength="3"
-                    required
-                  />
+                        type="email"
+                        name="email"
+                        id="email"
+                        autoComplete="off"
+                        placeholder={'anna00@gmail.com|'}
+                        disabled={isUserUpdate}
+                        className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
+                    />
+                      </InputConteiner>
+                    {errors.email && touched.email ? ( <ErrorMessage>{errors.email}</ErrorMessage>) : null}
                 </UserFormItem>
-                <UserFormItem>
-                  <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel>
+                    <UserFormItem>
+                      <InputConteiner>
+                      <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel>
                   <UserFormInput
                     type="date"
                     name="date"
@@ -152,11 +164,14 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     // value={"2004-12-12"}
                     minLength="10"
                     required
-                  />
+                    />
+                        </InputConteiner>
+                    {errors.date && touched.date ? ( <ErrorMessage>{errors.date}</ErrorMessage>) : null}
                 </UserFormItem>
                 <UserFormItem>
+                      <InputConteiner>
                   <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
-                  <UserFormInput
+                      <UserFormInput
                     type="text"
                     name="phone"
                     id="phone"
@@ -168,11 +183,14 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     pattern="+[0-9]{3}-[0-9]{3}-[0-9]{7}"
                     title="+xx xxx xxxxxxx"
                     required
-                  />
+                      />
+                    </InputConteiner>
+                      {errors.phone && touched.phone ? ( <ErrorMessage>{errors.phone}</ErrorMessage>) : null}
                 </UserFormItem>
                 <UserFormItem>
-                  <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
-                  <UserFormInput
+                      <InputConteiner>
+                        <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
+                    <UserFormInput
                     type="text"
                     name="city"
                     id="city"
@@ -181,7 +199,9 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     disabled={isUserUpdate}
                     minLength="3"
                     required
-                  />
+                      />
+                  </InputConteiner>
+                      {errors.city && touched.city ? ( <ErrorMessage>{errors.city}</ErrorMessage>) : null}
                 </UserFormItem>
               </UserFormList>
               {isUserUpdate ? (
@@ -197,7 +217,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                 </UserFormBtn>
               )}
             </UserFormInfo>
-          </UserFormBody>
+          </UserFormBody>)}
         </Formik>
       )}
       {isShowModal ? (

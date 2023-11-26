@@ -65,9 +65,26 @@ export const UserFormList = styled.ul`
 
 export const UserFormItem = styled.li`
   display: flex;
-  justify-content: space-between;
+  flex-direction:column;
   width: 100%;
 `;
+export const InputConteiner = styled.div`
+  display:flex; 
+  justify-content: space-between;
+  
+`
+export const ErrorMessage = styled.div`
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.56px;
+  margin: auto;
+  margin-top:10px;
+  color: var(--clr-brand-red);
+  &UserFormInput{
+  border-color: var(--clr-brand-red);
+  }
+`
+
 
 export const UserFormLabel = styled.label`
   font-size: 14px;
