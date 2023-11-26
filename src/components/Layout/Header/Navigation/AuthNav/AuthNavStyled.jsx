@@ -7,7 +7,7 @@ export const AuthNavStyled = styled.ul`
   display: none;
 
   @media screen and (min-width: 768px) {
-    display:flex;
+    display: flex;
     font-size: 16px;
     letter-spacing: 0.64px;
     gap: 20px;
@@ -35,6 +35,8 @@ export const RegisterStyled = styled.li`
 
 export const LogLink = styled(Link)`
   color: var(--clr-primary-inv);
+  display:flex;
+  justify-content:center;
 `;
 
 export const RegLink = styled(Link)`
@@ -42,12 +44,12 @@ export const RegLink = styled(Link)`
 `;
 
 
-// export const IconLogin = styled.svg`
-//   fill: var(--clr-bcg);
-//   margin-left: 12px;
-//   width: 24px;
-//   height: 24px;
-// `;
+export const IconLogin = styled.svg`
+  fill: var(--clr-bcg);
+  margin-left: 12px;
+  width: 24px;
+  height: 24px;
+`;
 
 
 

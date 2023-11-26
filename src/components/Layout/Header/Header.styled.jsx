@@ -1,9 +1,16 @@
 import styled from 'styled-components';
 
 export const HeaderSection = styled.header`
-  padding: 10px;
+  display: flex;
+  padding: 20px 0;
   font-weight: 500;
-  
+  justify-content: space-between;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    justify-content: center;
+    /* margin-right: 24px; */
+  }
 `;
 
 export const Navigation = styled.nav`
@@ -12,8 +19,9 @@ export const Navigation = styled.nav`
   justify-content: flex-end;
   align-items: center;
   // height: 100vh;
-  flex-direction: column;
+  /* flex-direction: column; */
   text-align: center;
+  width:100%;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
@@ -29,10 +37,5 @@ export const Navigation = styled.nav`
     margin-left: 159px;
     justify-content: space-between;
   }
-`;
-
-export const MobileContainer = styled.div`
-  display: flex;
-  margin-right: 24px;
 `;
 

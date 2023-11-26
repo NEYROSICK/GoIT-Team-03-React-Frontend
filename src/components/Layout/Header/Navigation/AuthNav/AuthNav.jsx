@@ -5,7 +5,7 @@ import {
   RegisterStyled,
   LogLink,
   RegLink,
-  // IconLogin,
+  IconLogin,
 } from './AuthNavStyled';
 
 export const AuthNav = () => {
@@ -14,7 +14,9 @@ export const AuthNav = () => {
       <LoginStyled>
         <LogLink to="/login">
           Log IN
-          
+          <IconLogin>
+            <use href={sprite + '#iconPaw'}></use>
+          </IconLogin>
         </LogLink>
       </LoginStyled>
 
@@ -25,6 +27,4 @@ export const AuthNav = () => {
   );
 };
 
-{/* <IconLogin>
-  <use href={sprite + '#iconPaw'}></use>
-</IconLogin>; */}
+{}
