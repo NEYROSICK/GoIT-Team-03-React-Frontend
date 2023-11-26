@@ -21,8 +21,13 @@ import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
   sex: string().required('Select a sex'),
-  location: string().required('Enter a location'),
-  comments: string().required('Enter a comment'),
+  location: string()
+    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
+    .min(2, 'Location must be at least 2 characters')
+    .required('Enter a location'),
+  comments: string()
+    .min(2, 'Comments must be at least 2 characters')
+    .required('Enter a comment'),
 });
 
 const AddPetMoreInfoNotices = (props) => {

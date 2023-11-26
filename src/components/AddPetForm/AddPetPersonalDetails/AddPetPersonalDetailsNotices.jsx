@@ -8,12 +8,23 @@ import {
 } from './AddPetPersonalDetails.styled';
 
 const schema = object({
-  title: string().required('Enter a title for add'),
-  name: string().min(2).max(16).required('Enter a name pet'),
+  title: string()
+    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
+    .min(2, 'Title must be at least 2 characters')
+    .max(16, 'Title must be at most 2 characters')
+    .required('Enter a title for add'),
+  name: string()
+    .min(2, 'Name must be at least 2 characters')
+    .max(16, 'Name must be at most 2 characters')
+    .required('Enter a name pet'),
   date: date()
     .required('Enter a date of birth')
     .max(new Date(), 'Date cannot be in the future'),
-  type: string().min(2).max(16).required('Enter a type of pet'),
+  type: string()
+    .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
+    .min(2, 'Type must be at least 2 characters')
+    .max(16, 'Type must be at most 2 characters')
+    .required('Enter a type of pet'),
 });
 
 const AddPetPersonalDetailsNotices = (props) => {

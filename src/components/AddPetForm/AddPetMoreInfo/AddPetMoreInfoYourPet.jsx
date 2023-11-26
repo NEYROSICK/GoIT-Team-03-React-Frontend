@@ -15,7 +15,9 @@ import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
-  comments: string().required('Enter a comment'),
+  comments: string()
+    .min(2, 'Comments must be at least 2 characters')
+    .required('Enter a comment'),
 });
 
 const AddPetMoreInfoYourPet = (props) => {
