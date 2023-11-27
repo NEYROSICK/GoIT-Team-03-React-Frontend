@@ -1,5 +1,5 @@
 import {
-  NavContaier,
+  NavContainer,
   NavLi,
   NavList,
   StyledLink,
@@ -17,13 +17,13 @@ const NoticesCategoriesNav = () => {
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   return (
-    <NavContaier>
+    <NavContainer>
       <NavList>
         {publicCategories.map(({ id, to, text }) => (
           <NavLi key={id}>
             <StyledLink
               to={{ pathname: to, search }}
-              active={location.pathname === to ? true : undefined}
+              active={location.pathname === to ? "true" : undefined}
             >
               {text}
             </StyledLink>
@@ -31,20 +31,20 @@ const NoticesCategoriesNav = () => {
         ))}
       </NavList>
       {isAuthenticated && (
-        <UserNavList>
+        <NavList>
           {userCategories.map(({ id, to, text }) => (
             <NavLi key={id}>
               <StyledLink
                 to={{ pathname: to, search }}
-                active={location.pathname === to ? true : undefined}
+                active={location.pathname === to ? "true" : undefined}
               >
                 {text}
               </StyledLink>
             </NavLi>
           ))}
-        </UserNavList>
+        </NavList>
       )}
-    </NavContaier>
+    </NavContainer>
   );
 };
 

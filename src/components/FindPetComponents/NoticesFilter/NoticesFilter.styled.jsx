@@ -10,7 +10,7 @@ export const FilterButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-
+  transition: 300ms;
   background-color: #c5dff6;
   color: var(--clr-brand-blue);
 
@@ -41,6 +41,8 @@ export const FilterButton = styled.button`
 export const StyledFilterIcon = styled.svg`
   stroke: currentColor;
   fill: none;
+  width: 24px;
+  height: 24px;
 `;
 
 export const FilterText = styled.span`
