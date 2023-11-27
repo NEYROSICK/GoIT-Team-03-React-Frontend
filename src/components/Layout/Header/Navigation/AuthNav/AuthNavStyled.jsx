@@ -45,17 +45,12 @@ export const RegLink = styled(Link)`
   padding: 7px 20px;
 `;
 
-
 export const IconLogin = styled.svg`
   fill: var(--clr-bcg);
   margin-left: 12px;
   width: 24px;
   height: 24px;
 `;
-
-
-
-
 
 // export const AuthNavStyled = styled.ul`
 //   display: flex;

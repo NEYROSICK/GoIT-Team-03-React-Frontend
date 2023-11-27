@@ -2,9 +2,16 @@ import styled from 'styled-components';
 import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
+export const ContainerMain = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 64px);
+`;
+
 export const Form = styled.form`
   font-family: Manrope, sans-serif;
-  max-width: 280px;
+  width: 280px;
   margin-top: 20px;
   min-height: 200px;
   padding-top: 40px;
@@ -14,10 +21,8 @@ export const Form = styled.form`
   border-radius: 20px;
   background-color: var(--clr-bcg-user);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
-  margin-left: auto;
-  margin-right: auto;
   @media (min-width: 768px) {
-    max-width: 608px;
+    width: 608px;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 75px;
@@ -29,17 +34,15 @@ export const Form = styled.form`
   }
 `;
 export const Email = styled.input`
-
   display: flex;
   width: 100%;
   height: 48px;
   border-radius: 40px;
-  border: solid 1px
-    ${({ isValid }) =>
-      isValid ? 'var(--clr-brand-blue)' : 'var(--clr-brand-red)'};
-  &:invalid {
+  border: solid 1px var(--clr-brand-blue);
+  &.invalid {
     border-color: var(--clr-brand-red);
   }
+
   padding-left: 16px;
   outline: none;
   font-size: 16px;
@@ -73,13 +76,11 @@ export const Password = styled.input`
   height: 48px;
   border-radius: 40px;
   outline: none;
-  border: solid 1px
-    ${({ isValid }) =>
-      isValid ? 'var(--clr-brand-blue)' : 'var(--clr-brand-red)'};
-
-  &:invalid {
+  border: solid 1px var(--clr-brand-blue);
+  &.invalid {
     border-color: var(--clr-brand-red);
   }
+
   padding-left: 16px;
   outline: none;
   font-size: 16px;
@@ -111,7 +112,7 @@ export const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
   color: var(--clr-primary);
-  @media (min-width:768px){
+  @media (min-width: 768px) {
     margin-bottom: 40px;
   }
 `;
@@ -125,20 +126,19 @@ export const ClearButton = styled.button`
   position: absolute;
   background-color: transparent;
   border: none;
-  top: 15px;
+  top: 10px;
   left: 84%;
   @media (min-width: 768px) {
-    top: 20%;
+    top: 10px;
     left: 90%;
   }
 `;
 export const Svg = styled.svg`
   stroke: var(--clr-brand-red);
   display: block;
-  width:24px;
+  width: 24px;
   height: 24px;
-  fill:none;
-  
+  fill: none;
 `;
 export const SvgEye = styled.svg`
   stroke: var(--clr-brand-blue);

@@ -12,7 +12,7 @@ export const RTKQueryApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Notices', 'Pets', 'User'],
+  tagTypes: ['Notices', 'Pets', 'User', 'News'],
   endpoints: (builder) => ({
     //! NOTICES
     getNotices: builder.query({
@@ -95,6 +95,15 @@ export const RTKQueryApi = createApi({
       invalidatesTags: ['Pets', 'User'],
     }),
     //! USER
+    //! NEWS
+    getNews: builder.query({
+      query: ({ params }) => ({
+        url: `/news`,
+        params,
+      }),
+      providesTags: ['News'],
+    }),
+    //! NEWS
   }),
 });
 export const {
@@ -103,6 +112,7 @@ export const {
   useGetOneNoticeQuery,
   useGetMyNoticesQuery,
   useGetMeAndPetsQuery,
+  useGetNewsQuery,
   useAddNoticeMutation,
   useAddPetMutation,
   useDeleteNoticeMutation,

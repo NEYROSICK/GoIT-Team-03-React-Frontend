@@ -18,11 +18,10 @@ import {
 } from './UserData.styled';
 
 import { useState, useEffect } from 'react';
-import sprite from '.././../../ui/Icons/sprite.svg'
-import { useDispatch, useSelector} from 'react-redux';
+import sprite from '../../../ui/Icons/sprite.svg';
+import { useDispatch, useSelector } from 'react-redux';
 import { changeIsNewUser } from '../../../redux/auth/authSlice';
 import { selectIsNewUser } from '../../../redux/auth/selectors';
-
 
 const UserData = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,7 @@ const UserData = () => {
     const close = (e) => {
       if (e.keyCode === 27) {
         dispatch(changeIsNewUser(false));
-        console.log("im here");
+        console.log('im here');
       }
     };
     window.addEventListener('keydown', close);
@@ -43,23 +42,23 @@ const UserData = () => {
 
   const handleModalClose = () => {
     dispatch(changeIsNewUser(false));
-  }
+  };
 
   return (
     <>
       <UserPageItem>
         <UserFormTitle>My information:</UserFormTitle>
         <UserFormBox>
-          {isUserUpdate ? ( 
+          {isUserUpdate ? (
             <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
               <PenSvg>
-              <use href={sprite + '#iconEdit'}></use>
+                <use href={sprite + '#iconEdit'}></use>
               </PenSvg>
             </UserBtnPen>
           ) : (
             <UserBtnPen onClick={() => setIsUserUpdate((state) => !state)}>
               <CloseEdit>
-              <use href={sprite + '#iconCross'}></use>
+                <use href={sprite + '#iconCross'}></use>
               </CloseEdit>
             </UserBtnPen>
           )}
@@ -74,15 +73,24 @@ const UserData = () => {
               <ModalConteiner>
                 <ModalTitle>Congrats!</ModalTitle>
                 <ModalText>Youre registration is success</ModalText>
-                <ModalBtn onClick={()=>{handleModalClose()}} type="button">
+                <ModalBtn
+                  onClick={() => {
+                    handleModalClose();
+                  }}
+                  type="button"
+                >
                   Go to profile
                   <PawSvg>
-                  <use href={sprite + '#iconPaw'}></use>
+                    <use href={sprite + '#iconPaw'}></use>
                   </PawSvg>
                 </ModalBtn>
-                <BtnCloseModal onClick={()=>{handleModalClose()}}>
+                <BtnCloseModal
+                  onClick={() => {
+                    handleModalClose();
+                  }}
+                >
                   <CloseSvg>
-                  <use href={sprite + '#iconCross'}></use>
+                    <use href={sprite + '#iconCross'}></use>
                   </CloseSvg>
                 </BtnCloseModal>
               </ModalConteiner>

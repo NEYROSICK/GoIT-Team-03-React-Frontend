@@ -76,6 +76,7 @@ const AddPetChooseOption = (props) => {
             className="buttonBack"
             type="button"
             onClick={handleCancel}
+            to={location.state.from}
           >
             <IconArrow>
               <use href={sprite + '#iconArrowLeft'}></use>
