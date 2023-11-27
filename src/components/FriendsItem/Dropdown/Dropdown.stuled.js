@@ -10,7 +10,7 @@ export const TimeList = styled.ul`
   position: absolute;
   top: 0px;
   left: 0;
-  width: 120px;
+  width: 130px;
   height: 160px;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@ export const TimeItem = styled.li`
   justify-content: space-between;
   align-items: center;
 `;
-export const Text = styled.p`
+export const Text = styled.div`
   cursor: pointer;
   &:not(:last-child) {
     margin-bottom: 12px;

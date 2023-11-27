@@ -84,6 +84,10 @@ export const ListInfo = styled.ul`
     display: flex;
     flex-direction:column;
     gap: 12px 0px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 `
     
 export const Info = styled.p`

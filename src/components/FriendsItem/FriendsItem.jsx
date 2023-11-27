@@ -144,20 +144,22 @@ const FriendItem = () => {
           <FriendsPhoto  src={el.imageUrl ?  el.imageUrl : ''} alt="" />
           <ListInfo>
             <li>
-                 <Dropdown workDays={el.workDays} />
+                <Dropdown workDays={el.workDays} />
             </li>
             <li>
-              <Info>Address:</Info>
-                <p>Kiew</p>  
+                <Info>Address:</Info>
+                <a href={el.addressUrl ? el.addressUrl : ''} target='blank'>
+                  { el.address ? el.address : ''}
+                </a>
                 {/* website only */}
             </li>
             <li>
-              <Info>Email:</Info>
-                  <p>{el.email ? el.email : 'phone only'}</p>
+                <Info>Email:</Info>
+                {el.email ? <a href={ `mailto:` + el.email}>{el.email}</a> : <p>phone only</p>}
             </li>
             <li>
-              <Info>Phone:</Info>
-                <p>{el.phone ? el.phone  : 'email only'}</p>
+                <Info>Phone:</Info>
+                {el.phone ?  <a href={`tel:` + el.phone}>{el.phone}</a> : <p>website only</p>}
             </li>
           </ListInfo>
         </ContainerFriends>

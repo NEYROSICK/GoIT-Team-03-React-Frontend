@@ -28,25 +28,26 @@ const Dropdown = ({ workDays }) => {
       <div onClick={handleClick}>
         <Text>
           <p>Time:</p>
-          <br /> {defaultTime}
+          <p> {defaultTime}</p>
         </Text>
       </div>
       {isOpen && (
         <TimeBox>
           {workDays?.length > 0 ? (
-            <div onClick={handleScheduleClick}>
+            <div onClick={handleScheduleClick }>
               <TimeList>
                 {workDays.map((day, index) => {
                   return (
-                    <TimeItem key={day._id}>
-                      <p>{daysOfWeek[index]}</p> {day.from}-{day.to}
+                    <TimeItem key={index}>
+                          <p>{daysOfWeek[index]}</p> 
+                          <p>{day.from}-{day.to}</p>
                     </TimeItem>
                   );
                 })}
               </TimeList>
             </div>
           ) : (
-            <div>No time specified</div>
+            <div></div>
           )}
         </TimeBox>
       )}
