@@ -16,8 +16,8 @@ import {
   ItemLearnMoreBtnIcon,
   ItemDeleteBtn,
 } from './NoticeItem.styled';
-import { useUpdateFavoriteMutation } from '../../../redux/API/noticesApi';
-import { useDeleteNoticeMutation } from '../../../redux/API/noticesApi';
+import { useUpdateFavoriteMutation } from '../../../redux/API/RTKQueryApi';
+import { useDeleteNoticeMutation } from '../../../redux/API/RTKQueryApi';
 import { useState } from 'react';
 
 const NoticeItem = ({
@@ -86,7 +86,7 @@ const NoticeItem = ({
 
         {showDelete && (
           <ItemDeleteBtn type="submit" onClick={handleDeleteClick}>
-            <FavoriteIcon isFavorite={isFavorite}>
+            <FavoriteIcon>
               <use href={sprite + '#iconTrash'} />
             </FavoriteIcon>
           </ItemDeleteBtn>

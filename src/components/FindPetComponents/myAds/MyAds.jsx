@@ -1,7 +1,12 @@
 import { useSearchParams } from 'react-router-dom';
-import { useGetMyNoticesQuery } from '../../../redux/API/noticesApi';
+import {
+  useGetMyNoticesQuery,
+  useGetMeAndPetsQuery,
+} from '../../../redux/API/RTKQueryApi';
 import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
 import NoticeItem from '../NoticeItem/NoticeItem';
+import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
+import { useSelector } from 'react-redux';
 
 function MyAds() {
   const [searchParams] = useSearchParams();
@@ -13,6 +18,14 @@ function MyAds() {
       ...searchParamsObject,
     },
   });
+  let userFavorites = [];
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+  const { data: userData } = useGetMeAndPetsQuery();
+
+  if (isAuthenticated && userData && userData.user) {
+    userFavorites = userData.user.favoritesArr;
+  }
+
   return (
     <>
       {isLoading && <div>Loading...</div>}
@@ -30,6 +43,7 @@ function MyAds() {
                   sex={sex}
                   location={location}
                   avatarUrl={avatarURL}
+                  userFavoritesArr={userFavorites}
                   showDelete={true}
                 />
               ),

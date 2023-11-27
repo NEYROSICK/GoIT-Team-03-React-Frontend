@@ -3,7 +3,7 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'https://goit-team-03-node.onrender.com/api/';
 
-const setAuthHeader = token =>
+const setAuthHeader = (token) =>
   (axios.defaults.headers.common.Authorization = `Bearer ${token}`);
 
 const clearAuthHeader = () =>
@@ -19,7 +19,7 @@ export const register = createAsyncThunk(
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const login = createAsyncThunk(
@@ -27,13 +27,12 @@ export const login = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {
       const response = await axios.post('/auth/login', credentials);
-        setAuthHeader(response.data.token);
-        console.log("ecgsiyj");
+      setAuthHeader(response.data.token);
       return response.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
-  }
+  },
 );
 
 export const logOut = createAsyncThunk('auth/logout', async (_, thunkAPI) => {

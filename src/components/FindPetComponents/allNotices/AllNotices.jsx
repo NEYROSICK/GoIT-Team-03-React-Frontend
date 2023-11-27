@@ -1,5 +1,7 @@
-import { useGetNoticesQuery } from '../../../redux/API/noticesApi';
-import { useGetMeAndPetsQuery } from '../../../redux/API/petsApi';
+import {
+  useGetNoticesQuery,
+  useGetMeAndPetsQuery,
+} from '../../../redux/API/RTKQueryApi.js';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
 import NoticeItem from '../NoticeItem/NoticeItem';
 import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
@@ -19,13 +21,14 @@ function AllNotices() {
       ...searchParamsObject,
     },
   });
+
+  const isAuthenticated = useSelector(selectIsAuthenticated);
   const { data: userData } = useGetMeAndPetsQuery();
 
   let userFavorites = [];
 
-  const isAuthenticated = useSelector(selectIsAuthenticated);
   if (isAuthenticated && userData && userData.user) {
-    userFavorites = userData.user.favoritesArr || [];
+    userFavorites = userData.user.favoritesArr;
   }
 
   return (

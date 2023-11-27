@@ -1,14 +1,14 @@
 import { useSearchParams } from 'react-router-dom';
-import { useGetMyFavoriteQuery } from '../../../redux/API/noticesApi';
+import {
+  useGetMyFavoriteQuery,
+  useGetMeAndPetsQuery,
+} from '../../../redux/API/RTKQueryApi.js';
 import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
 import NoticeItem from '../NoticeItem/NoticeItem';
-
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
 import { useSelector } from 'react-redux';
-import { useGetMeAndPetsQuery } from '../../../redux/API/petsApi';
 
 function FavoriteNotices() {
-  const { data: userData } = useGetMeAndPetsQuery();
   const [searchParams] = useSearchParams();
   const searchParamsObject = Object.fromEntries(searchParams.entries());
   const { data, error, isLoading } = useGetMyFavoriteQuery({
@@ -18,11 +18,13 @@ function FavoriteNotices() {
       ...searchParamsObject,
     },
   });
-  
+
   let userFavorites = [];
   const isAuthenticated = useSelector(selectIsAuthenticated);
+  const { data: userData } = useGetMeAndPetsQuery();
+
   if (isAuthenticated && userData && userData.user) {
-    userFavorites = userData.user.favoritesArr || [];
+    userFavorites = userData.user.favoritesArr;
   }
 
   return (

@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-export const noticesApi = createApi({
-  reducerPath: 'noticesApi',
+export const RTKQueryApi = createApi({
+  reducerPath: 'RTKQueryApi',
   baseQuery: fetchBaseQuery({
-    baseUrl: `https://goit-team-03-node.onrender.com/api/notices`,
+    baseUrl: `https://goit-team-03-node.onrender.com/api`,
     prepareHeaders: (headers, { getState }) => {
       const token = getState().auth.token;
       if (token) {
@@ -12,44 +12,45 @@ export const noticesApi = createApi({
       return headers;
     },
   }),
-  tagTypes: ['Notices'],
+  tagTypes: ['Notices', 'Pets', 'User'],
   endpoints: (builder) => ({
+    //! NOTICES
     getNotices: builder.query({
       query: ({ category, params }) => ({
-        url: `/${category}`,
+        url: `/notices/${category}`,
         params,
       }),
       providesTags: ['Notices'],
     }),
     getMyFavorite: builder.query({
       query: ({ params }) => ({
-        url: `/myFavorite`,
+        url: `/notices/myFavorite`,
         params,
       }),
       providesTags: ['Notices'],
     }),
     getMyNotices: builder.query({
       query: ({ params }) => ({
-        url: `/myNotices`,
+        url: `/notices/myNotices`,
         params,
       }),
       providesTags: ['Notices'],
     }),
     getOneNotice: builder.query({
       query: (id) => ({
-        url: `/getOne/${id}`,
+        url: `/notices/getOne/${id}`,
       }),
     }),
     updateFavorite: builder.mutation({
       query: (id) => ({
-        url: `/favorite/${id}`,
+        url: `/notices/favorite/${id}`,
         method: 'PATCH',
       }),
-      invalidatesTags: ['Notices'],
+      invalidatesTags: ['Notices', 'User'],
     }),
     addNotice: builder.mutation({
       query: (body) => ({
-        url: `/addNotice`,
+        url: `/notices/addNotice`,
         method: 'POST',
         body,
       }),
@@ -57,11 +58,43 @@ export const noticesApi = createApi({
     }),
     deleteNotice: builder.mutation({
       query: (id) => ({
-        url: `/deleteNotice/${id}`,
+        url: `/notices/deleteNotice/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Notices'],
     }),
+    //! NOTICES
+    //! PETS
+    getMeAndPets: builder.query({
+      query: () => '/pets',
+      providesTags: ['Pets', 'User'],
+    }),
+    addPet: builder.mutation({
+      query: (body) => ({
+        url: `/pets/add`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Pets'],
+    }),
+    deletePet: builder.mutation({
+      query: (PetId) => ({
+        url: `/pets/delete/${PetId}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Pets'],
+    }),
+    //! PETS
+    //! USER
+    updateUser: builder.mutation({
+      query: (patch) => ({
+        url: `/users/updateUser`,
+        method: 'PATCH',
+        body: patch,
+      }),
+      invalidatesTags: ['Pets', 'User'],
+    }),
+    //! USER
   }),
 });
 export const {
@@ -69,7 +102,11 @@ export const {
   useGetMyFavoriteQuery,
   useGetOneNoticeQuery,
   useGetMyNoticesQuery,
-  useUpdateFavoriteMutation,
+  useGetMeAndPetsQuery,
   useAddNoticeMutation,
+  useAddPetMutation,
   useDeleteNoticeMutation,
-} = noticesApi;
+  useDeletePetMutation,
+  useUpdateFavoriteMutation,
+  useUpdateUserMutation,
+} = RTKQueryApi;
