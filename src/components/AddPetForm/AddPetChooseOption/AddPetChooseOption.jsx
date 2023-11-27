@@ -24,8 +24,7 @@ const AddPetChooseOption = (props) => {
   const location = useLocation();
 
   const handleCancel = () => {
-    const redirectTo = location.state.from;
-    navigate(redirectTo);
+    location.state ? navigate(location.state.from) : navigate('/user');
   };
 
   const handleSubmit = (values) => {

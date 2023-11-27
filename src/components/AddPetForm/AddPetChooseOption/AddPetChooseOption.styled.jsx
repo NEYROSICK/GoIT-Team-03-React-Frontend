@@ -71,6 +71,6 @@ export const ErrorCategoryText = styled.p`
 
   @media (min-width: 768px) {
     font-size: 12px;
-    bottom: -26px;
+    bottom: -20px;
   }
 `;
