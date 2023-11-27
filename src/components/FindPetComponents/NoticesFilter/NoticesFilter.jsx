@@ -44,7 +44,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
     }));
 
     setIsChecked((prevState) => !prevState);
-    console.log(isChecked);
+    
   };
 
   return (
