@@ -1,4 +1,4 @@
-import{n,r as g,j as t,b as x}from"./index-24f9288f.js";const b=n.form`
+import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
   position: relative;
   width: 280px;
   margin-left: auto;

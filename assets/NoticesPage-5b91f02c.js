@@ -1,4 +1,4 @@
-import{n as r,L as P,u as f,a as B,j as e,r as l,b as h,c as O,d as I,C as $,O as D}from"./index-24f9288f.js";import{N as q}from"./NoticesSearch-4f94f588.js";import{s as T}from"./selectors-9c63f203.js";const E=r.div`
+import{n as r,L as P,u as f,a as B,j as e,r as l,b as h,c as O,d as I,C as $,O as D}from"./index-2b3eb367.js";import{N as q}from"./NoticesSearch-2b785872.js";import{s as T}from"./selectors-9c63f203.js";const E=r.div`
   max-width: 205px;
   height: 121px;
 
@@ -61,7 +61,7 @@ border-radius: 40px;
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
 }
-`;let g=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const Q=[{id:g(),to:"/notices/sell",text:"sell"},{id:g(),to:"/notices/lost-found",text:"lost/found"},{id:g(),to:"/notices/in-good-hands",text:"in good hands"}],U=[{id:g(),to:"/notices/favorite",text:"favorite ads"},{id:g(),to:"/notices/my-ads",text:"my ads"}],R={publicCategories:Q,userCategories:U},{publicCategories:H,userCategories:_}=R,J=()=>{const{search:n}=f(),t=f(),i=B(T);return e.jsxs(E,{children:[e.jsx(G,{children:H.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))}),i&&e.jsx(M,{children:_.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?!0:void 0,children:s})},a))})]})},K=r.button`
+`;let g=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const Q=[{id:g(),to:"/notices/sell",text:"sell"},{id:g(),to:"/notices/lost-found",text:"lost/found"},{id:g(),to:"/notices/in-good-hands",text:"in good hands"}],U=[{id:g(),to:"/notices/favorite",text:"favorite ads"},{id:g(),to:"/notices/my-ads",text:"my ads"}],R={publicCategories:Q,userCategories:U},{publicCategories:H,userCategories:_}=R,J=()=>{const{search:n}=f(),t=f(),i=B(T);return e.jsxs(E,{children:[e.jsx(G,{children:H.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?"true":void 0,children:s})},a))}),i&&e.jsx(M,{children:_.map(({id:a,to:o,text:s})=>e.jsx(w,{children:e.jsx(j,{to:{pathname:o,search:n},active:t.pathname===o?"true":void 0,children:s})},a))})]})},K=r.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
