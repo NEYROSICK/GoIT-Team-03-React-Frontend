@@ -16,8 +16,8 @@ import {
   ItemLearnMoreBtnIcon,
   ItemDeleteBtn,
 } from './NoticeItem.styled';
-import { useUpdateFavoriteMutation } from '../../../redux/API/UserApi';
-import { useDeleteNoticeMutation } from '../../../redux/API/noticesApi';
+import { useUpdateFavoriteMutation } from '../../../redux/API/RTKQueryApi';
+import { useDeleteNoticeMutation } from '../../../redux/API/RTKQueryApi';
 import { useState } from 'react';
 
 const NoticeItem = ({
@@ -37,8 +37,6 @@ const NoticeItem = ({
 
   const [deleteNotice] = useDeleteNoticeMutation();
 
-  const [message, setMessage] = useState('');
-
   const today = new Date();
 
   const noticeDate = new Date(date);
@@ -53,14 +51,11 @@ const NoticeItem = ({
     try {
       const response = await updateFavorite(id);
       if (response.data && response.data.message) {
-        await setMessage(response.data.message);
+        Notify.success('Success!');
       }
-      Notify.success(message);
-
       setIsFavorite((prevState) => !prevState);
     } catch (error) {
-      setMessage('Failed to update favorite status');
-      Notify.failure(message);
+      Notify.failure('Failed to update favorite status');
     }
   };
 
@@ -91,7 +86,7 @@ const NoticeItem = ({
 
         {showDelete && (
           <ItemDeleteBtn type="submit" onClick={handleDeleteClick}>
-            <FavoriteIcon isFavorite={isFavorite}>
+            <FavoriteIcon>
               <use href={sprite + '#iconTrash'} />
             </FavoriteIcon>
           </ItemDeleteBtn>

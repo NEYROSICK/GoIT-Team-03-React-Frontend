@@ -1,7 +1,11 @@
 import styled from '@emotion/styled';
 
 export const InputList = styled.div`
-  margin-bottom: 24px;
+  margin-bottom: 36.95px;
+
+  @media (min-width: 768px) {
+    margin-bottom: 34.8px;
+  }
 
   & label {
     position: relative;
@@ -14,11 +18,20 @@ export const InputList = styled.div`
     font-weight: 500;
     line-height: normal;
     margin-bottom: 20px;
+
+    @media (min-width: 768px) {
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 26.5px; /* 132.5% */
+      gap: 8px;
+
+      margin-bottom: 24px;
+    }
   }
 
   & input {
     padding: 8px 16px;
-    height: 40px;
 
     font-size: 14px;
     font-style: normal;
@@ -31,6 +44,16 @@ export const InputList = styled.div`
     outline: 3px solid transparent;
     outline-offset: -3px;
     transition: outline-color 0.3s;
+
+    @media (min-width: 768px) {
+      padding: 12px 16px;
+
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.64px;
+    }
 
     &:focus {
       outline: 3px solid var(--clr-brand-blue);
@@ -60,4 +83,10 @@ export const ErrorPersonalInfoText = styled.p`
   font-weight: 400;
   line-height: normal;
   color: var(--clr-brand-red);
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+    bottom: -20px;
+    left: 13px;
+  }
 `;

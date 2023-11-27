@@ -1,14 +1,14 @@
-import { useGetNoticesQuery } from '../../../redux/API/noticesApi';
-import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
-import NoticeItem from '../NoticeItem/NoticeItem';
-import { useLocation, useSearchParams } from 'react-router-dom';
-
+import {
+  useGetNoticesQuery,
+  useGetMeAndPetsQuery,
+} from '../../../redux/API/RTKQueryApi.js';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
+import NoticeItem from '../NoticeItem/NoticeItem';
+import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
+import { useLocation, useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { useGetMeAndPetsQuery } from '../../../redux/API/petsApi';
 
 function AllNotices() {
-  const { data: userData } = useGetMeAndPetsQuery();
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
   const [searchParams] = useSearchParams();
@@ -22,9 +22,12 @@ function AllNotices() {
     },
   });
 
-  let userFavorites = [];
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  if (isAuthenticated) {
+  const { data: userData } = useGetMeAndPetsQuery();
+
+  let userFavorites = [];
+
+  if (isAuthenticated && userData && userData.user) {
     userFavorites = userData.user.favoritesArr;
   }
 

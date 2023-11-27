@@ -1,12 +1,11 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 import { register, login, logOut } from './operations';
 
 const initialState = {
   user: { userName: null, email: null },
   isAuthenticated: false,
-  isNewUser:null,
-   token: null,
+  isNewUser: null,
+  token: null,
 };
 
 const handleFulfilledRegister = (state, { payload }) => {
@@ -22,30 +21,29 @@ const handleFulfilledLogin = (state, { payload }) => {
   state.isAuthenticated = true;
 };
 
-const handleFulfilledLogOut = state => {
+const handleFulfilledLogOut = (state) => {
   state.user = { userName: null, email: null };
   state.token = null;
   state.isAuthenticated = false;
 };
 
-
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  extraReducers: builder => {
+  extraReducers: (builder) => {
     builder
       .addCase(register.fulfilled, handleFulfilledRegister)
       .addCase(login.fulfilled, handleFulfilledLogin)
-      .addCase(logOut.fulfilled, handleFulfilledLogOut)
+      .addCase(logOut.fulfilled, handleFulfilledLogOut);
   },
-  reducers:{
+  reducers: {
     changeIsNewUser(state, action) {
       return {
         ...state,
-        isNewUser: action.payload
-      }
+        isNewUser: action.payload,
+      };
     },
-  }
+  },
 });
 
 export const { changeIsNewUser } = authSlice.actions;

@@ -1,6 +1,11 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 import {
   ErrorPersonalInfoText,
@@ -47,7 +52,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <Field
                 type="text"
                 name="title"
-                placeholder="Type name pet"
+                placeholder="Title of ad"
                 className={`${
                   touched.title && errors.title ? 'is-invalid' : ''
                 }`}
@@ -65,7 +70,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of Birth
+              Date of birth
               <Field
                 name="date"
                 type="date"
@@ -85,22 +90,25 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
             </label>
           </InputList>
-          <ButtonNextBack className="buttonNext" type="submit">
-            Next
-            <IconPaw>
-              <use href={sprite + '#iconPaw'}></use>
-            </IconPaw>
-          </ButtonNextBack>
-          <ButtonNextBack
-            className="buttonBack"
-            type="button"
-            onClick={() => props.prev(values)}
-          >
-            <IconArrow>
-              <use href={sprite + '#iconArrowLeft'}></use>
-            </IconArrow>
-            Back
-          </ButtonNextBack>
+
+          <ButtonContainer>
+            <ButtonNextBack className="buttonNext" type="submit">
+              Next
+              <IconPaw>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconPaw>
+            </ButtonNextBack>
+            <ButtonNextBack
+              className="buttonBack"
+              type="button"
+              onClick={() => props.prev(values)}
+            >
+              <IconArrow>
+                <use href={sprite + '#iconArrowLeft'}></use>
+              </IconArrow>
+              Back
+            </ButtonNextBack>
+          </ButtonContainer>
         </Form>
       )}
     </Formik>

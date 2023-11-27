@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const NavContaier = styled.div`
+
+export const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  max-width: 205px;
+
   height: 121px;
 
   @media screen and (min-width: 768px) {
