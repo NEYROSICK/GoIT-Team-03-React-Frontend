@@ -1,24 +1,25 @@
 import {
   Article,
   ArticleContent,
+  ArticleDesc,
   ArticleImage,
   ArticleTitle,
 } from './NewsItem.styled';
 
-function NewsItem() {
+function NewsItem({ image, title, description, details }) {
   return (
     <Article href="" className="article">
       <ArticleImage className="article-image">
-        <img src="" alt="" />
+        <img src={image} alt="" />
       </ArticleImage>
       <ArticleContent className="article-content">
         <ArticleTitle className="article-title">
-          <h2>Lorem</h2>
+          <h2>{title}</h2>
         </ArticleTitle>
-        <p className="article-description"></p>
+        <ArticleDesc className="article-description">{description}</ArticleDesc>
         <div className="article-details">
           <small>
-            <b></b>
+            <b>{details}</b>
           </small>
         </div>
       </ArticleContent>
