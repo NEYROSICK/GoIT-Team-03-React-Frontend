@@ -20,8 +20,8 @@ import {
 } from './RegisterForm.styled';
 import { useFormik } from 'formik';
 // import { Container } from "../../Layout/Container/Container"
-import sprite from '../../../ui/Icons/sprite.svg'
-import {Container} from '../../Layout/Container/Container'
+import sprite from '../../../ui/Icons/sprite.svg';
+import { Container } from '../../Layout/Container/Container';
 import { login } from '../../../redux/auth/operations';
 import { useNavigate } from 'react-router-dom';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors';
@@ -100,139 +100,148 @@ export default function Register() {
   });
   return (
     <Container>
-    <ContainerMain>
-      <RegisterForm onSubmit={formik.handleSubmit}>
-        <Title>Registration</Title>
-        <InputValidation>
-          <Input
-            id="userName"
-            name="userName"
-            type="text"
-            placeholder="Name"
-            onChange={formik.handleChange}
-            value={formik.values.userName}
-            isValid={!formik.touched.userName || !formik.errors.userName}
-          />
-          {formik.touched.userName && formik.errors.userName ? (
-            <>
-              {formik.values.userName && (
-                <ClearButton
-                  type="button"
-                  onClick={() => {
-                    formik.setFieldValue('userName', '');
-                    formik.setFieldTouched('userName', false);
-                  }}
-                >
-                  <Svg>
-                    <use href={sprite + '#iconCross'}></use>
-                  </Svg>
-                </ClearButton>
-              )}
-              <Validation>{formik.errors.userName}</Validation>
-            </>
-          ) : null}
-        </InputValidation>
-        <InputValidation>
-          <Input
-            id="email"
-            name="email"
-            type="text"
-            placeholder="Email"
-            onChange={formik.handleChange}
-            value={formik.values.email.toLocaleLowerCase()}
-            isValid={!formik.touched.email || !formik.errors.email}
-          />
+      <ContainerMain>
+        <RegisterForm onSubmit={formik.handleSubmit}>
+          <Title>Registration</Title>
+          <InputValidation>
+            <Input
+              id="userName"
+              name="userName"
+              type="text"
+              placeholder="Name"
+              onChange={formik.handleChange}
+              value={formik.values.userName}
+              isValid={!formik.touched.userName || !formik.errors.userName}
+            />
+            {formik.touched.userName && formik.errors.userName ? (
+              <>
+                {formik.values.userName && (
+                  <ClearButton
+                    type="button"
+                    onClick={() => {
+                      formik.setFieldValue('userName', '');
+                      formik.setFieldTouched('userName', false);
+                    }}
+                  >
+                    <Svg>
+                      <use href={sprite + '#iconCross'}></use>
+                    </Svg>
+                  </ClearButton>
+                )}
+                <Validation>{formik.errors.userName}</Validation>
+              </>
+            ) : null}
+          </InputValidation>
+          <InputValidation>
+            <Input
+              id="email"
+              name="email"
+              type="text"
+              placeholder="Email"
+              onChange={formik.handleChange}
+              value={formik.values.email.toLocaleLowerCase()}
+              isValid={!formik.touched.email || !formik.errors.email}
+            />
 
-          {formik.touched.email && formik.errors.email ? (
-            <>
-              {formik.values.email && (
-                <ClearButton
-                  type="button"
-                  onClick={() => {
-                    formik.setFieldValue('email', '');
-                    formik.setFieldTouched('email', false);
-                  }}
-                >
-                  <Svg>
-                    <use href={sprite + '#iconCross'}></use>
-                  </Svg>
-                </ClearButton>
+            {formik.touched.email && formik.errors.email ? (
+              <>
+                {formik.values.email && (
+                  <ClearButton
+                    type="button"
+                    onClick={() => {
+                      formik.setFieldValue('email', '');
+                      formik.setFieldTouched('email', false);
+                    }}
+                  >
+                    <Svg>
+                      <use href={sprite + '#iconCross'}></use>
+                    </Svg>
+                  </ClearButton>
+                )}
+                <Validation>{formik.errors.email}</Validation>
+              </>
+            ) : null}
+          </InputValidation>
+          <InputValidation>
+            <Input
+              id="password"
+              name="password"
+              type={formik.values.showPassword ? 'text' : 'password'}
+              placeholder="Password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
+              isValid={!formik.touched.password || !formik.errors.password}
+            />
+            <ClearButton
+              type="button"
+              onClick={() => {
+                formik.setFieldTouched('password', false);
+                formik.setFieldValue(
+                  'showPassword',
+                  !formik.values.showPassword,
+                );
+              }}
+            >
+              {formik.values.showPassword ? (
+                <SvgEye>
+                  <use href={sprite + '#iconEyeOpen'}></use>
+                </SvgEye>
+              ) : (
+                <SvgEye>
+                  <use href={sprite + '#iconEyeClosed'}></use>
+                </SvgEye>
               )}
-              <Validation>{formik.errors.email}</Validation>
-            </>
-          ) : null}
-        </InputValidation>
-<InputValidation>
-  <Input
-    id="password"
-    name="password"
-    type={formik.values.showPassword ? 'text' : 'password'}
-    placeholder="Password"
-    onChange={formik.handleChange}
-    value={formik.values.password}
-    isValid={!formik.touched.password || !formik.errors.password}
-  />
-  <ClearButton
-    type="button"
-    onClick={() => {
-      formik.setFieldTouched('password', false);
-      formik.setFieldValue('showPassword', !formik.values.showPassword);
-    }}
-  >
-    {formik.values.showPassword  ? (
-      <SvgEye>
-        <use href={sprite + '#iconEyeOpen'}></use>
-      </SvgEye>
-    ) : (
-      <SvgEye>
-        <use href={sprite + '#iconEyeClosed'}></use>
-      </SvgEye>
-    )}
-  </ClearButton>
-  {formik.touched.password && formik.errors.password ? (
-    <Validation>{formik.errors.password}</Validation>
-  ) : null}
-</InputValidation>
+            </ClearButton>
+            {formik.touched.password && formik.errors.password ? (
+              <Validation>{formik.errors.password}</Validation>
+            ) : null}
+          </InputValidation>
 
-{/* ПЕРЕВІРКА ПАРОЛЯ */}
-<ConfirmValidation>
-  <ConfirmPassword
-    id="confirmPassword"
-    name="confirmPassword"
-    type={formik.values.showConfirmPassword ? 'text' : 'password'}
-    placeholder="Confirm password"
-    onChange={formik.handleChange}
-    value={formik.values.confirmPassword}
-    isValid={!formik.touched.confirmPassword || !formik.errors.confirmPassword}
-  />
-  <ClearButton
-    type="button"
-    onClick={() => {
-      formik.setFieldTouched('confirmPassword', false);
-      formik.setFieldValue('showConfirmPassword', !formik.values.showConfirmPassword);
-    }}
-  >
-    {formik.values.showConfirmPassword ? (
-      <SvgEye>
-        <use href={sprite + '#iconEyeOpen'}></use>
-      </SvgEye>
-    ) : (
-      <SvgEye>
-        <use href={sprite + '#iconEyeClosed'}></use>
-      </SvgEye>
-    )}
-  </ClearButton>
-  {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-    <Validation>{formik.errors.confirmPassword}</Validation>
-  ) : null}
-</ConfirmValidation>
-        <Button type="submit">Registration</Button>
-        <Text>
-          {' '}
-          Already have an account?<Link to="/login">Login</Link>
-        </Text>
-      </RegisterForm>
+          {/* ПЕРЕВІРКА ПАРОЛЯ */}
+          <ConfirmValidation>
+            <ConfirmPassword
+              id="confirmPassword"
+              name="confirmPassword"
+              type={formik.values.showConfirmPassword ? 'text' : 'password'}
+              placeholder="Confirm password"
+              onChange={formik.handleChange}
+              value={formik.values.confirmPassword}
+              isValid={
+                !formik.touched.confirmPassword ||
+                !formik.errors.confirmPassword
+              }
+            />
+            <ClearButton
+              type="button"
+              onClick={() => {
+                formik.setFieldTouched('confirmPassword', false);
+                formik.setFieldValue(
+                  'showConfirmPassword',
+                  !formik.values.showConfirmPassword,
+                );
+              }}
+            >
+              {formik.values.showConfirmPassword ? (
+                <SvgEye>
+                  <use href={sprite + '#iconEyeOpen'}></use>
+                </SvgEye>
+              ) : (
+                <SvgEye>
+                  <use href={sprite + '#iconEyeClosed'}></use>
+                </SvgEye>
+              )}
+            </ClearButton>
+            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
+              <Validation>{formik.errors.confirmPassword}</Validation>
+            ) : null}
+          </ConfirmValidation>
+          <Button type="submit">Registration</Button>
+          <Text>
+            {' '}
+            Already have an account?<Link to="/login">Login</Link>
+          </Text>
+        </RegisterForm>
       </ContainerMain>
-      </Container>
+    </Container>
   );
 }

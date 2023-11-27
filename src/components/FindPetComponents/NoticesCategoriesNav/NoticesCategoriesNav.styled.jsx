@@ -17,7 +17,7 @@ export const NavList = styled.ul`
   gap: 8px;
 
   @media screen and (min-width: 768px) {
-    flex-direction:  row;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 12px;
   }
@@ -39,36 +39,35 @@ export const UserNavList = styled.ul`
 `;
 
 export const NavLi = styled.li`
-display: flex;
-border: none;
-text-decoration: none;
-justify-content: center;
-align-items: center;
-background-color: var(--clr-brand-blue-lt);
-border-radius: 40px;
-font-weight: 500;
-font-size: 14px;
-line-height: 19px;
-letter-spacing: 0.04em;
-text-decoration: none;
-transition: 300ms;    
+  display: flex;
+  border: none;
+  text-decoration: none;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--clr-brand-blue-lt);
+  border-radius: 40px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: 300ms;
 
-&:hover,
-&:focus {
-    
+  &:hover,
+  &:focus {
     color: var(--clr-primary-inv);
-    
-}
-`
+  }
+`;
 export const StyledLink = styled(Link)`
-padding: 8px 16px;
-text-decoration: none;
-color: var(--clr-brand-blue);
-color: ${(props) => props.active && 'var(--clr-primary-inv)'};
-background-color: ${(props) => props.active && 'var(--clr-brand-blue)'};
-border-radius: 40px;
-&:focus, &:hover {
+  padding: 8px 16px;
+  text-decoration: none;
+  color: var(--clr-brand-blue);
+  color: ${(props) => props.active && 'var(--clr-primary-inv)'};
+  background-color: ${(props) => props.active && 'var(--clr-brand-blue)'};
+  border-radius: 40px;
+  &:focus,
+  &:hover {
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
-}
-`
+  }
+`;

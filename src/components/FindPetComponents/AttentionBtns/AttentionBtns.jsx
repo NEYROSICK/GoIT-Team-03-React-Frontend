@@ -1,4 +1,4 @@
-import sprite from '../../../../../ui/Icons/sprite.svg';
+import sprite from '../../../ui/Icons/sprite.svg';
 import {
   AuthNavStyled,
   LoginStyled,
@@ -6,9 +6,9 @@ import {
   LogLink,
   RegLink,
   IconLogin,
-} from './AuthNavStyled';
+} from './AttentionBtns.styled';
 
-export const AuthNav = () => {
+const AttentionBtns = () => {
   return (
     <AuthNavStyled>
       <LoginStyled>
@@ -26,3 +26,5 @@ export const AuthNav = () => {
     </AuthNavStyled>
   );
 };
+
+export default AttentionBtns;

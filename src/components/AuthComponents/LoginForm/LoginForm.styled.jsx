@@ -29,7 +29,6 @@ export const Form = styled.form`
   }
 `;
 export const Email = styled.input`
-
   display: flex;
   width: 100%;
   height: 48px;
@@ -111,7 +110,7 @@ export const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
   color: var(--clr-primary);
-  @media (min-width:768px){
+  @media (min-width: 768px) {
     margin-bottom: 40px;
   }
 `;
@@ -135,10 +134,9 @@ export const ClearButton = styled.button`
 export const Svg = styled.svg`
   stroke: var(--clr-brand-red);
   display: block;
-  width:24px;
+  width: 24px;
   height: 24px;
-  fill:none;
-  
+  fill: none;
 `;
 export const SvgEye = styled.svg`
   stroke: var(--clr-brand-blue);

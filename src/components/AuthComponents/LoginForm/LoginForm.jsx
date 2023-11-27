@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import sprite from '../../../ui/Icons/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../../../redux/auth/operations';
-import {Container} from '../../Layout/Container/Container';
+import { Container } from '../../Layout/Container/Container';
 import {
   Form,
   Svg,

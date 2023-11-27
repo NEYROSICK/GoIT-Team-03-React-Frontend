@@ -35,14 +35,13 @@ export const RegisterStyled = styled.li`
 
 export const LogLink = styled(Link)`
   color: var(--clr-primary-inv);
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
 `;
 
 export const RegLink = styled(Link)`
   color: var(--clr-brand-yellow);
 `;
-
 
 export const IconLogin = styled.svg`
   fill: var(--clr-bcg);
@@ -50,10 +49,6 @@ export const IconLogin = styled.svg`
   width: 24px;
   height: 24px;
 `;
-
-
-
-
 
 // export const AuthNavStyled = styled.ul`
 //   display: flex;
