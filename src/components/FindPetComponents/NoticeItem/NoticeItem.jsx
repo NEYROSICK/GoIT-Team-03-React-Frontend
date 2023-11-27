@@ -52,10 +52,8 @@ const NoticeItem = ({
 
   const today = new Date();
 
-  const noticeDate = new Date(date);
-
+  const noticeDate = new Date(date.split('-').reverse().join('-'));
   const noticeAge = today.getFullYear() - noticeDate.getFullYear();
-
   const ageText = noticeAge % 2 ? 'year' : 'years';
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
