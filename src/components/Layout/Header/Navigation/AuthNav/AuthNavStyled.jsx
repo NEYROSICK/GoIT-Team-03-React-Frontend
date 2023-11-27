@@ -19,7 +19,6 @@ export const LoginStyled = styled.li`
   font-weight: 700;
   background-color: var(--clr-brand-yellow);
   border-radius: 40px;
-  padding: 8px 20px;
   gap: 8px;
   width: 165px;
   cursor: pointer;
@@ -28,19 +27,22 @@ export const LoginStyled = styled.li`
 export const RegisterStyled = styled.li`
   font-weight: 600;
   border-radius: 40px;
-  padding: 7px 20px;
   border: 2px solid var(--clr-brand-yellow);
   cursor: pointer;
 `;
 
 export const LogLink = styled(Link)`
   color: var(--clr-primary-inv);
-  display:flex;
-  justify-content:center;
+  display: flex;
+  justify-content: center;
+  padding: 8px 20px;
 `;
 
 export const RegLink = styled(Link)`
   color: var(--clr-brand-yellow);
+  display: flex;
+  justify-content: center;
+  padding: 7px 20px;
 `;
 
 
