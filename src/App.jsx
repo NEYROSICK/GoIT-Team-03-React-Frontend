@@ -6,16 +6,20 @@ import PublicRoute from './routes/PublicRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import SharedLayout from './components/Layout/SharedLayout/SharedLayout';
 
-const HomePage = lazy(() => import('./pages/HomePage/HomePage')) ;
-const NoticesPage = lazy(() => import('./pages/NoticesPage/NoticesPage')) ;
-const UserPage = lazy(() => import('./pages/UserPage/UserPage')) ;
-const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage')) ;
-// const FriendsPage = lazy(() => import('./pages/FriendsPage/FriendsPage')) ;
-const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage')) ;
-const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage')) ;
-const AllNotices = lazy(() => import('./components/FindPetComponents/allNotices/AllNotices')) ;
-const FavoriteNotices = lazy(() => import('./components/FindPetComponents/favoriteNotices/FavoriteNotices')) ;
-const MyAds = lazy(() => import('./components/FindPetComponents/myAds/MyAds')) ;
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+const NoticesPage = lazy(() => import('./pages/NoticesPage/NoticesPage'));
+const UserPage = lazy(() => import('./pages/UserPage/UserPage'));
+const NewsPage = lazy(() => import('./pages/NewsPage/NewsPage'));
+const FriendsPage = lazy(() => import('./pages/FriendsPage/FriendsPage'));
+const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const AllNotices = lazy(() =>
+  import('./components/FindPetComponents/allNotices/AllNotices'),
+);
+const FavoriteNotices = lazy(() =>
+  import('./components/FindPetComponents/favoriteNotices/FavoriteNotices'),
+);
+const MyAds = lazy(() => import('./components/FindPetComponents/myAds/MyAds'));
 const AddPetPage = lazy(() => import('./pages/AddPetPage/AddPetPage'));
 
 function App() {
@@ -32,7 +36,7 @@ function App() {
           <Route path="my-ads" element={<MyAds />} />
         </Route>
         <Route path="news" element={<NewsPage />} />
-        {/* <Route path="friends" element={<FriendsPage />} /> */}
+        <Route path="friends" element={<FriendsPage />} />
         <Route
           path="/register"
           element={

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { BurgerButton, BurgerIcon } from './HeaderBurger.styled';
 import sprite from '../../../../ui/Icons/sprite.svg';
 import { ModalBurger } from './ModalBurger';
