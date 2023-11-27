@@ -8,16 +8,17 @@ import { NavLink } from 'react-router-dom';
 export const ContainerMain = styled.div`
 display:flex;
 align-items:center;
-
+justify-content:center;
+max-width:100%;
 min-height:calc(100vh - 64px);`;
 
 export const RegisterForm = styled.form`
 
-  margin-left: auto;
-  margin-right: auto;
+  /* margin-left: auto;
+  margin-right: auto; */
   font-family: Manrope, sans-serif;
   min-height: 420px;
-  max-width: 280px;
+  width: 280px;
  
   background-color: var(--clr-bcg-user);
    box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
@@ -29,7 +30,7 @@ export const RegisterForm = styled.form`
   margin-bottom:20px;
    @media (min-width: 768px) {
    
-    max-width: 608px;
+    width: 608px;
     padding: 60px 75px;
   }
 
@@ -73,11 +74,11 @@ export const ClearButton = styled.button`
  position: absolute;
  background-color: transparent;
  border: none;
- top: 15px;
+ top: 10px;
   left: 84%;
    @media (min-width: 768px) {
    
-top: 20%;
+top: 10px;
   left: 90%;
   }
 `;
@@ -89,11 +90,11 @@ export const Input = styled.input`
   width: 100%;
   border-radius: 40px;
   outline: none;
- border: solid 1px ${({ isValid }) => (isValid ? 'var(--clr-brand-blue)' : 'var(--clr-brand-red)')};
-
-  &:invalid {
-    border-color: var(--clr-brand-red);
+  border: solid 1px var(--clr-brand-blue);
+    &.is-invalid{
+border-color: var(--clr-brand-red);
   }
+
 `;
 export const ConfirmPassword = styled.input`
   display: flex;
@@ -103,12 +104,10 @@ export const ConfirmPassword = styled.input`
   width: 100%;
   border-radius: 40px;
   outline: none;
-  border: solid 1px ${({ isValid }) => (isValid ? 'var(--clr-brand-blue)' : 'var(--clr-brand-red)')};
-
-  &:invalid {
-    border-color: var(--clr-brand-red);
+  border: solid 1px var(--clr-brand-blue);
+    &.is-invalid{
+border-color: var(--clr-brand-red);
   }
- 
 `;
 export const Button = styled.button`
   font-weight: 600;
