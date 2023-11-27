@@ -7,20 +7,25 @@ export const PhotoContainer = styled.img`
   width: 112px;
   height: 112px;
   border-radius: 20px;
+
+  @media (min-width: 768px) {
+    width: 182px;
+    height: 182px;
+    border-radius: 40px;
+  }
 `;
 
 export const LabelInputFile = styled.label`
   background: var(--clr-brand-blue-lt);
   display: flex;
+  flex-shrink: 0;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 
   position: relative;
-  width: 100vh;
-  height: 100vw;
-  max-width: 112px;
-  max-height: 112px;
+  width: 112px;
+  height: 112px;
   border: 3px solid transparent;
   border-radius: 20px;
   margin-right: 29.3%;
@@ -28,6 +33,13 @@ export const LabelInputFile = styled.label`
   transition:
     border-color 0.3s,
     scale 0.3s;
+
+  @media (min-width: 768px) {
+    width: 182px;
+    height: 182px;
+    margin-right: 26.7%;
+    border-radius: 40px;
+  }
 
   &.no-image-selected {
     border-color: var(--clr-brand-red);
@@ -60,6 +72,11 @@ export const LabelInputFile = styled.label`
     z-index: 100;
     transition: border-color 0.3s;
     border-radius: inherit;
+
+    @media (min-width: 768px) {
+      width: 182px;
+      height: 182px;
+    }
   }
 
   &:hover::after {
@@ -84,6 +101,13 @@ export const InputList = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
+  @media (min-width: 768px) {
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px; /* 140% */
+  }
 
   & p {
     margin-bottom: 4px;
@@ -114,6 +138,14 @@ export const InputList = styled.div`
     outline-offset: -3px;
     transition: outline-color 0.3s;
 
+    @media (min-width: 768px) {
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 24px */
+      letter-spacing: 0.64px;
+    }
+
     &:focus {
       outline: 3px solid var(--clr-brand-blue);
     }
@@ -131,6 +163,12 @@ export const InputList = styled.div`
     height: 92px;
     border-radius: 20px;
     resize: none;
+    margin-bottom: 23.15px;
+
+    @media (min-width: 768px) {
+      height: 79px;
+      margin-bottom: 20px;
+    }
   }
 `;
 
@@ -138,12 +176,32 @@ export const AvatarContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 14px;
+
+  @media (min-width: 768px) {
+    gap: 10px;
+    margin-bottom: 24.1px;
+  }
 `;
 
 export const IconPlus = styled.svg`
   width: 40px;
   height: 40px;
   stroke: var(--clr-brand-blue);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
+
+export const IconBigPlus = styled.svg`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+    width: 58px;
+    height: 58px;
+    stroke: var(--clr-brand-blue);
+  }
 `;
 
 export const IconFemale = styled.svg`
@@ -251,6 +309,11 @@ export const ErrorMoreInfoText = styled.p`
   font-weight: 400;
   line-height: normal;
   color: var(--clr-brand-red);
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+    bottom: -4px;
+  }
 `;
 
 export const ErrorSex = styled.p`

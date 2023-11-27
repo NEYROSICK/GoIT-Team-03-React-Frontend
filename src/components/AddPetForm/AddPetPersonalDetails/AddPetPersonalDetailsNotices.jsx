@@ -1,6 +1,11 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 import {
   ErrorPersonalInfoText,
@@ -11,11 +16,11 @@ const schema = object({
   title: string()
     .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
     .min(2, 'Title must be at least 2 characters')
-    .max(16, 'Title must be at most 2 characters')
+    .max(50, 'Title must be at most 50 characters')
     .required('Enter a title for add'),
   name: string()
     .min(2, 'Name must be at least 2 characters')
-    .max(16, 'Name must be at most 2 characters')
+    .max(16, 'Name must be at most 16 characters')
     .required('Enter a name pet'),
   date: date()
     .required('Enter a date of birth')
@@ -23,7 +28,7 @@ const schema = object({
   type: string()
     .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
     .min(2, 'Type must be at least 2 characters')
-    .max(16, 'Type must be at most 2 characters')
+    .max(16, 'Type must be at most 16 characters')
     .required('Enter a type of pet'),
 });
 
@@ -47,7 +52,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <Field
                 type="text"
                 name="title"
-                placeholder="Type name pet"
+                placeholder="Title of ad"
                 className={`${
                   touched.title && errors.title ? 'is-invalid' : ''
                 }`}
@@ -65,7 +70,7 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of Birth
+              Date of birth
               <Field
                 name="date"
                 type="date"
@@ -85,22 +90,25 @@ const AddPetPersonalDetailsNotices = (props) => {
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
             </label>
           </InputList>
-          <ButtonNextBack className="buttonNext" type="submit">
-            Next
-            <IconPaw>
-              <use href={sprite + '#iconPaw'}></use>
-            </IconPaw>
-          </ButtonNextBack>
-          <ButtonNextBack
-            className="buttonBack"
-            type="button"
-            onClick={() => props.prev(values)}
-          >
-            <IconArrow>
-              <use href={sprite + '#iconArrowLeft'}></use>
-            </IconArrow>
-            Back
-          </ButtonNextBack>
+
+          <ButtonContainer>
+            <ButtonNextBack className="buttonNext" type="submit">
+              Next
+              <IconPaw>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconPaw>
+            </ButtonNextBack>
+            <ButtonNextBack
+              className="buttonBack"
+              type="button"
+              onClick={() => props.prev(values)}
+            >
+              <IconArrow>
+                <use href={sprite + '#iconArrowLeft'}></use>
+              </IconArrow>
+              Back
+            </ButtonNextBack>
+          </ButtonContainer>
         </Form>
       )}
     </Formik>

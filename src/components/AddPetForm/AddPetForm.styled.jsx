@@ -1,10 +1,5 @@
 import styled from '@emotion/styled';
 
-// export const FakeHeader = styled.div`
-//   height: 64px;
-//   background-color: #000000;
-// `;
-
 //* Icons Sizes
 
 const ICON_PAW_SIZE = '24px';
@@ -18,11 +13,17 @@ export const FormContainer = styled.div`
 `;
 
 export const FormStyled = styled.div`
+  width: 100%;
   border-radius: 40px;
   background-color: var(--clr-bcg);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   padding: 20px 8px 16px 8px;
   margin-bottom: 20px;
+
+  @media (min-width: 768px) {
+    width: 458px;
+    padding: 20px 34px;
+  }
 `;
 
 export const Title = styled.h1`
@@ -31,6 +32,11 @@ export const Title = styled.h1`
   line-height: normal;
   margin-bottom: 24px;
   margin-left: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 28px;
+    margin-left: 0;
+  }
 `;
 
 export const StepList = styled.ul`
@@ -44,18 +50,26 @@ export const StepList = styled.ul`
   letter-spacing: 0.1px;
   margin-bottom: 24px;
 
+  @media (min-width: 768px) {
+    font-size: 15px;
+    line-height: 26.5px; /* 165.625% */
+    letter-spacing: 0.1px;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
   & > li {
     display: flex;
     flex-direction: column;
+    flex-basis: calc((100% / 3));
     gap: 12px;
-    width: 80px;
 
     &:after {
       content: '';
       display: block;
       position: static;
       height: 8px;
-      width: 80px;
+      /* width: 80px; */
       background-color: var(--clr-brand-blue-lt);
       border-radius: 8px;
     }
@@ -75,6 +89,12 @@ export const StepList = styled.ul`
     }
   }
 `;
+export const ButtonContainer = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+`;
 
 export const ButtonNextBack = styled.button`
   display: flex;
@@ -92,18 +112,32 @@ export const ButtonNextBack = styled.button`
   letter-spacing: 0.64px;
   transition: gap 0.3s;
 
+  @media (min-width: 768px) {
+    width: auto;
+    flex-grow: 1;
+    transition: flex-grow 0.3s;
+  }
+
   &.buttonNext {
     margin-bottom: 10px;
     background-color: var(--clr-brand-blue);
     border: none;
     border-radius: 40px;
     color: var(--clr-primary-inv);
+
+    &:hover {
+      flex-grow: 2;
+    }
   }
 
   &.buttonBack {
     color: var(--clr-brand-blue);
     background: none;
     border: none;
+
+    &:hover {
+      flex-grow: 2;
+    }
   }
 
   & svg {

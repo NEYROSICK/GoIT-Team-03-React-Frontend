@@ -6,17 +6,19 @@ export const FilterButton = styled.button`
   height: 40px;
   border-radius: 50%;
   border: none;
+  outline: none;S
   display: flex;
   justify-content: center;
   align-items: center;
-
+  transition: 300ms;
   background-color: #c5dff6;
   color: var(--clr-brand-blue);
 
   &:hover,
   &:focus {
     color: var(--clr-bcg-user);
-    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    background-image: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    border: none;
   }
   @media screen and (min-width: 768px) {
     padding: 9px 38px;
@@ -32,21 +34,15 @@ export const FilterButton = styled.button`
     background-color: transparent;
     transition: 300ms;
 
-    &:hover,
-    &:focus {
-      color: var(--clr-primary-inv);
-      border: none;
-      background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
-    }
   }
 
-  @media screen and (min-width: 1280px) {
-  }
 `;
 
 export const StyledFilterIcon = styled.svg`
   stroke: currentColor;
   fill: none;
+  width: 24px;
+  height: 24px;
 `;
 
 export const FilterText = styled.span`
@@ -92,7 +88,7 @@ export const FilterMenu = styled.div`
   background-color: #cce4fb;
   transition: 300ms;
   padding: 8px;
-  padding: ${(props) => props.active && '14px'};
+  padding: ${(props) => props.active && '12px'};
 `;
 
 export const FilterBtn = styled.button`
@@ -124,7 +120,8 @@ export const FilterForm = styled.form`
 
 export const FormLabel = styled.label`
   display: flex;
-  gap: 12px;
+  align-items: center;
+  gap: 6px;
   color: #54adff;
   font-family: sans-serif;
   font-size: 12px;
@@ -132,14 +129,43 @@ export const FormLabel = styled.label`
   line-height: 16px;
   letter-spacing: 0px;
   text-align: left;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
 `;
 
-export const FormInput = styled.input``;
+export const FormInput = styled.input`
+appearance: none;
+`;
 
 export const StyledChevronDownIcon = styled.svg`
   stroke: currentColor;
   fill: none;
   width: 24px;
   height: 24px;
-  display: ${(props) => props.active && 'none'};
+  transform: ${(props) => props.active && 'rotate(180deg)'};
+  transition: 300ms;
   `;
+
+  export const StyledCheckboxIcon = styled.svg`
+    width: 24px;
+    height: 24px;
+    stroke: var(--clr-brand-blue);
+    fill: none;
+    opacity: 1;
+    opacity: ${(props) => props.check && '0'};
+    transition: 300ms;
+    
+  `
+
+  export const StyledCheckbocCheckedIcon = styled.svg`
+  width: 24px;
+    height: 24px;
+    stroke: var(--clr-brand-blue);
+    fill: none;
+    opacity: 0;
+    opacity: ${(props) => props.check && '1'};
+    position: absolute;
+    transition: 300ms;
+  `

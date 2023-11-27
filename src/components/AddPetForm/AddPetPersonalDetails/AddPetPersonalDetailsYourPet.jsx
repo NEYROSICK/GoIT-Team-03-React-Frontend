@@ -1,6 +1,11 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 import {
   ErrorPersonalInfoText,
@@ -11,7 +16,7 @@ const schema = object({
   name: string()
     .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
     .min(2, 'Name must be at least 2 characters')
-    .max(16, 'Name must be at most 2 characters')
+    .max(16, 'Name must be at most 16 characters')
     .required('Enter a name pet'),
   date: date()
     .required('Enter a date of birth')
@@ -19,7 +24,7 @@ const schema = object({
   type: string()
     .matches(/^[a-zA-Z\s]+$/, 'Enter only English letters')
     .min(2, 'Type must be at least 2 characters')
-    .max(16, 'Type must be at most 2 characters')
+    .max(16, 'Type must be at most 16 characters')
     .required('Enter a type of pet'),
 });
 
@@ -49,7 +54,7 @@ const AddPetPersonalDetailsYourPet = (props) => {
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of Birth
+              Date of birth
               <Field
                 type="date"
                 name="date"
@@ -69,22 +74,25 @@ const AddPetPersonalDetailsYourPet = (props) => {
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
             </label>
           </InputList>
-          <ButtonNextBack className="buttonNext" type="submit">
-            Next
-            <IconPaw>
-              <use href={sprite + '#iconPaw'}></use>
-            </IconPaw>
-          </ButtonNextBack>
-          <ButtonNextBack
-            className="buttonBack"
-            type="button"
-            onClick={() => props.prev(values)}
-          >
-            <IconArrow>
-              <use href={sprite + '#iconArrowLeft'}></use>
-            </IconArrow>
-            Back
-          </ButtonNextBack>
+
+          <ButtonContainer>
+            <ButtonNextBack className="buttonNext" type="submit">
+              Next
+              <IconPaw>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconPaw>
+            </ButtonNextBack>
+            <ButtonNextBack
+              className="buttonBack"
+              type="button"
+              onClick={() => props.prev(values)}
+            >
+              <IconArrow>
+                <use href={sprite + '#iconArrowLeft'}></use>
+              </IconArrow>
+              Back
+            </ButtonNextBack>
+          </ButtonContainer>
         </Form>
       )}
     </Formik>

@@ -10,25 +10,19 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { authReducer } from './auth/authSlice';
-import { UserApi } from './API/UserApi';
-import { noticesApi } from './API/noticesApi';
-import { petsApi } from './API/petsApi';
+import { RTKQueryApi } from './API/RTKQueryApi';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token',"isAuthenticated"],
+  whitelist: ['token', 'isAuthenticated'],
 };
 
 const rootReducer = combineReducers({
   auth: persistReducer(persistConfig, authReducer),
-  [UserApi.reducerPath]: UserApi.reducer,
-  [noticesApi.reducerPath]: noticesApi.reducer,
-  [petsApi.reducerPath]: petsApi.reducer,
+  [RTKQueryApi.reducerPath]: RTKQueryApi.reducer,
 });
-
-// const persistedReducer =
 
 export const store = configureStore({
   reducer: rootReducer,
@@ -37,7 +31,7 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }).concat(UserApi.middleware, noticesApi.middleware, petsApi.middleware),
+    }).concat(RTKQueryApi.middleware),
 });
 
 export const persistor = persistStore(store);
