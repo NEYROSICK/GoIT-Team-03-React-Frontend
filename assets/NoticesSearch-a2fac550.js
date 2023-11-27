@@ -1,4 +1,4 @@
-import{n as r,r as g,j as t,b as x}from"./index-a27fbc10.js";const b=r.form`
+import{n as o,d as x,r as h,j as e,b as i}from"./index-31f5da15.js";const l=o.form`
   position: relative;
   width: 280px;
   margin-left: auto;
@@ -14,7 +14,7 @@ import{n as r,r as g,j as t,b as x}from"./index-a27fbc10.js";const b=r.form`
   @media screen and (min-width: 1280px) {
     margin-bottom: 43px;
   }
-`,f=r.input`
+`,u=o.input`
   width: 100%;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -49,7 +49,7 @@ import{n as r,r as g,j as t,b as x}from"./index-a27fbc10.js";const b=r.form`
     font-size: 20px;
     line-height: 24px;
   }
-`,v=r.svg`
+`,m=o.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -57,14 +57,14 @@ import{n as r,r as g,j as t,b as x}from"./index-a27fbc10.js";const b=r.form`
   right: 12px;
   top: 10px;
   transition: 250ms;
-  right: ${n=>n.active&&"47px"};
+  right: ${r=>r.active&&"47px"};
   stroke: var(--clr-brand-blue);
   fill: var(--clr-brand-blue);
   &:hover,
   &:focus {
     cursor: pointer;
   }
-`,w=r.svg`
+`,g=o.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -76,4 +76,4 @@ import{n as r,r as g,j as t,b as x}from"./index-a27fbc10.js";const b=r.form`
   &:focus {
     cursor: pointer;
   }
-`,e={query:""},y=({onSubmit:n,onClear:c})=>{const[i,o]=g.useState({...e}),h=s=>{const{name:u,value:d}=s.target;if(!d){p();return}o(m=>({...m,[u]:d}))},p=()=>{o({...e}),c({...e})},l=s=>{if(s.preventDefault(),i.query.trim()===""){o({...e});return}n({...i})},{query:a}=i;return t.jsxs(b,{onSubmit:l,children:[t.jsx(f,{type:"text",name:"query",required:!0,value:a,onChange:h,placeholder:"Search"}),t.jsxs(v,{type:"submit","aria-label":"submit",active:a&&!0,children:["   ",t.jsx("use",{href:x+"#iconSearch"})]}),a&&t.jsx(w,{type:"button",onClick:p,"aria-label":"clear",children:t.jsx("use",{href:x+"#iconCross"})})]})};export{y as N};
+`,f=({onSubmit:r})=>{const[s]=x(),[a,n]=h.useState(Object.fromEntries(s).query||""),p=t=>{n(t.target.value.toLowerCase())},c=()=>{n(""),r("")},d=t=>{t.preventDefault(),r(a)};return e.jsxs(l,{onSubmit:d,children:[e.jsx(u,{type:"text",name:"searchQuery",required:!0,value:a,onChange:t=>p(t),placeholder:"Search"}),e.jsxs(m,{type:"submit","aria-label":"submit",active:a&&!0,children:[" ",e.jsx("use",{href:i+"#iconSearch"})]}),a&&e.jsx(g,{type:"button",onClick:c,"aria-label":"clear",children:e.jsx("use",{href:i+"#iconCross"})})]})};export{f as N};

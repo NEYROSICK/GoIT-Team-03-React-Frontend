@@ -1,4 +1,4 @@
-import{n as t,j as e,d as x,t as w,r as f}from"./index-a27fbc10.js";import{N as u}from"./NoticesSearch-799a62b5.js";const b=t.div`
+import{n as t,j as e,d as x,t as w,r as f}from"./index-31f5da15.js";import{N as u}from"./NoticesSearch-a2fac550.js";const b=t.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
