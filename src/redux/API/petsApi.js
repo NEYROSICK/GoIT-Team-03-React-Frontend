@@ -32,14 +32,14 @@ export const petsApi = createApi({
       }),
       invalidatesTags: ['Pets'],
     }),
-      updateUser: builder.mutation({
+    updateUser: builder.mutation({
       query: (patch) => ({
-          url: `/users/updateUser`,
-          method: 'PATCH',
-          body: patch,
-        }),
-        invalidatesTags: ['Pets'],
-          })
+        url: `/users/updateUser`,
+        method: 'PATCH',
+        body: patch,
+      }),
+      invalidatesTags: ['Pets'],
+    }),
   }),
 });
 export const {

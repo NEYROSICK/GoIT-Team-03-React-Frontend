@@ -18,7 +18,6 @@ function AllNotices() {
       limit: 12,
       ...searchParamsObject,
     },
-    refetchOnMountOrArgChange: true,
   });
   const { data: userData } = useGetMeAndPetsQuery();
 

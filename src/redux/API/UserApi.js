@@ -25,18 +25,10 @@ export const UserApi = createApi({
       }),
       invalidatesTags: ['User'],
     }),
-    updateFavorite: build.mutation({
-      query: (id) => ({
-        url: `/users/favorite/${id}`,
-        method: 'PATCH',
-      }),
-      invalidatesTags: ['Notices', 'User'],
-    }),
   }),
 });
 
 export const {
   useGetUserQuery,
   useUpdateUserMutation,
-  useUpdateFavoriteMutation,
 } = UserApi;

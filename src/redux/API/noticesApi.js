@@ -40,6 +40,13 @@ export const noticesApi = createApi({
         url: `/getOne/${id}`,
       }),
     }),
+    updateFavorite: builder.mutation({
+      query: (id) => ({
+        url: `/favorite/${id}`,
+        method: 'PATCH',
+      }),
+      invalidatesTags: ['Notices'],
+    }),
     addNotice: builder.mutation({
       query: (body) => ({
         url: `/addNotice`,
@@ -62,6 +69,7 @@ export const {
   useGetMyFavoriteQuery,
   useGetOneNoticeQuery,
   useGetMyNoticesQuery,
+  useUpdateFavoriteMutation,
   useAddNoticeMutation,
   useDeleteNoticeMutation,
 } = noticesApi;

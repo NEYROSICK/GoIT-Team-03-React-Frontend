@@ -16,7 +16,7 @@ import {
   ItemLearnMoreBtnIcon,
   ItemDeleteBtn,
 } from './NoticeItem.styled';
-import { useUpdateFavoriteMutation } from '../../../redux/API/UserApi';
+import { useUpdateFavoriteMutation } from '../../../redux/API/noticesApi';
 import { useDeleteNoticeMutation } from '../../../redux/API/noticesApi';
 import { useState } from 'react';
 

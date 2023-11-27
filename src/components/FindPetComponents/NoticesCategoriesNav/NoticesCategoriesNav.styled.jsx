@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-export const NavContaier = styled.div`
+export const NavContainer = styled.div`
   max-width: 205px;
   height: 121px;
 

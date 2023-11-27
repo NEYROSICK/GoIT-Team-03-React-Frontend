@@ -17,7 +17,6 @@ function FavoriteNotices() {
       limit: 12,
       ...searchParamsObject,
     },
-    refetchOnMountOrArgChange: true,
   });
   
   let userFavorites = [];
