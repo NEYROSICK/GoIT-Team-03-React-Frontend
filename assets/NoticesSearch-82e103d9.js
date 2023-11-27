@@ -1,4 +1,4 @@
-import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
+import{n as r,r as g,j as t,b as x}from"./index-d69a23de.js";const b=r.form`
   position: relative;
   width: 280px;
   margin-left: auto;
@@ -14,7 +14,7 @@ import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
   @media screen and (min-width: 1280px) {
     margin-bottom: 43px;
   }
-`,f=n.input`
+`,f=r.input`
   width: 100%;
   padding-top: 14px;
   padding-bottom: 14px;
@@ -32,6 +32,7 @@ import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
 
   box-shadow: 3px 8px 14px 0px #88c6fd30;
   color: var(--clr-secondary);
+  transition: 300ms;
 
   &:hover,
   &:focus {
@@ -48,7 +49,7 @@ import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
     font-size: 20px;
     line-height: 24px;
   }
-`,v=n.svg`
+`,v=r.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -56,11 +57,14 @@ import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
   right: 12px;
   top: 10px;
   transition: 250ms;
-  right: ${i=>i.active&&"47px"};
+  right: ${n=>n.active&&"47px"};
   stroke: var(--clr-brand-blue);
   fill: var(--clr-brand-blue);
-
-`,w=n.svg`
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+`,w=r.svg`
   width: 24px;
   height: 24px;
   padding: 0;
@@ -68,5 +72,8 @@ import{n,r as g,j as t,b as x}from"./index-2b3eb367.js";const b=n.form`
   right: 13px;
   top: 10px;
   stroke: var(--clr-brand-yellow);
-
-`,e={query:""},y=({onSubmit:i,onClear:c})=>{const[r,a]=g.useState({...e}),l=s=>{const{name:u,value:d}=s.target;if(!d){p();return}a(m=>({...m,[u]:d}))},p=()=>{a({...e}),c({...e})},h=s=>{if(s.preventDefault(),r.query.trim()===""){a({...e});return}i({...r})},{query:o}=r;return t.jsxs(b,{onSubmit:h,children:[t.jsx(f,{type:"text",name:"query",required:!0,value:o,onChange:l,placeholder:"Search"}),t.jsxs(v,{type:"submit","aria-label":"submit",active:o&&!0,children:["   ",t.jsx("use",{href:x+"#iconSearch"})]}),o&&t.jsx(w,{type:"button",onClick:p,"aria-label":"clear",children:t.jsx("use",{href:x+"#iconCross"})})]})};export{y as N};
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+`,e={query:""},y=({onSubmit:n,onClear:c})=>{const[i,o]=g.useState({...e}),h=s=>{const{name:u,value:d}=s.target;if(!d){p();return}o(m=>({...m,[u]:d}))},p=()=>{o({...e}),c({...e})},l=s=>{if(s.preventDefault(),i.query.trim()===""){o({...e});return}n({...i})},{query:a}=i;return t.jsxs(b,{onSubmit:l,children:[t.jsx(f,{type:"text",name:"query",required:!0,value:a,onChange:h,placeholder:"Search"}),t.jsxs(v,{type:"submit","aria-label":"submit",active:a&&!0,children:["   ",t.jsx("use",{href:x+"#iconSearch"})]}),a&&t.jsx(w,{type:"button",onClick:p,"aria-label":"clear",children:t.jsx("use",{href:x+"#iconCross"})})]})};export{y as N};
