@@ -11,25 +11,21 @@ const getGenderQueries = (femaleCheck, maleCheck) => {
 //! I AM AN UPGRADE
 
 const getAgesQueries = (to1Check, to2Check, from2Check) => {
-  if (to1Check) {
+  if (to1Check && !to2Check && !from2Check) {
     return { age: 'to-1' };
-  }
-
-  if (to2Check) {
+  } else if (!to1Check && to2Check && !from2Check) {
     return { age: 'to-2' };
-  }
-
-  if (from2Check) {
+  } else if (!to1Check && !to2Check && from2Check) {
     return { age: 'from-2' };
-  }
-
-  if (to1Check && to2Check) {
-    return { age: 'to-2' };
-  }
-
-  if (to1Check && from2Check) {
+  } else if (to1Check && to2Check && !from2Check) {
+    return { age: 'to-1-to-2' };
+  } else if (!to1Check && to2Check && from2Check) {
+    return { age: 'to-2-from-2' };
+  } else if (to1Check && !to2Check && from2Check) {
     return { age: 'to-1-from-2' };
-  } 
+  } else {
+    return {};
+  }
 };
 
 export const AllFilterQueries = (
@@ -53,4 +49,3 @@ export const AllFilterQueries = (
     };
   }
 };
-
