@@ -1,4 +1,4 @@
-import {  Formik, } from 'formik';
+import { Formik } from 'formik';
 import { useState, useEffect } from 'react';
 import {
   UserFormBody,
@@ -26,12 +26,14 @@ import { useDispatch } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
 
-import {useGetMeAndPetsQuery,useUpdateUserMutation,} from '../../../redux/API/petsApi';
+import {
+  useGetMeAndPetsQuery,
+  useUpdateUserMutation,
+} from '../../../redux/API/RTKQueryApi';
 import { useNavigate } from 'react-router-dom';
 import { logOut } from '../../../redux/auth/operations';
-import sprite from '.././../../ui/Icons/sprite.svg'
-import { object, string, date} from 'yup';
-
+import sprite from '.././../../ui/Icons/sprite.svg';
+import { object, string, date } from 'yup';
 
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const [isShowModal, setIsShowModal] = useState(false);
@@ -53,20 +55,22 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
       return `${day}-${month}-${year}`;
     };
     let data;
-    userPhoto ?  data = {
-        name: values.name,
-        email: values.email,
-        date: formatToDDMMYYYY(values.date),
-        phone: values.phone,
-        city: values.city,
-      image: userPhoto,} :
-      data = {
-      name: values.name,
-      email: values.email,
-      date: formatToDDMMYYYY(values.date),
-      phone: values.phone,
-      city: values.city,
-    };
+    userPhoto
+      ? (data = {
+          name: values.name,
+          email: values.email,
+          date: formatToDDMMYYYY(values.date),
+          phone: values.phone,
+          city: values.city,
+          image: userPhoto,
+        })
+      : (data = {
+          name: values.name,
+          email: values.email,
+          date: formatToDDMMYYYY(values.date),
+          phone: values.phone,
+          city: values.city,
+        });
     Object.entries(data).forEach(([key, value]) => {
       formData.append(key, value);
     });
@@ -82,7 +86,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleLogout = () => {
     dispatch(logOut());
     navigate('/login');
-    localStorage.removeItem("persist:auth")
+    localStorage.removeItem('persist:auth');
   };
 
   useEffect(() => {
@@ -94,126 +98,156 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
   }, []);
-    const Schema = object({
-    name: string().min(3, 'Name Too Short!').max(16, 'Too Long!').required('Required'),
-    date:  date().required('Enter a date of birth').max(new Date(), 'Date cannot be in the future'),
-    email: string().email('Invalid email').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',).required('Required'),
+  const Schema = object({
+    name: string()
+      .min(3, 'Name Too Short!')
+      .max(16, 'Too Long!')
+      .required('Required'),
+    date: date()
+      .required('Enter a date of birth')
+      .max(new Date(), 'Date cannot be in the future'),
+    email: string()
+      .email('Invalid email')
+      .matches(
+        /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+        'Invalid Email format',
+      )
+      .required('Required'),
     city: string().min(2, 'City Too Short!').required('Required'),
     phone: string().min(13, 'Phone Too Short!').max(13).required('Required'),
- });
+  });
   return (
     <>
       {isLoading ? (
         <h1>loading..</h1>
       ) : (
-          <Formik
+        <Formik
           initialValues={{
             name: data.user.name ? data.user.name : '',
-            date: data.user.date ? data.user.date.split("-").reverse().join("-") : '',
-            email:  data.user.email ?  data.user.email : '',
+            date: data.user.date
+              ? data.user.date.split('-').reverse().join('-')
+              : '',
+            email: data.user.email ? data.user.email : '',
             city: data.user.city ? data.user.city : data.user.city,
             phone: data.user.phone ? data.user.phone : '',
-            }}
-            validationSchema={Schema}
+          }}
+          validationSchema={Schema}
           onSubmit={handleSubmit}
-          >
-            {({ errors, touched }) => (
-          <UserFormBody>
-            <AddPhoto isUserUpdate={isUserUpdate} setUserPhoto={setUserPhoto} />
-            <UserFormInfo>
-              <UserFormList>
-                    <UserFormItem>
-                      <InputConteiner>
+        >
+          {({ errors, touched }) => (
+            <UserFormBody>
+              <AddPhoto
+                isUserUpdate={isUserUpdate}
+                setUserPhoto={setUserPhoto}
+              />
+              <UserFormInfo>
+                <UserFormList>
+                  <UserFormItem>
+                    <InputConteiner>
                       <UserFormLabel htmlFor={`name`}>Name:</UserFormLabel>
-                  <UserFormInput
-                    type="text"
-                    name="name"
-                    id="name"
-                    placeholder={'Anna'}
-                    disabled={isUserUpdate}
+                      <UserFormInput
+                        type="text"
+                        name="name"
+                        id="name"
+                        placeholder={'Anna'}
+                        disabled={isUserUpdate}
                       />
-                      </InputConteiner>
-                      {errors.name && touched.name ? ( <ErrorMessage>{errors.name}</ErrorMessage>) : null}
-                </UserFormItem>
-                    <UserFormItem>
-                      <InputConteiner>
+                    </InputConteiner>
+                    {errors.name && touched.name ? (
+                      <ErrorMessage>{errors.name}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
                       <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
-                  <UserFormInput
+                      <UserFormInput
                         type="email"
                         name="email"
                         id="email"
-  
                         placeholder={'anna00@gmail.com|'}
                         disabled={isUserUpdate}
-                        className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
-                    />
-                      </InputConteiner>
-                    {errors.email && touched.email ? ( <ErrorMessage>{errors.email}</ErrorMessage>) : null}
-                </UserFormItem>
-                    <UserFormItem>
-                      <InputConteiner>
-                      <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel>
-                  <UserFormInput
-                    type="date"
-                    name="date"
-                    id="date"
-                    placeholder={'00-00-0000'}
-                    disabled={isUserUpdate}
-                    // value={"2004-12-12"}
-                    minLength="10"
-                    required
-                    />
-                        </InputConteiner>
-                    {errors.date && touched.date ? ( <ErrorMessage>{errors.date}</ErrorMessage>) : null}
-                </UserFormItem>
-                <UserFormItem>
-                      <InputConteiner>
-                  <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
-                      <UserFormInput
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    placeholder={'+38000000000'}
-                    disabled={isUserUpdate}
-                    minLength="11"
-                    maxLength="17"
-                    pattern="+[0-9]{3}-[0-9]{3}-[0-9]{7}"
-                    title="+xx xxx xxxxxxx"
-                    required
+                        className={`${
+                          touched.name && errors.name ? 'is-invalid' : ''
+                        }`}
                       />
                     </InputConteiner>
-                      {errors.phone && touched.phone ? ( <ErrorMessage>{errors.phone}</ErrorMessage>) : null}
-                </UserFormItem>
-                <UserFormItem>
-                      <InputConteiner>
-                        <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
-                    <UserFormInput
-                    type="text"
-                    name="city"
-                    id="city"
-                    placeholder={'Kyiv'}
-                    disabled={isUserUpdate}
-                    minLength="3"
-                    required
+                    {errors.email && touched.email ? (
+                      <ErrorMessage>{errors.email}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
+                      <UserFormLabel htmlFor={`birthDate`}>
+                        Birthday:
+                      </UserFormLabel>
+                      <UserFormInput
+                        type="date"
+                        name="date"
+                        id="date"
+                        placeholder={'00-00-0000'}
+                        disabled={isUserUpdate}
+                        // value={"2004-12-12"}
+                        minLength="10"
+                        required
                       />
-                  </InputConteiner>
-                      {errors.city && touched.city ? ( <ErrorMessage>{errors.city}</ErrorMessage>) : null}
-                </UserFormItem>
-              </UserFormList>
-              {isUserUpdate ? (
-                <UserFormBtn type="button" onClick={hendleClick}>
-                  <UserFormSvg>
-                    <use href={sprite + '#iconLogout'}></use>
-                  </UserFormSvg>
-                  <BtnText>Log Out</BtnText>
-                </UserFormBtn>
-              ) : (
-                <UserFormBtn>
-                  <Btn type="submit">Save</Btn>
-                </UserFormBtn>
-              )}
-            </UserFormInfo>
-          </UserFormBody>)}
+                    </InputConteiner>
+                    {errors.date && touched.date ? (
+                      <ErrorMessage>{errors.date}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
+                      <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
+                      <UserFormInput
+                        type="text"
+                        name="phone"
+                        id="phone"
+                        placeholder={'+38000000000'}
+                        disabled={isUserUpdate}
+                        minLength="11"
+                        maxLength="17"
+                        pattern="+[0-9]{3}-[0-9]{3}-[0-9]{7}"
+                        title="+xx xxx xxxxxxx"
+                        required
+                      />
+                    </InputConteiner>
+                    {errors.phone && touched.phone ? (
+                      <ErrorMessage>{errors.phone}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
+                      <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
+                      <UserFormInput
+                        type="text"
+                        name="city"
+                        id="city"
+                        placeholder={'Kyiv'}
+                        disabled={isUserUpdate}
+                        minLength="3"
+                        required
+                      />
+                    </InputConteiner>
+                    {errors.city && touched.city ? (
+                      <ErrorMessage>{errors.city}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                </UserFormList>
+                {isUserUpdate ? (
+                  <UserFormBtn type="button" onClick={hendleClick}>
+                    <UserFormSvg>
+                      <use href={sprite + '#iconLogout'}></use>
+                    </UserFormSvg>
+                    <BtnText>Log Out</BtnText>
+                  </UserFormBtn>
+                ) : (
+                  <UserFormBtn>
+                    <Btn type="submit">Save</Btn>
+                  </UserFormBtn>
+                )}
+              </UserFormInfo>
+            </UserFormBody>
+          )}
         </Formik>
       )}
       {isShowModal ? (

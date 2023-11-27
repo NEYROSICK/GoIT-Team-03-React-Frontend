@@ -8,8 +8,10 @@ import AddPetMoreInfoYourPet from './AddPetMoreInfo/AddPetMoreInfoYourPet';
 import AddPetMoreInfoNotices from './AddPetMoreInfo/AddPetMoreInfoNotices';
 import AddPetMoreInfoSell from './AddPetMoreInfo/AddPetMoreInfoSell';
 import { useNavigate } from 'react-router-dom';
-import { useAddPetMutation } from '../../redux/API/petsApi';
-import { useAddNoticeMutation } from '../../redux/API/noticesApi';
+import {
+  useAddNoticeMutation,
+  useAddPetMutation,
+} from '../../redux/API/RTKQueryApi';
 
 import {
   FormContainer,
