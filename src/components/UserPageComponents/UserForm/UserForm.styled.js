@@ -181,6 +181,12 @@ export const UserFormSvg = styled.svg`
   height: 24px;
   stroke: #54adff;
   fill: none;
+
+  transition: transform 300ms;
+
+  &:hover{
+    transform: scale(1.1);
+  }
 `;
 export const YesSvg = styled.svg`
   stroke: var(--clr-bcg-user);

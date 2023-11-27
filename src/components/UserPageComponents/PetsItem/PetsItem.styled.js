@@ -5,9 +5,10 @@ export const PetsItemli = styled.li`
   padding: 16px 20px 40px;
   border-radius: 20px;
   background:var(--clr-bcg-user);
- box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   width: 280px;
   position: relative;
+  margin: auto;
   @media only screen and (min-width: 768px) {
     display:flex;
     width: 703px;
@@ -157,6 +158,12 @@ export const BtnDelite = styled.button`
   @media only screen and (min-width: 768px) {
   top: 20px;
   right: 20px;
+
+  transition: transform 300ms;
+
+  &:hover{
+    transform: scale(1.1);
+  }
   }
 
 `

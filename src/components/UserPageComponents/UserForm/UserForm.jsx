@@ -94,8 +94,9 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     const Schema = object({
     name: string().min(3, 'Name Too Short!').max(16, 'Too Long!').required('Required'),
     date:  date().required('Enter a date of birth').max(new Date(), 'Date cannot be in the future'),
-    email: string().email('Invalid email').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',).required('Required'),
-    city: string().min(2, 'City Too Short!').required('Required'),
+    email: string().email('Invalid email format').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',)
+      .required('Email is required'),
+    city: string().min(3, 'City Too Short!').required('Required'),
     phone: string().min(13, 'Phone Too Short!').max(13).required('Required'),
  });
   return (
@@ -136,10 +137,8 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                       <InputConteiner>
                       <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
                   <UserFormInput
-                        type="email"
                         name="email"
                         id="email"
-  
                         placeholder={'anna00@gmail.com|'}
                         disabled={isUserUpdate}
                         className={`${touched.name && errors.name ? 'is-invalid' : ''}`}
@@ -156,7 +155,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     id="date"
                     placeholder={'00-00-0000'}
                     disabled={isUserUpdate}
-                    // value={"2004-12-12"}
                     minLength="10"
                     required
                     />
@@ -190,7 +188,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     id="city"
                     placeholder={'Kyiv'}
                     disabled={isUserUpdate}
-                    minLength="3"
                     required
                       />
                   </InputConteiner>
