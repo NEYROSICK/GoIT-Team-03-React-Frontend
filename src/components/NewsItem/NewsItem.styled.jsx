@@ -6,7 +6,7 @@ export const Article = styled.a`
   box-shadow: 3px 8px 14px rgba(136, 198, 253, 0.19);
   background-color: white;
   border-radius: 20px;
-
+  color: black;
   @media screen and (min-width: 768px) {
     width: 336px;
     height: 556px;
@@ -18,7 +18,7 @@ export const Article = styled.a`
   }
 `;
 
-export const ArticleImage = styled.div`
+export const ArticleImage = styled.img`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,10 +45,13 @@ export const ArticleContent = styled.div`
 `;
 
 export const ArticleTitle = styled.div`
-  width: 267px;
-  color: #111111;
+  color: inherit;
   font-family: Manrope;
-  word-wrap: break-word;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.24px;
   padding-bottom: 16px;
 
   @media screen and (min-width: 768px) {
@@ -57,9 +60,12 @@ export const ArticleTitle = styled.div`
 `;
 
 export const ArticleDesc = styled.p`
-  height: 154px;
-  overflow: hidden;
-  margin-bottom: auto;
+  color: inherit;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   @media screen and (min-width: 768px) {
     height: 132px;
   }
@@ -69,6 +75,11 @@ export const ArticleDesc = styled.p`
   }
 `;
 
-export const ArticleDetail = styled.div`
-  align-self: flex-end;
+export const ArticleDetail = styled.p`
+  color: #888;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
