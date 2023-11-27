@@ -46,8 +46,6 @@ const AddPhoto = ({ isUserUpdate, setUserPhoto }) => {
     setisSelected(true);
   };
 
-  console.log(isLoading);
-
   return (
     <>
       {isLoading ? (

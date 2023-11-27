@@ -58,6 +58,7 @@ export const UserFormList = styled.ul`
   flex-direction: column;
   gap: 16px;
   width: 100%;
+  color:var(--clr-primary);
   @media screen and (min-width: 768px) {
   width: 354px;
   }
@@ -180,6 +181,12 @@ export const UserFormSvg = styled.svg`
   height: 24px;
   stroke: #54adff;
   fill: none;
+
+  transition: transform 300ms;
+
+  &:hover{
+    transform: scale(1.1);
+  }
 `;
 export const YesSvg = styled.svg`
   stroke: var(--clr-bcg-user);

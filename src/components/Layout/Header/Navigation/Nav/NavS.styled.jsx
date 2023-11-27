@@ -13,8 +13,7 @@ export const NavStyled = styled.ul`
 
   @media screen and (min-width: 1280px) {
     display: flex;
-    gap: 40px;
-    letter-spacing: 1.28px;
+    letter-spacing: 0.8px;
   }
 `;
 
@@ -22,4 +21,6 @@ export const StyledNavLink = styled(NavLink)`
   &.active {
     color: var(--clr-brand-yellow);
   }
+  color: inherit;
+  padding: 10px 20px;
 `;

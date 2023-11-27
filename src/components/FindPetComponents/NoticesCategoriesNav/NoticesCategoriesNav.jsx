@@ -23,7 +23,7 @@ const NoticesCategoriesNav = () => {
           <NavLi key={id}>
             <StyledLink
               to={{ pathname: to, search }}
-              active={location.pathname === to ? "true" : undefined}
+              active={location.pathname === to ? 'true' : undefined}
             >
               {text}
             </StyledLink>
@@ -31,18 +31,18 @@ const NoticesCategoriesNav = () => {
         ))}
       </NavList>
       {isAuthenticated && (
-        <UserNavList>
+        <NavList>
           {userCategories.map(({ id, to, text }) => (
             <NavLi key={id}>
               <StyledLink
                 to={{ pathname: to, search }}
-                active={location.pathname === to ? "true" : undefined}
+                active={location.pathname === to ? 'true' : undefined}
               >
                 {text}
               </StyledLink>
             </NavLi>
           ))}
-        </UserNavList>
+        </NavList>
       )}
     </NavContainer>
   );

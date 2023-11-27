@@ -99,6 +99,10 @@ const ItemFavoriteBtn = styled.button`
   outline: none;
 
   padding: 9px 8px 7px 8px;
+
+  &:hover svg {
+    scale: 1.2;
+  }
 `;
 
 const ItemDeleteBtn = styled.button`
@@ -116,16 +120,24 @@ const ItemDeleteBtn = styled.button`
   outline: none;
 
   padding: 9px 8px 7px 8px;
+
+  &:hover svg {
+    scale: 1.2;
+  }
 `;
 
 const FavoriteIcon = styled.svg`
   stroke: var(--clr-brand-blue);
   fill: ${(props) => {
-    return props.isFavorite ? 'var(--clr-brand-blue)' : 'none';
+    return props.isFavorite
+      ? 'var(--clr-brand-blue)'
+      : 'var(--clr-brand-blue-lt)';
   }};
 
   width: 24px;
   height: 24px;
+
+  transition: 300ms;
 `;
 
 const ItemDataWrapper = styled.div`

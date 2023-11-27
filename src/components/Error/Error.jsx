@@ -4,12 +4,12 @@ import Tablet1x from '../../images/404Tablet.png'
 import Tablet2x from '../../images/404Tablet@2x.png';
 import Mobile1x from '../../images/404Mobile.png';
 import Mobile2x from '../../images/404Mobile@2x.png';
-import {  ErrorH2, ErrorIcon, ErrorLink, ErrorPicture } from './Error.styled';
+import {  DivError, ErrorH2, ErrorIcon, ErrorLink, ErrorPicture } from './Error.styled';
 import { ReactComponent as Icon } from '../../images/error_paw.svg';
 
 export const Error = () => {
   return (
-    <div>
+    <DivError>
       <ErrorH2>Ooops! This page not found :( </ErrorH2>
 
       <ErrorPicture>
@@ -32,6 +32,6 @@ export const Error = () => {
         To main page
         <ErrorIcon as={Icon} />
       </ErrorLink>
-    </div>
+    </DivError>
   );
 };

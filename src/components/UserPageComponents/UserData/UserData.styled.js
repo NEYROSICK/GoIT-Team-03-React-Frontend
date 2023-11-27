@@ -42,6 +42,7 @@ export const UserFormBox = styled.div`
       @media screen and (min-width: 768px) {
   padding: 20px ;
   padding-right:76px;
+  border-radius:40px;
   }
   @media screen and (min-width: 1280px) {
   padding:20px 24px 21px 16px;
@@ -56,11 +57,15 @@ export const UserBtnPen = styled.button`
 
   width: 24px;
   height: 24px;
-
+  
   background-color: transparent;
   border: none;
   cursor: pointer;
-        @media screen and (min-width: 768px) {
+  transition: transform 300ms;
+  &:hover{
+  transform: scale(1.1);
+  }
+    @media screen and (min-width: 768px) {
   top: 18px;
   right: 18px;
   }

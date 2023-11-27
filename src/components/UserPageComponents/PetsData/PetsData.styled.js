@@ -6,7 +6,6 @@ export const PetsDataTitle = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-
 `
 
 export const PetsList = styled.ul`
@@ -181,11 +180,16 @@ export const BtnDelite = styled.button`
 export const ConteinerTitle = styled.div`
   display: flex;
   margin-bottom: 31px;
+    max-width:280px;
+    margin-left:auto;
+    margin-right:auto;
   @media only screen and (min-width: 768px) {
     margin-bottom: 20px;
+    max-width:704px;
   }
   @media only screen and (min-width: 768px) {
     margin-bottom: 24px;
+    max-width:821px;
   }
 
 `

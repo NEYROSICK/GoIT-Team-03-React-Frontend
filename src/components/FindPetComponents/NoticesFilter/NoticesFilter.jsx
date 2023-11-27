@@ -9,16 +9,20 @@ import {
   FilterText,
   FormInput,
   FormLabel,
+  StyledCheckbocCheckedIcon,
+  StyledCheckboxIcon,
   StyledChevronDownIcon,
   StyledFilterIcon,
 } from './NoticesFilter.styled';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import sprite from '../../../ui/Icons/sprite.svg';
+import { AllFilterQueries } from '../../../helpers/filtersQueries';
 
 const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [ageOpen, setAgeOpen] = useState(false);
   const [genderOpen, setGenderOpen] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const handleBtnClick = () => {
     setIsOpen((prevState) => !prevState);
@@ -38,7 +42,30 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
       ...prevState,
       [name]: !prevState[name],
     }));
+
+    setIsChecked((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const dropdownRef = useRef(null);
 
   return (
     <div>
@@ -50,7 +77,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
       </FilterButton>
 
       {isOpen && (
-        <DropContainer active={true}>
+        <DropContainer active={true} ref={dropdownRef}>
           <DropDown>
             <FilterHeader>Filters</FilterHeader>
             <FilterMenu active={ageOpen ? true : undefined}>
@@ -67,7 +94,13 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
               {ageOpen && (
                 <FilterForm>
                   <FormLabel>
-                    <input
+                    <StyledCheckboxIcon check={checkboxValue.to1}>
+                      <use href={sprite + '#iconRound'}></use>
+                    </StyledCheckboxIcon>
+                    <StyledCheckbocCheckedIcon check={checkboxValue.to1}>
+                      <use href={sprite + '#iconCheckRound'}></use>
+                    </StyledCheckbocCheckedIcon>
+                    <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
                       name="to1"
@@ -76,20 +109,32 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     up to 1 year
                   </FormLabel>
                   <FormLabel>
-                    <input
+                    <StyledCheckboxIcon check={checkboxValue.to2}>
+                      <use href={sprite + '#iconRound'}></use>
+                    </StyledCheckboxIcon>
+                    <StyledCheckbocCheckedIcon check={checkboxValue.to2}>
+                      <use href={sprite + '#iconCheckRound'}></use>
+                    </StyledCheckbocCheckedIcon>
+                    <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
                       name="to2"
-                      checked={checkboxValue.to2}
+                      checked={[checkboxValue.to2, isChecked]}
                     />
                     up to 2 years
                   </FormLabel>
                   <FormLabel>
-                    <input
+                    <StyledCheckboxIcon check={checkboxValue.from2}>
+                      <use href={sprite + '#iconRound'}></use>
+                    </StyledCheckboxIcon>
+                    <StyledCheckbocCheckedIcon check={checkboxValue.from2}>
+                      <use href={sprite + '#iconCheckRound'}></use>
+                    </StyledCheckbocCheckedIcon>
+                    <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
                       name="from2"
-                      checked={checkboxValue.from2}
+                      checked={[checkboxValue.from2, isChecked]}
                     />
                     from 2 years
                   </FormLabel>
@@ -110,6 +155,12 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
               {genderOpen && (
                 <FilterForm>
                   <FormLabel>
+                    <StyledCheckboxIcon check={checkboxValue.male}>
+                      <use href={sprite + '#iconRound'}></use>
+                    </StyledCheckboxIcon>
+                    <StyledCheckbocCheckedIcon check={checkboxValue.male}>
+                      <use href={sprite + '#iconCheckRound'}></use>
+                    </StyledCheckbocCheckedIcon>
                     <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"
@@ -119,6 +170,12 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
                     male
                   </FormLabel>
                   <FormLabel>
+                    <StyledCheckboxIcon check={checkboxValue.female}>
+                      <use href={sprite + '#iconRound'}></use>
+                    </StyledCheckboxIcon>
+                    <StyledCheckbocCheckedIcon check={checkboxValue.female}>
+                      <use href={sprite + '#iconCheckRound'}></use>
+                    </StyledCheckbocCheckedIcon>
                     <FormInput
                       onChange={handleCheckboxChange}
                       type="checkbox"

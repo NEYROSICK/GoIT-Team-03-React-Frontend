@@ -1,8 +1,8 @@
 import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 import NoticesCategoriesNav from '../../components/FindPetComponents/NoticesCategoriesNav/NoticesCategoriesNav';
 import NoticesFilter from '../../components/FindPetComponents/NoticesFilter/NoticesFilter';
-import { Outlet, useSearchParams } from 'react-router-dom';
-import { useCallback, Suspense, useState, useEffect } from 'react';
+import { Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useCallback, Suspense, useState, useEffect, useMemo } from 'react';
 import {
   FilterAndAddContainer,
   FilterContainer,
@@ -23,11 +23,20 @@ const initialFiltersValue = {
 const NoticesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const [checkboxValue, setCheckboxValue] = useState(initialFiltersValue);
+  const [searchValue, setSearchValue] = useState({});
 
-  const query = searchParams.get('query');
+  
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const params = useMemo(
+    () => Object.fromEntries([...searchParams]),
+    [searchParams]
+  );
 
   useEffect(() => {
     setSearchParams({
+      ...searchValue,
       ...AllFilterQueries(
         checkboxValue.to1,
         checkboxValue.to2,
@@ -36,30 +45,27 @@ const NoticesPage = () => {
         checkboxValue.male,
       ),
     });
-  }, [checkboxValue]);
+  }, [checkboxValue, params, setSearchParams, searchValue, searchParams]);
 
-  const handleSubmit = ({ query }) => {
-    searchParams.set('query', query);
-    setSearchParams(searchParams);
-    resetPage();
+  // useEffect(() => {
+  //   navigate("/notices/sell", {replace: true})
+  // }, [])
+
+  const handleSearchSubmit = query => {
+    if (query) {
+      setSearchValue({ query });
+    } else {
+      setSearchValue({});
+    }
   };
 
-  const handleClear = () => {
-    searchParams.delete('query', query);
-    setSearchParams(searchParams);
-    resetPage();
-  };
-
-  const resetPage = useCallback(() => {
-    setSearchParams(searchParams);
-  }, [searchParams, setSearchParams]);
-
+    
   return (
     <Container>
       <NoticesContainer>
         <PageTitle>Find your favorite pet</PageTitle>
         <div>
-          <NoticesSearch onSubmit={handleSubmit} onClear={handleClear} />
+          <NoticesSearch onSubmit={handleSearchSubmit} />
         </div>
         <FilterContainer>
           <NoticesCategoriesNav searchParams={searchParams} />
@@ -69,7 +75,7 @@ const NoticesPage = () => {
                 setCheckboxValue={setCheckboxValue}
                 checkboxValue={checkboxValue}
               />
-              <AddPetButton />
+              <AddPetButton state= {{from:location}} />
             </FilterAndAddContainer>
           </div>
         </FilterContainer>

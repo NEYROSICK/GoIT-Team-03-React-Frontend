@@ -41,6 +41,7 @@ function PetsItem({ pets }) {
       </ul>
     </PetsItemli>
   );
+
 }
 
 export default PetsItem;
