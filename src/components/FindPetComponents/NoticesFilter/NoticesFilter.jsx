@@ -14,7 +14,7 @@ import {
   StyledChevronDownIcon,
   StyledFilterIcon,
 } from './NoticesFilter.styled';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import sprite from '../../../ui/Icons/sprite.svg';
 import { AllFilterQueries } from '../../../helpers/filtersQueries';
 
@@ -44,8 +44,28 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
     }));
 
     setIsChecked((prevState) => !prevState);
-    
   };
+
+  useEffect(() => {
+    const handleEscapeKey = (event) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+    };
+    document.addEventListener('keydown', handleEscapeKey);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('keydown', handleEscapeKey);
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  const dropdownRef = useRef(null);
 
   return (
     <div>
@@ -57,7 +77,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
       </FilterButton>
 
       {isOpen && (
-        <DropContainer active={true}>
+        <DropContainer active={true} ref={dropdownRef}>
           <DropDown>
             <FilterHeader>Filters</FilterHeader>
             <FilterMenu active={ageOpen ? true : undefined}>
