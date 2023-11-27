@@ -9,9 +9,14 @@ import {
 import sprite from '../../../../../ui/Icons/sprite.svg';
 
 export const UserNav = () => {
+  const onLogoutBtnClick = () => {
+    localStorage.removeItem('persist:auth');
+    window.location.reload();
+  };
+
   return (
     <UserNavStyledDiv>
-      <LogoutButton>
+      <LogoutButton onClick={onLogoutBtnClick}>
         log out
         <IconLogOut>
           <use href={sprite + '#iconLogout'}></use>

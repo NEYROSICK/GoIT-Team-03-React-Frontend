@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
-
 export const ContainerMain = styled.div`
   display: flex;
   align-items: center;
@@ -35,16 +34,15 @@ export const Form = styled.form`
   }
 `;
 export const Email = styled.input`
-
   display: flex;
   width: 100%;
   height: 48px;
   border-radius: 40px;
-border: solid 1px var(--clr-brand-blue);
+  border: solid 1px var(--clr-brand-blue);
   &.invalid {
     border-color: var(--clr-brand-red);
   }
-  
+
   padding-left: 16px;
   outline: none;
   font-size: 16px;
@@ -78,11 +76,11 @@ export const Password = styled.input`
   height: 48px;
   border-radius: 40px;
   outline: none;
-border: solid 1px var(--clr-brand-blue);
+  border: solid 1px var(--clr-brand-blue);
   &.invalid {
     border-color: var(--clr-brand-red);
   }
-  
+
   padding-left: 16px;
   outline: none;
   font-size: 16px;
@@ -114,7 +112,7 @@ export const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
   color: var(--clr-primary);
-  @media (min-width:768px){
+  @media (min-width: 768px) {
     margin-bottom: 40px;
   }
 `;
@@ -138,10 +136,9 @@ export const ClearButton = styled.button`
 export const Svg = styled.svg`
   stroke: var(--clr-brand-red);
   display: block;
-  width:24px;
+  width: 24px;
   height: 24px;
-  fill:none;
-  
+  fill: none;
 `;
 export const SvgEye = styled.svg`
   stroke: var(--clr-brand-blue);
@@ -151,4 +148,3 @@ export const SvgEye = styled.svg`
 
   fill: none;
 `;
- 

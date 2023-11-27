@@ -2,44 +2,39 @@ import styled from 'styled-components';
 import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
-
-
-
 export const ContainerMain = styled.div`
-display:flex;
-align-items:center;
-justify-content:center;
-max-width:100%;
-min-height:calc(100vh - 64px);`;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-height: calc(100vh - 64px);
+`;
 
 export const RegisterForm = styled.form`
-
   /* margin-left: auto;
   margin-right: auto; */
   font-family: Manrope, sans-serif;
   min-height: 420px;
   width: 280px;
- 
+
   background-color: var(--clr-bcg-user);
-   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   border-radius: 20px;
   padding-top: 40px;
   padding-bottom: 40px;
   padding-left: 12px;
   padding-right: 12px;
-  margin-bottom:20px;
-   @media (min-width: 768px) {
-   
+  margin-bottom: 20px;
+  @media (min-width: 768px) {
     width: 608px;
     padding: 60px 75px;
   }
-
 `;
 
 export const InputValidation = styled.div`
   margin-bottom: 14px;
   position: relative;
-   @media (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-bottom: 32px;
   }
 `;
@@ -51,7 +46,6 @@ export const ConfirmValidation = styled.div`
   }
   @media (min-width: 1200px) {
     margin-bottom: 40px;
-
   }
 `;
 
@@ -60,7 +54,7 @@ export const Title = styled.h1`
   margin-bottom: 20px;
   text-align: center;
   color: var(--clr-primary);
-   @media (min-width: 768px) {
+  @media (min-width: 768px) {
     margin-bottom: 40px;
   }
 `;
@@ -71,15 +65,14 @@ export const Validation = styled.p`
   color: var(--clr-brand-red);
 `;
 export const ClearButton = styled.button`
- position: absolute;
- background-color: transparent;
- border: none;
- top: 10px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  top: 10px;
   left: 84%;
-   @media (min-width: 768px) {
-   
-top: 10px;
-  left: 90%;
+  @media (min-width: 768px) {
+    top: 10px;
+    left: 90%;
   }
 `;
 export const Input = styled.input`
@@ -91,10 +84,9 @@ export const Input = styled.input`
   border-radius: 40px;
   outline: none;
   border: solid 1px var(--clr-brand-blue);
-    &.is-invalid{
-border-color: var(--clr-brand-red);
+  &.is-invalid {
+    border-color: var(--clr-brand-red);
   }
-
 `;
 export const ConfirmPassword = styled.input`
   display: flex;
@@ -105,8 +97,8 @@ export const ConfirmPassword = styled.input`
   border-radius: 40px;
   outline: none;
   border: solid 1px var(--clr-brand-blue);
-    &.is-invalid{
-border-color: var(--clr-brand-red);
+  &.is-invalid {
+    border-color: var(--clr-brand-red);
   }
 `;
 export const Button = styled.button`
@@ -117,16 +109,16 @@ export const Button = styled.button`
   border: none;
   border-radius: 40px;
   color: var(--clr-bcg-user);
-  
+
   background-color: var(--clr-brand-blue);
   @media (min-width: 768px) {
     margin-bottom: 16px;
   }
 `;
 export const Svg = styled.svg`
-stroke: var(--clr-brand-red);
-fill:none;
-width:24px;
+  stroke: var(--clr-brand-red);
+  fill: none;
+  width: 24px;
   height: 24px;
 `;
 export const SvgEye = styled.svg`

@@ -16,9 +16,18 @@ import {
   ItemLearnMoreBtnIcon,
   ItemDeleteBtn,
 } from './NoticeItem.styled';
+
 import { useUpdateFavoriteMutation } from '../../../redux/API/RTKQueryApi';
 import { useDeleteNoticeMutation } from '../../../redux/API/RTKQueryApi';
 import { useState } from 'react';
+
+import { useSelector } from 'react-redux';
+import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
+
+// import Modal from '../../Modal/Modal.jsx';
+import FindPetModal from '../FindPetModal/FindPetModal.jsx';
+import AttentionModalWrapper from './AttentionWrapper/AttentionModalWrapper.jsx';
+import DeleteModalWrapper from './DeleteWrapper/DeleteModalWrapper.jsx';
 
 const NoticeItem = ({
   id,
@@ -31,6 +40,10 @@ const NoticeItem = ({
   userFavoritesArr,
   showDelete,
 }) => {
+  // const [isActive, setIsActive] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [modalType, setModalType] = useState('');
+
   const [isFavorite, setIsFavorite] = useState(userFavoritesArr.includes(id));
 
   const [updateFavorite] = useUpdateFavoriteMutation();
@@ -45,17 +58,28 @@ const NoticeItem = ({
 
   const ageText = noticeAge % 2 ? 'year' : 'years';
 
+  const isAuthenticated = useSelector(selectIsAuthenticated);
+
+  const toggleModal = () => {
+    setShowModal((showModal) => !showModal);
+  };
+
   const handleFavoriteClick = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await updateFavorite(id);
-      if (response.data && response.data.message) {
-        Notify.success('Success!');
+    if (isAuthenticated) {
+      try {
+        const response = await updateFavorite(id);
+        if (response.data && response.data.message) {
+          Notify.success('Success!');
+        }
+        setIsFavorite((prevState) => !prevState);
+      } catch (error) {
+        Notify.failure('Failed to update favorite status');
       }
-      setIsFavorite((prevState) => !prevState);
-    } catch (error) {
-      Notify.failure('Failed to update favorite status');
+    } else {
+      setModalType('attention');
+      toggleModal();
     }
   };
 
@@ -70,6 +94,17 @@ const NoticeItem = ({
     } catch (error) {
       Notify.failure('Failed to delete notice');
     }
+    toggleModal();
+  };
+
+  const handleDeleteBtnClick = () => {
+    setModalType('delete');
+    toggleModal();
+  };
+
+  const handleLearnMoreClick = () => {
+    setModalType('learnmore');
+    toggleModal();
   };
 
   return (
@@ -85,7 +120,7 @@ const NoticeItem = ({
         </ItemFavoriteBtn>
 
         {showDelete && (
-          <ItemDeleteBtn type="submit" onClick={handleDeleteClick}>
+          <ItemDeleteBtn onClick={handleDeleteBtnClick}>
             <FavoriteIcon>
               <use href={sprite + '#iconTrash'} />
             </FavoriteIcon>
@@ -118,12 +153,27 @@ const NoticeItem = ({
         </ItemDataWrapper>
       </TopPart>
       <ItemTitle>{title}</ItemTitle>
-      <ItemLearnMoreBtn>
+      <ItemLearnMoreBtn onClick={handleLearnMoreClick}>
         Learn more
         <ItemLearnMoreBtnIcon>
           <use href={sprite + '#iconPaw'} />
         </ItemLearnMoreBtnIcon>
       </ItemLearnMoreBtn>
+      {showModal && (
+        <FindPetModal
+          onClose={() => {
+            setShowModal(false);
+          }}
+        >
+          <AttentionModalWrapper setShowModal={setShowModal} sprite={sprite} />
+
+          {/* <DeleteModalWrapper
+            setShowModal={setShowModal}
+            sprite={sprite}
+            handleDeleteClick={handleDeleteClick}
+          /> */}
+        </FindPetModal>
+      )}
     </ItemContainer>
   );
 };

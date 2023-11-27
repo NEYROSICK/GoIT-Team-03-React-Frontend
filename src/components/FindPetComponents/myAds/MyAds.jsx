@@ -20,7 +20,9 @@ function MyAds() {
   });
   let userFavorites = [];
   const isAuthenticated = useSelector(selectIsAuthenticated);
-  const { data: userData } = useGetMeAndPetsQuery();
+  const { data: userData } = useGetMeAndPetsQuery(undefined, {
+    skip: !isAuthenticated,
+  });
 
   if (isAuthenticated && userData && userData.user) {
     userFavorites = userData.user.favoritesArr;

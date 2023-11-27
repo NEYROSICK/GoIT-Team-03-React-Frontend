@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
-
 export const NavContainer = styled.div`
   display: flex;
   flex-direction: column;
