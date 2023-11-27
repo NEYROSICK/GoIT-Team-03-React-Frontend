@@ -1,8 +1,10 @@
 const getGenderQueries = (femaleCheck, maleCheck) => {
-  if (maleCheck) {
+  if (maleCheck && !femaleCheck) {
     return { sex: 'male' };
-  } else if (femaleCheck) {
+  } else if (femaleCheck && !maleCheck) {
     return { sex: 'female' };
+  } else {
+    return {};
   }
 };
 
@@ -27,7 +29,7 @@ const getAgesQueries = (to1Check, to2Check, from2Check) => {
 
   if (to1Check && from2Check) {
     return { age: 'to-1-from-2' };
-  }
+  } 
 };
 
 export const AllFilterQueries = (
@@ -51,3 +53,4 @@ export const AllFilterQueries = (
     };
   }
 };
+
