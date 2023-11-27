@@ -19,11 +19,15 @@ export const Article = styled.a`
 `;
 
 export const ArticleImage = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 280px;
   height: 252px;
   background-color: rgba(230, 230, 230, 0.5);
   border-radius: 20px;
   margin-bottom: 16px;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -48,7 +52,7 @@ export const ArticleTitle = styled.div`
   padding-bottom: 16px;
 
   @media screen and (min-width: 768px) {
-    width: 371px;
+    width: 310px;
   }
 `;
 
@@ -66,5 +70,5 @@ export const ArticleDesc = styled.p`
 `;
 
 export const ArticleDetail = styled.div`
-  jalign-self: flex-end;
+  align-self: flex-end;
 `;
