@@ -38,7 +38,6 @@ export const IconUser = styled.svg`
   width: 24px;
   height: 24px;
   fill: none;
-  margin-right: 8px;
 
   @media screen and (min-width: 768px) {
     width: 28px;
@@ -53,5 +52,14 @@ export const IconLogOut = styled.svg`
   height: 24px;
   fill: none;
 `;
+
+export const UserName = styled.p`
+  display:none;
+
+  @media screen and (min-width: 768px) {
+    display:flex;
+  }
+`;
+
 
 // Доробити! Розміщення кнопки логаута внизу зліва

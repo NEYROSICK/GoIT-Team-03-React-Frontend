@@ -1,6 +1,5 @@
-
 import React, { useState } from 'react';
-import { BurgerButton, BurgerIcon } from './HeaderBurger.Styled';
+import { BurgerButton, BurgerIcon } from './HeaderBurger.styled';
 import sprite from '../../../../ui/Icons/sprite.svg';
 import { ModalBurger } from './ModalBurger';
 
@@ -17,39 +16,12 @@ export const HeaderBurger = () => {
         <BurgerIcon>
           <use
             href={
-              sprite +
-              `#${isModalOpen ? 'iconCross' : 'iconMenuHamburger'}`
+              sprite + `#${isModalOpen ? 'iconCross' : 'iconMenuHamburger'}`
             }
           ></use>
         </BurgerIcon>
       </BurgerButton>
-      {isModalOpen && <ModalBurger onClose={toggleModal} />}
+      {isModalOpen && <ModalBurger onClose={setIsModalOpen} />}
     </>
   );
 };
-
-
-
-
-
-// import { BurgerButton, BurgerIcon } from './HeaderBurger.Styled';
-// import sprite from '../../../../ui/Icons/sprite.svg';
-
-
-
-// export const HeaderBurger = () => {
-//     return (
-//       <BurgerButton>
-//         <BurgerIcon>
-//           <use href={sprite + '#iconMenuHamburger'}></use>
-//         </BurgerIcon>
-//       </BurgerButton>
-//     );
-// };
-
-
-
-
-
-
-
