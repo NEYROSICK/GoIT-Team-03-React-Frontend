@@ -16,7 +16,12 @@ import {
   SexContainer,
   ErrorSex,
 } from './AddPetMoreInfo.styled';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
@@ -157,23 +162,25 @@ const AddPetMoreInfoNotices = (props) => {
               <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>
 
-            <ButtonNextBack className="buttonNext" type="submit">
-              Done
-              <IconPaw>
-                <use href={sprite + '#iconPaw'}></use>
-              </IconPaw>
-            </ButtonNextBack>
+            <ButtonContainer>
+              <ButtonNextBack className="buttonNext" type="submit">
+                Done
+                <IconPaw>
+                  <use href={sprite + '#iconPaw'}></use>
+                </IconPaw>
+              </ButtonNextBack>
 
-            <ButtonNextBack
-              className="buttonBack"
-              type="button"
-              onClick={() => props.prev(values, selectedFile)}
-            >
-              <IconArrow>
-                <use href={sprite + '#iconArrowLeft'}></use>
-              </IconArrow>
-              Back
-            </ButtonNextBack>
+              <ButtonNextBack
+                className="buttonBack"
+                type="button"
+                onClick={() => props.prev(values, selectedFile)}
+              >
+                <IconArrow>
+                  <use href={sprite + '#iconArrowLeft'}></use>
+                </IconArrow>
+                Back
+              </ButtonNextBack>
+            </ButtonContainer>
           </InputList>
         </Form>
       )}

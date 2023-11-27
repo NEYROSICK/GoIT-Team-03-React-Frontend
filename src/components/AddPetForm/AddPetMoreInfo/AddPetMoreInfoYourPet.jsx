@@ -4,6 +4,7 @@ import {
   AvatarContainer,
   ErMsFile,
   ErrorMoreInfoText,
+  IconBigPlus,
   IconPlus,
   InputFile,
   InputList,
@@ -11,7 +12,12 @@ import {
   PhotoContainer,
 } from './AddPetMoreInfo.styled';
 import { useState } from 'react';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 
 const schema = object({
@@ -72,9 +78,14 @@ const AddPetMoreInfoYourPet = (props) => {
                     />
                   </div>
                 ) : (
-                  <IconPlus>
-                    <use href={sprite + '#iconPlusAvatar'} />
-                  </IconPlus>
+                  <>
+                    <IconPlus>
+                      <use href={sprite + '#iconPlusAvatar'} />
+                    </IconPlus>
+                    <IconBigPlus>
+                      <use href={sprite + '#iconPlus'} />
+                    </IconBigPlus>
+                  </>
                 )}
                 <InputFile
                   type="file"
@@ -100,24 +111,25 @@ const AddPetMoreInfoYourPet = (props) => {
               />
               <ErrorMessage name="comments" component={ErrorMoreInfoText} />
             </label>
+            <ButtonContainer>
+              <ButtonNextBack className="buttonNext" type="submit">
+                Done
+                <IconPaw>
+                  <use href={sprite + '#iconPaw'}></use>
+                </IconPaw>
+              </ButtonNextBack>
 
-            <ButtonNextBack className="buttonNext" type="submit">
-              Done
-              <IconPaw>
-                <use href={sprite + '#iconPaw'}></use>
-              </IconPaw>
-            </ButtonNextBack>
-
-            <ButtonNextBack
-              className="buttonBack"
-              type="button"
-              onClick={() => props.prev(values, selectedFile)}
-            >
-              <IconArrow>
-                <use href={sprite + '#iconArrowLeft'}></use>
-              </IconArrow>
-              Back
-            </ButtonNextBack>
+              <ButtonNextBack
+                className="buttonBack"
+                type="button"
+                onClick={() => props.prev(values, selectedFile)}
+              >
+                <IconArrow>
+                  <use href={sprite + '#iconArrowLeft'}></use>
+                </IconArrow>
+                Back
+              </ButtonNextBack>
+            </ButtonContainer>
           </InputList>
         </Form>
       )}

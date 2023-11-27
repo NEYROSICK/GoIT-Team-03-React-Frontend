@@ -17,7 +17,12 @@ export const OptionList = styled.div`
   letter-spacing: 0.56px;
   color: var(--clr-brand-blue);
 
-  margin-bottom: 95px;
+  margin-bottom: 88.35px;
+
+  @media (min-width: 768px) {
+    margin-top: 40px;
+    margin-bottom: 137.1px;
+  }
 
   & > label {
     display: flex;
@@ -63,4 +68,9 @@ export const ErrorCategoryText = styled.p`
   font-weight: 400;
   line-height: normal;
   color: var(--clr-brand-red);
+
+  @media (min-width: 768px) {
+    font-size: 12px;
+    bottom: -26px;
+  }
 `;

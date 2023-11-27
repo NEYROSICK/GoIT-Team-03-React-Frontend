@@ -12,7 +12,6 @@ import { useAddPetMutation } from '../../redux/API/petsApi';
 import { useAddNoticeMutation } from '../../redux/API/noticesApi';
 
 import {
-  // FakeHeader,
   FormContainer,
   FormStyled,
   StepList,
@@ -260,36 +259,33 @@ const AddPetForm = () => {
 
   return (
     <>
-      {/* <FakeHeader /> */}
       <Container>
         <FormContainer>
           <FormStyled>
-            <div>
-              <Title>{step === 0 ? 'Add pet' : getTitle()}</Title>
-              <StepList>
-                <li className={step === 0 ? 'is-selected' : 'is-done'}>
-                  Choose option{' '}
-                </li>
-                <li
-                  className={
-                    step === 1 || step === 3
-                      ? 'is-selected'
-                      : step === 0
-                      ? ''
-                      : 'is-done'
-                  }
-                >
-                  Personal details
-                </li>
-                <li
-                  className={
-                    step === 2 || step === 4 || step === 5 ? 'is-selected' : ''
-                  }
-                >
-                  More info
-                </li>
-              </StepList>
-            </div>
+            <Title>{step === 0 ? 'Add pet' : getTitle()}</Title>
+            <StepList>
+              <li className={step === 0 ? 'is-selected' : 'is-done'}>
+                Choose option{' '}
+              </li>
+              <li
+                className={
+                  step === 1 || step === 3
+                    ? 'is-selected'
+                    : step === 0
+                    ? ''
+                    : 'is-done'
+                }
+              >
+                Personal details
+              </li>
+              <li
+                className={
+                  step === 2 || step === 4 || step === 5 ? 'is-selected' : ''
+                }
+              >
+                More info
+              </li>
+            </StepList>
             {steps[step]}
           </FormStyled>
         </FormContainer>

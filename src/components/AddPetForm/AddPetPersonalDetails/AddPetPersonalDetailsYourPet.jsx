@@ -1,6 +1,11 @@
 import { Field, Form, Formik, ErrorMessage } from 'formik';
 import { object, string, date } from 'yup';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import sprite from '../../../ui/Icons/sprite.svg';
 import {
   ErrorPersonalInfoText,
@@ -49,7 +54,7 @@ const AddPetPersonalDetailsYourPet = (props) => {
               <ErrorMessage name="name" component={ErrorPersonalInfoText} />
             </label>
             <label>
-              Date of Birth
+              Date of birth
               <Field
                 type="date"
                 name="date"
@@ -69,22 +74,25 @@ const AddPetPersonalDetailsYourPet = (props) => {
               <ErrorMessage name="type" component={ErrorPersonalInfoText} />
             </label>
           </InputList>
-          <ButtonNextBack className="buttonNext" type="submit">
-            Next
-            <IconPaw>
-              <use href={sprite + '#iconPaw'}></use>
-            </IconPaw>
-          </ButtonNextBack>
-          <ButtonNextBack
-            className="buttonBack"
-            type="button"
-            onClick={() => props.prev(values)}
-          >
-            <IconArrow>
-              <use href={sprite + '#iconArrowLeft'}></use>
-            </IconArrow>
-            Back
-          </ButtonNextBack>
+
+          <ButtonContainer>
+            <ButtonNextBack className="buttonNext" type="submit">
+              Next
+              <IconPaw>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconPaw>
+            </ButtonNextBack>
+            <ButtonNextBack
+              className="buttonBack"
+              type="button"
+              onClick={() => props.prev(values)}
+            >
+              <IconArrow>
+                <use href={sprite + '#iconArrowLeft'}></use>
+              </IconArrow>
+              Back
+            </ButtonNextBack>
+          </ButtonContainer>
         </Form>
       )}
     </Formik>

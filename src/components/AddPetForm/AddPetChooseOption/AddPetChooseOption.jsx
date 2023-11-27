@@ -7,7 +7,12 @@ import {
 } from './AddPetChooseOption.styled';
 
 import sprite from '../../../ui/Icons/sprite.svg';
-import { ButtonNextBack, IconArrow, IconPaw } from '../AddPetForm.styled';
+import {
+  ButtonContainer,
+  ButtonNextBack,
+  IconArrow,
+  IconPaw,
+} from '../AddPetForm.styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const schema = object({
@@ -61,22 +66,24 @@ const AddPetChooseOption = (props) => {
           <ErrorMessage name="category" component={ErrorCategoryText} />
         </OptionList>
 
-        <ButtonNextBack className="buttonNext" type="submit">
-          Next
-          <IconPaw>
-            <use href={sprite + '#iconPaw'}></use>
-          </IconPaw>
-        </ButtonNextBack>
-        <ButtonNextBack
-          className="buttonBack"
-          type="button"
-          onClick={handleCancel}
-        >
-          <IconArrow>
-            <use href={sprite + '#iconArrowLeft'}></use>
-          </IconArrow>
-          Сancel
-        </ButtonNextBack>
+        <ButtonContainer>
+          <ButtonNextBack className="buttonNext" type="submit">
+            Next
+            <IconPaw>
+              <use href={sprite + '#iconPaw'}></use>
+            </IconPaw>
+          </ButtonNextBack>
+          <ButtonNextBack
+            className="buttonBack"
+            type="button"
+            onClick={handleCancel}
+          >
+            <IconArrow>
+              <use href={sprite + '#iconArrowLeft'}></use>
+            </IconArrow>
+            Сancel
+          </ButtonNextBack>
+        </ButtonContainer>
       </Form>
     </Formik>
   );
