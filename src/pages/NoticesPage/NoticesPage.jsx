@@ -1,7 +1,7 @@
 import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 import NoticesCategoriesNav from '../../components/FindPetComponents/NoticesCategoriesNav/NoticesCategoriesNav';
 import NoticesFilter from '../../components/FindPetComponents/NoticesFilter/NoticesFilter';
-import { Outlet, useSearchParams } from 'react-router-dom';
+import { Outlet, useLocation, useNavigate, useSearchParams } from 'react-router-dom';
 import { useCallback, Suspense, useState, useEffect } from 'react';
 import {
   FilterAndAddContainer,
@@ -25,6 +25,8 @@ const NoticesPage = () => {
   const [checkboxValue, setCheckboxValue] = useState(initialFiltersValue);
 
   const query = searchParams.get('query');
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     setSearchParams({
@@ -37,6 +39,10 @@ const NoticesPage = () => {
       ),
     });
   }, [checkboxValue]);
+
+  useEffect(() => {
+    navigate("/notices/sell", {replace: true})
+  }, [])
 
   const handleSubmit = ({ query }) => {
     searchParams.set('query', query);
@@ -69,7 +75,7 @@ const NoticesPage = () => {
                 setCheckboxValue={setCheckboxValue}
                 checkboxValue={checkboxValue}
               />
-              <AddPetButton />
+              <AddPetButton state={{ from: location }} />
             </FilterAndAddContainer>
           </div>
         </FilterContainer>

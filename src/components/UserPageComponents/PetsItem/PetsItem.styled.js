@@ -5,9 +5,10 @@ export const PetsItemli = styled.li`
   padding: 16px 20px 40px;
   border-radius: 20px;
   background:var(--clr-bcg-user);
- box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   width: 280px;
   position: relative;
+  margin: auto;
   @media only screen and (min-width: 768px) {
     display:flex;
     width: 703px;
@@ -50,6 +51,7 @@ export const PetsCardImg = styled.img`
     width: 161px;
     height: 161px;
     margin-right: 32px;
+    border-radius: 40px;
   }
 `;
 
@@ -65,20 +67,23 @@ export const PetsCardText = styled.li`
   
   h3 {
     display: inline;
-    font-family: Manrope-Bold, sans-serif;
     font-weight: 700;
+    font-size: 14px;
     @media only screen and (min-width: 768px) {
-      font-family: Manrope-SemiBold, sans-serif;
       font-weight: 600;
+        font-size: 14px;
+    }
+        @media only screen and (min-width: 1280px) {
+        font-size:16px;
     }
   }
   p {
     display: inline;
-    font-family: Manrope-Regular, sans-serif;
+    word-break: break-all;
+    white-space: normal;
     font-weight: 400;
-    @media only screen and (min-width: 768px) {
-      font-family: Manrope-Regular, sans-serif;
-      font-weight: 400;
+    @media only screen and (min-width: 1280px) {
+        font-size:16px;
     }
   }
 `
@@ -153,6 +158,12 @@ export const BtnDelite = styled.button`
   @media only screen and (min-width: 768px) {
   top: 20px;
   right: 20px;
+
+  transition: transform 300ms;
+
+  &:hover{
+    transform: scale(1.1);
+  }
   }
 
 `
