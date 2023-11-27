@@ -1,12 +1,14 @@
-import { Container, PageTitle } from './FriendsPage.styled';
+import { Container, PageTitle,OurFriendsContainer } from './FriendsPage.styled';
 import FriendItem from '../../components/FriendsItem/FriendsItem';
 
 function FriendsPage() {
   return (
+    <OurFriendsContainer>
     <Container>
       <PageTitle>Our Friends</PageTitle>
-      {/* <OurFriendsItem /> */}
-    </Container>
+      <FriendItem />
+      </Container>
+      </OurFriendsContainer>
   );
 }
 
