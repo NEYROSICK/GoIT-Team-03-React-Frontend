@@ -1,4 +1,4 @@
-import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O as Q}from"./index-915085f2.js";import{N as U}from"./NoticesSearch-365b42d5.js";import{s as H}from"./selectors-9c63f203.js";const K=r.div`
+import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O as Q}from"./index-7f0e667c.js";import{N as U}from"./NoticesSearch-98157643.js";import{s as H}from"./selectors-9c63f203.js";const K=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
