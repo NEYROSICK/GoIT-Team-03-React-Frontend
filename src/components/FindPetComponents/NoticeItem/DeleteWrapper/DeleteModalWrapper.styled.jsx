@@ -18,11 +18,11 @@ const DeleteWrapper = styled.div`
   background: #fff;
 
   @media (${MEDIA_TABLET}) {
-    /* width: 608px;
-    height: 429px;
-    padding: 60px 40px;
+    width: 608px;
+    height: 352px;
+    padding: 60px 110px;
 
-    border-radius: 40px; */
+    border-radius: 40px;
   }
 `;
 
@@ -63,14 +63,14 @@ const DeleteTitle = styled.h3`
   margin: 0 auto;
 
   @media (${MEDIA_TABLET}) {
-    /* color: var(--, #111);
-    text-align: center;
+    color: #000;
     font-family: Manrope;
-    font-size: 36px;
+    font-size: 28px;
     font-style: normal;
-    font-weight: 500;
+    font-weight: 700;
     line-height: normal;
-    letter-spacing: 1.44px; */
+    letter-spacing: -0.28px;
+    width: 288px;
   }
 `;
 
@@ -84,18 +84,35 @@ const DeleteText = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-  letter-spacing: -0.14px;
-  width: 200px;
+  width: 240px;
 
   @media (${MEDIA_TABLET}) {
-    /* color: var(--, #111);
+    color: #000;
     text-align: center;
     font-family: Manrope;
-    font-size: 20px;
+    font-size: 16px;
     font-style: normal;
     font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0.8px; */
+    line-height: normal;
+    letter-spacing: -0.16px;
+    width: 393px;
+    height: 66px;
+  }
+`;
+
+const DeleteBtnsWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 44px;
+
+  @media (${MEDIA_TABLET}) {
+    width: 100%;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    gap: 17px;
+    margin-top: 48px;
   }
 `;
 
@@ -112,7 +129,6 @@ const DeleteCancelBtn = styled.button`
   border-radius: 40px;
   border: 2px solid #54adff;
   outline: none;
-  margin-top: 44px;
   background: #fff;
   transition: 300ms;
 
@@ -136,6 +152,11 @@ const DeleteCancelBtn = styled.button`
   &:hover p {
     color: #fff;
   }
+
+  @media (${MEDIA_TABLET}) {
+    width: 129px;
+    margin: 0;
+  }
 `;
 
 const DeleteCancelBtnText = styled.p`
@@ -157,6 +178,7 @@ const DeleteYesBtn = styled.button`
   display: flex;
   color: #fff;
   width: 256px;
+  height: 40px;
   padding: 8px 20px;
   justify-content: center;
   align-items: center;
@@ -165,7 +187,6 @@ const DeleteYesBtn = styled.button`
   background: #54adff;
   outline: none;
   border: none;
-  margin-top: 8px;
   transition: 300ms;
 
   &:before {
@@ -187,6 +208,11 @@ const DeleteYesBtn = styled.button`
 
   &:hover svg {
     animation: ${shakeAnimation} 0.5s ease;
+  }
+
+  @media (${MEDIA_TABLET}) {
+    width: 129px;
+    margin: 0;
   }
 `;
 
@@ -214,6 +240,7 @@ export {
   DeleteIcon,
   DeleteTitle,
   DeleteText,
+  DeleteBtnsWrapper,
   DeleteCancelBtn,
   DeleteCancelBtnText,
   DeleteYesBtn,

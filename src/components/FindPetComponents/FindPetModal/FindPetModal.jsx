@@ -1,11 +1,17 @@
-import { useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 // Component
 import { createPortal } from 'react-dom';
 import { Backdrop, ModalContainer } from './FindPetModal.styled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const FindPetModal = ({ onClose, children }) => {
+const FindPetModal = ({ onClose, showModal, children }) => {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    setVisible(showModal);
+  }, [showModal]);
+
   const handleKeydown = useMemo(
     () => (e) => {
       if (e.code === 'Escape') {
@@ -33,8 +39,8 @@ const FindPetModal = ({ onClose, children }) => {
   };
 
   return createPortal(
-    <Backdrop onClick={handleBackdropClick}>
-      <ModalContainer>{children}</ModalContainer>
+    <Backdrop onClick={handleBackdropClick} showModal={visible}>
+      <ModalContainer showModal={visible}>{children}</ModalContainer>
     </Backdrop>,
     modalRoot,
   );

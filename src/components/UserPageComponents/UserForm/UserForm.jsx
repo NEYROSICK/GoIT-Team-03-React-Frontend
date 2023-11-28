@@ -84,6 +84,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     dispatch(logOut());
     navigate('/login');
     localStorage.removeItem('persist:auth');
+    window.location.reload();
   };
 
   useEffect(() => {
@@ -96,14 +97,25 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
     return () => window.removeEventListener('keydown', close);
   }, []);
 
-    const Schema = object({
-    name: string().min(3, 'Name Too Short!').max(16, 'Too Long!').required('Required'),
-    date:  date().required('Enter a date of birth').max(new Date(), 'Date cannot be in the future'),
-    email: string().email('Invalid email format').matches(/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,'Invalid Email format',)
+  const Schema = object({
+    name: string()
+      .min(3, 'Name Too Short!')
+      .max(16, 'Too Long!')
+      .required('Required'),
+    date: date()
+      .required('Enter a date of birth')
+      .max(new Date(), 'Date cannot be in the future'),
+    email: string()
+      .email('Invalid email format')
+      .matches(
+        /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/,
+        'Invalid Email format',
+      )
       .required('Email is required'),
     city: string().min(3, 'City Too Short!').required('Required'),
     phone: string().min(13, 'Phone Too Short!').max(13).required('Required'),
   });
+
   return (
     <>
       {isLoading ? (
@@ -148,30 +160,39 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                   <UserFormItem>
                     <InputConteiner>
                       <UserFormLabel htmlFor={`email`}>Email:</UserFormLabel>
-                  <UserFormInput
+                      <UserFormInput
                         name="email"
                         id="email"
                         placeholder={'anna00@gmail.com|'}
                         disabled={isUserUpdate}
-                        className={`${touched.name && errors.name ? 'is-invalid' : ''}`}/>
-                      </InputConteiner>
-                    {errors.email && touched.email ? ( <ErrorMessage>{errors.email}</ErrorMessage>) : null}
-                </UserFormItem>
-                    <UserFormItem>
-                      <InputConteiner>
-                      <UserFormLabel htmlFor={`birthDate`}>Birthday:</UserFormLabel> 
-                  <UserFormInput
-                    type="date"
-                    name="date"
-                    id="date"
-                    placeholder={'00-00-0000'}
-                    disabled={isUserUpdate}
-                    minLength="10"
-                    required
-                    />
-                        </InputConteiner>
-                    {errors.date && touched.date ? ( <ErrorMessage>{errors.date}</ErrorMessage>) : null}
-                </UserFormItem>
+                        className={`${
+                          touched.name && errors.name ? 'is-invalid' : ''
+                        }`}
+                      />
+                    </InputConteiner>
+                    {errors.email && touched.email ? (
+                      <ErrorMessage>{errors.email}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
+                      <UserFormLabel htmlFor={`birthDate`}>
+                        Birthday:
+                      </UserFormLabel>
+                      <UserFormInput
+                        type="date"
+                        name="date"
+                        id="date"
+                        placeholder={'00-00-0000'}
+                        disabled={isUserUpdate}
+                        minLength="10"
+                        required
+                      />
+                    </InputConteiner>
+                    {errors.date && touched.date ? (
+                      <ErrorMessage>{errors.date}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
                   <UserFormItem>
                     <InputConteiner>
                       <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
@@ -184,18 +205,20 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                       />
                     </InputConteiner>
 
-                      {errors.phone && touched.phone ? ( <ErrorMessage>{errors.phone}</ErrorMessage>) : null}
-                </UserFormItem>
-                <UserFormItem>
-                      <InputConteiner>
-                        <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
-                    <UserFormInput
-                    type="text"
-                    name="city"
-                    id="city"
-                    placeholder={'Kyiv'}
-                    disabled={isUserUpdate}
-                    required
+                    {errors.phone && touched.phone ? (
+                      <ErrorMessage>{errors.phone}</ErrorMessage>
+                    ) : null}
+                  </UserFormItem>
+                  <UserFormItem>
+                    <InputConteiner>
+                      <UserFormLabel htmlFor={`city`}>City:</UserFormLabel>
+                      <UserFormInput
+                        type="text"
+                        name="city"
+                        id="city"
+                        placeholder={'Kyiv'}
+                        disabled={isUserUpdate}
+                        required
                       />
                     </InputConteiner>
                     {errors.city && touched.city ? (

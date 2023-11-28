@@ -3,6 +3,7 @@ import {
   DeleteIcon,
   DeleteTitle,
   DeleteText,
+  DeleteBtnsWrapper,
   DeleteCancelBtn,
   DeleteCancelBtnText,
   DeleteYesBtn,
@@ -23,19 +24,26 @@ const DeleteModalWrapper = ({ setShowModal, sprite, handleDeleteClick }) => {
       <DeleteTitle>Delete adverstiment?</DeleteTitle>
       <DeleteText>
         Are you sure you want to delete <b>“Cute dog looking for a home”</b>?
+        <br />
         You can`t undo this action.
       </DeleteText>
-      <DeleteCancelBtn>
-        <DeleteCancelBtnText>Cancel</DeleteCancelBtnText>
-      </DeleteCancelBtn>
-      <DeleteYesBtn>
-        <DeleteYesBtnText>
-          Yes
-          <DeleteYesIcon type="submit" onClick={handleDeleteClick}>
-            <use href={sprite + '#iconTrash'} />
-          </DeleteYesIcon>
-        </DeleteYesBtnText>
-      </DeleteYesBtn>
+      <DeleteBtnsWrapper>
+        <DeleteCancelBtn
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
+          <DeleteCancelBtnText>Cancel</DeleteCancelBtnText>
+        </DeleteCancelBtn>
+        <DeleteYesBtn>
+          <DeleteYesBtnText>
+            Yes
+            <DeleteYesIcon type="submit" onClick={handleDeleteClick}>
+              <use href={sprite + '#iconTrash'} />
+            </DeleteYesIcon>
+          </DeleteYesBtnText>
+        </DeleteYesBtn>
+      </DeleteBtnsWrapper>
     </DeleteWrapper>
   );
 };

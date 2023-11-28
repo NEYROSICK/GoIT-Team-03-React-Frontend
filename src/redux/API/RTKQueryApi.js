@@ -104,6 +104,13 @@ export const RTKQueryApi = createApi({
       providesTags: ['News'],
     }),
     //! NEWS
+    //!FRIENDS
+    getFriends: builder.query({
+      query: () => ({
+        url: `/friends`,
+      }),
+    }),
+    //!
   }),
 });
 export const {
@@ -113,6 +120,7 @@ export const {
   useGetMyNoticesQuery,
   useGetMeAndPetsQuery,
   useGetNewsQuery,
+  useGetFriendsQuery,
   useAddNoticeMutation,
   useAddPetMutation,
   useDeleteNoticeMutation,
