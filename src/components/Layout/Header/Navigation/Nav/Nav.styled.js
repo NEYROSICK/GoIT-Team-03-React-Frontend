@@ -13,7 +13,7 @@ export const NavStyled = styled.ul`
 export const StyledNavLink = styled(NavLink)`
   transition: color 0.3s;
   &:hover:not(.active) {
-    color: var(--clr-brand-blue-lt);
+    color: var(--clr-brand-blue);
   }
 
   &.active {

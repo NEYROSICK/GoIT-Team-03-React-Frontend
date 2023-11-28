@@ -12,7 +12,6 @@ export const ContainerMain = styled.div`
 export const Form = styled.form`
   font-family: Manrope, sans-serif;
   width: 280px;
-  margin-top: 20px;
   min-height: 200px;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -21,16 +20,14 @@ export const Form = styled.form`
   border-radius: 20px;
   background-color: var(--clr-bcg-user);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  margin-bottom: 20px;
+
   @media (min-width: 768px) {
     width: 608px;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 75px;
     padding-right: 75px;
-    margin-top: 48px;
-  }
-  @media (min-width: 1200px) {
-    margin-top: 64px;
   }
 `;
 export const Email = styled.input`

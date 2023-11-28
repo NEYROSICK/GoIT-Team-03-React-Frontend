@@ -1,33 +1,69 @@
 import sprite from '../../../../../ui/Icons/sprite.svg';
 import {
   AuthNavStyled,
+  AuthNavDesk,
   LoginStyled,
   RegisterStyled,
-  LogLink,
-  RegLink,
   IconLogin,
-} from './AuthNavStyled';
+} from './AuthNav.styled';
 
-export const AuthNav = ({ isModalOpen }) => {
+export const AuthNav = ({ isModalOpen, onClose }) => {
   return (
     <>
-      {!isModalOpen ? (
+      {isModalOpen ? (
         <AuthNavStyled>
-          <LoginStyled>
-            <LogLink to="/login">
+          <li>
+            <LoginStyled
+              to="/login"
+              onClick={() => {
+                onClose(false);
+              }}
+            >
               Log In
               <IconLogin>
                 <use href={sprite + '#iconPaw'}></use>
               </IconLogin>
-            </LogLink>
-          </LoginStyled>
+            </LoginStyled>
+          </li>
 
-          <RegisterStyled>
-            <RegLink to="/register">Registration</RegLink>
-          </RegisterStyled>
+          <li>
+            <RegisterStyled
+              to="/register"
+              onClick={() => {
+                onClose(false);
+              }}
+            >
+              Registration
+            </RegisterStyled>
+          </li>
         </AuthNavStyled>
       ) : (
-        <></>
+        <AuthNavDesk>
+          <li>
+            <LoginStyled
+              to="/login"
+              onClick={() => {
+                onClose(false);
+              }}
+            >
+              Log In
+              <IconLogin>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconLogin>
+            </LoginStyled>
+          </li>
+
+          <li>
+            <RegisterStyled
+              to="/register"
+              onClick={() => {
+                onClose(false);
+              }}
+            >
+              Registration
+            </RegisterStyled>
+          </li>
+        </AuthNavDesk>
       )}
     </>
   );

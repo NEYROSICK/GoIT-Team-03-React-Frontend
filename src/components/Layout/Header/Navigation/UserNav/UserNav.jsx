@@ -9,15 +9,16 @@ import {
   IconLogOut,
   UserName,
   LogoutButtonDesk,
-} from './UserNavStyled';
+} from './UserNav.styled';
 import sprite from '../../../../../ui/Icons/sprite.svg';
 import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
 
-export const UserNav = ({ isModalOpen }) => {
+export const UserNav = ({ isModalOpen, onClose }) => {
   const { data, isLoading } = useGetMeAndPetsQuery();
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
   const handleLogout = () => {
+    onClose(false);
     localStorage.removeItem('persist:auth');
     window.location.reload();
   };
