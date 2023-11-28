@@ -80,5 +80,3 @@ export const UserName = styled.p`
     display: flex;
   }
 `;
-
-// Доробити! Розміщення кнопки логаута внизу зліва

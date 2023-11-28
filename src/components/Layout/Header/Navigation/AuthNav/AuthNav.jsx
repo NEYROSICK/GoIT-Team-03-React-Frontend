@@ -6,7 +6,7 @@ import {
   LogLink,
   RegLink,
   IconLogin,
-} from './AuthNavStyled';
+} from './AuthNav.styled';
 
 export const AuthNav = ({ isModalOpen }) => {
   return (

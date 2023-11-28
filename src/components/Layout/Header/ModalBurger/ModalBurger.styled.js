@@ -9,7 +9,7 @@ export const BurgerWrapper = styled.div`
   width: 100%;
   height: calc(100% - 68px);
   background-color: var(--clr-bcg);
-  z-index: 1;
+  z-index: 100;
   transition: transform 0.5s cubic-bezier(0.85, 0.58, 0.59, 1.1);
   transform: translateY(-100vh);
 

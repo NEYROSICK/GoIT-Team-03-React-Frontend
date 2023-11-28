@@ -51,18 +51,3 @@ export const IconLogin = styled.svg`
   width: 24px;
   height: 24px;
 `;
-
-// export const AuthNavStyled = styled.ul`
-//   display: flex;
-//   flex-direction: column;
-//   gap: 12px;
-//   margin-top: 40px;
-//   font-size: 16px;
-//   letter-spacing: 0.64px;
-
-//   @media screen and (min-width: 768px) {
-//     gap: 20px;
-//     flex-direction: row;
-//     margin-top: 0;
-//   }
-// `;

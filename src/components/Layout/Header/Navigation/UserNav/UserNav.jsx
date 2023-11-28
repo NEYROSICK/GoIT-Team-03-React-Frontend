@@ -8,18 +8,17 @@ import {
   IconUser,
   IconLogOut,
   UserName,
-  LogoutButtonDesk,
-} from './UserNavStyled';
+} from './UserNav.styled';
 import sprite from '../../../../../ui/Icons/sprite.svg';
 import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
 
-export const UserNav = ({ isModalOpen }) => {
+export const UserNav = () => {
   const { data, isLoading } = useGetMeAndPetsQuery();
-  // const navigate = useNavigate();
-  // const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const hendleLogout = () => {
-    localStorage.removeItem('persist:auth');
-    window.location.reload();
+    dispatch(logOut());
+    navigate('/login');
   };
   return (
     <>
@@ -27,27 +26,18 @@ export const UserNav = ({ isModalOpen }) => {
         <div></div>
       ) : (
         <UserNavStyledDiv>
-          <LogoutButtonDesk onClick={() => hendleLogout()}>
+          <LogoutButton onClick={() => hendleLogout()}>
             log out
             <IconLogOut>
               <use href={sprite + '#iconLogout'}></use>
             </IconLogOut>
-          </LogoutButtonDesk>
-          {isModalOpen ? (
-            <LogoutButton onClick={() => hendleLogout()}>
-              log out
-              <IconLogOut>
-                <use href={sprite + '#iconLogout'}></use>
-              </IconLogOut>
-            </LogoutButton>
-          ) : (
-            <LinkUser to="/user">
-              <IconUser>
-                <use href={sprite + '#iconUser'}></use>
-              </IconUser>
-              <UserName>{data.user.name ? data.user.name : ''}</UserName>
-            </LinkUser>
-          )}
+          </LogoutButton>
+          <LinkUser to="/user">
+            <IconUser>
+              <use href={sprite + '#iconUser'}></use>
+            </IconUser>
+            <UserName>{data.user.name ? data.user.name : ''}</UserName>
+          </LinkUser>
         </UserNavStyledDiv>
       )}
     </>
