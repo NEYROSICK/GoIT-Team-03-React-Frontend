@@ -32,6 +32,7 @@ const schema = object({
     .required('Enter a location'),
   comments: string()
     .min(2, 'Comments must be at least 2 characters')
+    .max(120, 'Comments must not exceed 120 characters')
     .required('Enter a comment'),
 });
 
@@ -42,13 +43,13 @@ const AddPetMoreInfoNotices = (props) => {
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-
-    if (file && (file.type === 'image/jpeg' || file.type === 'image/png')) {
+    const maxSize = 3 * 1024 * 1024;
+    if (file.size <= maxSize && (file.type === 'image/jpeg' || file.type === 'image/png')) {
       setSelectedFile(file);
       setErMessage('');
     } else {
       setSelectedFile(null);
-      setErMessage('Please select a JPEG or PNG');
+      setErMessage('Please select a JPEG or PNG file within 3MB size limit');
     }
   };
 
