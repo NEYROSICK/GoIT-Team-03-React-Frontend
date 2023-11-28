@@ -17,9 +17,6 @@ export const HeaderBurger = ({ toggleModal, isModalOpen }) => {
           ></use>
         </BurgerIcon>
       </BurgerButton>
-      {/* {isModalOpen && ( */}
-
-      {/* )} */}
     </>
   );
 };

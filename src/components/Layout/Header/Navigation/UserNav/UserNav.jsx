@@ -1,6 +1,6 @@
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../../../../redux/auth/operations';
+// import { useNavigate } from 'react-router-dom';
+// import { useDispatch } from 'react-redux';
+// import { logOut } from '../../../../../redux/auth/operations';
 import {
   UserNavStyledDiv,
   LinkUser,
@@ -17,7 +17,7 @@ export const UserNav = ({ isModalOpen }) => {
   const { data, isLoading } = useGetMeAndPetsQuery();
   // const navigate = useNavigate();
   // const dispatch = useDispatch();
-  const hendleLogout = () => {
+  const handleLogout = () => {
     localStorage.removeItem('persist:auth');
     window.location.reload();
   };
@@ -27,14 +27,14 @@ export const UserNav = ({ isModalOpen }) => {
         <div></div>
       ) : (
         <UserNavStyledDiv>
-          <LogoutButtonDesk onClick={() => hendleLogout()}>
+          <LogoutButtonDesk onClick={() => handleLogout()}>
             log out
             <IconLogOut>
               <use href={sprite + '#iconLogout'}></use>
             </IconLogOut>
           </LogoutButtonDesk>
           {isModalOpen ? (
-            <LogoutButton onClick={() => hendleLogout()}>
+            <LogoutButton onClick={() => handleLogout()}>
               log out
               <IconLogOut>
                 <use href={sprite + '#iconLogout'}></use>

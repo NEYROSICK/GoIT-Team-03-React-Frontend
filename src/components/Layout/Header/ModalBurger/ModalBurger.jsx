@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { AuthNav } from '../Navigation/AuthNav/AuthNav';
 import { Container } from '../../Container/Container';
 import { ModalUserNav } from './ModalUserNav/ModalUserNav';
 import {
