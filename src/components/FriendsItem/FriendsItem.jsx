@@ -1,4 +1,11 @@
 import {
+  NoNoticesFound,
+  NoNoticesFoundIcon,
+} from '../../ui/NoMatches/AllNotices.styled';
+import sprite from '../../ui/Icons/sprite.svg';
+import Loader from '../../ui/Loader/Loader';
+
+import {
   ListFriends,
   ItemFriends,
   TitleFriends,
@@ -11,9 +18,10 @@ import { useGetFriendsQuery } from '../../redux/API/RTKQueryApi';
 
 import Dropdown from './Dropdown/Dropdown';
 const FriendItem = () => {
-  const { data } = useGetFriendsQuery();
+  const { data, isLoading } = useGetFriendsQuery();
   return (
     <ListFriends>
+      {isLoading && <Loader />}
       {data &&
         data.map((el, index) => (
           <ItemFriends key={index}>
@@ -50,6 +58,17 @@ const FriendItem = () => {
             </ContainerFriends>
           </ItemFriends>
         ))}
+      {data && !data.length && (
+        <NoNoticesFound>
+          <NoNoticesFoundIcon>
+            <use href={sprite + '#iconPaw'} />
+          </NoNoticesFoundIcon>{' '}
+          No news found{' '}
+          <NoNoticesFoundIcon>
+            <use href={sprite + '#iconPaw'} />
+          </NoNoticesFoundIcon>
+        </NoNoticesFound>
+      )}
     </ListFriends>
   );
 };

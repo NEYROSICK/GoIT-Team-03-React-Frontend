@@ -1,3 +1,10 @@
+import {
+  NoNoticesFound,
+  NoNoticesFoundIcon,
+} from '../../ui/NoMatches/AllNotices.styled';
+import sprite from '../../ui/Icons/sprite.svg';
+import Loader from '../../ui/Loader/Loader';
+
 import NewsItem from '../NewsItem/NewsItem';
 import { List } from './NewsList.styled';
 import { useGetNewsQuery } from '../../redux/API/RTKQueryApi';
@@ -42,8 +49,8 @@ function NewsList() {
 
   return (
     <List>
-      {isLoading && <div>Loading...</div>}
-      {data ? (
+      {isLoading && <Loader />}
+      {data && (
         <>
           {data.news.map(({ _id, imgUrl, title, text, date, url, id }) => (
             <NewsItem
@@ -65,8 +72,17 @@ function NewsList() {
             />
           )}
         </>
-      ) : (
-        <div>No News Found</div>
+      )}
+      {data && !data.news.length && (
+        <NoNoticesFound>
+          <NoNoticesFoundIcon>
+            <use href={sprite + '#iconPaw'} />
+          </NoNoticesFoundIcon>{' '}
+          No news found{' '}
+          <NoNoticesFoundIcon>
+            <use href={sprite + '#iconPaw'} />
+          </NoNoticesFoundIcon>
+        </NoNoticesFound>
       )}
       {error && <div>{error.message}</div>}
     </List>
