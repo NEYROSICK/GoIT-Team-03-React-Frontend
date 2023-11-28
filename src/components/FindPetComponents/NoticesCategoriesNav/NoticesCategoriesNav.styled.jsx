@@ -9,14 +9,18 @@ export const NavContainer = styled.div`
 
   height: 121px;
 
+  margin-bottom: 42px;
+
   @media screen and (min-width: 768px) {
     // max-width: 319px;
+    margin-bottom: 40px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 540px;
     height: 35px;
     flex-direction: row;
     gap: 12px;
+    margin-bottom: 24px;
   }
 `;
 

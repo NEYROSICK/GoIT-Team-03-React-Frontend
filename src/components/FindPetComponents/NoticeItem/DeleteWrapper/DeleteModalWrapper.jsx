@@ -28,7 +28,11 @@ const DeleteModalWrapper = ({ setShowModal, sprite, handleDeleteClick }) => {
         You can`t undo this action.
       </DeleteText>
       <DeleteBtnsWrapper>
-        <DeleteCancelBtn>
+        <DeleteCancelBtn
+          onClick={() => {
+            setShowModal(false);
+          }}
+        >
           <DeleteCancelBtnText>Cancel</DeleteCancelBtnText>
         </DeleteCancelBtn>
         <DeleteYesBtn>
