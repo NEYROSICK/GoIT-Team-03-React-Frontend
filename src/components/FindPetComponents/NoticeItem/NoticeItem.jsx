@@ -163,13 +163,20 @@ const NoticeItem = ({
             setShowModal(false);
           }}
         >
-          <AttentionModalWrapper setShowModal={setShowModal} sprite={sprite} />
+          {modalType === 'attention' && (
+            <AttentionModalWrapper
+              setShowModal={setShowModal}
+              sprite={sprite}
+            />
+          )}
 
-          {/* <DeleteModalWrapper
-            setShowModal={setShowModal}
-            sprite={sprite}
-            handleDeleteClick={handleDeleteClick}
-          /> */}
+          {modalType === 'delete' && (
+            <DeleteModalWrapper
+              setShowModal={setShowModal}
+              sprite={sprite}
+              handleDeleteClick={handleDeleteClick}
+            />
+          )}
         </FindPetModal>
       )}
     </ItemContainer>
