@@ -63,27 +63,8 @@ const NoticesPage = () => {
       setSearchValue({});
     }
   };
-  useEffect(() => {
-    // Save the current URL search parameters when the component mounts
-    const initialParams = new URLSearchParams(window.location.search);
-    setSearchParams(initialParams);
-
-    // Update the URL search parameters when the component unmounts
-    return () => {
-      const currentParams = new URLSearchParams(window.location.search);
-      setSearchParams(currentParams);
-    };
-  }, [setSearchParams]);
-
-  const handleQueryParamChange = (param, value) => {
-    // Update the search params with the new value
-    const newParams = new URLSearchParams(searchParams.toString());
-    newParams.set(param, value);
-    setSearchParams(newParams);
-
-    // Update the URL without a page reload
-    window.history.replaceState({}, '', `${window.location.pathname}?${newParams.toString()}`);
-  }
+ 
+  
   return (
     <Container>
       <NoticesContainer>
