@@ -1,4 +1,4 @@
-import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O as Q}from"./index-e31ebc1a.js";import{N as U}from"./NoticesSearch-8715457c.js";import{s as H}from"./selectors-9c63f203.js";const K=r.div`
+import{n as r,L as O,u as y,a as D,j as e,r as d,b as s,c as M,d as T,C as G,O as Q}from"./index-a69cd479.js";import{N as U}from"./NoticesSearch-2327a1e3.js";import{s as H}from"./selectors-9c63f203.js";const K=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -31,20 +31,7 @@ import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O a
     flex-wrap: wrap;
     gap: 12px;
   }
-`;r.ul`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  flex-direction: row;
-  margin-top: 8px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 12px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-`;const C=r.li`
+`,C=r.li`
   display: flex;
   border: none;
   flex-wrap: no-wrap;
@@ -72,12 +59,12 @@ import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O a
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
   }
-`;let v=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((i,t)=>(t&=63,t<36?i+=t.toString(36):t<62?i+=(t-26).toString(36).toUpperCase():t>62?i+="-":i+="_",i),"");const _=[{id:v(),to:"/notices/sell",text:"sell"},{id:v(),to:"/notices/lost-found",text:"lost/found"},{id:v(),to:"/notices/in-good-hands",text:"in good hands"}],J=[{id:v(),to:"/notices/favorite",text:"favorite ads"},{id:v(),to:"/notices/my-ads",text:"my ads"}],W={publicCategories:_,userCategories:J},{publicCategories:X,userCategories:Y}=W,Z=()=>{const{search:n}=y(),i=y(),t=M(H);return e.jsxs(K,{children:[e.jsx(F,{children:X.map(({id:a,to:o,text:l})=>e.jsx(C,{children:e.jsx(R,{to:{pathname:o,search:n},active:i.pathname===o?"true":void 0,children:l})},a))}),t&&e.jsx(F,{children:Y.map(({id:a,to:o,text:l})=>e.jsx(C,{children:e.jsx(R,{to:{pathname:o,search:n},active:i.pathname===o?"true":void 0,children:l})},a))})]})},q=r.button`
+`;let v=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((i,t)=>(t&=63,t<36?i+=t.toString(36):t<62?i+=(t-26).toString(36).toUpperCase():t>62?i+="-":i+="_",i),"");const _=[{id:v(),to:"/notices/sell",text:"sell"},{id:v(),to:"/notices/lost-found",text:"lost/found"},{id:v(),to:"/notices/in-good-hands",text:"in good hands"}],J=[{id:v(),to:"/notices/favorite",text:"favorite ads"},{id:v(),to:"/notices/my-ads",text:"my ads"}],W={publicCategories:_,userCategories:J},{publicCategories:X,userCategories:Y}=W,Z=()=>{const{search:n}=y(),i=y(),t=D(H);return e.jsxs(K,{children:[e.jsx(F,{children:X.map(({id:a,to:o,text:l})=>e.jsx(C,{children:e.jsx(R,{to:{pathname:o,search:n},active:i.pathname===o?"true":void 0,children:l})},a))}),t&&e.jsx(F,{children:Y.map(({id:a,to:o,text:l})=>e.jsx(C,{children:e.jsx(R,{to:{pathname:o,search:n},active:i.pathname===o?"true":void 0,children:l})},a))})]})},q=r.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  outline: none;S
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -104,9 +91,7 @@ import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O a
 
     background-color: transparent;
     transition: 300ms;
-
   }
-
 `,V=r.svg`
   stroke: currentColor;
   fill: none;
@@ -165,7 +150,7 @@ import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O a
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
-`,E=r.form`
+`,N=r.form`
   margin-top: 8px;
   display: flex;
   flex-direction: column;
@@ -187,34 +172,33 @@ import{n as r,L as O,u as y,a as M,j as e,r as d,b as s,c as z,d as T,C as G,O a
     cursor: pointer;
   }
 `,m=r.input`
-appearance: none;
-`,N=r.svg`
+  appearance: none;
+`,P=r.svg`
   stroke: currentColor;
   fill: none;
   width: 24px;
   height: 24px;
   transform: ${n=>n.active&&"rotate(180deg)"};
   transition: 300ms;
-  `,f=r.svg`
-    width: 24px;
-    height: 24px;
-    stroke: var(--clr-brand-blue);
-    fill: none;
-    opacity: 1;
-    opacity: ${n=>n.check&&"0"};
-    transition: 300ms;
-    
-  `,j=r.svg`
+`,f=r.svg`
   width: 24px;
-    height: 24px;
-    stroke: var(--clr-brand-blue);
-    fill: none;
-    opacity: 0;
-    opacity: ${n=>n.check&&"1"};
-    position: absolute;
-    transition: 300ms;
-  `,P=(n,i)=>i&&!n?{sex:"male"}:n&&!i?{sex:"female"}:{};//! I AM AN UPGRADE
-const I=(n,i,t)=>n&&!i&&!t?{age:"to-1"}:!n&&i&&!t?{age:"to-2"}:!n&&!i&&t?{age:"from-2"}:n&&i&&!t?{age:"to-1-to-2"}:!n&&i&&t?{age:"to-2-from-2"}:n&&!i&&t?{age:"to-1-from-2"}:{},re=(n,i,t,a,o)=>n&&i&&t||!n&&!i&&!t?{...P(a,o)}:o&&a||!o&&!a?{...I(n,i,t)}:{...I(n,i,t),...P(a,o)},oe=({checkboxValue:n,setCheckboxValue:i})=>{const[t,a]=d.useState(!1),[o,l]=d.useState(!1),[x,S]=d.useState(!1),[b,w]=d.useState(!1),$=()=>{a(c=>!c)},B=()=>{l(c=>!c)},D=()=>{S(c=>!c)},h=c=>{const{name:u}=c.target;i(p=>({...p,[u]:!p[u]})),w(p=>!p)};d.useEffect(()=>{const c=p=>{p.key==="Escape"&&a(!1)},u=p=>{k.current&&!k.current.contains(p.target)&&a(!1)};return document.addEventListener("keydown",c),document.addEventListener("mousedown",u),()=>{document.removeEventListener("keydown",c),document.removeEventListener("mousedown",u)}},[]);const k=d.useRef(null);return e.jsxs("div",{children:[e.jsxs(q,{type:"button",onClick:$,children:[e.jsx(ee,{children:"Filter"}),e.jsx(V,{children:e.jsx("use",{href:s+"#iconFilters3"})})]}),t&&e.jsx(ne,{active:!0,ref:k,children:e.jsxs(te,{children:[e.jsx(ie,{children:"Filters"}),e.jsxs(A,{active:o?!0:void 0,children:[e.jsxs(L,{type:"button",onClick:B,"aria-label":"toggle age options",children:[e.jsx(N,{active:o?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(E,{children:[e.jsxs(g,{children:[e.jsx(f,{check:n.to1,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.to1,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.to2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.to2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"to2",checked:[n.to2,b]}),"up to 2 years"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.from2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.from2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"from2",checked:[n.from2,b]}),"from 2 years"]})]})]}),e.jsxs(A,{active:x?!0:void 0,children:[e.jsxs(L,{type:"button",onClick:D,"aria-label":"toggle gender options",children:[e.jsx(N,{active:x?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By gender"]}),x&&e.jsxs(E,{children:[e.jsxs(g,{children:[e.jsx(f,{check:n.male,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.male,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.female,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.female,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},se=r.div`
+  height: 24px;
+  stroke: var(--clr-brand-blue);
+  fill: none;
+  opacity: 1;
+  opacity: ${n=>n.check&&"0"};
+  transition: 300ms;
+`,j=r.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--clr-brand-blue);
+  fill: none;
+  opacity: 0;
+  opacity: ${n=>n.check&&"1"};
+  position: absolute;
+  transition: 300ms;
+`,E=(n,i)=>i&&!n?{sex:"male"}:n&&!i?{sex:"female"}:{};//! I AM AN UPGRADE
+const I=(n,i,t)=>n&&!i&&!t?{age:"to-1"}:!n&&i&&!t?{age:"to-2"}:!n&&!i&&t?{age:"from-2"}:n&&i&&!t?{age:"to-2"}:n&&!i&&t?{age:"to-1-from-2"}:void 0,re=(n,i,t,a,o)=>n&&i&&t||!n&&!i&&!t?{...E(a,o)}:o&&a||!o&&!a?{...I(n,i,t)}:{...I(n,i,t),...E(a,o)},oe=({checkboxValue:n,setCheckboxValue:i})=>{const[t,a]=d.useState(!1),[o,l]=d.useState(!1),[x,S]=d.useState(!1),[b,w]=d.useState(!1),$=()=>{a(c=>!c)},z=()=>{l(c=>!c)},B=()=>{S(c=>!c)},h=c=>{const{name:u}=c.target;i(p=>({...p,[u]:!p[u]})),w(p=>!p)};d.useEffect(()=>{const c=p=>{p.key==="Escape"&&a(!1)},u=p=>{k.current&&!k.current.contains(p.target)&&a(!1)};return document.addEventListener("keydown",c),document.addEventListener("mousedown",u),()=>{document.removeEventListener("keydown",c),document.removeEventListener("mousedown",u)}},[]);const k=d.useRef(null);return e.jsxs("div",{children:[e.jsxs(q,{type:"button",onClick:$,children:[e.jsx(ee,{children:"Filter"}),e.jsx(V,{children:e.jsx("use",{href:s+"#iconFilters3"})})]}),t&&e.jsx(ne,{active:!0,ref:k,children:e.jsxs(te,{children:[e.jsx(ie,{children:"Filters"}),e.jsxs(A,{active:o?!0:void 0,children:[e.jsxs(L,{type:"button",onClick:z,"aria-label":"toggle age options",children:[e.jsx(P,{active:o?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(N,{children:[e.jsxs(g,{children:[e.jsx(f,{check:n.to1,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.to1,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.to2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.to2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"to2",checked:[n.to2,b]}),"up to 2 years"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.from2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.from2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"from2",checked:[n.from2,b]}),"from 2 years"]})]})]}),e.jsxs(A,{active:x?!0:void 0,children:[e.jsxs(L,{type:"button",onClick:B,"aria-label":"toggle gender options",children:[e.jsx(P,{active:x?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By gender"]}),x&&e.jsxs(N,{children:[e.jsxs(g,{children:[e.jsx(f,{check:n.male,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.male,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(g,{children:[e.jsx(f,{check:n.female,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(j,{check:n.female,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(m,{onChange:h,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})})]})},se=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -337,4 +321,4 @@ const I=(n,i,t)=>n&&!i&&!t?{age:"to-1"}:!n&&i&&!t?{age:"to-2"}:!n&&!i&&t?{age:"f
     letter-spacing: 0.04em;
     text-align: left;
   }
-`,ue=()=>{const n=y();z();const i=n.pathname+n.search,t=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(le,{onClick:t,to:"/add-pet",state:{from:i},children:[e.jsx(pe,{children:e.jsx("use",{href:s+"#iconPlus"})}),e.jsx(he,{children:"Add Pet"}),e.jsx(xe,{children:e.jsx("use",{href:s+"#iconPlusSmall"})})]})},ge={to1:!1,to2:!1,from2:!1,female:!1,male:!1},ve=()=>{const[n,i]=T(),[t,a]=d.useState(ge),[o,l]=d.useState({});z();const x=y(),S=d.useMemo(()=>Object.fromEntries([...n]),[n]);d.useEffect(()=>{i({...o,...re(t.to1,t.to2,t.from2,t.female,t.male)})},[t,S,i,o,n]);const b=w=>{l(w?{query:w}:{})};return e.jsx(G,{children:e.jsxs(se,{children:[e.jsx(ae,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(U,{onSubmit:b})}),e.jsxs(de,{children:[e.jsx(Z,{searchParams:n}),e.jsx("div",{children:e.jsxs(ce,{children:[e.jsx(oe,{setCheckboxValue:a,checkboxValue:t}),e.jsx(ue,{state:{from:x}})]})})]}),e.jsx(d.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx(Q,{})})]})})};export{ve as default};
+`,ue=()=>{const n=y();M();const i=n.pathname+n.search,t=()=>{console.log("Sign in to add your own notice.")};return e.jsxs(le,{onClick:t,to:"/add-pet",state:{from:i},children:[e.jsx(pe,{children:e.jsx("use",{href:s+"#iconPlus"})}),e.jsx(he,{children:"Add Pet"}),e.jsx(xe,{children:e.jsx("use",{href:s+"#iconPlusSmall"})})]})},ge={to1:!1,to2:!1,from2:!1,female:!1,male:!1},me=()=>{const[n,i]=T(),[t,a]=d.useState(ge),[o,l]=d.useState({}),x=y(),S=d.useMemo(()=>Object.fromEntries([...n]),[n]);d.useEffect(()=>{i({...o,...re(t.to1,t.to2,t.from2,t.female,t.male)})},[t,S,i,o,n]);const b=w=>{l(w?{query:w}:{})};return e.jsx(G,{children:e.jsxs(se,{children:[e.jsx(ae,{children:"Find your favorite pet"}),e.jsx("div",{children:e.jsx(U,{onSubmit:b})}),e.jsxs(de,{children:[e.jsx(Z,{searchParams:n}),e.jsx("div",{children:e.jsxs(ce,{children:[e.jsx(oe,{setCheckboxValue:a,checkboxValue:t}),e.jsx(ue,{state:{from:x}})]})})]}),e.jsx(d.Suspense,{fallback:e.jsx("p",{children:"Loading..."}),children:e.jsx(Q,{})})]})})};function be(){return e.jsx(me,{})}export{be as default};
