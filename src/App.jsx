@@ -54,7 +54,7 @@ function App() {
           }
         />
         <Route
-          path="add-pet"
+          path="/add-pet"
           element={
             <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
           }

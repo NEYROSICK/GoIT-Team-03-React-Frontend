@@ -110,13 +110,14 @@ const AddPetForm = () => {
     }
     if (newData.category === 'your-pet') {
       addPet(formData);
+      
     } else {
       addNotice(formData);
     }
 
-    resetFormData('');
-    const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
+    const redirectTo = newData.category === 'your-pet' ? '/user' : `/notices/${newData.category}`;
     navigate(redirectTo);
+    resetFormData('');
   };
 
   const handleNextPage = (newData, final = false, selectedFile = '') => {
