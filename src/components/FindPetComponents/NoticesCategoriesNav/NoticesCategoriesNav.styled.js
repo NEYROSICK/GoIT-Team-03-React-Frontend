@@ -62,7 +62,7 @@ export const StyledLink = styled(Link)`
   background-color: ${(props) => props.active && 'var(--clr-brand-blue)'};
   border-radius: 40px;
   transition: 300ms;
-  &:focus,
+  
   &:hover {
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);

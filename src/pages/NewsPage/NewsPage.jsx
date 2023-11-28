@@ -1,24 +1,44 @@
 import { Container, PageTitle } from './NewsPage.styled';
 import { useSearchParams } from 'react-router-dom';
-import { useCallback } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import NewsList from '../../components/NewsList/NewsList';
 import NoticesSearch from '../../ui/NoticesSearch/NoticesSearch';
 
 function NewsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState(
+    Object.fromEntries(searchParams).query || '',
+  );
+  const [searchValue, setSearchValue] = useState({});
 
-  const query = searchParams.get('query');
-  0;
+  const params = useMemo(
+    () => Object.fromEntries([...searchParams]),
+    [searchParams]
+  );
 
   const resetPage = useCallback(() => {
     setSearchParams(searchParams);
   }, [searchParams, setSearchParams]);
 
-  const handleSubmit = ({ query }) => {
-    searchParams.set('query', query);
-    setSearchParams(searchParams);
-    resetPage();
+  const handleSubmit = query => {
+    if (query) {
+      setSearchValue({ query });
+    } else {
+      setSearchValue({});
+    }
   };
+
+  useEffect(() => {
+    setSearchParams({
+      ...searchValue,
+    });
+  }, [
+    params,
+    setSearchParams,
+    searchValue,
+    searchParams
+  ]);
+
 
   const handleClear = () => {
     searchParams.delete('query', query);
