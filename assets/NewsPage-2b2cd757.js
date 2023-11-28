@@ -1,4 +1,4 @@
-import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}from"./StyledPagination.styled-c96be8e1.js";import{N as S}from"./NoticesSearch-73a2c061.js";const k=n.div`
+import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as y}from"./StyledPagination.styled-bc9e5dfa.js";import{N as S}from"./NoticesSearch-17aef307.js";const k=a.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -14,7 +14,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,P=n.h1`
+`,P=a.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -27,7 +27,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
     font-size: 48px;
     line-height: 66px;
   }
-`,N=n.a`
+`,N=a.a`
   position: relative;
   width: 280px;
   height: 578px;
@@ -75,7 +75,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
   &:hover {
     box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 1);
   }
-`,C=n.img`
+`,C=a.img`
   transition: 300ms;
   display: flex;
   align-items: center;
@@ -94,12 +94,12 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
   @media screen and (min-width: 1280px) {
     width: 395px;
   }
-`,z=n.div`
+`,E=a.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 12px;
-`,L=n.div`
+`,z=a.div`
   color: inherit;
   font-family: Manrope;
   font-size: 24px;
@@ -121,7 +121,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
   @media screen and (min-width: 768px) {
     width: 310px;
   }
-`,A=n.p`
+`,L=a.p`
   color: inherit;
   font-family: Manrope;
   font-size: 16px;
@@ -151,7 +151,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
     -webkit-line-clamp: 5;
     line-clamp: 5;
   }
-`,E=n.p`
+`,A=a.p`
   width: 160px;
   height: 22px;
   color: #888;
@@ -161,7 +161,7 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
   font-weight: 400;
   line-height: normal;
   margin-top: 40px;
-`;function q({image:t,title:a,description:s,date:d,url:p}){const r=d,i=new Date(r),c=i.getDate().toString().padStart(2,"0"),h=(i.getMonth()+1).toString().padStart(2,"0"),m=i.getFullYear(),o=`${c}/${h}/${m}`;return e.jsxs(N,{href:p,children:[e.jsx(C,{src:t}),e.jsxs(z,{children:[e.jsx(L,{children:a}),e.jsx(A,{children:s}),e.jsx(E,{children:o})]})]})}const D=n.ul`
+`;function M({image:t,title:n,description:s,date:p,url:c}){const d=p,i=new Date(d),l=i.getDate().toString().padStart(2,"0"),h=(i.getMonth()+1).toString().padStart(2,"0"),m=i.getFullYear(),r=`${l}/${h}/${m}`;return e.jsxs(N,{href:c,children:[e.jsx(C,{src:t}),e.jsxs(E,{children:[e.jsx(z,{children:n}),e.jsx(L,{children:s}),e.jsx(A,{children:r})]})]})}const D=a.ul`
   width: 280px;
   display: flex;
   align-items: center;
@@ -182,4 +182,4 @@ import{n,j as e,d as g,r as x,t as y}from"./index-92198771.js";import{S as v}fro
     width: 1247px;
     margin-top: 82px;
   }
-`;function M(){const[t]=g(),a=Object.fromEntries(t.entries()),[s,d]=x.useState(1),[p,r]=x.useState(12);x.useEffect(()=>{const o=()=>{const l=window.innerWidth;l<=768?r(11):l<=1024?r(10):r(12)};return o(),window.addEventListener("resize",o),()=>window.removeEventListener("resize",o)},[]);const{data:i,error:c,isLoading:h}=y({params:{page:s,limit:p,...a}}),m=(o,l)=>{d(l)};return e.jsxs(D,{children:[h&&e.jsx("div",{children:"Loading..."}),i?e.jsxs(e.Fragment,{children:[i.news.map(({_id:o,imgUrl:l,title:w,text:f,date:u,url:b,id:j})=>e.jsx(q,{id:j,image:l,title:w,description:f,date:u,url:b},o)),i.length===0&&e.jsx("div",{children:"No News Found"}),i.length!==0&&e.jsx(v,{count:Math.ceil(i.totalCount/p),page:s,onChange:m,color:"primary"})]}):e.jsx("div",{children:"No News Found"}),c&&e.jsx("div",{children:c.message})]})}function I(){const[t,a]=g(),s=t.get("query"),d=x.useCallback(()=>{a(t)},[t,a]),p=({query:i})=>{t.set("query",i),a(t),d()},r=()=>{t.delete("query",s),a(t),d()};return e.jsxs(k,{children:[e.jsx(P,{children:"News"}),e.jsx(S,{onSubmit:p,onClear:r}),e.jsx(M,{})]})}export{I as default};
+`;function O(){const[t]=g(),n=Object.fromEntries(t.entries()),[s,p]=o.useState(1),[c,d]=o.useState(12);o.useEffect(()=>{const r=()=>{const x=window.innerWidth;x<=768?d(11):x<=1024?d(10):d(12)};return r(),window.addEventListener("resize",r),()=>window.removeEventListener("resize",r)},[]);const{data:i,error:l,isLoading:h}=v({params:{page:s,limit:c,...n}}),m=(r,x)=>{p(x)};return e.jsxs(D,{children:[h&&e.jsx("div",{children:"Loading..."}),i?e.jsxs(e.Fragment,{children:[i.news.map(({_id:r,imgUrl:x,title:w,text:f,date:u,url:b,id:j})=>e.jsx(M,{id:j,image:x,title:w,description:f,date:u,url:b},r)),i.length===0&&e.jsx("div",{children:"No News Found"}),i.length!==0&&e.jsx(y,{count:Math.ceil(i.totalCount/c),page:s,onChange:m,color:"primary"})]}):e.jsx("div",{children:"No News Found"}),l&&e.jsx("div",{children:l.message})]})}function I(){const[t,n]=g();o.useState(Object.fromEntries(t).query||"");const[s,p]=o.useState({}),c=o.useMemo(()=>Object.fromEntries([...t]),[t]),d=o.useCallback(()=>{n(t)},[t,n]),i=h=>{p(h?{query:h}:{})};o.useEffect(()=>{n({...s})},[c,n,s,t]);const l=()=>{t.delete("query",query),n(t),d()};return e.jsxs(k,{children:[e.jsx(P,{children:"News"}),e.jsx(S,{onSubmit:i,onClear:l}),e.jsx(O,{})]})}export{I as default};
