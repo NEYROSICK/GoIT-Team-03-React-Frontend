@@ -58,7 +58,7 @@ const NoticesPage = () => {
 
   const handleSearchSubmit = (query) => {
     if (query) {
-      setSearchValue({ query }); console.log(loc)
+      setSearchValue({ query });
     } else {
       setSearchValue({});
     }
