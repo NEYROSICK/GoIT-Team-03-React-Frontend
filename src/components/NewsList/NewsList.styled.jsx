@@ -4,6 +4,7 @@ export const List = styled.ul`
   width: 280px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 44px;
   flex-wrap: wrap;
   margin-top: 44px;
