@@ -6,19 +6,41 @@ import { UserNav } from './Navigation/UserNav/UserNav';
 import { HeaderBurger } from './HeaderBurger/HeaderBurger';
 import { Navigation, HeaderSection } from './Header.styled';
 import { Container } from '../Container/Container';
+import { useState } from 'react';
+import { ModalBurger } from './ModalBurger/ModalBurger';
 
 export const Header = () => {
   const { token } = useSelector((state) => state.auth);
+
+  const toggleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <Container>
       <HeaderSection>
         <Logo />
         <Navigation>
-          {token ? <UserNav /> : <AuthNav />}
+          {token ? (
+            <UserNav isModalOpen={isModalOpen} />
+          ) : (
+            <AuthNav isModalOpen={isModalOpen} />
+          )}
           <Nav />
         </Navigation>
-        <HeaderBurger />
+        <HeaderBurger
+          toggleModal={toggleModal}
+          setIsModalOpen={setIsModalOpen}
+          isModalOpen={isModalOpen}
+        />
       </HeaderSection>
+      <ModalBurger
+        onClose={setIsModalOpen}
+        toggleModal={toggleModal}
+        isModalOpen={isModalOpen}
+      />
     </Container>
   );
 };

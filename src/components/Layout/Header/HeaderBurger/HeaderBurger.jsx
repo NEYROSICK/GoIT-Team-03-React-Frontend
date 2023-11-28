@@ -1,18 +1,14 @@
-import { useState } from 'react';
 import { BurgerButton, BurgerIcon } from './HeaderBurger.styled';
 import sprite from '../../../../ui/Icons/sprite.svg';
-import { ModalBurger } from './ModalBurger';
 
-export const HeaderBurger = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
+export const HeaderBurger = ({ toggleModal, isModalOpen }) => {
   return (
     <>
-      <BurgerButton onClick={toggleModal}>
+      <BurgerButton
+        onClick={() => {
+          toggleModal();
+        }}
+      >
         <BurgerIcon>
           <use
             href={
@@ -21,7 +17,9 @@ export const HeaderBurger = () => {
           ></use>
         </BurgerIcon>
       </BurgerButton>
-      {isModalOpen && <ModalBurger onClose={setIsModalOpen} />}
+      {/* {isModalOpen && ( */}
+
+      {/* )} */}
     </>
   );
 };

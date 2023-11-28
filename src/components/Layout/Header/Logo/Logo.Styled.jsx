@@ -1,4 +1,10 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const LogoLink = styled(Link)`
+  line-height: 0;
+  padding: 24px 0;
+`;
 
 export const LogoIcon = styled.svg`
   width: 116px;

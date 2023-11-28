@@ -8,21 +8,27 @@ import {
   IconLogin,
 } from './AuthNavStyled';
 
-export const AuthNav = () => {
+export const AuthNav = ({ isModalOpen }) => {
   return (
-    <AuthNavStyled>
-      <LoginStyled>
-        <LogLink to="/login">
-          Log IN
-          <IconLogin>
-            <use href={sprite + '#iconPaw'}></use>
-          </IconLogin>
-        </LogLink>
-      </LoginStyled>
+    <>
+      {!isModalOpen ? (
+        <AuthNavStyled>
+          <LoginStyled>
+            <LogLink to="/login">
+              Log In
+              <IconLogin>
+                <use href={sprite + '#iconPaw'}></use>
+              </IconLogin>
+            </LogLink>
+          </LoginStyled>
 
-      <RegisterStyled>
-        <RegLink to="/register">Registration</RegLink>
-      </RegisterStyled>
-    </AuthNavStyled>
+          <RegisterStyled>
+            <RegLink to="/register">Registration</RegLink>
+          </RegisterStyled>
+        </AuthNavStyled>
+      ) : (
+        <></>
+      )}
+    </>
   );
 };

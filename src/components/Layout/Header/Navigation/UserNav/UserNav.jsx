@@ -8,11 +8,12 @@ import {
   IconUser,
   IconLogOut,
   UserName,
+  LogoutButtonDesk,
 } from './UserNavStyled';
 import sprite from '../../../../../ui/Icons/sprite.svg';
 import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
 
-export const UserNav = () => {
+export const UserNav = ({ isModalOpen }) => {
   const { data, isLoading } = useGetMeAndPetsQuery();
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -26,18 +27,27 @@ export const UserNav = () => {
         <div></div>
       ) : (
         <UserNavStyledDiv>
-          <LogoutButton onClick={() => hendleLogout()}>
+          <LogoutButtonDesk onClick={() => hendleLogout()}>
             log out
             <IconLogOut>
               <use href={sprite + '#iconLogout'}></use>
             </IconLogOut>
-          </LogoutButton>
-          <LinkUser to="/user">
-            <IconUser>
-              <use href={sprite + '#iconUser'}></use>
-            </IconUser>
-            <UserName>{data.user.name ? data.user.name : ''}</UserName>
-          </LinkUser>
+          </LogoutButtonDesk>
+          {isModalOpen ? (
+            <LogoutButton onClick={() => hendleLogout()}>
+              log out
+              <IconLogOut>
+                <use href={sprite + '#iconLogout'}></use>
+              </IconLogOut>
+            </LogoutButton>
+          ) : (
+            <LinkUser to="/user">
+              <IconUser>
+                <use href={sprite + '#iconUser'}></use>
+              </IconUser>
+              <UserName>{data.user.name ? data.user.name : ''}</UserName>
+            </LinkUser>
+          )}
         </UserNavStyledDiv>
       )}
     </>

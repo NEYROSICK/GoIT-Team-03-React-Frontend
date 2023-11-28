@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const HeaderSection = styled.header`
+  position: relative;
   display: flex;
-  padding: 20px 0;
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
+  z-index: 999;
+  background-color: var(--clr-bcg);
 
   @media screen and (min-width: 768px) {
     justify-content: center;
-    /* margin-right: 24px; */
   }
 `;
 
@@ -18,10 +19,8 @@ export const Navigation = styled.nav`
   font-size: 32px;
   justify-content: flex-end;
   align-items: center;
-  // height: 100vh;
-  /* flex-direction: column; */
   text-align: center;
-  width:100%;
+  width: 100%;
 
   @media screen and (min-width: 768px) {
     font-size: 48px;
@@ -38,4 +37,3 @@ export const Navigation = styled.nav`
     justify-content: space-between;
   }
 `;
-
