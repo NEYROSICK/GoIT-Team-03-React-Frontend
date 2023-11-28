@@ -29,6 +29,7 @@ function App() {
         <Route index element={<Navigate to="main" />} />
         <Route path="main" element={<HomePage />} />
         <Route path="notices" element={<NoticesPage />}>
+          <Route  index element={<Navigate to="sell" replace />}/>
           <Route path="sell" element={<AllNotices />} />
           <Route path="in-good-hands" element={<AllNotices />} />
           <Route path="lost-found" element={<AllNotices />} />

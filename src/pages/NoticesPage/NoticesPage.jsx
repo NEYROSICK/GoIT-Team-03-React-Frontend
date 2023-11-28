@@ -47,9 +47,9 @@ const NoticesPage = () => {
     });
   }, [checkboxValue, params, setSearchParams, searchValue, searchParams]);
 
-  // useEffect(() => {
-  //   navigate("/notices/sell", {replace: true})
-  // }, [])
+  useEffect(() => {
+    navigate("/notices/sell")
+  }, [])
 
   const handleSearchSubmit = query => {
     if (query) {
