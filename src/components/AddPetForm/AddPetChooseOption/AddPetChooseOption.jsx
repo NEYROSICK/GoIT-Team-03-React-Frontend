@@ -29,7 +29,6 @@ const AddPetChooseOption = (props) => {
 
   const handleSubmit = (values) => {
     props.next(values);
-    console.log(values);
   };
 
   return (

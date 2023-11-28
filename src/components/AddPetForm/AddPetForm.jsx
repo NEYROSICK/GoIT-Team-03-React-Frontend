@@ -105,7 +105,6 @@ const AddPetForm = () => {
       };
     }
 
-    console.log(data);
     for (const [key, value] of Object.entries(data)) {
       formData.append(key, value);
     }
@@ -116,7 +115,6 @@ const AddPetForm = () => {
     }
 
     resetFormData('');
-    console.log('Send request');
     const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
     navigate(redirectTo);
   };
