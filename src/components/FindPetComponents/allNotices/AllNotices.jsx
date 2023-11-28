@@ -7,17 +7,40 @@ import NoticeItem from '../NoticeItem/NoticeItem';
 import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
 import { useLocation, useSearchParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { StyledPagination } from '../../../ui/pagination/StyledPagination.styled.jsx';
+import { useEffect, useState } from 'react';
 
 function AllNotices() {
   const { pathname } = useLocation();
   const category = pathname.split('/')[2];
   const [searchParams] = useSearchParams();
   const searchParamsObject = Object.fromEntries(searchParams.entries());
+  const [currentPage, setCurrentPage] = useState(1);
+  const [limit, setLimit] = useState(12);
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+      if (width <= 768) {
+        setLimit(11);
+      } else if (width <= 1024) {
+        setLimit(10);
+      } else {
+        setLimit(12);
+      }
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const { data, error, isLoading } = useGetNoticesQuery({
     category,
     params: {
-      page: 1,
-      limit: 12,
+      page: currentPage,
+      limit,
       ...searchParamsObject,
     },
   });
@@ -32,32 +55,45 @@ function AllNotices() {
   if (isAuthenticated && userData && userData.user) {
     userFavorites = userData.user.favoritesArr;
   }
+  const handlePageChange = (event, page) => {
+    setCurrentPage(page);
+  };
 
   return (
     <>
       {isLoading && <div>Loading...</div>}
       {!isLoading && (
-        <NoticeList>
-          {data.length > 0 ? (
-            data.map(
-              ({ _id, title, category, date, sex, location, avatarURL }) => (
-                <NoticeItem
-                  key={_id}
-                  id={_id}
-                  title={title}
-                  category={category}
-                  date={date}
-                  sex={sex}
-                  location={location}
-                  avatarUrl={avatarURL}
-                  userFavoritesArr={userFavorites}
-                />
-              ),
-            )
-          ) : (
-            <div>No Notices found</div>
+        <>
+          <NoticeList>
+            {data.notices.length > 0 ? (
+              data.notices.map(
+                ({ _id, title, category, date, sex, location, avatarURL }) => (
+                  <NoticeItem
+                    key={_id}
+                    id={_id}
+                    title={title}
+                    category={category}
+                    date={date}
+                    sex={sex}
+                    location={location}
+                    avatarUrl={avatarURL}
+                    userFavoritesArr={userFavorites}
+                  />
+                ),
+              )
+            ) : (
+              <div>No Notices found</div>
+            )}
+          </NoticeList>
+          {data.notices.length !== 0 && (
+            <StyledPagination
+              count={Math.floor(data.totalCount / limit)}
+              page={currentPage}
+              onChange={handlePageChange}
+              color="primary"
+            />
           )}
-        </NoticeList>
+        </>
       )}
       {error && error.message}
     </>
