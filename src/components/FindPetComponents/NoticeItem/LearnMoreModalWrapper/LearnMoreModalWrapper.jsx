@@ -22,7 +22,7 @@ const LearnMoreModalWrapper = ({
   _id,
   sprite,
   isFavorite,
-  updateFavorite,
+  handleFavoriteClick,
   category,
   setShowModal,
 }) => {
@@ -88,7 +88,7 @@ const LearnMoreModalWrapper = ({
             <LearnMoreContactBtn href={`tel:${data.owner && data.owner.phone}`}>
               Contact
             </LearnMoreContactBtn>
-            <LearnMoreAddFvrtBtn onClick={updateFavorite}>
+            <LearnMoreAddFvrtBtn onClick={handleFavoriteClick}>
               Add to
               <LearnMoreAddFvrtBtnIcon isFavorite={isFavorite}>
                 <use href={sprite + '#iconHeart'} />

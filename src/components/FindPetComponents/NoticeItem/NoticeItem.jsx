@@ -76,8 +76,14 @@ const NoticeItem = ({
         Notify.failure('Failed to update favorite status');
       }
     } else {
-      setModalType('attention');
-      toggleModal();
+      if (showModal) {
+        toggleModal();
+        setModalType('attention');
+        toggleModal();
+      } else {
+        setModalType('attention');
+        toggleModal();
+      }
     }
   };
 
@@ -184,7 +190,7 @@ const NoticeItem = ({
               _id={id}
               sprite={sprite}
               isFavorite={isFavorite}
-              updateFavorite={handleFavoriteClick}
+              handleFavoriteClick={handleFavoriteClick}
               category={category}
               setShowModal={setShowModal}
             />

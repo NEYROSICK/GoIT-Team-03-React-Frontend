@@ -1,12 +1,11 @@
 import styled from '@emotion/styled';
 
-
 export const FilterButton = styled.button`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: none;
-  outline: none;S
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -33,9 +32,7 @@ export const FilterButton = styled.button`
 
     background-color: transparent;
     transition: 300ms;
-
   }
-
 `;
 
 export const StyledFilterIcon = styled.svg`
@@ -136,7 +133,7 @@ export const FormLabel = styled.label`
 `;
 
 export const FormInput = styled.input`
-appearance: none;
+  appearance: none;
 `;
 
 export const StyledChevronDownIcon = styled.svg`
@@ -146,26 +143,25 @@ export const StyledChevronDownIcon = styled.svg`
   height: 24px;
   transform: ${(props) => props.active && 'rotate(180deg)'};
   transition: 300ms;
-  `;
+`;
 
-  export const StyledCheckboxIcon = styled.svg`
-    width: 24px;
-    height: 24px;
-    stroke: var(--clr-brand-blue);
-    fill: none;
-    opacity: 1;
-    opacity: ${(props) => props.check && '0'};
-    transition: 300ms;
-    
-  `
-
-  export const StyledCheckbocCheckedIcon = styled.svg`
+export const StyledCheckboxIcon = styled.svg`
   width: 24px;
-    height: 24px;
-    stroke: var(--clr-brand-blue);
-    fill: none;
-    opacity: 0;
-    opacity: ${(props) => props.check && '1'};
-    position: absolute;
-    transition: 300ms;
-  `
+  height: 24px;
+  stroke: var(--clr-brand-blue);
+  fill: none;
+  opacity: 1;
+  opacity: ${(props) => props.check && '0'};
+  transition: 300ms;
+`;
+
+export const StyledCheckbocCheckedIcon = styled.svg`
+  width: 24px;
+  height: 24px;
+  stroke: var(--clr-brand-blue);
+  fill: none;
+  opacity: 0;
+  opacity: ${(props) => props.check && '1'};
+  position: absolute;
+  transition: 300ms;
+`;

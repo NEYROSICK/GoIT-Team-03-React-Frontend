@@ -9,7 +9,7 @@ import {
   DeleteYesBtn,
   DeleteYesBtnText,
   DeleteYesIcon,
-} from './DeleteModalWrapper.styled.jsx';
+} from './DeleteModalWrapper.styled.js';
 
 const DeleteModalWrapper = ({ setShowModal, sprite, handleDeleteClick }) => {
   return (

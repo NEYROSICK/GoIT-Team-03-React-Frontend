@@ -3,8 +3,7 @@ import {
   NavLi,
   NavList,
   StyledLink,
-  UserNavList,
-} from '../NoticesCategoriesNav/NoticesCategoriesNav.styled.jsx';
+} from '../NoticesCategoriesNav/NoticesCategoriesNav.styled.js';
 import categories from '../NoticesCategoriesNav/categories.js';
 import { useLocation } from 'react-router-dom';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';

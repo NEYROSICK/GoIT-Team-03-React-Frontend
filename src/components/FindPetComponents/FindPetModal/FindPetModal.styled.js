@@ -14,7 +14,7 @@ const Backdrop = styled.div`
   transform: scale(1);
   padding: 15px;
 
-  z-index: 2;
+  z-index: 1000;
 
   opacity: ${(props) => {
     return props.showModal ? '1' : '0';

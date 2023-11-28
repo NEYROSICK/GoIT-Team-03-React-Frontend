@@ -6,7 +6,7 @@ import {
   Info,
   FriendsPhoto,
   ListInfo,
-} from './FriendsItem.stuled';
+} from './FriendsItem.styled';
 import { useGetFriendsQuery } from '../../redux/API/RTKQueryApi';
 
 import Dropdown from './Dropdown/Dropdown';

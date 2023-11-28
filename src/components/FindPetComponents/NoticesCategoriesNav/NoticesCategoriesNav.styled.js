@@ -38,21 +38,6 @@ export const NavList = styled.ul`
   }
 `;
 
-export const UserNavList = styled.ul`
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  flex-direction: row;
-  margin-top: 8px;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 12px;
-    flex-wrap: wrap;
-    gap: 12px;
-  }
-`;
-
 export const NavLi = styled.li`
   display: flex;
   border: none;
