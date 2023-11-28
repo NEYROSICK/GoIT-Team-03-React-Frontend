@@ -2,21 +2,21 @@ import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
 
 export const AddButton = styled(Link)`
+  position: fixed;
+  top: 460px;
+  z-index: 5;
   width: 80px;
   height: 80px;
   border-radius: 50%;
   border: none;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 4px;
-
   text-decoration: none;
   background: var(--clr-brand-blue);
   color: var(--clr-bcg-user);
-  
 
   &:hover,
   &:focus {
@@ -29,10 +29,7 @@ export const AddButton = styled(Link)`
     border-radius: 40px;
     padding: 9px 16px;
     flex-direction: row;
-    
-  }
-
-  @media screen and (min-width: 1280px) {
+    position: static;
   }
 `;
 

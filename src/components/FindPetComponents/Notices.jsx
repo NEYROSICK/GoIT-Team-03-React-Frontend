@@ -31,6 +31,7 @@ const NoticesPage = () => {
   const [searchValue, setSearchValue] = useState({});
 
   const location = useLocation();
+  const navigate = useNavigate();
 
   const params = useMemo(
     () => Object.fromEntries([...searchParams]),
@@ -50,9 +51,10 @@ const NoticesPage = () => {
     });
   }, [checkboxValue, params, setSearchParams, searchValue, searchParams]);
 
-  // useEffect(() => {
-  //   navigate("/notices/sell", {replace: true})
-  // }, [])
+  useEffect(() => {
+    if(location.pathname === '/notices')
+    navigate("/notices/sell")
+  }, [])
 
   const handleSearchSubmit = (query) => {
     if (query) {
@@ -61,7 +63,8 @@ const NoticesPage = () => {
       setSearchValue({});
     }
   };
-
+ 
+  
   return (
     <Container>
       <NoticesContainer>
