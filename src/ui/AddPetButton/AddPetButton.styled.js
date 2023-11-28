@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
 
-export const AddButton = styled(Link)`
+export const AddButton = styled.button`
   position: fixed;
   top: 460px;
   z-index: 5;
