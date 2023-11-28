@@ -56,8 +56,7 @@ function NewsList() {
               url={url}
             />
           ))}
-          {data.length === 0 && <div>No News Found</div>}
-          {data.length !== 0 && (
+          {data.news.length !== 0 && (
             <StyledPagination
               count={Math.ceil(data.totalCount / limit)}
               page={currentPage}
