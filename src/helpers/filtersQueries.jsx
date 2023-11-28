@@ -18,13 +18,11 @@ const getAgesQueries = (to1Check, to2Check, from2Check) => {
   } else if (!to1Check && !to2Check && from2Check) {
     return { age: 'from-2' };
   } else if (to1Check && to2Check && !from2Check) {
-    return { age: 'to-1-to-2' };
-  } else if (!to1Check && to2Check && from2Check) {
-    return { age: 'to-2-from-2' };
+    return { age: 'to-2' };
   } else if (to1Check && !to2Check && from2Check) {
     return { age: 'to-1-from-2' };
   } else {
-    return {};
+    return;
   }
 };
 

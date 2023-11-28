@@ -3,7 +3,7 @@ import {
   AttentionTitle,
   AttentionText,
   AttentionIcon,
-} from './AttentionModalWrapper.styled.jsx';
+} from './AttentionModalWrapper.styled.js';
 
 import AttentionBtns from '../../AttentionBtns/AttentionBtns.jsx';
 
