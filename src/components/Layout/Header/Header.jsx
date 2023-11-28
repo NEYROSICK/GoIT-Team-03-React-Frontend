@@ -21,12 +21,12 @@ export const Header = () => {
   return (
     <Container>
       <HeaderSection>
-        <Logo />
+        <Logo onClose={setIsModalOpen} />
         <Navigation>
           {token ? (
-            <UserNav isModalOpen={isModalOpen} />
+            <UserNav isModalOpen={isModalOpen} onClose={setIsModalOpen} />
           ) : (
-            <AuthNav isModalOpen={isModalOpen} />
+            <AuthNav isModalOpen={isModalOpen} onClose={setIsModalOpen} />
           )}
           <Nav />
         </Navigation>

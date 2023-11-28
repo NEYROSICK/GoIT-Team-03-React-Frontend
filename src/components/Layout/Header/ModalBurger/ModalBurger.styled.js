@@ -57,6 +57,11 @@ export const NavList = styled.ul`
     }
   }
 
+
+  & li {
+    transition: color 0.3s;
+  }
+
   & li:hover {
     color: var(--clr-brand-blue);
   }

@@ -105,20 +105,19 @@ const AddPetForm = () => {
       };
     }
 
-    console.log(data);
     for (const [key, value] of Object.entries(data)) {
       formData.append(key, value);
     }
     if (newData.category === 'your-pet') {
       addPet(formData);
+      
     } else {
       addNotice(formData);
     }
 
-    resetFormData('');
-    console.log('Send request');
-    const redirectTo = formData.category === 'your-pet' ? '/user' : '/notices';
+    const redirectTo = newData.category === 'your-pet' ? '/user' : `/notices/${newData.category}`;
     navigate(redirectTo);
+    resetFormData('');
   };
 
   const handleNextPage = (newData, final = false, selectedFile = '') => {

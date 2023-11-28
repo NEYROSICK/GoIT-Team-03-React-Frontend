@@ -35,7 +35,6 @@ const schema = object({
 const AddPetPersonalDetailsNotices = (props) => {
   const handleSubmit = (values) => {
     props.next(values);
-    console.log(values);
   };
 
   return (
