@@ -15,6 +15,12 @@ const Backdrop = styled.div`
   padding: 15px;
 
   z-index: 2;
+
+  opacity: ${(props) => {
+    return props.showModal ? '1' : '0';
+  }};
+
+  transition: 300ms;
 `;
 
 const ModalContainer = styled.div`
@@ -23,6 +29,10 @@ const ModalContainer = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 20px;
+
+  opacity: ${(props) => {
+    return props.showModal ? '1' : '0';
+  }};
 
   transition: 300ms;
 `;

@@ -28,6 +28,7 @@ import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
 import FindPetModal from '../FindPetModal/FindPetModal.jsx';
 import AttentionModalWrapper from './AttentionWrapper/AttentionModalWrapper.jsx';
 import DeleteModalWrapper from './DeleteWrapper/DeleteModalWrapper.jsx';
+import LearnMoreModalWrapper from './LearnMoreModalWrapper/LearnMoreModalWrapper.jsx';
 
 const NoticeItem = ({
   id,
@@ -40,7 +41,6 @@ const NoticeItem = ({
   userFavoritesArr,
   showDelete,
 }) => {
-  // const [isActive, setIsActive] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [modalType, setModalType] = useState('');
 
@@ -162,6 +162,7 @@ const NoticeItem = ({
           onClose={() => {
             setShowModal(false);
           }}
+          showModal={showModal}
         >
           {modalType === 'attention' && (
             <AttentionModalWrapper
@@ -175,6 +176,17 @@ const NoticeItem = ({
               setShowModal={setShowModal}
               sprite={sprite}
               handleDeleteClick={handleDeleteClick}
+            />
+          )}
+
+          {modalType === 'learnmore' && (
+            <LearnMoreModalWrapper
+              _id={id}
+              sprite={sprite}
+              isFavorite={isFavorite}
+              updateFavorite={handleFavoriteClick}
+              category={category}
+              setShowModal={setShowModal}
             />
           )}
         </FindPetModal>

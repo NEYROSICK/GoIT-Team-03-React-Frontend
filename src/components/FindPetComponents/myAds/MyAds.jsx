@@ -63,8 +63,8 @@ function MyAds() {
       {!isLoading && (
         <>
           <NoticeList>
-            {data.length > 0 ? (
-              data.map(
+            {data.notices.length > 0 ? (
+              data.notices.map(
                 ({ _id, title, category, date, sex, location, avatarURL }) => (
                   <NoticeItem
                     key={_id}
@@ -84,7 +84,7 @@ function MyAds() {
               <div>No Notices found</div>
             )}
           </NoticeList>
-          {data.length !== 0 && (
+          {data.notices.length !== 0 && (
             <StyledPagination
               count={Math.floor(data.totalCount / limit)}
               page={currentPage}
