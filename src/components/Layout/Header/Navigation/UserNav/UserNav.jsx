@@ -15,11 +15,11 @@ import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
 
 export const UserNav = ({ isModalOpen }) => {
   const { data, isLoading } = useGetMeAndPetsQuery();
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+  // const dispatch = useDispatch();
   const hendleLogout = () => {
-    dispatch(logOut());
-    navigate('/login');
+    localStorage.removeItem('persist:auth');
+    window.location.reload();
   };
   return (
     <>
