@@ -1,4 +1,4 @@
-import { BurgerButton, BurgerIcon } from './HeaderBurger.styled';
+import { BurgerButton, BurgerIcon } from './HeaderBurger.styled.jsx';
 import sprite from '../../../../ui/Icons/sprite.svg';
 
 export const HeaderBurger = ({ toggleModal, isModalOpen }) => {
