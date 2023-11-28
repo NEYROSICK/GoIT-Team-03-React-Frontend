@@ -1,4 +1,4 @@
-import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,a as te}from"./index-2056a480.js";import{n as M}from"./notiflix-notify-aio-63da1fd4.js";import{s as ne}from"./selectors-9c63f203.js";const S="min-width: 768px",W="min-width: 1280px",oe=t.li`
+import{n as t,s as a,B as U,j as e,D as G,r as $,E as Q,F as q,a as J,b as r}from"./index-4b56af25.js";import{n as v}from"./notiflix-notify-aio-d99adde1.js";import{s as V}from"./selectors-9c63f203.js";import{F as Z,A as ee}from"./AttentionModalWrapper-086f9653.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
   display: flex;
   flex-direction: column;
 
@@ -21,14 +21,14 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     }
   }
 
-  @media (${S}) {
+  @media (${F}) {
     width: 336px;
   }
 
-  @media (${W}) {
+  @media (${E}) {
     width: 288px;
   }
-`,ie=t.div`
+`,ne=t.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
@@ -40,7 +40,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
 
   overflow: hidden;
   transition: 300ms;
-`,re=t.img`
+`,ie=t.img`
   position: absolute;
   object-position: center;
   object-fit: cover;
@@ -49,7 +49,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   height: 100%;
 
   transition: 300ms;
-`,ae=t.p`
+`,oe=t.p`
   position: absolute;
   top: 16px;
   left: 0;
@@ -70,7 +70,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`,se=t.button`
+`,re=t.button`
   position: absolute;
   top: 12px;
   right: 12px;
@@ -89,7 +89,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   &:hover svg {
     scale: 1.2;
   }
-`,le=t.button`
+`,ae=t.button`
   position: absolute;
   top: 58px;
   right: 12px;
@@ -108,15 +108,15 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   &:hover svg {
     scale: 1.2;
   }
-`,B=t.svg`
+`,A=t.svg`
   stroke: var(--clr-brand-blue);
-  fill: ${o=>o.isFavorite?"var(--clr-brand-blue)":"var(--clr-brand-blue-lt)"};
+  fill: ${i=>i.isFavorite?"var(--clr-brand-blue)":"var(--clr-brand-blue-lt)"};
 
   width: 24px;
   height: 24px;
 
   transition: 300ms;
-`,pe=t.div`
+`,se=t.div`
   position: absolute;
   bottom: 12px;
   left: 0;
@@ -132,11 +132,11 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
 
   z-index: 2;
 
-  @media (${S}) {
+  @media (${F}) {
     gap: 24px;
   }
 
-  @media (${W}) {
+  @media (${E}) {
     gap: 12px;
   }
 `,I=t.p`
@@ -159,13 +159,13 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-weight: 600;
   line-height: normal;
   letter-spacing: 0.48px;
-`,A=t.svg`
+`,L=t.svg`
   stroke: var(--clr-brand-blue);
   fill: none;
 
   width: 24px;
   height: 24px;
-`,ce=t.h3`
+`,le=t.h3`
   width: 231px;
   height: 66px;
   margin: 20px 0 0 20px;
@@ -177,7 +177,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-`,de=t.button`
+`,pe=t.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +207,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
       height: 24px;
     }
   }
-`,xe=t.svg`
+`,ce=t.svg`
   opacity: 0;
   stroke: var(--clr-primary-inv);
   fill: var(--clr-primary-inv);
@@ -216,183 +216,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   height: 0;
 
   transition: 300ms;
-`,he=t.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  transform: scale(1);
-  padding: 15px;
-
-  z-index: 1000;
-
-  opacity: ${o=>o.showModal?"1":"0"};
-
-  transition: 300ms;
-`,fe=t.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-
-  opacity: ${o=>o.showModal?"1":"0"};
-
-  transition: 300ms;
-`,ge=document.querySelector("#modal-root"),me=({onClose:o,showModal:r,children:p})=>{const[c,u]=g.useState(!1);g.useEffect(()=>{u(r)},[r]);const d=g.useMemo(()=>l=>{l.code==="Escape"&&o()},[o]);g.useEffect(()=>(window.addEventListener("keydown",d),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",d),document.body.style.overflow="auto"}),[d]);const n=l=>{l.currentTarget===l.target&&o()};return Q.createPortal(e.jsx(he,{onClick:n,showModal:c,children:e.jsx(fe,{showModal:c,children:p})}),ge)},$="min-width: 768px",ue=t.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-
-  width: 280px;
-  height: 445px;
-  padding: 60px 20px;
-
-  border-radius: 20px;
-  background: #fff;
-  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
-
-  @media (${$}) {
-    width: 608px;
-    height: 429px;
-    padding: 60px 40px;
-
-    border-radius: 40px;
-  }
-`,we=t.svg`
-  position: absolute;
-  top: 16px;
-  right: 16px;
-
-  stroke: var(--clr-brand-blue);
-  fill: none;
-
-  width: 24px;
-  height: 24px;
-
-  cursor: pointer;
-  transition: 300ms;
-
-  &:hover {
-    stroke: var(--clr-brand-yellow);
-  }
-
-  @media (${$}) {
-    top: 24px;
-    right: 24px;
-  }
-`,be=t.h3`
-  color: var(--, #111);
-  text-align: center;
-  font-family: Manrope;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-  letter-spacing: 0.96px;
-
-  @media (${$}) {
-    color: var(--, #111);
-    text-align: center;
-    font-family: Manrope;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: 1.44px;
-  }
-`,ye=t.p`
-  margin-top: 20px;
-
-  color: var(--, #111);
-  text-align: center;
-  font-family: Manrope;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 18px;
-  letter-spacing: 0.56px;
-
-  @media (${$}) {
-    color: var(--, #111);
-    text-align: center;
-    font-family: Manrope;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 28px;
-    letter-spacing: 0.8px;
-  }
-`,T="min-width: 768px",ve=i.ul`
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
-  gap: 12px;
-
-  margin: 40px auto 0 auto;
-
-  @media (${T}) {
-    flex-direction: row;
-  }
-`,je=i.li`
-  font-weight: 700;
-  background-color: var(--clr-brand-yellow);
-  border-radius: 40px;
-  padding: 8px 20px;
-  gap: 8px;
-  width: 240px;
-
-  cursor: pointer;
-  transition: 300ms;
-
-  &:hover {
-    box-shadow: 3px 3px 3px var(--clr-brand-yellow);
-  }
-
-  @media (${T}) {
-    width: 165px;
-  }
-`,ke=i.li`
-  display: flex;
-  justify-content: center;
-
-  background: #fff;
-  font-weight: 600;
-  border-radius: 40px;
-  padding: 7px 20px;
-  border: 2px solid var(--clr-brand-yellow);
-  width: 240px;
-
-  cursor: pointer;
-  transition: 300ms;
-
-  &:hover {
-    box-shadow: 3px 3px 3px var(--clr-brand-yellow);
-  }
-
-  @media (${T}) {
-    width: 142px;
-  }
-`,Me=i(N)`
-  color: var(--clr-primary-inv);
-  display: flex;
-  justify-content: center;
-`,$e=i(N)`
-  color: var(--clr-brand-yellow);
-`,De=i.svg`
-  fill: var(--clr-bcg);
-  margin-left: 12px;
-  width: 24px;
-  height: 24px;
-
-  transition: 300ms;
-`,Le=()=>e.jsxs(ve,{children:[e.jsx(je,{children:e.jsxs(Me,{to:"/login",children:["Log IN",e.jsx(De,{children:e.jsx("use",{href:s+"#iconPaw"})})]})}),e.jsx(ke,{children:e.jsx($e,{to:"/register",children:"Registration"})})]}),Ie=({setShowModal:o,sprite:r})=>e.jsxs(ue,{children:[e.jsx(we,{onClick:()=>{o(!1)},children:e.jsx("use",{href:r+"#iconCross"})}),e.jsx(be,{children:"Attention"}),e.jsx(ye,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."}),e.jsx(Le,{})]}),m="min-width: 768px",Ae=i.div`
+`,x="min-width: 768px",xe=a.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -404,14 +228,14 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   border-radius: 20px;
   background: #fff;
 
-  @media (${m}) {
+  @media (${x}) {
     width: 608px;
     height: 352px;
     padding: 60px 110px;
 
     border-radius: 40px;
   }
-`,Te=i.svg`
+`,de=a.svg`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -429,11 +253,11 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     scale: 1.2;
   }
 
-  @media (${m}) {
+  @media (${x}) {
     top: 24px;
     right: 24px;
   }
-`,Ce=i.h3`
+`,he=a.h3`
   color: var(--, #111);
   text-align: center;
   font-family: Manrope;
@@ -445,7 +269,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   width: 200px;
   margin: 0 auto;
 
-  @media (${m}) {
+  @media (${x}) {
     color: #000;
     font-family: Manrope;
     font-size: 28px;
@@ -455,7 +279,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     letter-spacing: -0.28px;
     width: 288px;
   }
-`,ze=i.p`
+`,fe=a.p`
   margin: 14px auto 0 auto;
 
   color: #000;
@@ -467,7 +291,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   line-height: normal;
   width: 240px;
 
-  @media (${m}) {
+  @media (${x}) {
     color: #000;
     text-align: center;
     font-family: Manrope;
@@ -479,13 +303,13 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     width: 393px;
     height: 66px;
   }
-`,Ee=i.div`
+`,ge=a.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 44px;
 
-  @media (${m}) {
+  @media (${x}) {
     width: 100%;
     height: 40px;
     justify-content: center;
@@ -493,7 +317,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     gap: 17px;
     margin-top: 48px;
   }
-`,Be=i.button`
+`,me=a.button`
   position: relative;
   display: flex;
   width: 256px;
@@ -530,21 +354,21 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     color: #fff;
   }
 
-  @media (${m}) {
+  @media (${x}) {
     width: 129px;
     margin: 0;
   }
-`,Fe=i.p`
+`,ue=a.p`
   color: var(--clr-brand-blue);
   z-index: 2;
   transition: 300ms;
-`,Ne=V`
+`,be=U`
   0% { transform: translateX(0); }
   25% { transform: translateX(-2px); }
   50% { transform: translateX(2px); }
   75% { transform: translateX(-2px); }
   100% { transform: translateX(0); }
-`,Se=i.button`
+`,we=a.button`
   position: relative;
   display: flex;
   color: #fff;
@@ -578,21 +402,21 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   }
 
   &:hover svg {
-    animation: ${Ne} 0.5s ease;
+    animation: ${be} 0.5s ease;
   }
 
-  @media (${m}) {
+  @media (${x}) {
     width: 129px;
     margin: 0;
   }
-`,We=i.p`
+`,ye=a.p`
   display: flex;
   color: #fff;
   justify-content: center;
   align-items: center;
   gap: 8px;
   z-index: 2;
-`,Pe=i.svg`
+`,ve=a.svg`
   stroke: #fff;
   fill: none;
 
@@ -600,7 +424,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   height: 24px;
 
   cursor: pointer;
-`,_e=({setShowModal:o,sprite:r,handleDeleteClick:p})=>e.jsxs(Ae,{children:[e.jsx(Te,{onClick:()=>{o(!1)},children:e.jsx("use",{href:r+"#iconCross"})}),e.jsx(Ce,{children:"Delete adverstiment?"}),e.jsxs(ze,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(Ee,{children:[e.jsx(Be,{onClick:()=>{o(!1)},children:e.jsx(Fe,{children:"Cancel"})}),e.jsx(Se,{children:e.jsxs(We,{children:["Yes",e.jsx(Pe,{type:"submit",onClick:p,children:e.jsx("use",{href:r+"#iconTrash"})})]})})]})]}),a="min-width: 768px",Re=t.div`
+`,je=({setShowModal:i,sprite:s,handleDeleteClick:h})=>e.jsxs(xe,{children:[e.jsx(de,{onClick:()=>{i(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsx(he,{children:"Delete adverstiment?"}),e.jsxs(fe,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(ge,{children:[e.jsx(me,{onClick:()=>{i(!1)},children:e.jsx(ue,{children:"Cancel"})}),e.jsx(we,{children:e.jsxs(ye,{children:["Yes",e.jsx(ve,{type:"submit",onClick:h,children:e.jsx("use",{href:s+"#iconTrash"})})]})})]})]}),o="min-width: 768px",Me=t.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -615,7 +439,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   overflow-y: auto;
   overflow-x: hidden;
 
-  @media (${a}) {
+  @media (${o}) {
     flex-direction: row;
     flex-wrap: wrap;
 
@@ -626,7 +450,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     border-radius: 40px;
     overflow: hidden;
   }
-`,Ye=t.div`
+`,ke=t.div`
   position: relative;
   width: 240px;
   height: 240px;
@@ -635,15 +459,15 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   overflow: hidden;
   margin: 0 auto;
 
-  @media (${a}) {
+  @media (${o}) {
     margin: 0;
     width: 262px;
     height: 298px;
   }
-`,Xe=t.img`
+`,De=t.img`
   width: 100%;
   height: 100%;
-`,Ke=t.p`
+`,$e=t.p`
   position: absolute;
   top: 16px;
   left: 0;
@@ -664,18 +488,18 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`,Oe=t.div`
+`,Ie=t.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
   gap: 8px;
 
-  @media (${a}) {
+  @media (${o}) {
     margin: 0 0 0 24px;
     width: 280px;
     height: 298px;
   }
-`,He=t.h3`
+`,Le=t.h3`
   color: #000;
   font-family: Manrope;
   font-size: 24px;
@@ -684,15 +508,15 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   line-height: normal;
   letter-spacing: -0.24px;
 
-  @media (${a}) {
+  @media (${o}) {
     height: 76px;
     margin-bottom: 12px;
   }
-`,h=t.div`
+`,p=t.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-`,f=t.b`
+`,c=t.b`
   color: #000;
   text-align: center;
   font-family: Manrope;
@@ -701,10 +525,10 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-weight: 600;
   line-height: normal;
 
-  @media (${a}) {
+  @media (${o}) {
     font-size: 16px;
   }
-`,v=t.p`
+`,m=t.p`
   color: #000;
   font-family: Manrope;
   font-size: 12px;
@@ -712,10 +536,10 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   font-weight: 500;
   line-height: normal;
 
-  @media (${a}) {
+  @media (${o}) {
     font-size: 16px;
   }
-`,F=t.a`
+`,B=t.a`
   color: var(--yellow, #ffc107);
   font-family: Manrope;
   font-size: 12px;
@@ -725,10 +549,10 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   text-decoration-line: underline;
   cursor: pointer;
 
-  @media (${a}) {
+  @media (${o}) {
     font-size: 16px;
   }
-`,Ue=t.p`
+`,Ce=t.p`
   /* overflow: hidden; */
   margin: 12px auto;
   width: 256px;
@@ -743,24 +567,24 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   line-height: normal;
   letter-spacing: 0.56px;
 
-  @media (${a}) {
+  @media (${o}) {
     width: 618px;
     height: 48px;
     font-size: 16px;
   }
-`,qe=t.div`
+`,Te=t.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 
-  @media (${a}) {
+  @media (${o}) {
     width: 100%;
     height: 40px;
     flex-direction: row-reverse;
     justify-content: flex-start;
     gap: 17px;
   }
-`,Ge=t.a`
+`,ze=t.a`
   display: flex;
   width: 256px;
   height: 40px;
@@ -789,11 +613,11 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     box-shadow: 5px 5px 5px var(--clr-brand-blue);
   }
 
-  @media (${a}) {
+  @media (${o}) {
     width: 129px;
     height: 40px;
   }
-`,Qe=t.button`
+`,Ae=t.button`
   display: flex;
   width: 256px;
   height: 40px;
@@ -825,20 +649,20 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     box-shadow: 5px 5px 5px var(--clr-brand-blue);
   }
 
-  @media (${a}) {
+  @media (${o}) {
     width: 129px;
     height: 40px;
   }
-`,Ve=t.svg`
+`,Be=t.svg`
   stroke: #fff;
-  fill: ${o=>o.isFavorite?"#fff":"var(--clr-brand-blue)"};
+  fill: ${i=>i.isFavorite?"#fff":"var(--clr-brand-blue)"};
 
   width: 24px;
   height: 24px;
 
   cursor: pointer;
   transition: 300ms;
-`,Je=t.svg`
+`,Fe=t.svg`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -856,11 +680,11 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
     scale: 1.2;
   }
 
-  @media (${a}) {
+  @media (${o}) {
     top: 24px;
     right: 24px;
   }
-`,Ze=({_id:o,sprite:r,isFavorite:p,handleFavoriteClick:c,category:u,setShowModal:d})=>{const{data:n,isLoading:l,error:j}=J(o);return e.jsxs(Re,{children:[l&&e.jsx("div",{children:"Loading..."}),(n==null?void 0:n.notice)&&(n==null?void 0:n.owner)&&e.jsxs(e.Fragment,{children:[e.jsx(Je,{onClick:()=>{d(!1)},children:e.jsx("use",{href:r+"#iconCross"})}),e.jsxs(Ye,{children:[e.jsx(Xe,{src:n.notice.avatarURL}),e.jsx(Ke,{children:u})]}),e.jsxs(Oe,{children:[e.jsx(He,{children:n.notice.title}),e.jsxs(h,{children:[e.jsx(f,{children:"Name:"}),e.jsx(v,{children:n.notice.name})]}),e.jsxs(h,{children:[e.jsx(f,{children:"Bitrhdate:"}),e.jsx(v,{children:n.notice.date})]}),e.jsxs(h,{children:[e.jsx(f,{children:"Type:"}),e.jsx(v,{children:n.notice.type})]}),e.jsxs(h,{children:[e.jsx(f,{children:"Place:"}),e.jsx(v,{children:n.notice.location})]}),e.jsxs(h,{children:[e.jsx(f,{children:"The sex:"}),e.jsx(v,{children:n.notice.sex})]}),e.jsxs(h,{children:[e.jsx(f,{children:"Email:"}),e.jsx(F,{href:`mailto:${n.owner&&n.owner.email}`,children:n.owner&&n.owner.email})]}),e.jsxs(h,{children:[e.jsx(f,{children:"Phone:"}),e.jsx(F,{href:`tel:${n.owner&&n.owner.phone}`,children:n.owner&&n.owner.phone})]})]}),e.jsxs(Ue,{children:["Comments: ",n.notice.comments]}),e.jsxs(qe,{children:[e.jsx(Ge,{href:`tel:${n.owner&&n.owner.phone}`,children:"Contact"}),e.jsxs(Qe,{onClick:c,children:["Add to",e.jsx(Ve,{isFavorite:p,children:e.jsx("use",{href:r+"#iconHeart"})})]})]})]}),j&&e.jsx("div",{children:j.message})]})},rt=({id:o,title:r,date:p,category:c,sex:u,location:d,avatarUrl:n,userFavoritesArr:l,showDelete:j})=>{const[D,b]=g.useState(!1),[L,k]=g.useState(""),[C,P]=g.useState(l.includes(o)),[_]=Z(),[R]=ee(),Y=new Date,X=new Date(p.split("-").reverse().join("-")),z=Y.getFullYear()-X.getFullYear(),K=z%2?"year":"years",O=te(ne),w=()=>{b(y=>!y)},E=async y=>{if(y.preventDefault(),O)try{const x=await _(o);x.data&&x.data.message&&M.Notify.success("Success!"),P(G=>!G)}catch{M.Notify.failure("Failed to update favorite status")}else D?(w(),k("attention"),w()):(k("attention"),w())},H=async y=>{y.preventDefault();try{const x=await R(o);x.data&&M.Notify.success(x.data.name+" was deleted successfully")}catch{M.Notify.failure("Failed to delete notice")}w()},U=()=>{k("delete"),w()},q=()=>{k("learnmore"),w()};return e.jsxs(oe,{children:[e.jsxs(ie,{children:[e.jsx(re,{src:n}),e.jsx(ae,{children:c}),e.jsx(se,{type:"submit",onClick:E,children:e.jsx(B,{isFavorite:C,children:e.jsx("use",{href:s+"#iconHeart"})})}),j&&e.jsx(le,{onClick:U,children:e.jsx(B,{children:e.jsx("use",{href:s+"#iconTrash"})})}),e.jsxs(pe,{children:[e.jsxs(I,{children:[e.jsx(A,{children:e.jsx("use",{href:s+"#iconLocation"})}),d]}),e.jsxs(I,{children:[e.jsx(A,{children:e.jsx("use",{href:s+"#iconClock"})}),z," ",K]}),e.jsxs(I,{children:[e.jsx(A,{children:e.jsx("use",{href:u==="male"?s+"#iconMale":s+"#iconFemale"})}),u]})]})]}),e.jsx(ce,{children:r}),e.jsxs(de,{onClick:q,children:["Learn more",e.jsx(xe,{children:e.jsx("use",{href:s+"#iconPaw"})})]}),D&&e.jsxs(me,{onClose:()=>{b(!1)},showModal:D,children:[L==="attention"&&e.jsx(Ie,{setShowModal:b,sprite:s}),L==="delete"&&e.jsx(_e,{setShowModal:b,sprite:s,handleDeleteClick:H}),L==="learnmore"&&e.jsx(Ze,{_id:o,sprite:s,isFavorite:C,handleFavoriteClick:E,category:c,setShowModal:b})]})]},o)},et="min-width: 768px",tt="min-width: 1280px",at=t.ul`
+`,Ee=({_id:i,sprite:s,isFavorite:h,handleFavoriteClick:u,category:b,setShowModal:j})=>{const{data:n,isLoading:M,error:w}=G(i);return e.jsxs(Me,{children:[M&&e.jsx("div",{children:"Loading..."}),(n==null?void 0:n.notice)&&(n==null?void 0:n.owner)&&e.jsxs(e.Fragment,{children:[e.jsx(Fe,{onClick:()=>{j(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsxs(ke,{children:[e.jsx(De,{src:n.notice.avatarURL}),e.jsx($e,{children:b})]}),e.jsxs(Ie,{children:[e.jsx(Le,{children:n.notice.title}),e.jsxs(p,{children:[e.jsx(c,{children:"Name:"}),e.jsx(m,{children:n.notice.name})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Bitrhdate:"}),e.jsx(m,{children:n.notice.date})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Type:"}),e.jsx(m,{children:n.notice.type})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Place:"}),e.jsx(m,{children:n.notice.location})]}),e.jsxs(p,{children:[e.jsx(c,{children:"The sex:"}),e.jsx(m,{children:n.notice.sex})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Email:"}),e.jsx(B,{href:`mailto:${n.owner&&n.owner.email}`,children:n.owner&&n.owner.email})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Phone:"}),e.jsx(B,{href:`tel:${n.owner&&n.owner.phone}`,children:n.owner&&n.owner.phone})]})]}),e.jsxs(Ce,{children:["Comments: ",n.notice.comments]}),e.jsxs(Te,{children:[e.jsx(ze,{href:`tel:${n.owner&&n.owner.phone}`,children:"Contact"}),e.jsxs(Ae,{onClick:u,children:["Add to",e.jsx(Be,{isFavorite:h,children:e.jsx("use",{href:s+"#iconHeart"})})]})]})]}),w&&e.jsx("div",{children:w.message})]})},Xe=({id:i,title:s,date:h,category:u,sex:b,location:j,avatarUrl:n,userFavoritesArr:M,showDelete:w})=>{const[k,f]=$.useState(!1),[D,y]=$.useState(""),[C,N]=$.useState(M.includes(i)),[W]=Q(),[S]=q(),P=new Date,Y=new Date(h.split("-").reverse().join("-")),T=P.getFullYear()-Y.getFullYear(),_=T%2?"year":"years",X=J(V),d=()=>{f(g=>!g)},z=async g=>{if(g.preventDefault(),X)try{const l=await W(i);l.data&&l.data.message&&v.Notify.success("Success!"),N(K=>!K)}catch{v.Notify.failure("Failed to update favorite status")}else k?(d(),y("attention"),d()):(y("attention"),d())},O=async g=>{g.preventDefault();try{const l=await S(i);l.data&&v.Notify.success(l.data.name+" was deleted successfully")}catch{v.Notify.failure("Failed to delete notice")}d()},R=()=>{y("delete"),d()},H=()=>{y("learnmore"),d()};return e.jsxs(te,{children:[e.jsxs(ne,{children:[e.jsx(ie,{src:n}),e.jsx(oe,{children:u}),e.jsx(re,{type:"submit",onClick:z,children:e.jsx(A,{isFavorite:C,children:e.jsx("use",{href:r+"#iconHeart"})})}),w&&e.jsx(ae,{onClick:R,children:e.jsx(A,{children:e.jsx("use",{href:r+"#iconTrash"})})}),e.jsxs(se,{children:[e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconLocation"})}),j]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconClock"})}),T," ",_]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:b==="male"?r+"#iconMale":r+"#iconFemale"})}),b]})]})]}),e.jsx(le,{children:s}),e.jsxs(pe,{onClick:H,children:["Learn more",e.jsx(ce,{children:e.jsx("use",{href:r+"#iconPaw"})})]}),k&&e.jsxs(Z,{onClose:()=>{f(!1)},showModal:k,children:[D==="attention"&&e.jsx(ee,{setShowModal:f,sprite:r}),D==="delete"&&e.jsx(je,{setShowModal:f,sprite:r,handleDeleteClick:O}),D==="learnmore"&&e.jsx(Ee,{_id:i,sprite:r,isFavorite:C,handleFavoriteClick:z,category:u,setShowModal:f})]})]},i)},Ne="min-width: 768px",We="min-width: 1280px",Oe=t.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -869,13 +693,13 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   margin-top: 24px;
   width: 280px;
 
-  @media (${et}) {
+  @media (${Ne}) {
     column-gap: 32px;
 
     width: 768px;
   }
 
-  @media (${tt}) {
+  @media (${We}) {
     width: 1280px;
   }
 
@@ -883,4 +707,4 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
-`;export{at as N,rt as a};
+`;export{Oe as N,Xe as a};

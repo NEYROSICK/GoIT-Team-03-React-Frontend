@@ -1,4 +1,4 @@
-import{n as a,j as e,d as g,r as o,t as y}from"./index-2056a480.js";import{S as v}from"./StyledPagination.styled-2194736a.js";import{N as S}from"./NoticesSearch-4d9aba7b.js";const k=a.div`
+import{n as a,j as e,d as g,r as o,t as y}from"./index-4b56af25.js";import{S as v}from"./StyledPagination.styled-eab9a567.js";import{N as S}from"./NoticesSearch-dfe5362b.js";const k=a.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
