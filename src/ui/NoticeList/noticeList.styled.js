@@ -9,7 +9,7 @@ export const NoticeList = styled.ul`
   align-items: center;
   flex-wrap: wrap;
   row-gap: 24px;
-
+  margin-top: 24px;
   width: 280px;
 
   @media (${MEDIA_TABLET}) {
