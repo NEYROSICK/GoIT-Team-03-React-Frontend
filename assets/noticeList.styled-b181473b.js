@@ -1,4 +1,4 @@
-import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,a as te}from"./index-769dd8d3.js";import{n as M}from"./notiflix-notify-aio-b01079a7.js";import{s as ne}from"./selectors-9c63f203.js";const S="min-width: 768px",W="min-width: 1280px",oe=t.li`
+import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,a as te}from"./index-2056a480.js";import{n as M}from"./notiflix-notify-aio-63da1fd4.js";import{s as ne}from"./selectors-9c63f203.js";const S="min-width: 768px",W="min-width: 1280px",oe=t.li`
   display: flex;
   flex-direction: column;
 
@@ -866,7 +866,7 @@ import{n as t,r as g,l as Q,j as e,s as i,N,b as s,B as V,D as J,E as Z,F as ee,
   align-items: center;
   flex-wrap: wrap;
   row-gap: 24px;
-
+  margin-top: 24px;
   width: 280px;
 
   @media (${et}) {

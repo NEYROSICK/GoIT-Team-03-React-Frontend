@@ -1,4 +1,4 @@
-import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as y}from"./StyledPagination.styled-bc9e5dfa.js";import{N as S}from"./NoticesSearch-17aef307.js";const k=a.div`
+import{n as a,j as e,d as g,r as o,t as y}from"./index-2056a480.js";import{S as v}from"./StyledPagination.styled-2194736a.js";import{N as S}from"./NoticesSearch-4d9aba7b.js";const k=a.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -27,7 +27,7 @@ import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as 
     font-size: 48px;
     line-height: 66px;
   }
-`,N=a.a`
+`,C=a.a`
   position: relative;
   width: 280px;
   height: 578px;
@@ -75,7 +75,7 @@ import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as 
   &:hover {
     box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 1);
   }
-`,C=a.img`
+`,E=a.img`
   transition: 300ms;
   display: flex;
   align-items: center;
@@ -94,7 +94,7 @@ import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as 
   @media screen and (min-width: 1280px) {
     width: 395px;
   }
-`,E=a.div`
+`,N=a.div`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -161,7 +161,7 @@ import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as 
   font-weight: 400;
   line-height: normal;
   margin-top: 40px;
-`;function M({image:t,title:n,description:s,date:p,url:c}){const d=p,i=new Date(d),l=i.getDate().toString().padStart(2,"0"),h=(i.getMonth()+1).toString().padStart(2,"0"),m=i.getFullYear(),r=`${l}/${h}/${m}`;return e.jsxs(N,{href:c,children:[e.jsx(C,{src:t}),e.jsxs(E,{children:[e.jsx(z,{children:n}),e.jsx(L,{children:s}),e.jsx(A,{children:r})]})]})}const D=a.ul`
+`;function M({image:t,title:n,description:s,date:p,url:c}){const d=p,i=new Date(d),l=i.getDate().toString().padStart(2,"0"),x=(i.getMonth()+1).toString().padStart(2,"0"),m=i.getFullYear(),r=`${l}/${x}/${m}`;return e.jsxs(C,{href:c,children:[e.jsx(E,{src:t}),e.jsxs(N,{children:[e.jsx(z,{children:n}),e.jsx(L,{children:s}),e.jsx(A,{children:r})]})]})}const D=a.ul`
   width: 280px;
   display: flex;
   align-items: center;
@@ -182,4 +182,4 @@ import{n as a,j as e,d as g,r as o,t as v}from"./index-769dd8d3.js";import{S as 
     width: 1247px;
     margin-top: 82px;
   }
-`;function O(){const[t]=g(),n=Object.fromEntries(t.entries()),[s,p]=o.useState(1),[c,d]=o.useState(12);o.useEffect(()=>{const r=()=>{const x=window.innerWidth;x<=768?d(11):x<=1024?d(10):d(12)};return r(),window.addEventListener("resize",r),()=>window.removeEventListener("resize",r)},[]);const{data:i,error:l,isLoading:h}=v({params:{page:s,limit:c,...n}}),m=(r,x)=>{p(x)};return e.jsxs(D,{children:[h&&e.jsx("div",{children:"Loading..."}),i?e.jsxs(e.Fragment,{children:[i.news.map(({_id:r,imgUrl:x,title:w,text:f,date:u,url:b,id:j})=>e.jsx(M,{id:j,image:x,title:w,description:f,date:u,url:b},r)),i.length===0&&e.jsx("div",{children:"No News Found"}),i.length!==0&&e.jsx(y,{count:Math.ceil(i.totalCount/c),page:s,onChange:m,color:"primary"})]}):e.jsx("div",{children:"No News Found"}),l&&e.jsx("div",{children:l.message})]})}function I(){const[t,n]=g();o.useState(Object.fromEntries(t).query||"");const[s,p]=o.useState({}),c=o.useMemo(()=>Object.fromEntries([...t]),[t]),d=o.useCallback(()=>{n(t)},[t,n]),i=h=>{p(h?{query:h}:{})};o.useEffect(()=>{n({...s})},[c,n,s,t]);const l=()=>{t.delete("query",query),n(t),d()};return e.jsxs(k,{children:[e.jsx(P,{children:"News"}),e.jsx(S,{onSubmit:i,onClear:l}),e.jsx(O,{})]})}export{I as default};
+`;function O(){const[t]=g(),n=Object.fromEntries(t.entries()),[s,p]=o.useState(1),[c,d]=o.useState(12);o.useEffect(()=>{const r=()=>{const h=window.innerWidth;h<=768?d(11):h<=1024?d(10):d(12)};return r(),window.addEventListener("resize",r),()=>window.removeEventListener("resize",r)},[]);const{data:i,error:l,isLoading:x}=y({params:{page:s,limit:c,...n}}),m=(r,h)=>{p(h)};return e.jsxs(D,{children:[x&&e.jsx("div",{children:"Loading..."}),i?e.jsxs(e.Fragment,{children:[i.news.map(({_id:r,imgUrl:h,title:w,text:f,date:u,url:b,id:j})=>e.jsx(M,{id:j,image:h,title:w,description:f,date:u,url:b},r)),i.news.length!==0&&e.jsx(v,{count:Math.ceil(i.totalCount/c),page:s,onChange:m,color:"primary"})]}):e.jsx("div",{children:"No News Found"}),l&&e.jsx("div",{children:l.message})]})}function I(){const[t,n]=g();o.useState(Object.fromEntries(t).query||"");const[s,p]=o.useState({}),c=o.useMemo(()=>Object.fromEntries([...t]),[t]),d=o.useCallback(()=>{n(t)},[t,n]),i=x=>{p(x?{query:x}:{})};o.useEffect(()=>{n({...s})},[c,n,s,t]);const l=()=>{t.delete("query",query),n(t),d()};return e.jsxs(k,{children:[e.jsx(P,{children:"News"}),e.jsx(S,{onSubmit:i,onClear:l}),e.jsx(O,{})]})}export{I as default};
