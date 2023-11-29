@@ -1,4 +1,4 @@
-import{s as Jt,R as J,I as pr,r as Ae,J as nt,j as dr}from"./index-449c6896.js";const mr="min-width: 768px",Ye="min-width: 1280px",fn=Jt.h2`
+import{s as Jt,R as J,I as pr,r as Ae,J as nt,j as dr}from"./index-31538252.js";const mr="min-width: 768px",Ye="min-width: 1280px",fn=Jt.h2`
   font-size: 24px;
   color: #000;
 
