@@ -68,8 +68,6 @@ export const DropContainer = styled.div`
   }
 `;
 
-export const DropDown = styled.div``;
-
 export const FilterHeader = styled.h4`
   margin-bottom: 8px;
   font-weight: 700;

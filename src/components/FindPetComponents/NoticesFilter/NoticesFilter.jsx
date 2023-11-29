@@ -1,6 +1,5 @@
 import {
   DropContainer,
-  DropDown,
   FilterBtn,
   FilterButton,
   FilterForm,
@@ -25,7 +24,7 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleBtnClick = () => {
-    setIsOpen((prevState) => !prevState);
+    setIsOpen(!isOpen);
   };
 
   const handleAgeClick = () => {
@@ -47,29 +46,26 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   };
 
   useEffect(() => {
-    const handleEscapeKey = (event) => {
-      if (event.key === 'Escape') {
-        setIsOpen(false);
-      }
-    };
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target) &&
+        !filterBtn.contains(event.target)
+      ) {
         setIsOpen(false);
       }
     };
-    document.addEventListener('keydown', handleEscapeKey);
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener('click', handleClickOutside);
+
     return () => {
-      document.removeEventListener('keydown', handleEscapeKey);
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('click', handleClickOutside);
     };
   }, []);
 
   const dropdownRef = useRef(null);
-
   return (
     <div>
-      <FilterButton type="button" onClick={handleBtnClick}>
+      <FilterButton id="filterBtn" type="button" onClick={handleBtnClick}>
         <FilterText>Filter</FilterText>
         <StyledFilterIcon>
           <use href={sprite + '#iconFilters3'}></use>
@@ -77,117 +73,115 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
       </FilterButton>
 
       {isOpen && (
-        <DropContainer active={true} ref={dropdownRef}>
-          <DropDown>
-            <FilterHeader>Filters</FilterHeader>
-            <FilterMenu active={ageOpen ? true : undefined}>
-              <FilterBtn
-                type="button"
-                onClick={handleAgeClick}
-                aria-label="toggle age options"
-              >
-                <StyledChevronDownIcon active={ageOpen ? true : undefined}>
-                  <use href={sprite + '#iconChevronDown'}></use>
-                </StyledChevronDownIcon>
-                By age
-              </FilterBtn>
-              {ageOpen && (
-                <FilterForm>
-                  <FormLabel>
-                    <StyledCheckboxIcon check={checkboxValue.to1}>
-                      <use href={sprite + '#iconRound'}></use>
-                    </StyledCheckboxIcon>
-                    <StyledCheckbocCheckedIcon check={checkboxValue.to1}>
-                      <use href={sprite + '#iconCheckRound'}></use>
-                    </StyledCheckbocCheckedIcon>
-                    <FormInput
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="to1"
-                      checked={checkboxValue.to1}
-                    />
-                    up to 1 year
-                  </FormLabel>
-                  <FormLabel>
-                    <StyledCheckboxIcon check={checkboxValue.to2}>
-                      <use href={sprite + '#iconRound'}></use>
-                    </StyledCheckboxIcon>
-                    <StyledCheckbocCheckedIcon check={checkboxValue.to2}>
-                      <use href={sprite + '#iconCheckRound'}></use>
-                    </StyledCheckbocCheckedIcon>
-                    <FormInput
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="to2"
-                      checked={[checkboxValue.to2, isChecked]}
-                    />
-                    up to 2 years
-                  </FormLabel>
-                  <FormLabel>
-                    <StyledCheckboxIcon check={checkboxValue.from2}>
-                      <use href={sprite + '#iconRound'}></use>
-                    </StyledCheckboxIcon>
-                    <StyledCheckbocCheckedIcon check={checkboxValue.from2}>
-                      <use href={sprite + '#iconCheckRound'}></use>
-                    </StyledCheckbocCheckedIcon>
-                    <FormInput
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="from2"
-                      checked={[checkboxValue.from2, isChecked]}
-                    />
-                    from 2 years
-                  </FormLabel>
-                </FilterForm>
-              )}
-            </FilterMenu>
-            <FilterMenu active={genderOpen ? true : undefined}>
-              <FilterBtn
-                type="button"
-                onClick={handleGenderClick}
-                aria-label="toggle gender options"
-              >
-                <StyledChevronDownIcon active={genderOpen ? true : undefined}>
-                  <use href={sprite + '#iconChevronDown'}></use>
-                </StyledChevronDownIcon>
-                By gender
-              </FilterBtn>
-              {genderOpen && (
-                <FilterForm>
-                  <FormLabel>
-                    <StyledCheckboxIcon check={checkboxValue.male}>
-                      <use href={sprite + '#iconRound'}></use>
-                    </StyledCheckboxIcon>
-                    <StyledCheckbocCheckedIcon check={checkboxValue.male}>
-                      <use href={sprite + '#iconCheckRound'}></use>
-                    </StyledCheckbocCheckedIcon>
-                    <FormInput
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="male"
-                      checked={checkboxValue.male}
-                    />
-                    male
-                  </FormLabel>
-                  <FormLabel>
-                    <StyledCheckboxIcon check={checkboxValue.female}>
-                      <use href={sprite + '#iconRound'}></use>
-                    </StyledCheckboxIcon>
-                    <StyledCheckbocCheckedIcon check={checkboxValue.female}>
-                      <use href={sprite + '#iconCheckRound'}></use>
-                    </StyledCheckbocCheckedIcon>
-                    <FormInput
-                      onChange={handleCheckboxChange}
-                      type="checkbox"
-                      name="female"
-                      checked={checkboxValue.female}
-                    />
-                    female
-                  </FormLabel>
-                </FilterForm>
-              )}
-            </FilterMenu>
-          </DropDown>
+        <DropContainer id="filtersMenu" active={true} ref={dropdownRef}>
+          <FilterHeader>Filters</FilterHeader>
+          <FilterMenu active={ageOpen ? true : undefined}>
+            <FilterBtn
+              type="button"
+              onClick={handleAgeClick}
+              aria-label="toggle age options"
+            >
+              <StyledChevronDownIcon active={ageOpen ? true : undefined}>
+                <use href={sprite + '#iconChevronDown'}></use>
+              </StyledChevronDownIcon>
+              By age
+            </FilterBtn>
+            {ageOpen && (
+              <FilterForm>
+                <FormLabel>
+                  <StyledCheckboxIcon check={checkboxValue.to1}>
+                    <use href={sprite + '#iconRound'}></use>
+                  </StyledCheckboxIcon>
+                  <StyledCheckbocCheckedIcon check={checkboxValue.to1}>
+                    <use href={sprite + '#iconCheckRound'}></use>
+                  </StyledCheckbocCheckedIcon>
+                  <FormInput
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    name="to1"
+                    checked={checkboxValue.to1}
+                  />
+                  up to 1 year
+                </FormLabel>
+                <FormLabel>
+                  <StyledCheckboxIcon check={checkboxValue.to2}>
+                    <use href={sprite + '#iconRound'}></use>
+                  </StyledCheckboxIcon>
+                  <StyledCheckbocCheckedIcon check={checkboxValue.to2}>
+                    <use href={sprite + '#iconCheckRound'}></use>
+                  </StyledCheckbocCheckedIcon>
+                  <FormInput
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    name="to2"
+                    checked={[checkboxValue.to2, isChecked]}
+                  />
+                  up to 2 years
+                </FormLabel>
+                <FormLabel>
+                  <StyledCheckboxIcon check={checkboxValue.from2}>
+                    <use href={sprite + '#iconRound'}></use>
+                  </StyledCheckboxIcon>
+                  <StyledCheckbocCheckedIcon check={checkboxValue.from2}>
+                    <use href={sprite + '#iconCheckRound'}></use>
+                  </StyledCheckbocCheckedIcon>
+                  <FormInput
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    name="from2"
+                    checked={[checkboxValue.from2, isChecked]}
+                  />
+                  from 2 years
+                </FormLabel>
+              </FilterForm>
+            )}
+          </FilterMenu>
+          <FilterMenu active={genderOpen ? true : undefined}>
+            <FilterBtn
+              type="button"
+              onClick={handleGenderClick}
+              aria-label="toggle gender options"
+            >
+              <StyledChevronDownIcon active={genderOpen ? true : undefined}>
+                <use href={sprite + '#iconChevronDown'}></use>
+              </StyledChevronDownIcon>
+              By gender
+            </FilterBtn>
+            {genderOpen && (
+              <FilterForm>
+                <FormLabel>
+                  <StyledCheckboxIcon check={checkboxValue.male}>
+                    <use href={sprite + '#iconRound'}></use>
+                  </StyledCheckboxIcon>
+                  <StyledCheckbocCheckedIcon check={checkboxValue.male}>
+                    <use href={sprite + '#iconCheckRound'}></use>
+                  </StyledCheckbocCheckedIcon>
+                  <FormInput
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    name="male"
+                    checked={checkboxValue.male}
+                  />
+                  male
+                </FormLabel>
+                <FormLabel>
+                  <StyledCheckboxIcon check={checkboxValue.female}>
+                    <use href={sprite + '#iconRound'}></use>
+                  </StyledCheckboxIcon>
+                  <StyledCheckbocCheckedIcon check={checkboxValue.female}>
+                    <use href={sprite + '#iconCheckRound'}></use>
+                  </StyledCheckbocCheckedIcon>
+                  <FormInput
+                    onChange={handleCheckboxChange}
+                    type="checkbox"
+                    name="female"
+                    checked={checkboxValue.female}
+                  />
+                  female
+                </FormLabel>
+              </FilterForm>
+            )}
+          </FilterMenu>
         </DropContainer>
       )}
     </div>
