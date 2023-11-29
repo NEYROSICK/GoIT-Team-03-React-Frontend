@@ -262,23 +262,6 @@ export const BtnAddPet = styled(Link)`
   }
   }
 `
-// const DeleteCancelBtn = styled.button`
-//   position: relative;
-//   display: flex;
-//   width: 256px;
-//   height: 40px;
-//   padding: 8px 20px;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 8px;
-//   flex-shrink: 0;
-//   border-radius: 40px;
-//   border: 2px solid #54adff;
-//   outline: none;
-//   background: #fff;
-//   transition: 300ms;
-
-// `
 export const TrashSvg = styled.svg`
   fill:none;
   stroke:var(--clr-brand-blue) ;
