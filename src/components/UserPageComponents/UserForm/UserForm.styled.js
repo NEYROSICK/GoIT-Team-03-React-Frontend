@@ -126,6 +126,7 @@ export const UserFormBtn = styled.button`
   justify-content:center;
   background-color:transparent;
   height: 31px;
+  padding: 0px;
   cursor: pointer;
   border: none;
   font-size: 18px;

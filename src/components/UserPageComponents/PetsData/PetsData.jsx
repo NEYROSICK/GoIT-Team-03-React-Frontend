@@ -20,10 +20,11 @@ export const PetsData = () => {
             <ConteinerTitle>
             <PetsDataTitle>My pets:</PetsDataTitle>
             <BtnAddPet to={'/add-pet'} state={{ from: '/user'}}>
-            <PlussSvg>
+            <div>
+              <PlussSvg>
             <use href={sprite + '#iconPlusSmall'}></use>
           </PlussSvg>
-          Add pet
+          Add pet</div>
         </BtnAddPet>
       </ConteinerTitle>
       <PetsList>

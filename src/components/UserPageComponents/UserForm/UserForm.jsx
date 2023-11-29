@@ -22,6 +22,7 @@ import {
   InputConteiner,
   ErrorMessage,
 } from './UserForm.styled';
+import Loader from "../../../ui/Loader/Loader";
 import { useDispatch } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
@@ -113,13 +114,13 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
       )
       .required('Email is required'),
     city: string().min(3, 'City Too Short!').required('Required'),
-    phone: string().min(13, 'Phone Too Short!').max(13).required('Required'),
+    phone: string().matches(/^\+\d{12}$/,'Phone must have + and length 12').min(13, 'Phone Too Short!').max(13,"Phone Too long").required('Required'), 
   });
 
   return (
     <>
       {isLoading ? (
-        <h1>loading..</h1>
+        <Loader/>
       ) : (
         <Formik
           initialValues={{
@@ -185,8 +186,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                         id="date"
                         placeholder={'00-00-0000'}
                         disabled={isUserUpdate}
-                        minLength="10"
-                        required
                       />
                     </InputConteiner>
                     {errors.date && touched.date ? (
@@ -197,7 +196,7 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                     <InputConteiner>
                       <UserFormLabel htmlFor={`phone`}>Phone:</UserFormLabel>
                       <UserFormInput
-                        type="text"
+                        type="phone"
                         name="phone"
                         id="phone"
                         placeholder={'+38000000000'}
@@ -218,7 +217,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
                         id="city"
                         placeholder={'Kyiv'}
                         disabled={isUserUpdate}
-                        required
                       />
                     </InputConteiner>
                     {errors.city && touched.city ? (
