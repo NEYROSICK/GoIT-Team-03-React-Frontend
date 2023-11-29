@@ -6,7 +6,7 @@ export const HeaderSection = styled.header`
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
-  z-index: 999;
+  z-index: 100;
   background-color: var(--clr-bcg);
 
   @media screen and (min-width: 768px) {

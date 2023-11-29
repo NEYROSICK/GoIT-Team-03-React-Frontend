@@ -8,10 +8,18 @@ import {
   IconLogin,
 } from '../ModalBurger.styled';
 
-export const ModalAuthNav = () => {
+export const ModalAuthNav = ({ onClose }) => {
+  const handleClick = () => {
+    onClose(false);
+  };
+
   return (
     <AuthNavStyled>
-      <LoginStyled>
+      <LoginStyled
+        onClick={() => {
+          handleClick();
+        }}
+      >
         <LogLink to="/login">
           Log In
           <IconLogin>
@@ -20,7 +28,11 @@ export const ModalAuthNav = () => {
         </LogLink>
       </LoginStyled>
 
-      <RegisterStyled>
+      <RegisterStyled
+        onClick={() => {
+          handleClick();
+        }}
+      >
         <RegLink to="/register">Registration</RegLink>
       </RegisterStyled>
     </AuthNavStyled>

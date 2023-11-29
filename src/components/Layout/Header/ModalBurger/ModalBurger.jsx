@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container } from '../../Container/Container';
 import { ModalUserNav } from './ModalUserNav/ModalUserNav';
 import {
@@ -10,21 +10,17 @@ import {
   NavList,
   StyledNavLink,
 } from './ModalBurger.styled';
-import { useNavigate } from 'react-router-dom';
 import sprite from '../../../../ui/Icons/sprite.svg';
-import { logOut } from '../../../../redux/auth/operations';
 import { ModalAuthNav } from './ModalAuthNav/ModalAuthNav';
 import { useEffect, useMemo } from 'react';
 
 export const ModalBurger = ({ onClose, isModalOpen }) => {
   const { token } = useSelector((state) => state.auth);
 
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
-
   const handleLogout = () => {
-    dispatch(logOut());
-    navigate('/login');
+    onClose(false);
+    localStorage.removeItem('persist:auth');
+    window.location.reload();
   };
 
   const handleKeydown = useMemo(
@@ -62,7 +58,11 @@ export const ModalBurger = ({ onClose, isModalOpen }) => {
     <BurgerWrapper className={isModalOpen ? 'isOpen' : ''}>
       <Container>
         <NavContainer>
-          {token ? <ModalUserNav /> : <ModalAuthNav />}
+          {token ? (
+            <ModalUserNav onClose={onClose} />
+          ) : (
+            <ModalAuthNav onClose={onClose} />
+          )}
           <NavList>
             <li>
               <StyledNavLink to="/news" onClick={() => onClose(false)}>

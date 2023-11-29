@@ -1,19 +1,13 @@
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../../../../redux/auth/operations';
 import sprite from '../../../../../ui/Icons/sprite.svg';
 import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
-import {
-  UserNavStyledDiv,
-  LinkUser,
-  LogoutButton,
-  IconUser,
-  IconLogOut,
-  LinkUserContainer,
-} from '../ModalBurger.styled';
+import { LinkUser, IconUser, LinkUserContainer } from '../ModalBurger.styled';
 
-export const ModalUserNav = () => {
+export const ModalUserNav = ({ onClose }) => {
   const { data, isLoading } = useGetMeAndPetsQuery();
+
+  const handleClick = () => {
+    onClose(false);
+  };
 
   return (
     <>
@@ -21,7 +15,12 @@ export const ModalUserNav = () => {
         <div></div>
       ) : (
         <LinkUserContainer>
-          <LinkUser to="/user">
+          <LinkUser
+            to="/user"
+            onClick={() => {
+              handleClick();
+            }}
+          >
             <IconUser>
               <use href={sprite + '#iconUser'}></use>
             </IconUser>

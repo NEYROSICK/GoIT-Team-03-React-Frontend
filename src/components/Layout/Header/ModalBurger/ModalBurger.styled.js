@@ -9,7 +9,7 @@ export const BurgerWrapper = styled.div`
   width: 100%;
   height: calc(100% - 68px);
   background-color: var(--clr-bcg);
-  z-index: 1;
+  z-index: 99;
   transition: transform 0.5s cubic-bezier(0.85, 0.58, 0.59, 1.1);
   transform: translateY(-100vh);
 
@@ -56,7 +56,6 @@ export const NavList = styled.ul`
       padding: 30px 0;
     }
   }
-
 
   & li {
     transition: color 0.3s;
@@ -170,7 +169,6 @@ export const AuthNavStyled = styled.ul`
 export const LoginStyled = styled.li`
   background-color: var(--clr-brand-yellow);
   border-radius: 40px;
-  gap: 8px;
   width: 165px;
   font-size: 16px;
   font-style: normal;
