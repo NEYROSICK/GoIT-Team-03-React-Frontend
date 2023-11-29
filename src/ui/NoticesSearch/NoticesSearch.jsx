@@ -15,7 +15,7 @@ const NoticesSearch = ({ onSubmit }) => {
   );
 
   const handleChange = (e) => {
-    setSearchQuery(e.target.value.toLowerCase());
+    setSearchQuery(e.target.value);
   };
 
   const handleClear = () => {
