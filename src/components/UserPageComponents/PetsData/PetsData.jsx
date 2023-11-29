@@ -12,19 +12,18 @@ import PetsItem from '../PetsItem/PetsItem';
 import sprite from '.././../../ui/Icons/sprite.svg';
 
 export const PetsData = () => {
-
-
-    const { data =[] } = useGetMeAndPetsQuery();
-    return (
-        <div>
-            <ConteinerTitle>
-            <PetsDataTitle>My pets:</PetsDataTitle>
-            <BtnAddPet to={'/add-pet'} state={{ from: '/user'}}>
-            <div>
-              <PlussSvg>
-            <use href={sprite + '#iconPlusSmall'}></use>
-          </PlussSvg>
-          Add pet</div>
+  const { data = [] } = useGetMeAndPetsQuery();
+  return (
+    <div>
+      <ConteinerTitle>
+        <PetsDataTitle>My pets:</PetsDataTitle>
+        <BtnAddPet to={'/add-pet'} state={{ from: '/user' }}>
+          <div>
+            Add pet
+            <PlussSvg>
+              <use href={sprite + '#iconPlusSmall'}></use>
+            </PlussSvg>
+          </div>
         </BtnAddPet>
       </ConteinerTitle>
       <PetsList>

@@ -6,12 +6,12 @@ export const PetsDataTitle = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`
+`;
 
 export const PetsList = styled.ul`
   margin-bottom: 50px;
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   gap: 20px;
   @media only screen and (min-width: 1280px) {
     gap: 24px;
@@ -24,8 +24,8 @@ export const PetsItem = styled.li`
   flex-direction: column;
   align-items: center;
   border-radius: 20px;
-  background:var(--clr-bcg-user);
- box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
+  background: var(--clr-bcg-user);
+  box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   width: 280px;
   position: relative;
   @media only screen and (min-width: 768px) {
@@ -35,8 +35,8 @@ export const PetsItem = styled.li`
     align-items: flex-start;
     border-radius: 40px;
   }
-  @media only screen and (min-width: 1280px) {  
-    width: 821px;;
+  @media only screen and (min-width: 1280px) {
+    width: 821px;
     height: 100%;
     padding: 20px 28px 20px 20px;
   }
@@ -77,11 +77,11 @@ export const PetsCardText = styled.li`
   letter-spacing: 0.56px;
 
   @media only screen and (min-width: 1280px) {
-    font-size:16px;
+    font-size: 16px;
     letter-spacing: 0.64px;
     line-height: 1.375;
   }
-  
+
   h3 {
     display: inline;
     font-family: Manrope-Bold, sans-serif;
@@ -100,14 +100,14 @@ export const PetsCardText = styled.li`
       font-weight: 400;
     }
   }
-`
+`;
 
 export const PetsCardIcon = styled.svg`
   position: absolute;
   top: 272px;
   right: 16px;
   fill: transparent;
-  stroke: #54ADFF;
+  stroke: #54adff;
   @media only screen and (min-width: 768px) {
     top: 20px;
     right: 20px;
@@ -165,115 +165,112 @@ export const BtnDelite = styled.button`
   position: absolute;
   top: 272px;
   right: 16px;
-  
+
   border: none;
-  background-color:transparent;
+  background-color: transparent;
   padding: 0px;
   @media only screen and (min-width: 768px) {
-  top: 20px;
-  right: 20px;
+    top: 20px;
+    right: 20px;
   }
-
-`
+`;
 
 //Add pet
 export const ConteinerTitle = styled.div`
   display: flex;
   margin-bottom: 31px;
-    max-width:280px;
-    margin-left:auto;
-    margin-right:auto;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
   @media only screen and (min-width: 768px) {
     margin-bottom: 20px;
-    max-width:704px;
+    max-width: 704px;
   }
   @media only screen and (min-width: 768px) {
     margin-bottom: 24px;
-    max-width:821px;
+    max-width: 821px;
   }
-
-`
+`;
 export const BtnAddPet = styled(Link)`
   border-radius: 50%;
   padding: 20px 18px 16px;
   color: var(--clr-primary-inv);
-  background:  var(--clr-brand-blue);
-  margin-left:auto;
+  background-color: var(--clr-brand-blue);
+  margin-left: auto;
   font-size: 12px;
 
   border: none;
   display: flex;
-  flex-direction:column;
-  justify-content:center;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: 4px 0px ;
+  gap: 4px 0px;
   position: relative;
 
   position: fixed;
-  bottom:30px;
+  bottom: 30px;
   right: 20px;
-  z-index:1;
-  div{
-  display: flex;
-  flex-direction: column;
-  align-items:center;
-  justify-content:center;
-  gap: 4px;
-  }
 
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+  }
 
   @media only screen and (min-width: 768px) {
     position: relative;
-    
+
     padding: 8px 20px;
-    border-radius:40px;
-    
+    border-radius: 40px;
+
     font-size: 16px;
     font-weight: 700;
     letter-spacing: 0.64px;
     transition: 300ms;
     flex-shrink: 0;
     outline: none;
-      div{
-        flex-direction: row;
-          gap: 8px;
-  }
+
+    div {
+      flex-direction: row;
+      gap: 8px;
+      z-index: 2;
+    }
+
     &:before {
-    content: '';
-    color: var(--clr-primary-inv);
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
-    
-    border-radius: 40px;
-    opacity: 0;
-    transition: opacity color 300ms;
-  }
+      content: '';
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
 
-  &:hover:before {
-    opacity: 1;
+      border-radius: 40px;
+      opacity: 0;
+      transition: opacity 0.3s;
+      z-index: 0;
+    }
+
+    &:hover:before {
+      opacity: 1;
+    }
+
+    /* &:hover div {
+      color: var(--clr-primary-inv);
+      z-index: 2;
+    } */
   }
-  &:hover  div{
-  color: var(--clr-primary-inv);
-    z-index: 2;
-  }
-  }
-`
+`;
 export const TrashSvg = styled.svg`
-  fill:none;
-  stroke:var(--clr-brand-blue) ;
+  fill: none;
+  stroke: var(--clr-brand-blue);
   width: 24px;
   height: 24px;
-
-`
+`;
 export const PlussSvg = styled.svg`
-  stroke:var(--clr-bcg);
+  stroke: var(--clr-bcg);
   width: 24px;
   height: 24px;
-
-`
-
-
+`;
