@@ -2,7 +2,7 @@ import { useFormik } from 'formik';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import * as Yup from 'yup';
 import sprite from '../../../ui/Icons/sprite.svg';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { login } from '../../../redux/auth/operations';
 import { Container } from '../../Layout/Container/Container';
 import {
@@ -21,11 +21,11 @@ import {
   EmailValidation,
   PasswordValidation,
 } from './LoginForm.styled';
-import { selectIsAuthenticated } from '../../../redux/auth/selectors';
+
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
-  const isAuthenticated = useSelector(selectIsAuthenticated);
+const Login =  () => {
+
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -54,22 +54,27 @@ const Login = () => {
     },
 
     validationSchema: validationSchema,
-    onSubmit: (values) => {
-      dispatch(
-        login({
-          email: values.email.toLowerCase(),
-          password: values.password,
-        }),
-      );
-
-      if (isAuthenticated) {
+     onSubmit: (values) => {
+    dispatch(login({
+      email: values.email.toLowerCase(),
+      password: values.password,
+    })).then((action) => {
+      
+      if (login.fulfilled.match(action)) {
         navigate('/user');
+        Notify.success('Login successful');
       } else {
-        // Якщо користувач не авторизований, встановлюємо відповідне повідомлення
-        return Notify.failure('Wrong login or password');
+        const error = action.payload;
+         if (error && error.response && error.response.status === 401) {
+          Notify.failure(error.message || 'Unauthorized user');
+        } else {
+          Notify.failure('An error occurred during login');
+        }
       }
-    },
-  });
+    });
+  },
+});
+
   return (
     <Container>
       <ContainerMain>
