@@ -32,11 +32,17 @@ function App() {
           <Route path="sell" element={<AllNotices />} />
           <Route path="in-good-hands" element={<AllNotices />} />
           <Route path="lost-found" element={<AllNotices />} />
-          <Route path="favorite" element={<FavoriteNotices />} />
-          <Route path="my-ads" element={<MyAds />} />
         </Route>
-        <Route path="news" element={<NewsPage />} />
-        <Route path="friends" element={<FriendsPage />} />
+        <Route
+          path="/notices/favorite"
+          element={
+            <PrivateRoute redirectTo="/login" component={<FavoriteNotices />} />
+          }
+        />
+        <Route
+          path="/notices/my-ads"
+          element={<PrivateRoute redirectTo="/login" component={<MyAds />} />}
+        />
         <Route
           path="/register"
           element={
@@ -59,6 +65,8 @@ function App() {
             <PrivateRoute redirectTo="/login" component={<AddPetPage />} />
           }
         />
+        <Route path="news" element={<NewsPage />} />
+        <Route path="friends" element={<FriendsPage />} />
         <Route path="*" element={<ErrorPage />} />
       </Route>
     </Routes>

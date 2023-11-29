@@ -53,7 +53,7 @@ const LearnMoreModalWrapper = ({
               <LearnMoreDataRight>{data.notice.name}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>
-              <LearnMoreDataLeft>Bitrhdate:</LearnMoreDataLeft>
+              <LearnMoreDataLeft>Birthday:</LearnMoreDataLeft>
               <LearnMoreDataRight>{data.notice.date}</LearnMoreDataRight>
             </LearnMoreDataItem>
             <LearnMoreDataItem>

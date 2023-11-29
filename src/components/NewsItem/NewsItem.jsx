@@ -6,7 +6,6 @@ import {
   ArticleTitle,
   ArticleDetail,
 } from './NewsItem.styled';
-
 function NewsItem({ image, title, description, date, url }) {
   const dateString = date;
   const dateObject = new Date(dateString);
@@ -15,10 +14,10 @@ function NewsItem({ image, title, description, date, url }) {
   const year = dateObject.getFullYear();
 
   const formattedDate = `${day}/${month}/${year}`;
-
+  
   return (
     <Article href={url}>
-      <ArticleImage src={image} />
+      <ArticleImage src={image} alt="../../images/noImage.png" />
       <ArticleContent>
         <ArticleTitle>{title}</ArticleTitle>
         <ArticleDesc>{description}</ArticleDesc>

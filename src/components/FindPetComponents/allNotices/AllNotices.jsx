@@ -50,6 +50,7 @@ function AllNotices() {
       limit,
       ...searchParamsObject,
     },
+    refetchOnMountOrArgChange: true,
   });
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
