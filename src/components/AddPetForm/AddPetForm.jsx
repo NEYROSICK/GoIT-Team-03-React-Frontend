@@ -251,13 +251,13 @@ const AddPetForm = () => {
 
   const getTitle = () => {
     switch (formData.category) {
-      case 'your pet':
+      case 'your-pet':
         return 'Add pet';
       case 'sell':
         return 'Add pet for sale';
-      case 'lost/found':
+      case 'lost-found':
         return 'Add lost pet';
-      case 'in good hands':
+      case 'in-good-hands':
         return 'In good hands';
       default:
         return 'Add pet';

@@ -42,8 +42,8 @@ const NoticesSearch = ({ onSubmit }) => {
         type="submit"
         aria-label="submit"
         active={searchQuery && true}
+        onClick={handleSubmit}
       >
-        {' '}
         <use href={sprite + '#iconSearch'}></use>
       </SearchSubmitIcon>
       {searchQuery && (

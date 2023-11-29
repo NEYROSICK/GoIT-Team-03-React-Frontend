@@ -1,3 +1,10 @@
+import {
+  NoNoticesFound,
+  NoNoticesFoundIcon,
+} from '../../../ui/NoMatches/AllNotices.styled.js';
+import sprite from '../../../ui/Icons/sprite.svg';
+import Loader from '../../../ui/Loader/Loader.jsx';
+
 import { useSearchParams } from 'react-router-dom';
 import {
   useGetMyNoticesQuery,
@@ -59,7 +66,7 @@ function MyAds() {
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           <NoticeList>
@@ -81,7 +88,15 @@ function MyAds() {
                 ),
               )
             ) : (
-              <div>No Notices found</div>
+              <NoNoticesFound>
+                <NoNoticesFoundIcon>
+                  <use href={sprite + '#iconPaw'} />
+                </NoNoticesFoundIcon>{' '}
+                No Notices found{' '}
+                <NoNoticesFoundIcon>
+                  <use href={sprite + '#iconPaw'} />
+                </NoNoticesFoundIcon>
+              </NoNoticesFound>
             )}
           </NoticeList>
           {data.notices.length !== 0 && (

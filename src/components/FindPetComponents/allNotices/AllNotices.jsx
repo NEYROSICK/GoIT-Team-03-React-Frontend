@@ -1,4 +1,11 @@
 import {
+  NoNoticesFound,
+  NoNoticesFoundIcon,
+} from '../../../ui/NoMatches/AllNotices.styled.js';
+import sprite from '../../../ui/Icons/sprite.svg';
+import Loader from '../../../ui/Loader/Loader.jsx';
+
+import {
   useGetNoticesQuery,
   useGetMeAndPetsQuery,
 } from '../../../redux/API/RTKQueryApi.js';
@@ -61,7 +68,7 @@ function AllNotices() {
 
   return (
     <>
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <Loader />}
       {!isLoading && (
         <>
           <NoticeList>
@@ -82,7 +89,15 @@ function AllNotices() {
                 ),
               )
             ) : (
-              <div>No Notices found</div>
+              <NoNoticesFound>
+                <NoNoticesFoundIcon>
+                  <use href={sprite + '#iconPaw'} />
+                </NoNoticesFoundIcon>{' '}
+                No Notices found{' '}
+                <NoNoticesFoundIcon>
+                  <use href={sprite + '#iconPaw'} />
+                </NoNoticesFoundIcon>
+              </NoNoticesFound>
             )}
           </NoticeList>
           {data.notices.length !== 0 && (
