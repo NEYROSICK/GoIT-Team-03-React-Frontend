@@ -36,7 +36,7 @@ const UserData = () => {
     };
     window.addEventListener('keydown', close);
     return () => window.removeEventListener('keydown', close);
-  }, []);
+  }, [dispatch]);
 
   const [isUserUpdate, setIsUserUpdate] = useState(true);
 
