@@ -6,6 +6,7 @@ const initialState = {
   isAuthenticated: false,
   isNewUser: null,
   token: null,
+  error: null,
 };
 
 const handleFulfilledRegister = (state, { payload }) => {
@@ -19,6 +20,7 @@ const handleFulfilledLogin = (state, { payload }) => {
   state.user = payload.user;
   state.token = payload.token;
   state.isAuthenticated = true;
+  state.error = null;
 };
 
 const handleFulfilledLogOut = (state) => {
@@ -34,7 +36,10 @@ const authSlice = createSlice({
     builder
       .addCase(register.fulfilled, handleFulfilledRegister)
       .addCase(login.fulfilled, handleFulfilledLogin)
-      .addCase(logOut.fulfilled, handleFulfilledLogOut);
+      .addCase(logOut.fulfilled, handleFulfilledLogOut)
+      .addCase(login.rejected, (state, action) => {
+        state.error = action.payload; // Використовуйте payload для отримання даних про помилку
+      });
   },
   reducers: {
     changeIsNewUser(state, action) {
