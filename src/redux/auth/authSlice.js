@@ -38,7 +38,7 @@ const authSlice = createSlice({
       .addCase(login.fulfilled, handleFulfilledLogin)
       .addCase(logOut.fulfilled, handleFulfilledLogOut)
       .addCase(login.rejected, (state, action) => {
-        state.error = action.payload; // Використовуйте payload для отримання даних про помилку
+        state.error = action.payload;
       });
   },
   reducers: {
