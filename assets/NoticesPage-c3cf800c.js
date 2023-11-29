@@ -1,4 +1,4 @@
-import{n as r,L as G,u as y,a as O,j as e,r as d,b as a,c as $,d as Q,C as T,O as U}from"./index-31538252.js";import{N as H}from"./NoticesSearch-503bb1ec.js";import{s as B}from"./selectors-9c63f203.js";import{F as K,A as W}from"./AttentionModalWrapper-6bc68f33.js";const _=r.div`
+import{n as r,L as G,u as y,a as O,j as e,r as d,b as a,c as $,d as Q,C as T,O as U}from"./index-a1b9b230.js";import{N as H}from"./NoticesSearch-0ad1822d.js";import{s as B}from"./selectors-9c63f203.js";import{F as K,A as W}from"./AttentionModalWrapper-0f2ab379.js";const _=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -258,7 +258,7 @@ const I=(n,t,i)=>n&&!t&&!i?{age:"to-1"}:!n&&t&&!i?{age:"to-2"}:!n&&!t&&i?{age:"f
   }
 `,xe=r.button`
   position: fixed;
-  top: 460px;
+  bottom: 30px;
   z-index: 5;
   width: 80px;
   height: 80px;
