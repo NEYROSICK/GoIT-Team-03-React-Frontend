@@ -1,5 +1,5 @@
 import { Field, ErrorMessage, Form, Formik } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { object, string } from 'yup';
 import {
   AvatarContainer,
@@ -15,6 +15,11 @@ import {
   ErrorMoreInfoText,
   SexContainer,
   ErrorSex,
+  InputContainer,
+  LeftContainer,
+  DesktopContainer,
+  IconBigPlus,
+  ErrorMoreInfoComments,
 } from './AddPetMoreInfo.styled';
 import {
   ButtonContainer,
@@ -39,6 +44,13 @@ const AddPetMoreInfoNotices = (props) => {
   const [selectedFile, setSelectedFile] = useState(props.selectedFile || null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [erMessage, setErMessage] = useState('');
+
+  useEffect(() => {
+    props.setIsTitleCentered(true);
+    return () => {
+      props.setIsTitleCentered(false);
+    };
+  });
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];
@@ -68,99 +80,120 @@ const AddPetMoreInfoNotices = (props) => {
       {({ values, touched, errors }) => (
         <Form>
           <InputList>
-            <SexContainer>
-              <p>The Sex</p>
-              <SexList>
-                <Field
-                  type="radio"
-                  name="sex"
-                  id="female"
-                  value="female"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
-                />
-                <label htmlFor="female">
-                  <IconFemale className="iconFemale">
-                    <use href={sprite + '#iconFemale'} />
-                  </IconFemale>
-                  Female
-                </label>
-
-                <Field
-                  type="radio"
-                  name="sex"
-                  id="male"
-                  value="male"
-                  className={`${touched.sex && errors.sex ? 'is-invalid' : ''}`}
-                />
-                <label htmlFor="male">
-                  <IconMale className="iconMale">
-                    <use href={sprite + '#iconMale'} />
-                  </IconMale>
-                  Male
-                </label>
-                <ErrorMessage name="sex" component={ErrorSex} />
-              </SexList>
-            </SexContainer>
-
-            <AvatarContainer>
-              <p>Choose pet image:</p>
-              <LabelInputFile
-                className={
-                  erMessage !== '' || (formSubmitted && !selectedFile)
-                    ? 'no-image-selected'
-                    : ''
-                }
-              >
-                {selectedFile ? (
-                  <div>
-                    <PhotoContainer
-                      src={URL.createObjectURL(selectedFile)}
-                      alt="User's file"
-                      style={{ maxWidth: '300px' }}
+            <DesktopContainer>
+              <LeftContainer>
+                <SexContainer className="moreInfoNotices">
+                  <p>The Sex</p>
+                  <SexList>
+                    <Field
+                      type="radio"
+                      name="sex"
+                      id="female"
+                      value="female"
+                      className={`${
+                        touched.sex && errors.sex ? 'is-invalid' : ''
+                      }`}
                     />
-                  </div>
-                ) : (
-                  <IconPlus>
-                    <use href={sprite + '#iconPlusAvatar'} />
-                  </IconPlus>
-                )}
-                <InputFile
-                  type="file"
-                  name="image"
-                  accept="image/jpeg, image/png"
-                  onChange={handleFileChange}
-                />
-              </LabelInputFile>
-            </AvatarContainer>
+                    <label htmlFor="female">
+                      <IconFemale className="iconFemale">
+                        <use href={sprite + '#iconFemale'} />
+                      </IconFemale>
+                      Female
+                    </label>
 
-            {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
+                    <Field
+                      type="radio"
+                      name="sex"
+                      id="male"
+                      value="male"
+                      className={`${
+                        touched.sex && errors.sex ? 'is-invalid' : ''
+                      }`}
+                    />
+                    <label htmlFor="male">
+                      <IconMale className="iconMale">
+                        <use href={sprite + '#iconMale'} />
+                      </IconMale>
+                      Male
+                    </label>
+                    <ErrorMessage name="sex" component={ErrorSex} />
+                  </SexList>
+                </SexContainer>
 
-            <label>
-              Location
-              <Field
-                className={`${
-                  touched.location && errors.location ? 'is-invalid' : ''
-                }`}
-                type="text"
-                name="location"
-                placeholder="Type of location"
-              />
-              <ErrorMessage name="location" component={ErrorMoreInfoText} />
-            </label>
+                <AvatarContainer className="moreInfoNotices">
+                  <p>Choose pet image:</p>
+                  <LabelInputFile
+                    className={
+                      erMessage !== '' || (formSubmitted && !selectedFile)
+                        ? 'no-image-selected'
+                        : ''
+                    }
+                  >
+                    {selectedFile ? (
+                      <div>
+                        <PhotoContainer
+                          src={URL.createObjectURL(selectedFile)}
+                          alt="User's file"
+                          style={{ maxWidth: '300px' }}
+                        />
+                      </div>
+                    ) : (
+                      <>
+                        <IconPlus>
+                          <use href={sprite + '#iconPlusAvatar'} />
+                        </IconPlus>
+                        <IconBigPlus>
+                          <use href={sprite + '#iconPlus'} />
+                        </IconBigPlus>
+                      </>
+                    )}
+                    <InputFile
+                      type="file"
+                      name="image"
+                      accept="image/jpeg, image/png"
+                      onChange={handleFileChange}
+                    />
+                  </LabelInputFile>
+                </AvatarContainer>
+              </LeftContainer>
 
-            <label>
-              Comments
-              <Field
-                type="text"
-                as="textarea"
-                name="comments"
-                placeholder="Type of pet"
-                className={`${
-                  touched.comments && errors.comments ? 'is-invalid' : ''
-                }`}
-              />
-              <ErrorMessage name="comments" component={ErrorMoreInfoText} />
-            </label>
+              {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
+
+              <InputContainer>
+                <label>
+                  Location
+                  <Field
+                    className={`${
+                      touched.location && errors.location ? 'is-invalid' : ''
+                    }`}
+                    type="text"
+                    name="location"
+                    placeholder="Type of location"
+                  />
+                  <ErrorMessage name="location" component={ErrorMoreInfoText} />
+                </label>
+
+                <label>
+                  Comments
+                  <Field
+                    type="text"
+                    as="textarea"
+                    name="comments"
+                    placeholder="Type of pet"
+                    className={
+                      'moreInfoNotices' +
+                      `${
+                        touched.comments && errors.comments ? ' is-invalid' : ''
+                      }`
+                    }
+                  />
+                  <ErrorMessage
+                    name="comments"
+                    component={ErrorMoreInfoComments}
+                  />
+                </label>
+              </InputContainer>
+            </DesktopContainer>
 
             <ButtonContainer>
               <ButtonNextBack className="buttonNext" type="submit">

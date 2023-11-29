@@ -4,7 +4,7 @@ export const InputList = styled.div`
   margin-bottom: 36.95px;
 
   @media (min-width: 768px) {
-    margin-bottom: 34.8px;
+    margin-bottom: 57.6px;
   }
 
   & label {
@@ -47,6 +47,7 @@ export const InputList = styled.div`
 
     @media (min-width: 768px) {
       padding: 12px 16px;
+      height: 48px;
 
       font-size: 16px;
       font-style: normal;

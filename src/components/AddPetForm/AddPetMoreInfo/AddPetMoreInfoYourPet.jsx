@@ -2,8 +2,9 @@ import { Field, ErrorMessage, Form, Formik } from 'formik';
 import { object, string } from 'yup';
 import {
   AvatarContainer,
+  CommentLabel,
   ErMsFile,
-  ErrorMoreInfoText,
+  ErrorMoreInfoComments,
   IconBigPlus,
   IconPlus,
   InputFile,
@@ -98,7 +99,7 @@ const AddPetMoreInfoYourPet = (props) => {
 
             {erMessage && <ErMsFile>{erMessage}</ErMsFile>}
 
-            <label>
+            <CommentLabel>
               Comments
               <Field
                 as="textarea"
@@ -109,8 +110,8 @@ const AddPetMoreInfoYourPet = (props) => {
                   touched.comments && errors.comments ? 'is-invalid' : ''
                 }`}
               />
-              <ErrorMessage name="comments" component={ErrorMoreInfoText} />
-            </label>
+              <ErrorMessage name="comments" component={ErrorMoreInfoComments} />
+            </CommentLabel>
             <ButtonContainer>
               <ButtonNextBack className="buttonNext" type="submit">
                 Done

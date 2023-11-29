@@ -9,24 +9,42 @@ export const FormContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100vh - 68px);
+
+  @media (min-width: 768px) {
+    min-height: calc(100vh - 92px);
+  }
+
+  @media (min-width: 768px) {
+    min-height: calc(100vh - 88px);
+  }
 `;
 
 export const FormStyled = styled.div`
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 100%;
   border-radius: 40px;
   background-color: var(--clr-bcg);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   padding: 20px 8px 16px 8px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 
   @media (min-width: 768px) {
-    width: 458px;
+    min-width: 458px;
     padding: 20px 34px;
+  }
+
+  @media (min-width: 1280px) {
+    &.centered {
+      padding: 20px 75px;
+    }
   }
 `;
 
 export const Title = styled.h1`
+  align-self: flex-start;
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
@@ -36,6 +54,10 @@ export const Title = styled.h1`
   @media (min-width: 768px) {
     font-size: 28px;
     margin-left: 0;
+
+    &.centered {
+      align-self: center;
+    }
   }
 `;
 
@@ -49,6 +71,7 @@ export const StepList = styled.ul`
   line-height: 13.66px;
   letter-spacing: 0.1px;
   margin-bottom: 24px;
+  width: 100%;
 
   @media (min-width: 768px) {
     font-size: 15px;
@@ -56,6 +79,7 @@ export const StepList = styled.ul`
     letter-spacing: 0.1px;
     gap: 16px;
     margin-bottom: 16px;
+    width: 392px;
   }
 
   & > li {
@@ -69,7 +93,6 @@ export const StepList = styled.ul`
       display: block;
       position: static;
       height: 8px;
-      /* width: 80px; */
       background-color: var(--clr-brand-blue-lt);
       border-radius: 8px;
     }
@@ -89,10 +112,16 @@ export const StepList = styled.ul`
     }
   }
 `;
+
 export const ButtonContainer = styled.div`
+  width: 100vw;
+  max-width: 264px;
+  position: relative;
+
   @media (min-width: 768px) {
     display: flex;
     flex-direction: row-reverse;
+    max-width: 390px;
   }
 `;
 
@@ -110,7 +139,9 @@ export const ButtonNextBack = styled.button`
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.64px;
-  transition: gap 0.3s;
+  transition:
+    gap 0.3s,
+    box-shadow 0.3s;
 
   @media (min-width: 768px) {
     width: auto;
@@ -135,8 +166,28 @@ export const ButtonNextBack = styled.button`
     background: none;
     border: none;
 
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      width: 100%;
+      height: 40px;
+      border-radius: 40px 0 0 40px;
+      box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px; /* transition: opacity 0.3s ease-in-out; */
+      transition: opacity 0.3s;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+
     &:hover {
       flex-grow: 2;
+
+      &::before {
+        opacity: 1;
+      }
     }
   }
 

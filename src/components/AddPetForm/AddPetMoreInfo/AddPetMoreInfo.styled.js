@@ -28,7 +28,7 @@ export const LabelInputFile = styled.label`
   height: 112px;
   border: 3px solid transparent;
   border-radius: 20px;
-  margin-right: 29.3%;
+  margin-right: 23.3%;
 
   transition:
     border-color 0.3s,
@@ -103,6 +103,9 @@ export const InputList = styled.div`
   line-height: normal;
 
   @media (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     font-size: 20px;
     font-style: normal;
     font-weight: 500;
@@ -117,7 +120,7 @@ export const InputList = styled.div`
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
 
   & input[type='text'],
@@ -144,6 +147,8 @@ export const InputList = styled.div`
       font-weight: 400;
       line-height: 150%; /* 24px */
       letter-spacing: 0.64px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
     }
 
     &:focus {
@@ -163,12 +168,49 @@ export const InputList = styled.div`
     height: 92px;
     border-radius: 20px;
     resize: none;
-    margin-bottom: 23.15px;
+    margin-bottom: 19.15px;
 
     @media (min-width: 768px) {
       height: 79px;
-      margin-bottom: 20px;
+      margin-bottom: 32px;
+
+      &.moreInfoNotices {
+        height: 182px;
+        margin-bottom: 36px;
+      }
+
+      &.moreInfoSell {
+        height: 128px;
+        margin-bottom: 36px;
+      }
     }
+  }
+`;
+
+export const CommentLabel = styled.label`
+  width: 100%;
+`;
+
+export const DesktopContainer = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`;
+
+export const InputContainer = styled.div`
+  @media (min-width: 768px) {
+    width: 395px;
+  }
+`;
+
+export const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 245px;
+
+  @media (min-width: 1280px) {
+    width: 280px;
   }
 `;
 
@@ -180,6 +222,22 @@ export const AvatarContainer = styled.div`
   @media (min-width: 768px) {
     gap: 10px;
     margin-bottom: 24.1px;
+
+    &.moreInfoSell,
+    &.moreInfoNotices {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+
+      & > p {
+        margin-left: 0;
+        margin-bottom: 8px;
+      }
+
+      & label {
+        margin: 0;
+      }
+    }
   }
 `;
 
@@ -220,6 +278,10 @@ export const IconMale = styled.svg`
 
 export const SexContainer = styled.div`
   position: relative;
+
+  &.moreInfoNotices {
+    width: 182px;
+  }
 `;
 
 export const SexList = styled.div`
@@ -253,6 +315,12 @@ export const SexList = styled.div`
       scale 0.3s,
       color 0.3s;
     cursor: pointer;
+
+    @media (min-width: 768px) {
+      padding: 0;
+      margin-top: 8px;
+      height: 40px;
+    }
 
     & > .iconMale {
       transition: transform 0.7s cubic-bezier(0.65, 1.79, 0.78, 1.02);
@@ -312,7 +380,23 @@ export const ErrorMoreInfoText = styled.p`
 
   @media (min-width: 768px) {
     font-size: 12px;
-    bottom: -4px;
+  }
+`;
+
+export const ErrorMoreInfoComments = styled.p`
+  position: absolute;
+  bottom: 0px;
+  left: 12px;
+
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: var(--clr-brand-red);
+
+  @media (min-width: 768px) {
+    bottom: 12px;
+    font-size: 12px;
   }
 `;
 
@@ -326,4 +410,9 @@ export const ErrorSex = styled.p`
   font-weight: 400;
   line-height: normal;
   color: var(--clr-brand-red);
+
+  @media (min-width: 768px) {
+    bottom: -14px;
+    font-size: 12px;
+  }
 `;

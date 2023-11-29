@@ -27,6 +27,7 @@ const AddPetForm = () => {
   const [petPhoto, setPetPhoto] = useState(null);
   const [addPet] = useAddPetMutation();
   const [addNotice] = useAddNoticeMutation();
+  const [isTitleCentered, setIsTitleCentered] = useState(false);
 
   const [formData, setFormData] = useState({
     category: '',
@@ -110,12 +111,14 @@ const AddPetForm = () => {
     }
     if (newData.category === 'your-pet') {
       addPet(formData);
-      
     } else {
       addNotice(formData);
     }
 
-    const redirectTo = newData.category === 'your-pet' ? '/user' : `/notices/${newData.category}`;
+    const redirectTo =
+      newData.category === 'your-pet'
+        ? '/user'
+        : `/notices/${newData.category}`;
     navigate(redirectTo);
     resetFormData('');
   };
@@ -222,6 +225,7 @@ const AddPetForm = () => {
       prev={handleBackPage}
       data={formData}
       selectedFile={petPhoto}
+      setIsTitleCentered={setIsTitleCentered}
     />,
     <AddPetPersonalDetailsNotices
       next={handleNextPage}
@@ -234,12 +238,14 @@ const AddPetForm = () => {
       prev={handleBackPage}
       data={formData}
       selectedFile={petPhoto}
+      setIsTitleCentered={setIsTitleCentered}
     />,
     <AddPetMoreInfoSell
       next={handleNextPage}
       prev={handleBackPage}
       data={formData}
       selectedFile={petPhoto}
+      setIsTitleCentered={setIsTitleCentered}
     />,
   ];
 
@@ -262,8 +268,10 @@ const AddPetForm = () => {
     <>
       <Container>
         <FormContainer>
-          <FormStyled>
-            <Title>{step === 0 ? 'Add pet' : getTitle()}</Title>
+          <FormStyled className={isTitleCentered ? 'centered' : ''}>
+            <Title className={isTitleCentered ? 'centered' : ''}>
+              {step === 0 ? 'Add pet' : getTitle()}
+            </Title>
             <StepList>
               <li className={step === 0 ? 'is-selected' : 'is-done'}>
                 Choose option{' '}
