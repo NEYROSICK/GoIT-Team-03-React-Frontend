@@ -1,4 +1,4 @@
-import{n as t,s as a,B as U,j as e,D as G,r as $,E as Q,F as q,a as J,b as r}from"./index-a1b9b230.js";import{n as v}from"./notiflix-notify-aio-e1de61b9.js";import{s as V}from"./selectors-9c63f203.js";import{F as Z,A as ee}from"./AttentionModalWrapper-0f2ab379.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
+import{n as t,s as a,B as U,j as e,D as G,r as $,E as Q,F as q,a as J,b as r}from"./index-831654ca.js";import{n as v}from"./notiflix-notify-aio-673e9d45.js";import{s as V}from"./selectors-9c63f203.js";import{F as Z,A as ee}from"./AttentionModalWrapper-3dea3981.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
   display: flex;
   flex-direction: column;
 
