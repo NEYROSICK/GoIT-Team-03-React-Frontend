@@ -22,7 +22,7 @@ export const Container = styled.section`
 
   padding-top: 20px;
   @media only screen and (min-width: 1280px) {
-    padding-top: 40px;
+    padding-top: 80px;
     padding-bottom: 60px;
     width: 1280px;
   }

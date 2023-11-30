@@ -8,7 +8,7 @@ export const Backdrop = styled.div`
     height: 100%;
     width: 100%;
     background: var(--clr-backdrop);
-    z-index:2;
+    z-index:101;
 `
 
 

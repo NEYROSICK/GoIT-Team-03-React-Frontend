@@ -21,7 +21,6 @@ import {
   CloseSvg,
   InputConteiner,
   ErrorMessage,
-  SaveBtn,
 } from './UserForm.styled';
 import Loader from "../../../ui/Loader/Loader";
 import { useDispatch } from 'react-redux';
@@ -85,8 +84,6 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleLogout = () => {
     dispatch(logOut());
     navigate('/login');
-    localStorage.removeItem('persist:auth');
-    window.location.reload();
   };
 
   useEffect(() => {
