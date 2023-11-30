@@ -2,14 +2,14 @@ import styled from 'styled-components';
 
 export const FlexContainer = styled.div`
   position: relative;
-  height: calc(100vh - 68px);
+  /* height: calc(100% - 68px); */
 
   @media (min-width: 768px) {
-    height: calc(100vh - 92px);
+    /* height: calc(100% - 92px); */
   }
 
   @media (min-width: 1280px) {
-    height: calc(100vh - 88px);
+    /* height: calc(100% - 88px); */
     display: flex;
     align-items: center;
   }

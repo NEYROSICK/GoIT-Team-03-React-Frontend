@@ -59,6 +59,10 @@
   src: url('./fonts/manrope-v15-latin-800.woff2') format('woff2');
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Manrope', sans-serif;
   font-weight: 400;
@@ -67,15 +71,15 @@ body {
   background-image: url('./images/BackgroundImg/bg_mob.png');
   background-size: 100% auto;
   background-position: top;
-
-  overflow: hidden;
-  overflow-y: auto;
+  height: 100%;
 
   color: var(--clr-primary);
   width: 100%;
-  min-height: 100vh;
   line-height: 1.36;
   letter-spacing: 0.04em;
+}
+#root {
+  height: 100%;
 }
 h1,
 h2,
