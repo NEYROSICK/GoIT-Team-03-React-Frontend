@@ -7,11 +7,25 @@ export const BurgerWrapper = styled.div`
   top: 68px;
   left: 0;
   width: 100%;
-  height: calc(100% - 68px);
   background-color: var(--clr-bcg);
   z-index: 99;
   transition: transform 0.5s cubic-bezier(0.85, 0.58, 0.59, 1.1);
   transform: translateY(-100vh);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 68px);
+
+  @media (min-width: 768px) {
+    top: 92px;
+    min-height: calc(100% - 92px);
+  }
+
+  @media (min-width: 1280px) {
+    top: 88px;
+    min-height: calc(100% - 88px);
+  }
 
   &.isOpen {
     transform: translateY(0);
@@ -27,9 +41,6 @@ export const StyledNavLink = styled(NavLink)`
 
 export const NavContainer = styled.nav`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 68px);
 `;
 
 export const NavList = styled.ul`
@@ -41,6 +52,7 @@ export const NavList = styled.ul`
   list-style-type: none;
   text-align: center;
   flex-grow: 3;
+  margin-bottom: 159px;
 
   @media (min-width: 768px) {
     font-size: 48px;
@@ -120,11 +132,8 @@ export const LogoutButton = styled.button`
 `;
 
 export const ButtonContainer = styled.div`
-  display: flex;
-  flex-grow: 4;
-  align-items: flex-end;
-  justify-content: flex-start;
-  margin-bottom: 20px;
+  position: fixed;
+  bottom: 20px;
 
   @media (min-width: 768px) {
     display: none;

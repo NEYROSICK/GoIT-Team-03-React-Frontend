@@ -2,14 +2,23 @@ import styled from 'styled-components';
 import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
-export const ContainerMain = styled.div`
+export const SectionLogin = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100% - 68px);
+
+  @media (min-width: 768px) {
+    min-height: calc(100% - 92px);
+  }
+
+  @media (min-width: 1280px) {
+    min-height: calc(100% - 88px);
+  }
 `;
 
 export const Form = styled.form`
+  margin: 0 auto;
   font-family: Manrope, sans-serif;
   width: 280px;
   min-height: 200px;

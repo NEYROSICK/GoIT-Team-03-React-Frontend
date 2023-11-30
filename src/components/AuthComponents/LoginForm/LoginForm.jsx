@@ -11,7 +11,6 @@ import {
   Email,
   Password,
   Button,
-  ContainerMain,
   SvgEye,
   Text,
   Title,
@@ -20,13 +19,12 @@ import {
   Validation,
   EmailValidation,
   PasswordValidation,
+  SectionLogin,
 } from './LoginForm.styled';
 
 import { useNavigate } from 'react-router-dom';
 
-const Login =  () => {
-
-
+const Login = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const validationSchema = Yup.object({
@@ -54,30 +52,31 @@ const Login =  () => {
     },
 
     validationSchema: validationSchema,
-     onSubmit: (values) => {
-    dispatch(login({
-      email: values.email.toLowerCase(),
-      password: values.password,
-    })).then((action) => {
-      
-      if (login.fulfilled.match(action)) {
-        navigate('/user');
-        Notify.success('Login successful');
-      } else {
-        const error = action.payload;
-         if (error && error.response && error.response.status === 401) {
-          Notify.failure(error.message || 'Unauthorized user');
+    onSubmit: (values) => {
+      dispatch(
+        login({
+          email: values.email.toLowerCase(),
+          password: values.password,
+        }),
+      ).then((action) => {
+        if (login.fulfilled.match(action)) {
+          navigate('/user');
+          Notify.success('Login successful');
         } else {
-          Notify.failure('An error occurred during login');
+          const error = action.payload;
+          if (error && error.response && error.response.status === 401) {
+            Notify.failure(error.message || 'Unauthorized user');
+          } else {
+            Notify.failure('An error occurred during login');
+          }
         }
-      }
-    });
-  },
-});
+      });
+    },
+  });
 
   return (
-    <Container>
-      <ContainerMain>
+    <SectionLogin>
+      <Container>
         <Form onSubmit={formik.handleSubmit}>
           <Title>Login</Title>
           <EmailValidation>
@@ -155,8 +154,8 @@ const Login =  () => {
             Dont have an account? <Link to="/register">Register</Link>
           </Text>
         </Form>
-      </ContainerMain>
-    </Container>
+      </Container>
+    </SectionLogin>
   );
 };
 export default Login;

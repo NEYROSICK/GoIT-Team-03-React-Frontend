@@ -11,8 +11,8 @@ import { Container } from '../../components/Layout/Container/Container';
 
 const HomePage = () => {
   return (
-    <Container>
-      <FlexContainer>
+    <FlexContainer>
+      <Container>
         <Title>Take good care of your small pets</Title>
 
         {/* <StyledPicture>
@@ -50,8 +50,8 @@ const HomePage = () => {
           <source srcSet={`${imgMob} 1x, ${imgMob2x} 2x`} type="image/jpg" />
           <Img src={imgMob} alt="Beard shaving" />
         </picture>
-      </FlexContainer>
-    </Container>
+      </Container>
+    </FlexContainer>
   );
 };
 

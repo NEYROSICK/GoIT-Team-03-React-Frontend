@@ -16,7 +16,7 @@ import {
   ClearButton,
   Svg,
   SvgEye,
-  ContainerMain,
+  SectionRegister,
 } from './RegisterForm.styled';
 import { useFormik } from 'formik';
 // import { Container } from "../../Layout/Container/Container"
@@ -99,8 +99,8 @@ export default function Register() {
   });
   {
     return (
-      <Container>
-        <ContainerMain>
+      <SectionRegister>
+        <Container>
           <RegisterForm onSubmit={formik.handleSubmit}>
             <Title>Registration</Title>
             <InputValidation>
@@ -257,8 +257,8 @@ export default function Register() {
               Already have an account?<Link to="/login">Login</Link>
             </Text>
           </RegisterForm>
-        </ContainerMain>
-      </Container>
+        </Container>
+      </SectionRegister>
     );
   }
 }

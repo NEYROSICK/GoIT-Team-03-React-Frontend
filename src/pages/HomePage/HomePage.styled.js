@@ -1,15 +1,14 @@
 import styled from 'styled-components';
 
 export const FlexContainer = styled.div`
-  position: relative;
-  /* height: calc(100% - 68px); */
+  min-height: calc(100% - 68px);
 
   @media (min-width: 768px) {
-    /* height: calc(100% - 92px); */
+    min-height: calc(100% - 92px);
   }
 
   @media (min-width: 1280px) {
-    /* height: calc(100% - 88px); */
+    min-height: calc(100% - 88px);
     display: flex;
     align-items: center;
   }
@@ -61,6 +60,6 @@ export const Img = styled.img`
   @media (min-width: 1280px) {
     min-width: 917px;
     width: 917px;
-    transform: translateX(-146px);
+    transform: translateX(356px);
   }
 `;

@@ -2,17 +2,25 @@ import styled from 'styled-components';
 import '../../../index.css';
 import { NavLink } from 'react-router-dom';
 
-export const ContainerMain = styled.div`
+export const SectionRegister = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 100%;
-  min-height: calc(100vh - 64px);
+  min-height: calc(100% - 68px);
+
+  @media (min-width: 768px) {
+    min-height: calc(100% - 92px);
+  }
+
+  @media (min-width: 1280px) {
+    min-height: calc(100% - 88px);
+  }
 `;
 
 export const RegisterForm = styled.form`
   /* margin-left: auto;
   margin-right: auto; */
+  margin: 0 auto;
   font-family: Manrope, sans-serif;
   min-height: 420px;
   width: 280px;
@@ -42,10 +50,7 @@ export const ConfirmValidation = styled.div`
   margin-bottom: 40px;
   position: relative;
   @media (min-width: 768px) {
-    margin-bottom: 52px;
-  }
-  @media (min-width: 1200px) {
-    margin-bottom: 40px;
+    margin-bottom: 50px;
   }
 `;
 
@@ -128,12 +133,20 @@ export const SvgEye = styled.svg`
   height: 24px;
 `;
 export const Text = styled.p`
+  font-size: 12px;
+  font-style: normal;
   font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
   text-align: center;
   color: var(--clr-secondary);
 `;
 export const Link = styled(NavLink)`
+  font-size: 12px;
+  font-style: normal;
   font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.48px;
   color: var(--clr-brand-blue);
   text-decoration-line: underline;
 `;

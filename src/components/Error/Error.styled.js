@@ -1,6 +1,21 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const ErrorSection = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100% - 68px);
+
+  @media (min-width: 768px) {
+    min-height: calc(100% - 92px);
+  }
+
+  @media (min-width: 1280px) {
+    min-height: calc(100% - 88px);
+  }
+`;
+
 export const ErrorPicture = styled.picture`
   display: flex;
   flex-direction: column;
@@ -37,16 +52,16 @@ export const ErrorLink = styled(Link)`
   padding: 9px;
   width: 248px;
 
-  &: hover {
+  &:hover {
     background: var(--clr-brand-blue-grd);
   }
 
   @media (min-width: 768px) {
-    margin: 70px auto;
+    margin-top: 70px;
   }
 
   @media (max-width: 767px) {
-    margin: 60px auto;
+    margin-top: 60px;
   }
 `;
 
@@ -57,9 +72,5 @@ export const ErrorIcon = styled.svg`
 `;
 
 export const DivError = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 80px);
+  padding: 16px 0;
 `;
