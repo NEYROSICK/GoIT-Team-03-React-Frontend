@@ -6,6 +6,9 @@ export const PetsDataTitle = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+    @media only screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 `;
 
 export const PetsList = styled.ul`
@@ -179,11 +182,13 @@ export const BtnDelite = styled.button`
 export const ConteinerTitle = styled.div`
   position: relative;
   display: flex;
+  flex-direction: row-reverse;
   margin-bottom: 31px;
   max-width: 280px;
   margin-left: auto;
   margin-right: auto;
   @media only screen and (min-width: 768px) {
+    flex-direction: row;
     margin-bottom: 20px;
     max-width: 704px;
   }
@@ -209,7 +214,7 @@ export const BtnAddPet = styled(Link)`
 
   position: fixed;
   bottom: 30px;
-  right: 20px;
+  z-index: 2;
 
   div {
     display: flex;
@@ -220,7 +225,7 @@ export const BtnAddPet = styled(Link)`
   }
 
   @media only screen and (min-width: 768px) {
-    position: relative;
+    position: static;
     padding: 8px 20px;
     border-radius: 40px;
 
@@ -245,7 +250,7 @@ export const BtnAddPet = styled(Link)`
       position: absolute;
       top: 0px;
       right: 0px;
-      width: 100%;
+      width: 136px;
       height: 100%;
       background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
 
@@ -253,6 +258,7 @@ export const BtnAddPet = styled(Link)`
       opacity: 0;
       transition: opacity 0.3s;
       z-index: 0;
+      
     }
 
     &:hover:before {
