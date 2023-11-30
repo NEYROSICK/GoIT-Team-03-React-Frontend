@@ -21,7 +21,7 @@ const DeleteModalWrapper = ({ setShowModal, sprite, handleDeleteClick }) => {
       >
         <use href={sprite + '#iconCross'} />
       </DeleteIcon>
-      <DeleteTitle>Delete adverstiment?</DeleteTitle>
+      <DeleteTitle>Delete advertisement?</DeleteTitle>
       <DeleteText>
         Are you sure you want to delete <b>“Cute dog looking for a home”</b>?
         <br />
@@ -35,10 +35,10 @@ const DeleteModalWrapper = ({ setShowModal, sprite, handleDeleteClick }) => {
         >
           <DeleteCancelBtnText>Cancel</DeleteCancelBtnText>
         </DeleteCancelBtn>
-        <DeleteYesBtn>
+        <DeleteYesBtn type="submit" onClick={handleDeleteClick}>
           <DeleteYesBtnText>
             Yes
-            <DeleteYesIcon type="submit" onClick={handleDeleteClick}>
+            <DeleteYesIcon>
               <use href={sprite + '#iconTrash'} />
             </DeleteYesIcon>
           </DeleteYesBtnText>
