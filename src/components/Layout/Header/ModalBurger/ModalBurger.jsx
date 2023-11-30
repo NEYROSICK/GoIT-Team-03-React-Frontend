@@ -26,7 +26,6 @@ export const ModalBurger = ({ onClose, isModalOpen }) => {
   const handleKeydown = useMemo(
     () => (e) => {
       if (e.code === 'Escape') {
-        console.log('sam daun');
         onClose(false);
       }
     },
@@ -35,14 +34,14 @@ export const ModalBurger = ({ onClose, isModalOpen }) => {
   );
 
   useEffect(() => {
-    if (isModalOpen) {
-      window.addEventListener('keydown', handleKeydown);
-      document.body.style.overflow = 'hidden';
-    }
+    if (!isModalOpen) return;
+
+    window.addEventListener('keydown', handleKeydown);
+    document.body.style.overflowY = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
     };
   }, [handleKeydown, isModalOpen]);
 

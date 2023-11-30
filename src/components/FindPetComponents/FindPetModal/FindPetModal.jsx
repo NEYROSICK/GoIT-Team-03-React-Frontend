@@ -24,11 +24,11 @@ const FindPetModal = ({ onClose, showModal, children }) => {
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
-    document.body.style.overflow = 'hidden';
+    document.body.style.overflowY = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
-      document.body.style.overflow = 'auto';
+      document.body.style.overflowY = 'auto';
     };
   }, [handleKeydown]);
 

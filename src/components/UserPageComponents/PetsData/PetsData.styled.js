@@ -177,6 +177,7 @@ export const BtnDelite = styled.button`
 
 //Add pet
 export const ConteinerTitle = styled.div`
+  position: relative;
   display: flex;
   margin-bottom: 31px;
   max-width: 280px;
@@ -205,7 +206,6 @@ export const BtnAddPet = styled(Link)`
   justify-content: center;
   align-items: center;
   gap: 4px 0px;
-  position: relative;
 
   position: fixed;
   bottom: 30px;
@@ -221,9 +221,11 @@ export const BtnAddPet = styled(Link)`
 
   @media only screen and (min-width: 768px) {
     position: relative;
-
     padding: 8px 20px;
     border-radius: 40px;
+
+    bottom: auto;
+    right: auto;
 
     font-size: 16px;
     font-weight: 700;

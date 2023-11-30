@@ -1,65 +1,66 @@
 import styled from 'styled-components';
 
-export const ContainerMainPage = styled.section`
-width: 100%;
-height: calc(100vh - 128px);
+export const FlexContainer = styled.div`
+  position: relative;
+  height: calc(100vh - 68px);
 
-  
-  @media only screen and (min-width: 1280px) {
-    position: relative;
+  @media (min-width: 768px) {
+    height: calc(100vh - 92px);
+  }
+
+  @media (min-width: 1280px) {
+    height: calc(100vh - 88px);
     display: flex;
-    margin-bottom: 0;
-    width: 100%;
+    align-items: center;
   }
 `;
 
-export const ImageMainPage = styled.img`
-position: absolute;
-width: 100%;
-left: 0px;
-
-@media only screen and (min-width: 768px) {
-  transform: translateY(-10%);
-}
-
-@media only screen and (min-width: 1280px) {
-  width: auto;
-  height: calc(100vh - 70px);
-  left: auto;
-  right: 0px;
-  transform: none;
-}
-`;
-
-export const StyledTittle = styled.h1`
-  z-index: 20;
-  margin-top: 60px;
-  font-family: sans-serif;
+export const Title = styled.h1`
+  padding-top: 40px;
   font-size: 32px;
-  line-height: 1.4;
-  color: #000000;
-  text-align: left;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 44px; /* 137.5% */
+  letter-spacing: normal;
 
-
-  @media only screen and (min-width: 768px) {
-    margin-top: 80px;
-    margin-bottom: 27px;
-
-    width: 588px;
-    height: 200px;
+  @media (min-width: 768px) {
+    padding-top: 56px;
     font-size: 68px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100px; /* 147.059% */
+    text-shadow: var(--clr-primary-inv) 1px 0 1px;
   }
 
-  @media only screen and (min-width: 1280px) {
-    margin-top: 188px;
-    margin-bottom: 248px;
-
+  @media (min-width: 1280px) {
+    padding: 0;
+    font-size: 68px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 130%; /* 88.4px */
     width: 501px;
-    height: 264px;
-    line-height: 1.3;
   }
 `;
 
-export const StyledPicture = styled.picture`
+export const Img = styled.img`
+  position: absolute;
+  flex-shrink: 0;
+  min-width: 474px;
+  width: 474px;
+  height: auto;
+  bottom: 0px;
+  transform: translateX(-108px);
+  z-index: -1;
 
-`
+  @media (min-width: 768px) {
+    min-width: 985px;
+    width: 985px;
+    transform: translateX(-130px);
+  }
+
+  @media (min-width: 1280px) {
+    min-width: 917px;
+    width: 917px;
+    transform: translateX(-146px);
+  }
+`;

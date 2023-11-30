@@ -31,7 +31,6 @@ const UserData = () => {
     const close = (e) => {
       if (e.keyCode === 27) {
         dispatch(changeIsNewUser(false));
-        console.log('im here');
       }
     };
     window.addEventListener('keydown', close);

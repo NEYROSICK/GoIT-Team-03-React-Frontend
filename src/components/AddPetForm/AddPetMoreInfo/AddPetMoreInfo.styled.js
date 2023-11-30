@@ -69,7 +69,7 @@ export const LabelInputFile = styled.label`
     width: 112px;
     height: 112px;
     border: 3px solid transparent;
-    z-index: 100;
+    z-index: 50;
     transition: border-color 0.3s;
     border-radius: inherit;
 
