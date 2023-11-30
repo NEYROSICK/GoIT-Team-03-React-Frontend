@@ -1,6 +1,7 @@
 import {
   DropContainer,
   FilterBtn,
+  FilterButtonText,
   FilterButton,
   FilterForm,
   FilterHeader,
@@ -66,10 +67,12 @@ const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   return (
     <div>
       <FilterButton id="filterBtn" type="button" onClick={handleBtnClick}>
-        <FilterText>Filter</FilterText>
-        <StyledFilterIcon>
-          <use href={sprite + '#iconFilters3'}></use>
-        </StyledFilterIcon>
+        <FilterButtonText>
+          <FilterText>Filter</FilterText>
+          <StyledFilterIcon>
+            <use href={sprite + '#iconFilters3'}></use>
+          </StyledFilterIcon>
+        </FilterButtonText>
       </FilterButton>
 
       {isOpen && (

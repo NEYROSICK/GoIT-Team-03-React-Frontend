@@ -30,7 +30,7 @@ const ModalContainer = styled.div`
   align-items: center;
   gap: 20px;
 
-  opacity: ${(props) => {
+  scale: ${(props) => {
     return props.showModal ? '1' : '0';
   }};
 

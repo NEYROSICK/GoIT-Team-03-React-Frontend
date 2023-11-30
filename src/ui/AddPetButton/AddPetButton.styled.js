@@ -1,8 +1,6 @@
 import styled from '@emotion/styled';
 
 export const AddButton = styled.button`
-  position: fixed;
-  bottom: 30px;
   z-index: 5;
   width: 80px;
   height: 80px;
@@ -17,18 +15,34 @@ export const AddButton = styled.button`
   background: var(--clr-brand-blue);
   color: var(--clr-bcg-user);
 
-  &:hover,
-  &:focus {
-    background: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
+    border-radius: 40px;
+    opacity: 0;
+    transition: opacity 300ms;
   }
 
+  &:hover:before {
+    opacity: 1;
+  }
+
+  @media screen and (max-width: 767px) {
+    position: fixed;
+    bottom: 30px;
+  }
   @media screen and (min-width: 768px) {
+    position: relative;
     width: 129px;
     height: 40px;
     border-radius: 40px;
     padding: 9px 16px;
     flex-direction: row;
-    position: static;
   }
 `;
 
@@ -36,13 +50,16 @@ export const StyledPlusIcon = styled.svg`
   stroke: var(--clr-primary-inv);
   width: 24px;
   height: 24px;
+  z-index: 2;
   @media screen and (min-width: 768px) {
     display: none;
   }
 `;
+
 export const StyledPlusIconSmall = styled.svg`
   display: none;
   stroke: var(--clr-primary-inv);
+  z-index: 2;
   @media screen and (min-width: 768px) {
     display: block;
     width: 24px;
@@ -58,6 +75,7 @@ export const AddButtonText = styled.span`
   line-height: 16px;
   letter-spacing: 0em;
   text-align: left;
+  z-index: 2;
 
   @media screen and (min-width: 768px) {
     font-family: Manrope;

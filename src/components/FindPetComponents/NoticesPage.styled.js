@@ -27,11 +27,9 @@ export const PageTitle = styled.h1`
   color: var(--clr-primary);
 
   @media screen and (min-width: 768px) {
-    
-      margin-bottom: 40px;
-      font-size: 48px;
-      line-height: 66px;
-  
+    margin-bottom: 40px;
+    font-size: 48px;
+    line-height: 66px;
   }
 `;
 
@@ -46,21 +44,25 @@ export const FilterContainer = styled.div`
   }
 
   @media screen and (min-width: 1280px) {
-    width: 1248px; 
+    width: 1248px;
   }
-`
+`;
+
 export const FilterAndAddContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 211px;
   align-items: end;
-  
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     gap: 12px;
+    justify-content: center;
+    align-items: center;
   }
 
   @media screen and (min-width: 1280px) {
     gap: 16px;
   }
-`
+`;
