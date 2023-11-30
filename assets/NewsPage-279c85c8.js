@@ -1,4 +1,4 @@
-import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N as P,a as w}from"./AllNotices.styled-348db6cd.js";import{L as k}from"./Loader-d7b1e6ae.js";import{S as N}from"./StyledPagination.styled-b33cf9f5.js";import{N as C}from"./NoticesSearch-d99b5dfd.js";const E=a.div`
+import{p as r,r as a,j as e,u as j,v as N,h as f}from"./index-dc97b1b7.js";import{N as P,a as u}from"./AllNotices.styled-c60db146.js";import{L as k}from"./Loader-869fff53.js";import{S as E}from"./StyledPagination.styled-c7abbfb8.js";import{N as C}from"./NoticesSearch-8cc2410a.js";const I=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -14,7 +14,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,z=a.h1`
+`,z=r.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -27,7 +27,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
     font-size: 48px;
     line-height: 66px;
   }
-`,L=a.a`
+`,L=r.a`
   position: relative;
   width: 280px;
   height: 578px;
@@ -75,7 +75,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
   &:hover {
     box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 1);
   }
-`,A=a.img`
+`,b=r.img`
   transition: 300ms;
   display: flex;
   align-items: center;
@@ -94,12 +94,12 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
   @media screen and (min-width: 1280px) {
     width: 395px;
   }
-`,M=a.div`
+`,A=r.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 12px;
-`,D=a.div`
+`,M=r.div`
   color: inherit;
   font-family: Manrope;
   font-size: 24px;
@@ -121,7 +121,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
   @media screen and (min-width: 768px) {
     width: 310px;
   }
-`,O=a.p`
+`,O=r.p`
   color: inherit;
   font-family: Manrope;
   font-size: 16px;
@@ -151,7 +151,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
     -webkit-line-clamp: 5;
     line-clamp: 5;
   }
-`,F=a.p`
+`,D=r.p`
   width: 160px;
   height: 22px;
   color: #888;
@@ -161,7 +161,7 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
   font-weight: 400;
   line-height: normal;
   margin-top: 40px;
-`;function I({image:t,title:n,description:s,date:d,url:c}){const p=d,i=new Date(p),l=i.getDate().toString().padStart(2,"0"),h=(i.getMonth()+1).toString().padStart(2,"0"),m=i.getFullYear(),o=`${l}/${h}/${m}`;return e.jsxs(L,{href:c,children:[e.jsx(A,{src:t,alt:"../../images/noImage.png"}),e.jsxs(M,{children:[e.jsx(D,{children:n}),e.jsx(O,{children:s}),e.jsx(F,{children:o})]})]})}const q=a.ul`
+`,F="/GoIT-Team-03-React-Frontend/assets/NOIMG-5d575749.png";function T({image:t,title:i,description:p,date:l,url:h}){const[c,n]=a.useState(!1),x=l,o=new Date(x),m=o.getDate().toString().padStart(2,"0"),s=(o.getMonth()+1).toString().padStart(2,"0"),d=o.getFullYear(),g=`${m}/${s}/${d}`,w=()=>{n(!0)};return e.jsxs(L,{href:h,children:[c?e.jsx(b,{src:F,alt:"No Image Available"}):e.jsx(b,{src:t,onError:w,alt:i}),e.jsxs(A,{children:[e.jsx(M,{children:i}),e.jsx(O,{children:p}),e.jsx(D,{children:g})]})]})}const q=r.ul`
   width: 280px;
   display: flex;
   align-items: center;
@@ -182,4 +182,4 @@ import{p as a,j as e,u as f,r,v as S,h as g}from"./index-96ad932d.js";import{N a
     width: 1247px;
     margin-top: 82px;
   }
-`;function $(){const[t]=f(),n=Object.fromEntries(t.entries()),[s,d]=r.useState(1),[c,p]=r.useState(12);r.useEffect(()=>{const o=()=>{const x=window.innerWidth;x<=768?p(11):x<=1024?p(10):p(12)};return o(),window.addEventListener("resize",o),()=>window.removeEventListener("resize",o)},[]);const{data:i,error:l,isLoading:h}=S({params:{page:s,limit:c,...n}}),m=(o,x)=>{d(x)};return e.jsxs(q,{children:[h&&e.jsx(k,{}),i&&e.jsxs(e.Fragment,{children:[i.news.map(({_id:o,imgUrl:x,title:u,text:b,date:j,url:y,id:v})=>e.jsx(I,{id:v,image:x,title:u,description:b,date:j,url:y},o)),i.news.length!==0&&e.jsx(N,{count:Math.ceil(i.totalCount/c),page:s,onChange:m,color:"primary"})]}),i&&!i.news.length&&e.jsxs(P,{children:[e.jsx(w,{children:e.jsx("use",{href:g+"#iconPaw"})})," ","No news found"," ",e.jsx(w,{children:e.jsx("use",{href:g+"#iconPaw"})})]}),l&&e.jsx("div",{children:l.message})]})}function W(){const[t,n]=f();r.useState(Object.fromEntries(t).query||"");const[s,d]=r.useState({}),c=r.useMemo(()=>Object.fromEntries([...t]),[t]),p=r.useCallback(()=>{n(t)},[t,n]),i=h=>{d(h?{query:h}:{})};r.useEffect(()=>{n({...s})},[c,n,s,t]);const l=()=>{t.delete("query",query),n(t),p()};return e.jsxs(E,{children:[e.jsx(z,{children:"News"}),e.jsx(C,{onSubmit:i,onClear:l}),e.jsx($,{})]})}export{W as default};
+`;function G(){const[t]=j(),i=Object.fromEntries(t.entries()),[p,l]=a.useState(1),[h,c]=a.useState(12);a.useEffect(()=>{const s=()=>{const d=window.innerWidth;d<=768?c(11):d<=1024?c(10):c(12)};return s(),window.addEventListener("resize",s),()=>window.removeEventListener("resize",s)},[]);const{data:n,error:x,isLoading:o}=N({params:{page:p,limit:h,...i}}),m=(s,d)=>{l(d)};return e.jsxs(q,{children:[o&&e.jsx(k,{}),n&&e.jsxs(e.Fragment,{children:[n.news.map(({_id:s,imgUrl:d,title:g,text:w,date:y,url:v,id:S})=>e.jsx(T,{id:S,image:d,title:g,description:w,date:y,url:v},s)),n.news.length!==0&&e.jsx(E,{count:Math.ceil(n.totalCount/h),page:p,onChange:m,color:"primary"})]}),n&&!n.news.length&&e.jsxs(P,{children:[e.jsx(u,{children:e.jsx("use",{href:f+"#iconPaw"})})," ","No news found"," ",e.jsx(u,{children:e.jsx("use",{href:f+"#iconPaw"})})]}),x&&e.jsx("div",{children:x.message})]})}function Y(){const[t,i]=j();a.useState(Object.fromEntries(t).query||"");const[p,l]=a.useState({}),h=a.useMemo(()=>Object.fromEntries([...t]),[t]),c=a.useCallback(()=>{i(t)},[t,i]),n=o=>{l(o?{query:o}:{})};a.useEffect(()=>{i({...p})},[h,i,p,t]);const x=()=>{t.delete("query",query),i(t),c()};return e.jsxs(I,{children:[e.jsx(z,{children:"News"}),e.jsx(C,{onSubmit:n,onClear:x}),e.jsx(G,{})]})}export{Y as default};

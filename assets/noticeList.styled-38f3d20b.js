@@ -1,4 +1,4 @@
-import{p as t,s as a,q as U,j as e,D as q,r as $,E as G,F as Q,k as J,h as r}from"./index-96ad932d.js";import{n as v}from"./notiflix-notify-aio-1fd8f9b2.js";import{a as V}from"./selectors-51ca07e4.js";import{F as Z,A as ee}from"./AttentionModalWrapper-a6a2f8f1.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
+import{p as t,s as a,q as U,j as e,D as q,r as $,E as G,F as Q,k as J,h as r}from"./index-dc97b1b7.js";import{n as v}from"./notiflix-notify-aio-6e17014f.js";import{a as V}from"./selectors-51ca07e4.js";import{F as Z,A as ee}from"./AttentionModalWrapper-fb76a061.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
   display: flex;
   flex-direction: column;
 
@@ -428,7 +428,7 @@ import{p as t,s as a,q as U,j as e,D as q,r as $,E as G,F as Q,k as J,h as r}fro
   height: 24px;
 
   cursor: pointer;
-`,je=({setShowModal:i,sprite:s,handleDeleteClick:h})=>e.jsxs(de,{children:[e.jsx(xe,{onClick:()=>{i(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsx(he,{children:"Delete adverstiment?"}),e.jsxs(fe,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(ge,{children:[e.jsx(me,{onClick:()=>{i(!1)},children:e.jsx(ue,{children:"Cancel"})}),e.jsx(we,{children:e.jsxs(ye,{children:["Yes",e.jsx(ve,{type:"submit",onClick:h,children:e.jsx("use",{href:s+"#iconTrash"})})]})})]})]}),o="min-width: 768px",Me=t.div`
+`,je=({setShowModal:i,sprite:s,handleDeleteClick:h})=>e.jsxs(de,{children:[e.jsx(xe,{onClick:()=>{i(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsx(he,{children:"Delete advertisement?"}),e.jsxs(fe,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(ge,{children:[e.jsx(me,{onClick:()=>{i(!1)},children:e.jsx(ue,{children:"Cancel"})}),e.jsx(we,{type:"submit",onClick:h,children:e.jsxs(ye,{children:["Yes",e.jsx(ve,{children:e.jsx("use",{href:s+"#iconTrash"})})]})})]})]}),o="min-width: 768px",Me=t.div`
   position: relative;
   display: flex;
   flex-direction: column;
