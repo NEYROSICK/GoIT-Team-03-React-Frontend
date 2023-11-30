@@ -188,6 +188,7 @@ const LearnMoreBtsWrapper = styled.div`
 `;
 
 const LearnMoreContactBtn = styled.a`
+  position: relative;
   display: flex;
   width: 256px;
   height: 40px;
@@ -212,8 +213,29 @@ const LearnMoreContactBtn = styled.a`
   transition: 300ms;
   cursor: pointer;
 
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
+    border-radius: 40px;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
   &:hover {
-    box-shadow: 5px 5px 5px var(--clr-brand-blue);
+    border: 2px solid #ffffff00;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  &:hover p {
+    color: #fff;
   }
 
   @media (${MEDIA_TABLET}) {
@@ -222,14 +244,22 @@ const LearnMoreContactBtn = styled.a`
   }
 `;
 
-const LearnMoreAddFvrtBtn = styled.button`
+const LearnMoreContactBtnText = styled.p`
+  position: relative;
   display: flex;
-  width: 256px;
-  height: 40px;
-  padding: 8px 20px;
   justify-content: center;
   align-items: center;
   gap: 8px;
+  z-index: 3;
+
+  transition: 300ms;
+`;
+
+const LearnMoreAddFvrtBtn = styled.button`
+  position: relative;
+  width: 256px;
+  height: 40px;
+  padding: 8px 20px;
   flex-shrink: 0;
 
   border-radius: 40px;
@@ -244,20 +274,45 @@ const LearnMoreAddFvrtBtn = styled.button`
   font-weight: 700;
   line-height: normal;
   letter-spacing: 0.64px;
+
   transition: 300ms;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
+    border-radius: 40px;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
 
   &:active svg {
     scale: 0.8;
-  }
-
-  &:hover {
-    box-shadow: 5px 5px 5px var(--clr-brand-blue);
   }
 
   @media (${MEDIA_TABLET}) {
     width: 129px;
     height: 40px;
   }
+`;
+
+const LearnMoreAddFvrtBtnText = styled.p`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  z-index: 3;
+
+  transition: 300ms;
 `;
 
 const LearnMoreAddFvrtBtnIcon = styled.svg`
@@ -311,7 +366,9 @@ export {
   LearnMoreComment,
   LearnMoreBtsWrapper,
   LearnMoreContactBtn,
+  LearnMoreContactBtnText,
   LearnMoreAddFvrtBtn,
+  LearnMoreAddFvrtBtnText,
   LearnMoreAddFvrtBtnIcon,
   DeleteIcon,
 };

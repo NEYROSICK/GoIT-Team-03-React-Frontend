@@ -15,12 +15,22 @@ const FindPetModal = ({ onClose, showModal, children }) => {
   const handleKeydown = useMemo(
     () => (e) => {
       if (e.code === 'Escape') {
-        onClose();
+        setVisible(false);
+        setTimeout(() => onClose(), 300);
+        // onClose();
       }
     },
 
     [onClose],
   );
+
+  const handleBackdropClick = (e) => {
+    if (e.currentTarget === e.target) {
+      setVisible(false);
+      setTimeout(() => onClose(), 300);
+      // onClose();
+    }
+  };
 
   useEffect(() => {
     window.addEventListener('keydown', handleKeydown);
@@ -31,12 +41,6 @@ const FindPetModal = ({ onClose, showModal, children }) => {
       document.body.style.overflow = 'visible';
     };
   }, [handleKeydown]);
-
-  const handleBackdropClick = (e) => {
-    if (e.currentTarget === e.target) {
-      onClose();
-    }
-  };
 
   return createPortal(
     <Backdrop onClick={handleBackdropClick} showModal={visible}>

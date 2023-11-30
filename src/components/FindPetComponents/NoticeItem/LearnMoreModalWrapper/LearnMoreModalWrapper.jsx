@@ -12,7 +12,9 @@ import {
   LearnMoreComment,
   LearnMoreBtsWrapper,
   LearnMoreContactBtn,
+  LearnMoreContactBtnText,
   LearnMoreAddFvrtBtn,
+  LearnMoreAddFvrtBtnText,
   LearnMoreAddFvrtBtnIcon,
   DeleteIcon,
 } from './LearnMoreModalWrapper.styled';
@@ -86,13 +88,15 @@ const LearnMoreModalWrapper = ({
           <LearnMoreComment>Comments: {data.notice.comments}</LearnMoreComment>
           <LearnMoreBtsWrapper>
             <LearnMoreContactBtn href={`tel:${data.owner && data.owner.phone}`}>
-              Contact
+              <LearnMoreContactBtnText>Contact</LearnMoreContactBtnText>
             </LearnMoreContactBtn>
             <LearnMoreAddFvrtBtn onClick={handleFavoriteClick}>
-              Add to
-              <LearnMoreAddFvrtBtnIcon isFavorite={isFavorite}>
-                <use href={sprite + '#iconHeart'} />
-              </LearnMoreAddFvrtBtnIcon>
+              <LearnMoreAddFvrtBtnText>
+                Add to
+                <LearnMoreAddFvrtBtnIcon isFavorite={isFavorite}>
+                  <use href={sprite + '#iconHeart'} />
+                </LearnMoreAddFvrtBtnIcon>
+              </LearnMoreAddFvrtBtnText>
             </LearnMoreAddFvrtBtn>
           </LearnMoreBtsWrapper>
         </>

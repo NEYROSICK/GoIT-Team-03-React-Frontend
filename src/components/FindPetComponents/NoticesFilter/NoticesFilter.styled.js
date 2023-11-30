@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const FilterButton = styled.button`
+  position: relative;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -16,9 +17,35 @@ export const FilterButton = styled.button`
   &:hover,
   &:focus {
     color: var(--clr-bcg-user);
-    background-image: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%);
+    /* background-image: linear-gradient(290.46deg, #419ef1 0%, #9bd0ff 107.89%); */
     border: none;
   }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(290deg, #419ef1 0%, #9bd0ff 107.89%);
+    border-radius: 40px;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  &:hover:before {
+    opacity: 1;
+  }
+
+  & svg {
+    stroke: #54adff;
+  }
+
+  &:hover svg {
+    stroke: #fff;
+  }
+
   @media screen and (min-width: 768px) {
     padding: 9px 38px;
     width: 152px;
@@ -28,11 +55,37 @@ export const FilterButton = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 8px;
 
     background-color: transparent;
     transition: 300ms;
+
+    &:focus:hover {
+      border: 2px solid #ffffff00;
+    }
+
+    &:hover {
+      border: 2px solid #ffffff00;
+    }
+
+    &:focus {
+      border: 2px solid var(--clr-brand-blue);
+    }
+
+    &:hover p {
+      color: #fff;
+    }
   }
+`;
+
+export const FilterButtonText = styled.p`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #54adff;
+  z-index: 2;
+  transition: 300ms;
 `;
 
 export const StyledFilterIcon = styled.svg`
@@ -40,6 +93,7 @@ export const StyledFilterIcon = styled.svg`
   fill: none;
   width: 24px;
   height: 24px;
+  transition: 300ms;
 `;
 
 export const FilterText = styled.span`
@@ -62,6 +116,10 @@ export const DropContainer = styled.div`
   box-shadow: 3px 8px 14px 0px #88c6fd30;
   z-index: 30;
   transition: opacity 400ms;
+
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
 
   @media screen and (min-width: 768px) {
     right: auto;

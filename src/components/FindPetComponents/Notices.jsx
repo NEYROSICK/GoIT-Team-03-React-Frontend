@@ -52,9 +52,8 @@ const NoticesPage = () => {
   }, [checkboxValue, params, setSearchParams, searchValue, searchParams]);
 
   useEffect(() => {
-    if(location.pathname === '/notices')
-    navigate("/notices/sell")
-  }, [])
+    if (location.pathname === '/notices') navigate('/notices/sell');
+  }, []);
 
   const handleSearchSubmit = (query) => {
     if (query) {
@@ -63,8 +62,7 @@ const NoticesPage = () => {
       setSearchValue({});
     }
   };
- 
-  
+
   return (
     <Container>
       <NoticesContainer>

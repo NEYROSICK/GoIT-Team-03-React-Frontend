@@ -145,6 +145,10 @@ const DeleteCancelBtn = styled.button`
     transition: opacity 300ms;
   }
 
+  &:hover {
+    border: 2px solid #ffffff00;
+  }
+
   &:hover:before {
     opacity: 1;
   }
