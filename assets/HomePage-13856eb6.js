@@ -1,13 +1,13 @@
-import{s as e,j as t,C as n}from"./index-8e397b6e.js";const a=e.div`
+import{s as e,j as t,C as n}from"./index-0d46be5b.js";const a=e.div`
   position: relative;
-  height: calc(100vh - 68px);
+  /* height: calc(100% - 68px); */
 
   @media (min-width: 768px) {
-    height: calc(100vh - 92px);
+    /* height: calc(100% - 92px); */
   }
 
   @media (min-width: 1280px) {
-    height: calc(100vh - 88px);
+    /* height: calc(100% - 88px); */
     display: flex;
     align-items: center;
   }
