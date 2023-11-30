@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const UserPageItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 18px;
   width: 100%;
   max-width: 280px;
   margin-left: auto;
@@ -14,6 +14,7 @@ export const UserPageItem = styled.div`
   }
   @media screen and (min-width: 768px) {
     max-width: 704px;
+      gap: 24px;
   }
   @media screen and (min-width: 1280px) {
     max-width: 394px;
@@ -28,6 +29,9 @@ export const UserFormTitle = styled.h2`
   font-size: 20px;
   font-weight: 500;
   line-height: normal;
+    @media screen and (min-width: 768px) {
+        font-size: 28px;
+    }
 `;
 
 export const UserFormBox = styled.div`
@@ -64,7 +68,7 @@ export const UserBtnPen = styled.button`
   cursor: pointer;
   transition: transform 300ms;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   @media screen and (min-width: 768px) {
     top: 18px;

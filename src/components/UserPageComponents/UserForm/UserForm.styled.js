@@ -14,6 +14,10 @@ export const UserImgBox = styled.div`
     max-width: 100%;
   }
 `;
+export const SaveBtn = styled.div`
+  
+`
+
 
 export const UserImgInputBody = styled.div`
   position: relative;
@@ -61,6 +65,7 @@ export const UserFormList = styled.ul`
   color:var(--clr-primary);
   @media screen and (min-width: 768px) {
   width: 354px;
+  gap: 10px;
   }
 `;
 
@@ -114,25 +119,40 @@ export const UserFormInput = styled(Field)`
 
   font-size: 12px;
   letter-spacing: 0.48px;
-
   @media screen and (min-width: 768px) {
   max-width: 255px;
+  font-size:16px;
+  letter-spacing: 0.64px;
   }
 `;
 
 export const UserFormBtn = styled.button`
+  gap: 0px 11px;
   align-items: center;
   display: flex;
-  justify-content:center;
   background-color:transparent;
-  height: 31px;
-  padding: 0px;
   cursor: pointer;
   border: none;
   font-size: 18px;
+  width: 121px;
+  border: 1px solid var(--clr-brand-blue);
+  border-radius:40px;
+  padding: 4px 10px;
   @media screen and (min-width: 768px) {
   justify-content:flex-end;
   
+  }
+    transition: all 300ms;
+
+  &:hover{
+    background-color:var(--clr-brand-blue);
+    color: var(--clr-bcg);
+    p{
+      color: var(--clr-bcg);
+    }
+    svg{
+          stroke: var(--clr-bcg);
+    }
   }
 
 `;
@@ -141,11 +161,10 @@ export const Btn = styled.button`
   align-items: center;
   display: flex;
   justify-content: center;
-  max-width: 248px;
-  flex: 1 1 auto;
   text-align: center;
-  padding: 8px 12px;
+  padding: 6px 107px;
   box-sizing:border-box;
+  margin: auto;
 
   border-radius: 40px;
   border: 1px solid var(--clr-primary-inv);
@@ -155,45 +174,44 @@ export const Btn = styled.button`
   font-weight: 700;
   letter-spacing: 0.56px;
 
-  transition: all 250ms ease-in-out;
+  transition: all 300ms ;
 
   cursor: pointer;
   @media screen and (min-width: 768px) {
-  max-width: 255px;
+      font-size: 16px;
+    max-width: 255px;
+    margin-right:  0px;
+    margin-left:auto;
+    padding: 5px 108px;
+  }
+  &:hover{
+    background-color:transparent;
+    color: var(--clr-brand-blue);
+    border: 1px solid var(--clr-brand-blue);
+    border-radius:40px;
   }
 `;
 export const BtnText = styled.p`
-  display: flex;
-  flex-direction: row;
-  margin-right: auto;
-  gap: 10px;
-
-  color: var(--clr-secondary);
-
-  padding: 10px;
+  color: var(--clr-brand-blue);
 
   font-size: 16px;
-  font-weight: 500;
   font-style: normal;
   letter-spacing: 0.64px;
+  transition:color 300ms;
 `;
 export const UserFormSvg = styled.svg`
   width: 24px;
   height: 24px;
   stroke: #54adff;
   fill: none;
-
-  transition: transform 300ms;
-
-  &:hover{
-    transform: scale(1.1);
-  }
+  transition: stroke 300ms; 
 `;
 export const YesSvg = styled.svg`
   stroke: var(--clr-bcg-user);
   fill: none;
   width: 24px;
   height: 24px;
+  transition: stroke 300ms;
 `
 export const CloseSvg = styled.svg`
   stroke: var(--clr-brand-blue);
@@ -245,6 +263,10 @@ export const BtnCloseModal = styled.button`
   top: 24px;
   right: 24px;
   }
+  transition: transform 300ms  ;
+  &:hover{
+    transform: scale(1.2);
+  }
 `
 export const ConteinerBtn = styled.div`
   display: flex;
@@ -270,9 +292,15 @@ export const ButtonCansel = styled.button`
   border:   2px solid var(--clr-brand-blue);
   border-radius: 40px;
   padding: 8px 20px;
+  transition:all 300ms;
   @media screen and (min-width: 768px) {
     width: 129px;
     height: 40px;
+  }
+  &:hover{
+    background-color:var(--clr-brand-blue);
+    color:var(--clr-bcg);
+
   }
 `
 
@@ -298,6 +326,16 @@ export const ButtonLogout = styled.button`
   @media screen and (min-width: 768px) {
     width: 129px;
     height: 40px;
+  } 
+  transition: all 300ms;
+
+  &:hover{
+    background-color: transparent;
+    color:var(--clr-brand-blue);
+    border: 2px solid var(--clr-brand-blue);
+    svg{
+    stroke:var(--clr-brand-blue);
+    }
   }
 `
 

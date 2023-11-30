@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 
 export const PetsItemli = styled.li`
@@ -147,6 +147,13 @@ export const PetsModalBtnContainer = styled.div`
     gap: 17px;
   }
 `;
+const shakeAnimation = keyframes`
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-2px); }
+  50% { transform: translateX(2px); }
+  75% { transform: translateX(-2px); }
+  100% { transform: translateX(0); }
+`;
 export const BtnDelite = styled.button`
   position: absolute;
   top: 272px;
@@ -162,7 +169,7 @@ export const BtnDelite = styled.button`
   transition: transform 300ms;
 
   &:hover{
-    transform: scale(1.1);
+    animation: ${shakeAnimation} 0.5s ease;
   }
   }
 
