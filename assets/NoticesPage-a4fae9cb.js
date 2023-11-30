@@ -1,4 +1,4 @@
-import{n as r,L as G,u as y,a as O,j as e,r as c,b as o,c as $,d as Q,C as T,O as U}from"./index-3c82255a.js";import{N as H}from"./NoticesSearch-55452ba5.js";import{s as M}from"./selectors-9c63f203.js";import{F as W,A as _}from"./AttentionModalWrapper-f0203cf5.js";const J=r.div`
+import{n as r,L as G,u as y,a as O,j as e,r as c,b as o,c as $,d as Q,C as T,O as U}from"./index-8cb78a69.js";import{N as H}from"./NoticesSearch-6646fdad.js";import{s as M}from"./selectors-9c63f203.js";import{F as W,A as _}from"./AttentionModalWrapper-8eec2ab2.js";const J=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
