@@ -37,11 +37,11 @@ export const ModalBurger = ({ onClose, isModalOpen }) => {
     if (!isModalOpen) return;
 
     window.addEventListener('keydown', handleKeydown);
-    document.body.style.overflowY = 'hidden';
+    document.body.style.overflow = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', handleKeydown);
-      document.body.style.overflowY = 'auto';
+      document.body.style.overflow = 'visible';
     };
   }, [handleKeydown, isModalOpen]);
 

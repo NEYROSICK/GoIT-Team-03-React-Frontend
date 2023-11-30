@@ -43,7 +43,7 @@ export const Title = styled.h1`
 `;
 
 export const Img = styled.img`
-  position: absolute;
+  position: fixed;
   flex-shrink: 0;
   min-width: 474px;
   width: 474px;

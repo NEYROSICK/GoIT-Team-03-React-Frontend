@@ -2,12 +2,17 @@ import styled from 'styled-components';
 
 export const HeaderSection = styled.header`
   position: relative;
+  z-index: 100;
+  background-color: var(--clr-bcg);
+`;
+
+export const HeaderContainer = styled.div`
+  position: relative;
   display: flex;
   font-weight: 500;
   justify-content: space-between;
   align-items: center;
   z-index: 100;
-  background-color: var(--clr-bcg);
 
   @media screen and (min-width: 768px) {
     justify-content: center;
