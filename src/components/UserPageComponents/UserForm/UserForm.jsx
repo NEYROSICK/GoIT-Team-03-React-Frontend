@@ -84,6 +84,8 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleLogout = () => {
     dispatch(logOut());
     navigate('/login');
+    localStorage.removeItem('persist:auth');
+    window.location.reload();
   };
 
   useEffect(() => {
