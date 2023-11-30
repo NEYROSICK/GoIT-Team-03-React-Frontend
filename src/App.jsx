@@ -16,10 +16,10 @@ const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const AllNotices = lazy(() =>
   import('./components/FindPetComponents/allNotices/AllNotices'),
 );
-const FavoriteNotices = lazy(() =>
-  import('./components/FindPetComponents/favoriteNotices/FavoriteNotices'),
+const MyFavoritePage = lazy(() =>
+  import('./pages/MyFavoritePage/MyFavoritePage'),
 );
-const MyAds = lazy(() => import('./components/FindPetComponents/myAds/MyAds'));
+const MyAdsPage = lazy(() => import('./pages/MyAdsPage/MyAdsPage'));
 const AddPetPage = lazy(() => import('./pages/AddPetPage/AddPetPage'));
 
 function App() {
@@ -36,12 +36,14 @@ function App() {
         <Route
           path="/notices/favorite"
           element={
-            <PrivateRoute redirectTo="/login" component={<FavoriteNotices />} />
+            <PrivateRoute redirectTo="/login" component={<MyFavoritePage />} />
           }
         />
         <Route
           path="/notices/my-ads"
-          element={<PrivateRoute redirectTo="/login" component={<MyAds />} />}
+          element={
+            <PrivateRoute redirectTo="/login" component={<MyAdsPage />} />
+          }
         />
         <Route
           path="/register"
