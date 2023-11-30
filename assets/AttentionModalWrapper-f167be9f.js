@@ -1,4 +1,4 @@
-import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js";const m=o.div`
+import{p as o,r as a,l as g,j as t,s as n,N as x,h as u}from"./index-a5fa65c1.js";const m=o.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,10 +24,10 @@ import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js
   align-items: center;
   gap: 20px;
 
-  opacity: ${e=>e.showModal?"1":"0"};
+  scale: ${e=>e.showModal?"1":"0"};
 
   transition: 300ms;
-`,w=document.querySelector("#modal-root"),S=({onClose:e,showModal:i,children:x})=>{const[c,h]=a.useState(!1);a.useEffect(()=>{h(i)},[i]);const l=a.useMemo(()=>r=>{r.code==="Escape"&&e()},[e]);a.useEffect(()=>(window.addEventListener("keydown",l),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",l),document.body.style.overflow="visible"}),[l]);const f=r=>{r.currentTarget===r.target&&e()};return g.createPortal(t.jsx(m,{onClick:f,showModal:c,children:t.jsx(y,{showModal:c,children:x})}),w)},s="min-width: 768px",v=o.div`
+`,w=document.querySelector("#modal-root"),S=({onClose:e,showModal:i,children:h})=>{const[p,l]=a.useState(!1);a.useEffect(()=>{l(i)},[i]);const d=a.useMemo(()=>r=>{r.code==="Escape"&&(l(!1),setTimeout(()=>e(),300))},[e]),f=r=>{r.currentTarget===r.target&&(l(!1),setTimeout(()=>e(),300))};return a.useEffect(()=>(window.addEventListener("keydown",d),document.body.style.overflow="hidden",()=>{window.removeEventListener("keydown",d),document.body.style.overflow="visible"}),[d]),g.createPortal(t.jsx(m,{onClick:f,showModal:p,children:t.jsx(y,{showModal:p,children:h})}),w)},s="min-width: 768px",v=o.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js
     line-height: 28px;
     letter-spacing: 0.8px;
   }
-`,d="min-width: 768px",A=n.ul`
+`,c="min-width: 768px",A=n.ul`
   display: flex;
   flex-direction: column;
   font-size: 16px;
@@ -119,7 +119,7 @@ import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js
 
   margin: 40px auto 0 auto;
 
-  @media (${d}) {
+  @media (${c}) {
     flex-direction: row;
   }
 `,M=n.li`
@@ -137,7 +137,7 @@ import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js
     box-shadow: 3px 3px 3px var(--clr-brand-yellow);
   }
 
-  @media (${d}) {
+  @media (${c}) {
     width: 165px;
   }
 `,E=n.li`
@@ -158,20 +158,20 @@ import{p as o,r as a,l as g,j as t,s as n,N as p,h as u}from"./index-a912cf7d.js
     box-shadow: 3px 3px 3px var(--clr-brand-yellow);
   }
 
-  @media (${d}) {
+  @media (${c}) {
     width: 142px;
   }
-`,L=n(p)`
+`,L=n(x)`
   color: var(--clr-primary-inv);
   display: flex;
   justify-content: center;
-`,$=n(p)`
+`,$=n(x)`
   color: var(--clr-brand-yellow);
-`,z=n.svg`
+`,T=n.svg`
   fill: var(--clr-bcg);
   margin-left: 12px;
   width: 24px;
   height: 24px;
 
   transition: 300ms;
-`,I=()=>t.jsxs(A,{children:[t.jsx(M,{children:t.jsxs(L,{to:"/login",children:["Log IN",t.jsx(z,{children:t.jsx("use",{href:u+"#iconPaw"})})]})}),t.jsx(E,{children:t.jsx($,{to:"/register",children:"Registration"})})]}),B=({setShowModal:e,sprite:i})=>t.jsxs(v,{children:[t.jsx(b,{onClick:()=>{e(!1)},children:t.jsx("use",{href:i+"#iconCross"})}),t.jsx(j,{children:"Attention"}),t.jsx(k,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."}),t.jsx(I,{})]});export{B as A,S as F};
+`,z=()=>t.jsxs(A,{children:[t.jsx(M,{children:t.jsxs(L,{to:"/login",children:["Log IN",t.jsx(T,{children:t.jsx("use",{href:u+"#iconPaw"})})]})}),t.jsx(E,{children:t.jsx($,{to:"/register",children:"Registration"})})]}),B=({setShowModal:e,sprite:i})=>t.jsxs(v,{children:[t.jsx(b,{onClick:()=>{e(!1)},children:t.jsx("use",{href:i+"#iconCross"})}),t.jsx(j,{children:"Attention"}),t.jsx(k,{children:"We would like to remind you that certain functionality is available only to authorized users.If you have an account, please log in with your credentials. If you do not already have an account, you must register to access these features."}),t.jsx(z,{})]});export{B as A,S as F};
