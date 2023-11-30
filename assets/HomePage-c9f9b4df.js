@@ -1,4 +1,4 @@
-import{s as e,j as t,C as n}from"./index-bc72f8a7.js";const a=e.div`
+import{s as e,j as t,C as n}from"./index-3c82255a.js";const a=e.div`
   position: relative;
   height: calc(100vh - 68px);
 
@@ -37,7 +37,7 @@ import{s as e,j as t,C as n}from"./index-bc72f8a7.js";const a=e.div`
     width: 501px;
   }
 `,o=e.img`
-  position: absolute;
+  position: fixed;
   flex-shrink: 0;
   min-width: 474px;
   width: 474px;
@@ -57,4 +57,4 @@ import{s as e,j as t,C as n}from"./index-bc72f8a7.js";const a=e.div`
     width: 917px;
     transform: translateX(-146px);
   }
-`,i="/GoIT-Team-03-React-Frontend/assets/main_mob-1ae566ab.png",x="/GoIT-Team-03-React-Frontend/assets/main_mob@2x-b05bb393.png",m="/GoIT-Team-03-React-Frontend/assets/main_tab-7b699673.png",p="/GoIT-Team-03-React-Frontend/assets/main_tab@2x-6a488d93.png",r="/GoIT-Team-03-React-Frontend/assets/main_desk-0fe551c3.png",d="/GoIT-Team-03-React-Frontend/assets/main_desk@2x-6508ee4b.png",c=()=>t.jsx(n,{children:t.jsxs(a,{children:[t.jsx(s,{children:"Take good care of your small pets"}),t.jsxs("picture",{children:[t.jsx("source",{srcSet:`${r} 1x, ${d} 2x`,media:"(min-width: 1280px)",type:"image/jpg"}),t.jsx("source",{srcSet:`${m} 1x, ${p} 2x`,media:"(min-width: 768px)",type:"image/jpg"}),t.jsx("source",{srcSet:`${i} 1x, ${x} 2x`,type:"image/jpg"}),t.jsx(o,{src:i,alt:"Beard shaving"})]})]})});export{c as default};
+`,i="/GoIT-Team-03-React-Frontend/assets/main_mob-1ae566ab.png",x="/GoIT-Team-03-React-Frontend/assets/main_mob@2x-b05bb393.png",m="/GoIT-Team-03-React-Frontend/assets/main_tab-7b699673.png",p="/GoIT-Team-03-React-Frontend/assets/main_tab@2x-6a488d93.png",d="/GoIT-Team-03-React-Frontend/assets/main_desk-0fe551c3.png",r="/GoIT-Team-03-React-Frontend/assets/main_desk@2x-6508ee4b.png",c=()=>t.jsx(n,{children:t.jsxs(a,{children:[t.jsx(s,{children:"Take good care of your small pets"}),t.jsxs("picture",{children:[t.jsx("source",{srcSet:`${d} 1x, ${r} 2x`,media:"(min-width: 1280px)",type:"image/jpg"}),t.jsx("source",{srcSet:`${m} 1x, ${p} 2x`,media:"(min-width: 768px)",type:"image/jpg"}),t.jsx("source",{srcSet:`${i} 1x, ${x} 2x`,type:"image/jpg"}),t.jsx(o,{src:i,alt:"Beard shaving"})]})]})});export{c as default};
