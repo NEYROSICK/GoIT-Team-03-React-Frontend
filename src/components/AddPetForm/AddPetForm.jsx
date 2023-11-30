@@ -13,12 +13,7 @@ import {
   useAddPetMutation,
 } from '../../redux/API/RTKQueryApi';
 
-import {
-  FormContainer,
-  FormStyled,
-  StepList,
-  Title,
-} from './AddPetForm.styled';
+import { FormSection, FormStyled, StepList, Title } from './AddPetForm.styled';
 import { Container } from '../Layout/Container/Container';
 
 const AddPetForm = () => {
@@ -266,8 +261,8 @@ const AddPetForm = () => {
 
   return (
     <>
-      <Container>
-        <FormContainer>
+      <FormSection>
+        <Container>
           <FormStyled className={isTitleCentered ? 'centered' : ''}>
             <Title className={isTitleCentered ? 'centered' : ''}>
               {step === 0 ? 'Add pet' : getTitle()}
@@ -297,8 +292,8 @@ const AddPetForm = () => {
             </StepList>
             {steps[step]}
           </FormStyled>
-        </FormContainer>
-      </Container>
+        </Container>
+      </FormSection>
     </>
   );
 };

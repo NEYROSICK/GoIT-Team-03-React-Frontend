@@ -5,18 +5,18 @@ import styled from '@emotion/styled';
 const ICON_PAW_SIZE = '24px';
 const ICON_ARROW_SIZE = '24px';
 
-export const FormContainer = styled.div`
+export const FormSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 68px);
+  min-height: calc(100% - 68px);
 
   @media (min-width: 768px) {
-    min-height: calc(100vh - 92px);
+    min-height: calc(100% - 92px);
   }
 
   @media (min-width: 768px) {
-    min-height: calc(100vh - 88px);
+    min-height: calc(100% - 88px);
   }
 `;
 
@@ -24,21 +24,26 @@ export const FormStyled = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100%;
+  width: 100%;
   border-radius: 40px;
   background-color: var(--clr-bcg);
   box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 0.19);
   padding: 20px 8px 16px 8px;
-  margin: 20px 0;
+  margin: 20px auto;
 
   @media (min-width: 768px) {
-    min-width: 458px;
+    max-width: 458px;
     padding: 20px 34px;
+    &.centered {
+      padding: 20px 75px;
+      max-width: 100%;
+    }
   }
 
   @media (min-width: 1280px) {
     &.centered {
       padding: 20px 75px;
+      max-width: 822px;
     }
   }
 `;
