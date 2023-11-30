@@ -1,4 +1,4 @@
-import{p as l,s as t,r as c,j as n,w as u,h as d}from"./index-559cad74.js";import{N as w,a as x}from"./AllNotices.styled-2b1c5c6c.js";import{L as y}from"./Loader-5148866f.js";const b=l.div`
+import{p as l,s as t,r as c,j as n,w as u,h as d}from"./index-a912cf7d.js";import{N as w,a as x}from"./AllNotices.styled-8d9d8138.js";import{L as y}from"./Loader-6d874a3d.js";const b=l.div`
   margin-left: auto;
   margin-right: auto;
   padding: 0px 20px;
@@ -18,7 +18,7 @@ import{p as l,s as t,r as c,j as n,w as u,h as d}from"./index-559cad74.js";impor
 
   padding-top: 20px;
   @media only screen and (min-width: 1280px) {
-    padding-top: 40px;
+    padding-top: 80px;
     padding-bottom: 60px;
     width: 1280px;
   }
