@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 export const UserPageContainer = styled.div`
   position: relative;
   margin-top: 20px;
-  background-color: var(--clr-bcg);
   @media only screen and (min-width: 768px) {
     margin-top: 36px;
   }
