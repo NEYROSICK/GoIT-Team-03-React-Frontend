@@ -1,4 +1,4 @@
-import{s,g as Rn,_ as N,c as H,d as Ve,e as Je,r as u,R as Ln,f as Ie,j as r,h as C,i as xn,k as Me,l as mn,m as Bn,n as Pe,o as Un,p as $n,q as Wn,b as Kn,t as j,L as Nn,v as Hn,w as Yn,C as qn}from"./index-655ad311.js";import{F as Gn,a as Xn,c as Vn,b as ue,d as Jn,e as Qn}from"./index.esm-0784ee8c.js";import{L as Zn}from"./Loader-4e5a05f4.js";s.div`
+import{s,g as Rn,_ as N,c as H,d as Ve,e as Je,r as u,R as Ln,f as Ie,j as r,h as C,i as xn,k as Me,l as mn,m as Bn,n as Pe,o as Un,p as $n,q as Wn,b as Kn,t as j,L as Nn,v as Hn,w as Yn,C as qn}from"./index-34f0f058.js";import{F as Gn,a as Xn,c as Vn,b as ue,d as Jn,e as Qn}from"./index.esm-bf2fe7fe.js";import{L as Zn}from"./Loader-51474848.js";s.div`
   margin-bottom: 32px;
   position: relative;
   img {
@@ -573,6 +573,7 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-right:auto;
     @media only screen and (min-width: 768px) {
         font-size: 28px;
     }
@@ -826,7 +827,6 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   width: 24px;
   height: 24px;
 `,Kr=s.p`
-  width: 300px;
   margin: 0 auto 130px;
   text-align: center;
       @media only screen and (min-width: 1280px) {
