@@ -6,6 +6,7 @@ export const PetsDataTitle = styled.h2`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  margin-right:auto;
     @media only screen and (min-width: 768px) {
         font-size: 28px;
     }
