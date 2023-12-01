@@ -1,4 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container } from '../../Container/Container';
 import { ModalUserNav } from './ModalUserNav/ModalUserNav';
 import {
@@ -14,16 +14,18 @@ import sprite from '../../../../ui/Icons/sprite.svg';
 import { ModalAuthNav } from './ModalAuthNav/ModalAuthNav';
 import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router';
-import { logOut } from '../../../../redux/auth/operations';
+import { selectToken } from '../../../../redux/auth/selectors';
+import { useLogOutMutation } from '../../../../redux/API/RTKQueryApi';
 
 export const ModalBurger = ({ onClose, isModalOpen }) => {
+  const Token = useSelector(selectToken);
+  const [LogOut] = useLogOutMutation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { token } = useSelector((state) => state.auth);
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     onClose(false);
-    dispatch(logOut());
+    await LogOut(Token).unwrap();
     navigate('/login');
     localStorage.removeItem('persist:auth');
     window.location.reload();

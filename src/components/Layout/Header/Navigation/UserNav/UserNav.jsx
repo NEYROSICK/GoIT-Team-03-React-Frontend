@@ -8,19 +8,23 @@ import {
   LogoutButtonDesk,
 } from './UserNav.styled';
 import sprite from '../../../../../ui/Icons/sprite.svg';
-import { useGetMeAndPetsQuery } from '../../../../../redux/API/RTKQueryApi';
+import {
+  useGetMeAndPetsQuery,
+  useLogOutMutation,
+} from '../../../../../redux/API/RTKQueryApi';
 import { useNavigate } from 'react-router';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../../../../redux/auth/operations';
+import { selectToken } from '../../../../../redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 export const UserNav = ({ isModalOpen, onClose }) => {
+  const Token = useSelector(selectToken);
+  const [LogOut] = useLogOutMutation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const { data, isLoading } = useGetMeAndPetsQuery();
 
-  const handleLogout = () => {
+  const handleLogout = async () => {
     onClose(false);
-    dispatch(logOut());
+    await LogOut(Token).unwrap();
     navigate('/login');
     localStorage.removeItem('persist:auth');
     window.location.reload();
