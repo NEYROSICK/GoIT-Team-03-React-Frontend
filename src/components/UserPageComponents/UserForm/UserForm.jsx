@@ -23,26 +23,28 @@ import {
   ErrorMessage,
 } from './UserForm.styled';
 import Loader from "../../../ui/Loader/Loader";
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import AddPhoto from '../UserPhoto/UserPhoto';
 import Modal from './../../Modal/Modal';
 
 import {
   useGetMeAndPetsQuery,
   useUpdateUserMutation,
+  useLogOutMutation,
 } from '../../../redux/API/RTKQueryApi';
 import { useNavigate } from 'react-router-dom';
-import { logOut } from '../../../redux/auth/operations';
 import sprite from '.././../../ui/Icons/sprite.svg';
 import { object, string, date } from 'yup';
+import {selectToken} from '../../../redux/auth/selectors'
 
 const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
+  const Token = useSelector(selectToken)
   const [isShowModal, setIsShowModal] = useState(false);
   const [userPhoto, setUserPhoto] = useState(null);
   const { data, isLoading } = useGetMeAndPetsQuery();
   const [updateUser] = useUpdateUserMutation();
+  const [LogOut] = useLogOutMutation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const handleSubmit = (values) => {
     values.date.split('-').reverse().join('-');
@@ -81,8 +83,8 @@ const UserForm = ({ isUserUpdate, setIsUserUpdate }) => {
   const hendleClick = () => {
     setIsShowModal(true);
   };
-  const hendleLogout = () => {
-    dispatch(logOut());
+  const hendleLogout =  async() => {
+    await LogOut(Token).unwrap();
     navigate('/login');
     localStorage.removeItem('persist:auth');
     window.location.reload();
