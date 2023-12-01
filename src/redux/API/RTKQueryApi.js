@@ -110,6 +110,14 @@ export const RTKQueryApi = createApi({
         url: `/friends`,
       }),
     }),
+    //!LogOut
+    LogOut: builder.mutation({
+      query: (body) => ({
+        url: `/auth/logout`,
+        method: 'POST',
+        body,
+      }),
+    }),
     //!
   }),
 });
@@ -127,4 +135,5 @@ export const {
   useDeletePetMutation,
   useUpdateFavoriteMutation,
   useUpdateUserMutation,
+  useLogOutMutation,
 } = RTKQueryApi;
