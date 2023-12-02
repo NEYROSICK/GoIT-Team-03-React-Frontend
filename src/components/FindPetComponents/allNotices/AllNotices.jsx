@@ -75,7 +75,7 @@ function AllNotices() {
           <NoticeList>
             {data.notices.length > 0 ? (
               data.notices.map(
-                ({ _id, title, category, date, sex, location, avatarURL }) => (
+                ({ _id, title, category, date, sex, location, age, avatarURL }) => (
                   <NoticeItem
                     key={_id}
                     id={_id}
@@ -85,6 +85,7 @@ function AllNotices() {
                     sex={sex}
                     location={location}
                     avatarUrl={avatarURL}
+                    age={age}
                     userFavoritesArr={userFavorites}
                   />
                 ),

@@ -1,6 +1,5 @@
 import sprite from '../../../ui/Icons/sprite.svg';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-
 import {
   ItemContainer,
   TopPart,
@@ -16,15 +15,11 @@ import {
   ItemLearnMoreBtnIcon,
   ItemDeleteBtn,
 } from './NoticeItem.styled';
-
 import { useUpdateFavoriteMutation } from '../../../redux/API/RTKQueryApi';
 import { useDeleteNoticeMutation } from '../../../redux/API/RTKQueryApi';
 import { useState } from 'react';
-
 import { useSelector } from 'react-redux';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
-
-// import Modal from '../../Modal/Modal.jsx';
 import FindPetModal from '../FindPetModal/FindPetModal.jsx';
 import AttentionModalWrapper from './AttentionWrapper/AttentionModalWrapper.jsx';
 import DeleteModalWrapper from './DeleteWrapper/DeleteModalWrapper.jsx';
@@ -33,10 +28,10 @@ import LearnMoreModalWrapper from './LearnMoreModalWrapper/LearnMoreModalWrapper
 const NoticeItem = ({
   id,
   title,
-  date,
   category,
   sex,
   location,
+  age,
   avatarUrl,
   userFavoritesArr,
   showDelete,
@@ -50,11 +45,7 @@ const NoticeItem = ({
 
   const [deleteNotice] = useDeleteNoticeMutation();
 
-  const today = new Date();
-
-  const noticeDate = new Date(date.split('-').reverse().join('-'));
-  const noticeAge = today.getFullYear() - noticeDate.getFullYear();
-  const ageText = noticeAge % 2 ? 'year' : 'years';
+  const ageText = age % 2 ? 'year' : 'years';
 
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
@@ -142,7 +133,7 @@ const NoticeItem = ({
             <ItemDataIcon>
               <use href={sprite + '#iconClock'} />
             </ItemDataIcon>
-            {noticeAge} {ageText}
+            {age} {ageText}
           </ItemData>
           <ItemData>
             <ItemDataIcon>
