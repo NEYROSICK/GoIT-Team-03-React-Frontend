@@ -1,4 +1,4 @@
-import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}from"./index-6555f7ab.js";import{n as v}from"./notiflix-notify-aio-4ba589ba.js";import{F as Z,A as ee}from"./AttentionModalWrapper-b2e623dd.js";const F="min-width: 768px",E="min-width: 1280px",te=t.li`
+import{t,s as a,v as O,j as e,G as R,r as D,H as G,I as K,k as U,z as Q,h as r}from"./index-63556afd.js";import{n as v}from"./notiflix-notify-aio-80258f64.js";import{F as q,A as J}from"./AttentionModalWrapper-d7422424.js";const B="min-width: 768px",F="min-width: 1280px",V=t.li`
   display: flex;
   flex-direction: column;
 
@@ -21,14 +21,14 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     }
   }
 
-  @media (${F}) {
+  @media (${B}) {
     width: 336px;
   }
 
-  @media (${E}) {
+  @media (${F}) {
     width: 288px;
   }
-`,ne=t.div`
+`,Z=t.div`
   position: relative;
   display: flex;
   flex-direction: column-reverse;
@@ -40,7 +40,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
 
   overflow: hidden;
   transition: 300ms;
-`,ie=t.img`
+`,ee=t.img`
   position: absolute;
   object-position: center;
   object-fit: cover;
@@ -49,7 +49,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   height: 100%;
 
   transition: 300ms;
-`,oe=t.p`
+`,te=t.p`
   position: absolute;
   top: 16px;
   left: 0;
@@ -70,7 +70,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`,re=t.button`
+`,ne=t.button`
   position: absolute;
   top: 12px;
   right: 12px;
@@ -89,7 +89,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   &:hover svg {
     scale: 1.2;
   }
-`,ae=t.button`
+`,ie=t.button`
   position: absolute;
   top: 58px;
   right: 12px;
@@ -108,7 +108,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   &:hover svg {
     scale: 1.2;
   }
-`,A=t.svg`
+`,z=t.svg`
   stroke: var(--clr-brand-blue);
   fill: ${i=>i.isFavorite?"var(--clr-brand-blue)":"var(--clr-brand-blue-lt)"};
 
@@ -116,7 +116,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   height: 24px;
 
   transition: 300ms;
-`,se=t.div`
+`,oe=t.div`
   position: absolute;
   bottom: 12px;
   left: 0;
@@ -132,11 +132,11 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
 
   z-index: 2;
 
-  @media (${F}) {
+  @media (${B}) {
     gap: 24px;
   }
 
-  @media (${E}) {
+  @media (${F}) {
     gap: 12px;
   }
 `,I=t.p`
@@ -165,7 +165,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
 
   width: 24px;
   height: 24px;
-`,le=t.h3`
+`,re=t.h3`
   width: 231px;
   height: 66px;
   margin: 20px 0 0 20px;
@@ -177,7 +177,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-`,pe=t.button`
+`,ae=t.button`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -207,7 +207,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
       height: 24px;
     }
   }
-`,ce=t.svg`
+`,se=t.svg`
   opacity: 0;
   stroke: var(--clr-primary-inv);
   fill: var(--clr-primary-inv);
@@ -216,7 +216,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   height: 0;
 
   transition: 300ms;
-`,d="min-width: 768px",de=a.div`
+`,d="min-width: 768px",le=a.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -235,7 +235,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
 
     border-radius: 40px;
   }
-`,xe=a.svg`
+`,pe=a.svg`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -257,7 +257,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     top: 24px;
     right: 24px;
   }
-`,he=a.h3`
+`,ce=a.h3`
   color: var(--, #111);
   text-align: center;
   font-family: Manrope;
@@ -279,7 +279,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     letter-spacing: -0.28px;
     width: 288px;
   }
-`,fe=a.p`
+`,de=a.p`
   margin: 14px auto 0 auto;
 
   color: #000;
@@ -303,7 +303,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 393px;
     height: 66px;
   }
-`,ge=a.div`
+`,xe=a.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -317,7 +317,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     gap: 17px;
     margin-top: 48px;
   }
-`,me=a.button`
+`,he=a.button`
   position: relative;
   display: flex;
   width: 256px;
@@ -362,17 +362,17 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 129px;
     margin: 0;
   }
-`,ue=a.p`
+`,fe=a.p`
   color: var(--clr-brand-blue);
   z-index: 2;
   transition: 300ms;
-`,be=K`
+`,ge=O`
   0% { transform: translateX(0); }
   25% { transform: translateX(-2px); }
   50% { transform: translateX(2px); }
   75% { transform: translateX(-2px); }
   100% { transform: translateX(0); }
-`,we=a.button`
+`,me=a.button`
   position: relative;
   display: flex;
   color: #fff;
@@ -406,21 +406,21 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   }
 
   &:hover svg {
-    animation: ${be} 0.5s ease;
+    animation: ${ge} 0.5s ease;
   }
 
   @media (${d}) {
     width: 129px;
     margin: 0;
   }
-`,ye=a.p`
+`,ue=a.p`
   display: flex;
   color: #fff;
   justify-content: center;
   align-items: center;
   gap: 8px;
   z-index: 2;
-`,ve=a.svg`
+`,be=a.svg`
   stroke: #fff;
   fill: none;
 
@@ -428,7 +428,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   height: 24px;
 
   cursor: pointer;
-`,je=({setShowModal:i,sprite:s,handleDeleteClick:h})=>e.jsxs(de,{children:[e.jsx(xe,{onClick:()=>{i(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsx(he,{children:"Delete advertisement?"}),e.jsxs(fe,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(ge,{children:[e.jsx(me,{onClick:()=>{i(!1)},children:e.jsx(ue,{children:"Cancel"})}),e.jsx(we,{type:"submit",onClick:h,children:e.jsxs(ye,{children:["Yes",e.jsx(ve,{children:e.jsx("use",{href:s+"#iconTrash"})})]})})]})]}),o="min-width: 768px",Me=t.div`
+`,we=({setShowModal:i,sprite:s,handleDeleteClick:x})=>e.jsxs(le,{children:[e.jsx(pe,{onClick:()=>{i(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsx(ce,{children:"Delete advertisement?"}),e.jsxs(de,{children:["Are you sure you want to delete ",e.jsx("b",{children:"“Cute dog looking for a home”"}),"?",e.jsx("br",{}),"You can`t undo this action."]}),e.jsxs(xe,{children:[e.jsx(he,{onClick:()=>{i(!1)},children:e.jsx(fe,{children:"Cancel"})}),e.jsx(me,{type:"submit",onClick:x,children:e.jsxs(ue,{children:["Yes",e.jsx(be,{children:e.jsx("use",{href:s+"#iconTrash"})})]})})]})]}),o="min-width: 768px",ye=t.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -454,7 +454,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     border-radius: 40px;
     overflow: hidden;
   }
-`,ke=t.div`
+`,ve=t.div`
   position: relative;
   width: 240px;
   height: 240px;
@@ -468,10 +468,10 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 262px;
     height: 298px;
   }
-`,De=t.img`
+`,je=t.img`
   width: 100%;
   height: 100%;
-`,$e=t.p`
+`,Me=t.p`
   position: absolute;
   top: 16px;
   left: 0;
@@ -492,7 +492,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   font-style: normal;
   font-weight: 500;
   line-height: normal;
-`,Ie=t.div`
+`,ke=t.div`
   display: flex;
   flex-direction: column;
   margin-top: 20px;
@@ -503,7 +503,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 280px;
     height: 298px;
   }
-`,Le=t.h3`
+`,$e=t.h3`
   color: #000;
   font-family: Manrope;
   font-size: 24px;
@@ -543,7 +543,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   @media (${o}) {
     font-size: 16px;
   }
-`,B=t.a`
+`,A=t.a`
   color: var(--yellow, #ffc107);
   font-family: Manrope;
   font-size: 12px;
@@ -556,7 +556,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   @media (${o}) {
     font-size: 16px;
   }
-`,Ce=t.p`
+`,De=t.p`
   /* overflow: hidden; */
   margin: 12px auto;
   width: 256px;
@@ -576,7 +576,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     height: 48px;
     font-size: 16px;
   }
-`,Te=t.div`
+`,Ie=t.div`
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
@@ -588,7 +588,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     justify-content: flex-start;
     gap: 17px;
   }
-`,ze=t.a`
+`,Le=t.a`
   position: relative;
   display: flex;
   width: 256px;
@@ -643,7 +643,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 129px;
     height: 40px;
   }
-`,Ae=t.p`
+`,Ce=t.p`
   position: relative;
   display: flex;
   justify-content: center;
@@ -652,7 +652,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   z-index: 3;
 
   transition: 300ms;
-`,Be=t.button`
+`,Te=t.button`
   position: relative;
   width: 256px;
   height: 40px;
@@ -699,7 +699,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     width: 129px;
     height: 40px;
   }
-`,Fe=t.p`
+`,ze=t.p`
   position: relative;
   display: flex;
   justify-content: center;
@@ -708,7 +708,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   z-index: 3;
 
   transition: 300ms;
-`,Ee=t.svg`
+`,Ae=t.svg`
   stroke: #fff;
   fill: ${i=>i.isFavorite?"#fff":"var(--clr-brand-blue)"};
 
@@ -717,7 +717,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
 
   cursor: pointer;
   transition: 300ms;
-`,Ne=t.svg`
+`,Be=t.svg`
   position: absolute;
   top: 16px;
   right: 16px;
@@ -739,7 +739,7 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
     top: 24px;
     right: 24px;
   }
-`,We=({_id:i,sprite:s,isFavorite:h,handleFavoriteClick:u,category:b,setShowModal:j})=>{const{data:n,isLoading:M,error:w}=U(i);return e.jsxs(Me,{children:[M&&e.jsx("div",{children:"Loading..."}),(n==null?void 0:n.notice)&&(n==null?void 0:n.owner)&&e.jsxs(e.Fragment,{children:[e.jsx(Ne,{onClick:()=>{j(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsxs(ke,{children:[e.jsx(De,{src:n.notice.avatarURL}),e.jsx($e,{children:b})]}),e.jsxs(Ie,{children:[e.jsx(Le,{children:n.notice.title}),e.jsxs(p,{children:[e.jsx(c,{children:"Name:"}),e.jsx(m,{children:n.notice.name})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Birthday:"}),e.jsx(m,{children:n.notice.date})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Type:"}),e.jsx(m,{children:n.notice.type})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Place:"}),e.jsx(m,{children:n.notice.location})]}),e.jsxs(p,{children:[e.jsx(c,{children:"The sex:"}),e.jsx(m,{children:n.notice.sex})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Email:"}),e.jsx(B,{href:`mailto:${n.owner&&n.owner.email}`,children:n.owner&&n.owner.email})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Phone:"}),e.jsx(B,{href:`tel:${n.owner&&n.owner.phone}`,children:n.owner&&n.owner.phone})]})]}),e.jsxs(Ce,{children:["Comments: ",n.notice.comments]}),e.jsxs(Te,{children:[e.jsx(ze,{href:`tel:${n.owner&&n.owner.phone}`,children:e.jsx(Ae,{children:"Contact"})}),e.jsx(Be,{onClick:u,children:e.jsxs(Fe,{children:["Add to",e.jsx(Ee,{isFavorite:h,children:e.jsx("use",{href:s+"#iconHeart"})})]})})]})]}),w&&e.jsx("div",{children:w.message})]})},He=({id:i,title:s,date:h,category:u,sex:b,location:j,avatarUrl:n,userFavoritesArr:M,showDelete:w})=>{const[k,f]=$.useState(!1),[D,y]=$.useState(""),[C,N]=$.useState(M.includes(i)),[W]=Q(),[S]=q(),P=new Date,Y=new Date(h.split("-").reverse().join("-")),T=P.getFullYear()-Y.getFullYear(),_=T%2?"year":"years",X=J(V),x=()=>{f(g=>!g)},z=async g=>{if(g.preventDefault(),X)try{const l=await W(i);l.data&&l.data.message&&v.Notify.success("Success!"),N(G=>!G)}catch{v.Notify.failure("Failed to update favorite status")}else k?(x(),y("attention"),x()):(y("attention"),x())},H=async g=>{g.preventDefault();try{const l=await S(i);l.data&&v.Notify.success(l.data.name+" was deleted successfully")}catch{v.Notify.failure("Failed to delete notice")}x()},O=()=>{y("delete"),x()},R=()=>{y("learnmore"),x()};return e.jsxs(te,{children:[e.jsxs(ne,{children:[e.jsx(ie,{src:n}),e.jsx(oe,{children:u}),e.jsx(re,{type:"submit",onClick:z,children:e.jsx(A,{isFavorite:C,children:e.jsx("use",{href:r+"#iconHeart"})})}),w&&e.jsx(ae,{onClick:O,children:e.jsx(A,{children:e.jsx("use",{href:r+"#iconTrash"})})}),e.jsxs(se,{children:[e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconLocation"})}),j]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconClock"})}),T," ",_]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:b==="male"?r+"#iconMale":r+"#iconFemale"})}),b]})]})]}),e.jsx(le,{children:s}),e.jsxs(pe,{onClick:R,children:["Learn more",e.jsx(ce,{children:e.jsx("use",{href:r+"#iconPaw"})})]}),k&&e.jsxs(Z,{onClose:()=>{f(!1)},showModal:k,children:[D==="attention"&&e.jsx(ee,{setShowModal:f,sprite:r}),D==="delete"&&e.jsx(je,{setShowModal:f,sprite:r,handleDeleteClick:H}),D==="learnmore"&&e.jsx(We,{_id:i,sprite:r,isFavorite:C,handleFavoriteClick:z,category:u,setShowModal:f})]})]},i)},Se="min-width: 768px",Pe="min-width: 1280px",Oe=t.ul`
+`,Fe=({_id:i,sprite:s,isFavorite:x,handleFavoriteClick:u,category:j,setShowModal:b})=>{const{data:n,isLoading:M,error:w}=R(i);return e.jsxs(ye,{children:[M&&e.jsx("div",{children:"Loading..."}),(n==null?void 0:n.notice)&&(n==null?void 0:n.owner)&&e.jsxs(e.Fragment,{children:[e.jsx(Be,{onClick:()=>{b(!1)},children:e.jsx("use",{href:s+"#iconCross"})}),e.jsxs(ve,{children:[e.jsx(je,{src:n.notice.avatarURL}),e.jsx(Me,{children:j})]}),e.jsxs(ke,{children:[e.jsx($e,{children:n.notice.title}),e.jsxs(p,{children:[e.jsx(c,{children:"Name:"}),e.jsx(m,{children:n.notice.name})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Birthday:"}),e.jsx(m,{children:n.notice.date})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Type:"}),e.jsx(m,{children:n.notice.type})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Place:"}),e.jsx(m,{children:n.notice.location})]}),e.jsxs(p,{children:[e.jsx(c,{children:"The sex:"}),e.jsx(m,{children:n.notice.sex})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Email:"}),e.jsx(A,{href:`mailto:${n.owner&&n.owner.email}`,children:n.owner&&n.owner.email})]}),e.jsxs(p,{children:[e.jsx(c,{children:"Phone:"}),e.jsx(A,{href:`tel:${n.owner&&n.owner.phone}`,children:n.owner&&n.owner.phone})]})]}),e.jsxs(De,{children:["Comments: ",n.notice.comments]}),e.jsxs(Ie,{children:[e.jsx(Le,{href:`tel:${n.owner&&n.owner.phone}`,children:e.jsx(Ce,{children:"Contact"})}),e.jsx(Te,{onClick:u,children:e.jsxs(ze,{children:["Add to",e.jsx(Ae,{isFavorite:x,children:e.jsx("use",{href:s+"#iconHeart"})})]})})]})]}),w&&e.jsx("div",{children:w.message})]})},_e=({id:i,title:s,category:x,sex:u,location:j,age:b,avatarUrl:n,userFavoritesArr:M,showDelete:w})=>{const[k,f]=D.useState(!1),[$,y]=D.useState(""),[C,E]=D.useState(M.includes(i)),[N]=G(),[W]=K(),S=b%2?"year":"years",P=U(Q),h=()=>{f(g=>!g)},T=async g=>{if(g.preventDefault(),P)try{const l=await N(i);l.data&&l.data.message&&v.Notify.success("Success!"),E(H=>!H)}catch{v.Notify.failure("Failed to update favorite status")}else k?(h(),y("attention"),h()):(y("attention"),h())},_=async g=>{g.preventDefault();try{const l=await W(i);l.data&&v.Notify.success(l.data.name+" was deleted successfully")}catch{v.Notify.failure("Failed to delete notice")}h()},X=()=>{y("delete"),h()},Y=()=>{y("learnmore"),h()};return e.jsxs(V,{children:[e.jsxs(Z,{children:[e.jsx(ee,{src:n}),e.jsx(te,{children:x}),e.jsx(ne,{type:"submit",onClick:T,children:e.jsx(z,{isFavorite:C,children:e.jsx("use",{href:r+"#iconHeart"})})}),w&&e.jsx(ie,{onClick:X,children:e.jsx(z,{children:e.jsx("use",{href:r+"#iconTrash"})})}),e.jsxs(oe,{children:[e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconLocation"})}),j]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:r+"#iconClock"})}),b," ",S]}),e.jsxs(I,{children:[e.jsx(L,{children:e.jsx("use",{href:u==="male"?r+"#iconMale":r+"#iconFemale"})}),u]})]})]}),e.jsx(re,{children:s}),e.jsxs(ae,{onClick:Y,children:["Learn more",e.jsx(se,{children:e.jsx("use",{href:r+"#iconPaw"})})]}),k&&e.jsxs(q,{onClose:()=>{f(!1)},showModal:k,children:[$==="attention"&&e.jsx(J,{setShowModal:f,sprite:r}),$==="delete"&&e.jsx(we,{setShowModal:f,sprite:r,handleDeleteClick:_}),$==="learnmore"&&e.jsx(Fe,{_id:i,sprite:r,isFavorite:C,handleFavoriteClick:T,category:x,setShowModal:f})]})]},i)},Ee="min-width: 768px",Ne="min-width: 1280px",Xe=t.ul`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -748,13 +748,13 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   margin-top: 24px;
   width: 280px;
 
-  @media (${Se}) {
+  @media (${Ee}) {
     column-gap: 32px;
 
     width: 768px;
   }
 
-  @media (${Pe}) {
+  @media (${Ne}) {
     width: 1280px;
   }
 
@@ -762,4 +762,4 @@ import{t,s as a,v as K,j as e,G as U,r as $,H as Q,I as q,k as J,z as V,h as r}f
   @media screen and (min-width: 768px) {
     gap: 32px;
   }
-`;export{Oe as N,He as a};
+`;export{Xe as N,_e as a};

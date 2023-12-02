@@ -1,4 +1,4 @@
-import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-6555f7ab.js";import{N as P,a as u}from"./AllNotices.styled-1607361a.js";import{L as k}from"./Loader-ca3920f0.js";import{S as E}from"./StyledPagination.styled-baa8adcf.js";import{N as C}from"./NoticesSearch-61c48f0b.js";const I=r.div`
+import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";import{N as P,a as u}from"./AllNotices.styled-c3335c5c.js";import{L as k}from"./Loader-d73743f0.js";import{S as E}from"./StyledPagination.styled-31bfb859.js";import{N as C}from"./NoticesSearch-898c58da.js";const I=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
