@@ -98,14 +98,13 @@ function FavoriteNotices() {
               </NoNoticesFound>
             )}
           </NoticeList>
-          {data.notices.length !== 0 && (
-            <StyledPagination
-              count={Math.floor(data.totalCount / limit)}
-              page={currentPage}
-              onChange={handlePageChange}
-              color="primary"
-            />
-          )}
+
+          <StyledPagination
+            count={Math.ceil(data.totalCount / limit)}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+          />
         </>
       )}
       {error && error.message}

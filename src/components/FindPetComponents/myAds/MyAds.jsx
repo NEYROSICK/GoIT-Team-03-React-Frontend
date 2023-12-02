@@ -14,7 +14,7 @@ import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
 import NoticeItem from '../NoticeItem/NoticeItem';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
 import { useSelector } from 'react-redux';
-import { StyledPagination } from '../../../ui/pagination/StyledPagination.styled.jsx'; // Update the path to your StyledPagination component
+import { StyledPagination } from '../../../ui/pagination/StyledPagination.styled.jsx';
 import { useEffect, useState } from 'react';
 
 function MyAds() {
@@ -99,14 +99,13 @@ function MyAds() {
               </NoNoticesFound>
             )}
           </NoticeList>
-          {data.notices.length !== 0 && (
-            <StyledPagination
-              count={Math.floor(data.totalCount / limit)}
-              page={currentPage}
-              onChange={handlePageChange}
-              color="primary"
-            />
-          )}
+
+          <StyledPagination
+            count={Math.ceil(data.totalCount / limit)}
+            page={currentPage}
+            onChange={handlePageChange}
+            color="primary"
+          />
         </>
       )}
       {error && error.message}
