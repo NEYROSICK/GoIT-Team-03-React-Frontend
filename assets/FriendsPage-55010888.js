@@ -1,4 +1,4 @@
-import{t as l,s as t,r as c,j as n,y as u,h as d}from"./index-34f0f058.js";import{N as w,a as x}from"./AllNotices.styled-aa513f59.js";import{L as y}from"./Loader-51474848.js";const b=l.div`
+import{t as l,s as t,r as c,j as n,y as u,h as d}from"./index-6555f7ab.js";import{N as w,a as x}from"./AllNotices.styled-1607361a.js";import{L as y}from"./Loader-ca3920f0.js";const b=l.div`
   margin-left: auto;
   margin-right: auto;
   padding: 0px 20px;
