@@ -63,7 +63,7 @@ function NewsList() {
         <NoMatchesFound />
       )}
       <StyledPagination
-        count={Math.ceil(data.totalCount / limit)}
+        count={data ? Math.ceil(data.totalCount / limit) : 0}
         page={currentPage}
         onChange={handlePageChange}
         color="primary"
