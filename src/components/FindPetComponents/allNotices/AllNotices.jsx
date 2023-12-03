@@ -61,8 +61,7 @@ function AllNotices() {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isLoading && (
+      {!isLoading ? (
         <>
           <NoticeList>
             {data.notices.length > 0 ? (
@@ -86,7 +85,7 @@ function AllNotices() {
             color="primary"
           />
         </>
-      )}
+      ) : (<Loader />)}
       {error && error.message}
     </>
   );
