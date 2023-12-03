@@ -1,4 +1,4 @@
-import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./index-63556afd.js";import{F as G,A as Q}from"./AttentionModalWrapper-d7422424.js";const U=i.div`
+import{t as r,L as E,a as y,j as e,k as B,z as N,r as c,h as o,b as D}from"./index-c7579de4.js";import{F as T,A as G}from"./AttentionModalWrapper-4feb7712.js";const Q=r.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -19,7 +19,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
     gap: 12px;
     margin-bottom: 24px;
   }
-`,k=i.ul`
+`,k=r.ul`
   // width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -31,7 +31,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
     flex-wrap: wrap;
     gap: 12px;
   }
-`,F=i.li`
+`,U=r.li`
   display: flex;
   border: none;
   flex-wrap: no-wrap;
@@ -46,7 +46,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   letter-spacing: 0.04em;
   text-decoration: none;
   transition: 300ms;
-`,S=i(D)`
+`,H=r(E)`
   padding: 8px 16px;
   text-decoration: none;
   color: var(--clr-brand-blue);
@@ -59,7 +59,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
     color: var(--clr-primary-inv);
     background-color: var(--clr-brand-blue);
   }
-`;let m=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,r)=>(r&=63,r<36?t+=r.toString(36):r<62?t+=(r-26).toString(36).toUpperCase():r>62?t+="-":t+="_",t),"");const H=[{id:m(),to:"/notices/sell",text:"sell"},{id:m(),to:"/notices/lost-found",text:"lost/found"},{id:m(),to:"/notices/in-good-hands",text:"in good hands"}],W=[{id:m(),to:"/notices/favorite",text:"favorite ads"},{id:m(),to:"/notices/my-ads",text:"my ads"}],_={publicCategories:H,userCategories:W},{publicCategories:q,userCategories:J}=_,ae=()=>{const{search:n}=y(),t=y(),r=L(N);return e.jsxs(U,{children:[e.jsx(k,{children:q.map(({id:a,to:o,text:c})=>e.jsx(F,{children:e.jsx(S,{to:{pathname:o,search:n},active:t.pathname===o?"true":void 0,children:c})},a))}),r&&e.jsx(k,{children:J.map(({id:a,to:o,text:c})=>e.jsx(F,{children:e.jsx(S,{to:{pathname:o,search:n},active:t.pathname===o?"true":void 0,children:c})},a))})]})},K=i.button`
+`,W=({id:n,to:t,text:i,search:a})=>{const s=y();return e.jsx(U,{children:e.jsx(H,{to:{pathname:t,search:a},active:s.pathname===t?"true":void 0,children:i})},n)};let u=(n=21)=>crypto.getRandomValues(new Uint8Array(n)).reduce((t,i)=>(i&=63,i<36?t+=i.toString(36):i<62?t+=(i-26).toString(36).toUpperCase():i>62?t+="-":t+="_",t),"");const _=[{id:u(),to:"/notices/sell",text:"sell"},{id:u(),to:"/notices/lost-found",text:"lost/found"},{id:u(),to:"/notices/in-good-hands",text:"in good hands"}],q=[{id:u(),to:"/notices/favorite",text:"favorite ads"},{id:u(),to:"/notices/my-ads",text:"my ads"}],J={publicCategories:_,userCategories:q},{publicCategories:K,userCategories:X}=J,F=(n,t)=>n.map(({id:i,to:a,text:s})=>e.jsx(W,{to:a,text:s,search:t},i)),ce=()=>{const{search:n}=y(),t=B(N);return e.jsxs(Q,{children:[e.jsx(k,{children:F(K,n)}),t&&e.jsx(k,{children:F(X,n)})]})},Y=r.button`
   position: relative;
   width: 40px;
   height: 40px;
@@ -134,7 +134,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
       color: #fff;
     }
   }
-`,X=i.p`
+`,Z=r.p`
   position: relative;
   display: flex;
   justify-content: center;
@@ -143,19 +143,19 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   color: #54adff;
   z-index: 2;
   transition: 300ms;
-`,Y=i.svg`
+`,V=r.svg`
   stroke: currentColor;
   fill: none;
   width: 24px;
   height: 24px;
   transition: 300ms;
-`,Z=i.span`
+`,ee=r.span`
   display: none;
 
   @media screen and (min-width: 768px) {
     display: block;
   }
-`,V=i.div`
+`,ne=r.div`
   width: 152px;
   position: absolute;
   right: 0;
@@ -175,21 +175,21 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   @media screen and (min-width: 768px) {
     right: auto;
   }
-`,ee=i.h4`
+`,te=r.h4`
   margin-bottom: 8px;
   font-weight: 700;
   font-size: 16px;
   line-height: 22px;
   letter-spacing: 0.04em;
   color: var(--clr-brand-blue);
-`,A=i.div`
+`,S=r.div`
   margin-bottom: 8px;
   border-radius: 20px;
   background-color: #cce4fb;
   transition: 300ms;
   padding: 8px;
   padding: ${n=>n.active&&"12px"};
-`,C=i.button`
+`,A=r.button`
   width: 100%;
   height: 100%;
   border: none;
@@ -206,13 +206,13 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   line-height: 18px;
   letter-spacing: 0px;
   text-align: left;
-`,z=i.form`
+`,C=r.form`
   margin-top: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   color: #54adff;
-`,h=i.label`
+`,x=r.label`
   display: flex;
   align-items: center;
   gap: 6px;
@@ -227,16 +227,16 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   &:focus {
     cursor: pointer;
   }
-`,f=i.input`
+`,h=r.input`
   appearance: none;
-`,R=i.svg`
+`,z=r.svg`
   stroke: currentColor;
   fill: none;
   width: 24px;
   height: 24px;
   transform: ${n=>n.active&&"rotate(180deg)"};
   transition: 300ms;
-`,g=i.svg`
+`,f=r.svg`
   width: 24px;
   height: 24px;
   stroke: var(--clr-brand-blue);
@@ -244,7 +244,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   opacity: 1;
   opacity: ${n=>n.check&&"0"};
   transition: 300ms;
-`,u=i.svg`
+`,g=r.svg`
   width: 24px;
   height: 24px;
   stroke: var(--clr-brand-blue);
@@ -253,8 +253,7 @@ import{t as i,L as D,a as y,k as L,z as N,j as e,r as l,h as s,b as T}from"./ind
   opacity: ${n=>n.check&&"1"};
   position: absolute;
   transition: 300ms;
-`,B=(n,t)=>t&&!n?{sex:"male"}:n&&!t?{sex:"female"}:{};//! I AM AN UPGRADE
-const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"from-2"}:n&&t&&!r?{age:"to-2"}:n&&!t&&r?{age:"to-1-from-2"}:void 0,de=(n,t,r,a,o)=>n&&t&&r||!n&&!t&&!r?{...B(a,o)}:o&&a||!o&&!a?{...I(n,t,r)}:{...I(n,t,r),...B(a,o)},ce=({checkboxValue:n,setCheckboxValue:t})=>{const[r,a]=l.useState(!1),[o,c]=l.useState(!1),[v,P]=l.useState(!1),[w,$]=l.useState(!1),M=()=>{a(!r)},O=()=>{c(d=>!d)},E=()=>{P(d=>!d)},p=d=>{const{name:x}=d.target;t(b=>({...b,[x]:!b[x]})),$(b=>!b)};l.useEffect(()=>{const d=x=>{j.current&&!j.current.contains(x.target)&&!filterBtn.contains(x.target)&&a(!1)};return document.addEventListener("click",d),()=>{document.removeEventListener("click",d)}},[]);const j=l.useRef(null);return e.jsxs("div",{children:[e.jsx(K,{id:"filterBtn",type:"button",onClick:M,children:e.jsxs(X,{children:[e.jsx(Z,{children:"Filter"}),e.jsx(Y,{children:e.jsx("use",{href:s+"#iconFilters3"})})]})}),r&&e.jsxs(V,{id:"filtersMenu",active:!0,ref:j,children:[e.jsx(ee,{children:"Filters"}),e.jsxs(A,{active:o?!0:void 0,children:[e.jsxs(C,{type:"button",onClick:O,"aria-label":"toggle age options",children:[e.jsx(R,{active:o?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By age"]}),o&&e.jsxs(z,{children:[e.jsxs(h,{children:[e.jsx(g,{check:n.to1,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(u,{check:n.to1,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(f,{onChange:p,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(h,{children:[e.jsx(g,{check:n.to2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(u,{check:n.to2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(f,{onChange:p,type:"checkbox",name:"to2",checked:[n.to2,w]}),"up to 2 years"]}),e.jsxs(h,{children:[e.jsx(g,{check:n.from2,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(u,{check:n.from2,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(f,{onChange:p,type:"checkbox",name:"from2",checked:[n.from2,w]}),"from 2 years"]})]})]}),e.jsxs(A,{active:v?!0:void 0,children:[e.jsxs(C,{type:"button",onClick:E,"aria-label":"toggle gender options",children:[e.jsx(R,{active:v?!0:void 0,children:e.jsx("use",{href:s+"#iconChevronDown"})}),"By gender"]}),v&&e.jsxs(z,{children:[e.jsxs(h,{children:[e.jsx(g,{check:n.male,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(u,{check:n.male,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(f,{onChange:p,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(h,{children:[e.jsx(g,{check:n.female,children:e.jsx("use",{href:s+"#iconRound"})}),e.jsx(u,{check:n.female,children:e.jsx("use",{href:s+"#iconCheckRound"})}),e.jsx(f,{onChange:p,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})]})},le=i.div`
+`,le=({checkboxValue:n,setCheckboxValue:t})=>{const[i,a]=c.useState(!1),[s,b]=c.useState(!1),[v,L]=c.useState(!1),[w,P]=c.useState(!1),$=()=>{a(!i)},M=()=>{b(d=>!d)},O=()=>{L(d=>!d)},l=d=>{const{name:p}=d.target;t(m=>({...m,[p]:!m[p]})),P(m=>!m)};c.useEffect(()=>{const d=p=>{j.current&&!j.current.contains(p.target)&&!filterBtn.contains(p.target)&&a(!1)};return document.addEventListener("click",d),()=>{document.removeEventListener("click",d)}},[]);const j=c.useRef(null);return e.jsxs("div",{children:[e.jsx(Y,{id:"filterBtn",type:"button",onClick:$,children:e.jsxs(Z,{children:[e.jsx(ee,{children:"Filter"}),e.jsx(V,{children:e.jsx("use",{href:o+"#iconFilters3"})})]})}),i&&e.jsxs(ne,{id:"filtersMenu",active:!0,ref:j,children:[e.jsx(te,{children:"Filters"}),e.jsxs(S,{active:s?!0:void 0,children:[e.jsxs(A,{type:"button",onClick:M,"aria-label":"toggle age options",children:[e.jsx(z,{active:s?!0:void 0,children:e.jsx("use",{href:o+"#iconChevronDown"})}),"By age"]}),s&&e.jsxs(C,{children:[e.jsxs(x,{children:[e.jsx(f,{check:n.to1,children:e.jsx("use",{href:o+"#iconRound"})}),e.jsx(g,{check:n.to1,children:e.jsx("use",{href:o+"#iconCheckRound"})}),e.jsx(h,{onChange:l,type:"checkbox",name:"to1",checked:n.to1}),"up to 1 year"]}),e.jsxs(x,{children:[e.jsx(f,{check:n.to2,children:e.jsx("use",{href:o+"#iconRound"})}),e.jsx(g,{check:n.to2,children:e.jsx("use",{href:o+"#iconCheckRound"})}),e.jsx(h,{onChange:l,type:"checkbox",name:"to2",checked:[n.to2,w]}),"up to 2 years"]}),e.jsxs(x,{children:[e.jsx(f,{check:n.from2,children:e.jsx("use",{href:o+"#iconRound"})}),e.jsx(g,{check:n.from2,children:e.jsx("use",{href:o+"#iconCheckRound"})}),e.jsx(h,{onChange:l,type:"checkbox",name:"from2",checked:[n.from2,w]}),"from 2 years"]})]})]}),e.jsxs(S,{active:v?!0:void 0,children:[e.jsxs(A,{type:"button",onClick:O,"aria-label":"toggle gender options",children:[e.jsx(z,{active:v?!0:void 0,children:e.jsx("use",{href:o+"#iconChevronDown"})}),"By gender"]}),v&&e.jsxs(C,{children:[e.jsxs(x,{children:[e.jsx(f,{check:n.male,children:e.jsx("use",{href:o+"#iconRound"})}),e.jsx(g,{check:n.male,children:e.jsx("use",{href:o+"#iconCheckRound"})}),e.jsx(h,{onChange:l,type:"checkbox",name:"male",checked:n.male}),"male"]}),e.jsxs(x,{children:[e.jsx(f,{check:n.female,children:e.jsx("use",{href:o+"#iconRound"})}),e.jsx(g,{check:n.female,children:e.jsx("use",{href:o+"#iconCheckRound"})}),e.jsx(h,{onChange:l,type:"checkbox",name:"female",checked:n.female}),"female"]})]})]})]})]})},pe=r.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -270,7 +269,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,pe=i.h1`
+`,xe=r.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -283,7 +282,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
     font-size: 48px;
     line-height: 66px;
   }
-`,xe=i.div`
+`,he=r.div`
   position: relative;
   width: 280px;
   display: flex;
@@ -296,7 +295,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
   @media screen and (min-width: 1280px) {
     width: 1248px;
   }
-`,he=i.div`
+`,fe=r.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -313,7 +312,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
   @media screen and (min-width: 1280px) {
     gap: 16px;
   }
-`,ne=i.button`
+`,ie=r.button`
   z-index: 5;
   width: 80px;
   height: 80px;
@@ -357,7 +356,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
     padding: 9px 16px;
     flex-direction: row;
   }
-`,te=i.svg`
+`,re=r.svg`
   stroke: var(--clr-primary-inv);
   width: 24px;
   height: 24px;
@@ -365,7 +364,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
   @media screen and (min-width: 768px) {
     display: none;
   }
-`,ie=i.svg`
+`,oe=r.svg`
   display: none;
   stroke: var(--clr-primary-inv);
   z-index: 2;
@@ -375,7 +374,7 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
     height: 24px;
     fill: var(--clr-primary-inv);
   }
-`,re=i.span`
+`,se=r.span`
   font-family: Manrope;
   font-size: 12px;
   font-weight: 600;
@@ -392,4 +391,5 @@ const I=(n,t,r)=>n&&!t&&!r?{age:"to-1"}:!n&&t&&!r?{age:"to-2"}:!n&&!t&&r?{age:"f
     letter-spacing: 0.04em;
     text-align: left;
   }
-`,fe=()=>{const[n,t]=l.useState(!1),r=y(),a=T(),o=L(N),c=()=>{if(!o){t(!0);return}a("/add-pet",{state:{from:r}})};return e.jsxs(e.Fragment,{children:[e.jsxs(ne,{onClick:c,children:[e.jsx(te,{children:e.jsx("use",{href:s+"#iconPlus"})}),e.jsx(re,{children:"Add Pet"}),e.jsx(ie,{children:e.jsx("use",{href:s+"#iconPlusSmall"})})]}),n&&e.jsx(G,{onClose:()=>{t(!1)},showModal:n,children:e.jsx(Q,{setShowModal:t,sprite:s})})]})};export{de as A,xe as F,le as N,pe as P,ae as a,he as b,ce as c,fe as d};
+`,ge=()=>{const[n,t]=c.useState(!1),i=y(),a=D(),s=B(N),b=()=>{if(!s){t(!0);return}a("/add-pet",{state:{from:i}})};return e.jsxs(e.Fragment,{children:[e.jsxs(ie,{onClick:b,children:[e.jsx(re,{children:e.jsx("use",{href:o+"#iconPlus"})}),e.jsx(se,{children:"Add Pet"}),e.jsx(oe,{children:e.jsx("use",{href:o+"#iconPlusSmall"})})]}),n&&e.jsx(T,{onClose:()=>{t(!1)},showModal:n,children:e.jsx(G,{setShowModal:t,sprite:o})})]})},R=(n,t)=>t&&!n?{sex:"male"}:n&&!t?{sex:"female"}:{};//! I AM AN UPGRADE
+const I=(n,t,i)=>n&&!t&&!i?{age:"to-1"}:!n&&t&&!i?{age:"to-2"}:!n&&!t&&i?{age:"from-2"}:n&&t&&!i?{age:"to-2"}:n&&!t&&i?{age:"to-1-from-2"}:void 0,ue=(n,t,i,a,s)=>n&&t&&i||!n&&!t&&!i?{...R(a,s)}:s&&a||!s&&!a?{...I(n,t,i)}:{...I(n,t,i),...R(a,s)};export{ue as A,he as F,pe as N,xe as P,ce as a,fe as b,le as c,ge as d};

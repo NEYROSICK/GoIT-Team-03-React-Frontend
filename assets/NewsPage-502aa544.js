@@ -1,4 +1,4 @@
-import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";import{N as P,a as u}from"./AllNotices.styled-c3335c5c.js";import{L as k}from"./Loader-d73743f0.js";import{S as E}from"./StyledPagination.styled-31bfb859.js";import{N as C}from"./NoticesSearch-898c58da.js";const I=r.div`
+import{t as a,r as n,j as e,u,x as v}from"./index-c7579de4.js";import{L as S}from"./Loader-f731eb83.js";import{N as k,S as E}from"./NoMatchesFound-9cc42972.js";import{N as P}from"./NoticesSearch-412b4b71.js";import"./AllNotices.styled-062b788e.js";const N=a.div`
   padding-top: 40px;
   padding-bottom: 117px;
   display: flex;
@@ -14,7 +14,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
     padding-top: 80px;
     padding-bottom: 112px;
   }
-`,z=r.h1`
+`,C=a.h1`
   margin-bottom: 24px;
   font-weight: 700;
   font-size: 24px;
@@ -27,7 +27,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
     font-size: 48px;
     line-height: 66px;
   }
-`,L=r.a`
+`,z=a.a`
   position: relative;
   width: 280px;
   height: 578px;
@@ -75,7 +75,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
   &:hover {
     box-shadow: 3px 8px 14px 0px rgba(136, 198, 253, 1);
   }
-`,b=r.img`
+`,f=a.img`
   transition: 300ms;
   display: flex;
   align-items: center;
@@ -94,12 +94,12 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
   @media screen and (min-width: 1280px) {
     width: 395px;
   }
-`,A=r.div`
+`,I=a.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 0 12px;
-`,M=r.div`
+`,L=a.div`
   color: inherit;
   font-family: Manrope;
   font-size: 24px;
@@ -121,7 +121,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
   @media screen and (min-width: 768px) {
     width: 310px;
   }
-`,O=r.p`
+`,M=a.p`
   color: inherit;
   font-family: Manrope;
   font-size: 16px;
@@ -151,7 +151,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
     -webkit-line-clamp: 5;
     line-clamp: 5;
   }
-`,D=r.p`
+`,A=a.p`
   width: 160px;
   height: 22px;
   color: #888;
@@ -161,7 +161,7 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
   font-weight: 400;
   line-height: normal;
   margin-top: 40px;
-`,F="/GoIT-Team-03-React-Frontend/assets/NOIMG-5d575749.png";function T({image:t,title:i,description:p,date:l,url:x}){const[c,n]=a.useState(!1),h=l,o=new Date(h),m=o.getDate().toString().padStart(2,"0"),s=(o.getMonth()+1).toString().padStart(2,"0"),d=o.getFullYear(),g=`${m}/${s}/${d}`,w=()=>{n(!0)};return e.jsxs(L,{href:x,children:[c?e.jsx(b,{src:F,alt:"No Image Available"}):e.jsx(b,{src:t,onError:w,alt:i}),e.jsxs(A,{children:[e.jsx(M,{children:i}),e.jsx(O,{children:p}),e.jsx(D,{children:g})]})]})}const q=r.ul`
+`,O="/GoIT-Team-03-React-Frontend/assets/NOIMG-5d575749.png";function D({image:t,title:i,description:d,date:l,url:x}){const[c,r]=n.useState(!1),m=l,o=new Date(m),h=o.getDate().toString().padStart(2,"0"),s=(o.getMonth()+1).toString().padStart(2,"0"),p=o.getFullYear(),g=`${h}/${s}/${p}`,w=()=>{r(!0)};return e.jsxs(z,{href:x,children:[c?e.jsx(f,{src:O,alt:"No Image Available"}):e.jsx(f,{src:t,onError:w,alt:i}),e.jsxs(I,{children:[e.jsx(L,{children:i}),e.jsx(M,{children:d}),e.jsx(A,{children:g})]})]})}const F=a.ul`
   width: 280px;
   display: flex;
   align-items: center;
@@ -182,4 +182,4 @@ import{t as r,r as a,j as e,u as j,x as N,h as f}from"./index-63556afd.js";impor
     width: 1247px;
     margin-top: 82px;
   }
-`;function G(){const[t]=j(),i=Object.fromEntries(t.entries()),[p,l]=a.useState(1),[x,c]=a.useState(12);a.useEffect(()=>{const s=()=>{const d=window.innerWidth;d<=768?c(11):d<=1024?c(10):c(12)};return s(),window.addEventListener("resize",s),()=>window.removeEventListener("resize",s)},[]);const{data:n,error:h,isLoading:o}=N({params:{page:p,limit:x,...i}}),m=(s,d)=>{l(d)};return e.jsxs(q,{children:[o&&e.jsx(k,{}),n&&e.jsxs(e.Fragment,{children:[n.news.map(({_id:s,imgUrl:d,title:g,text:w,date:y,url:v,id:S})=>e.jsx(T,{id:S,image:d,title:g,description:w,date:y,url:v},s)),n.news.length!==0&&e.jsx(E,{count:Math.ceil(n.totalCount/x),page:p,onChange:m,color:"primary"})]}),n&&!n.news.length&&e.jsxs(P,{children:[e.jsx(u,{children:e.jsx("use",{href:f+"#iconPaw"})})," ","No news found"," ",e.jsx(u,{children:e.jsx("use",{href:f+"#iconPaw"})})]}),h&&e.jsx("div",{children:h.message})]})}function Y(){const[t,i]=j();a.useState(Object.fromEntries(t).query||"");const[p,l]=a.useState({}),x=a.useMemo(()=>Object.fromEntries([...t]),[t]),c=a.useCallback(()=>{i(t)},[t,i]),n=o=>{l(o?{query:o}:{})};a.useEffect(()=>{i({...p})},[x,i,p,t]);const h=()=>{t.delete("query",query),i(t),c()};return e.jsxs(I,{children:[e.jsx(z,{children:"News"}),e.jsx(C,{onSubmit:n,onClear:h}),e.jsx(G,{})]})}export{Y as default};
+`;function T(){const[t]=u(),i=Object.fromEntries(t.entries()),[d,l]=n.useState(1),[x,c]=n.useState(12);n.useEffect(()=>{const s=()=>{const p=window.innerWidth;p<=768?c(11):p<=1024?c(10):c(12)};return s(),window.addEventListener("resize",s),()=>window.removeEventListener("resize",s)},[]);const{data:r,error:m,isLoading:o}=v({params:{page:d,limit:x,...i}}),h=(s,p)=>{l(p)};return e.jsxs(F,{children:[o&&e.jsx(S,{}),r?e.jsx(e.Fragment,{children:r.news.map(({_id:s,imgUrl:p,title:g,text:w,date:b,url:j,id:y})=>e.jsx(D,{id:y,image:p,title:g,description:w,date:b,url:j},s))}):e.jsx(k,{}),e.jsx(E,{count:r?Math.ceil(r.totalCount/x):0,page:d,onChange:h,color:"primary"}),m&&e.jsx("div",{children:m.message})]})}function Q(){const[t,i]=u();n.useState(Object.fromEntries(t).query||"");const[d,l]=n.useState({}),x=n.useMemo(()=>Object.fromEntries([...t]),[t]),c=n.useCallback(()=>{i(t)},[t,i]),r=o=>{l(o?{query:o}:{})};n.useEffect(()=>{i({...d})},[x,i,d,t]);const m=()=>{t.delete("query",query),i(t),c()};return e.jsxs(N,{children:[e.jsx(C,{children:"News"}),e.jsx(P,{onSubmit:r,onClear:m}),e.jsx(T,{})]})}export{Q as default};
