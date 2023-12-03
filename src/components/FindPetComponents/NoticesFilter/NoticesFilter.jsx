@@ -16,7 +16,6 @@ import {
 } from './NoticesFilter.styled';
 import { useState, useEffect, useRef } from 'react';
 import sprite from '../../../ui/Icons/sprite.svg';
-import { AllFilterQueries } from '../../../helpers/filtersQueries';
 
 const NoticesFilter = ({ checkboxValue, setCheckboxValue }) => {
   const [isOpen, setIsOpen] = useState(false);

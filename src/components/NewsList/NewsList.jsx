@@ -1,8 +1,3 @@
-import {
-  NoNoticesFound,
-  NoNoticesFoundIcon,
-} from '../../ui/NoMatches/AllNotices.styled';
-import sprite from '../../ui/Icons/sprite.svg';
 import Loader from '../../ui/Loader/Loader';
 import NewsItem from '../NewsItem/NewsItem';
 import { List } from './NewsList.styled';
@@ -10,6 +5,7 @@ import { useGetNewsQuery } from '../../redux/API/RTKQueryApi';
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { StyledPagination } from '../../ui/pagination/StyledPagination.styled';
+import NoMatchesFound from '../../ui/NoMatches/NoMatchesFound';
 
 function NewsList() {
   const [searchParams] = useSearchParams();
@@ -49,7 +45,7 @@ function NewsList() {
   return (
     <List>
       {isLoading && <Loader />}
-      {data && (
+      {data ? (
         <>
           {data.news.map(({ _id, imgUrl, title, text, date, url, id }) => (
             <NewsItem
@@ -62,27 +58,16 @@ function NewsList() {
               url={url}
             />
           ))}
-          {data.news.length !== 0 && (
-            <StyledPagination
-              count={Math.ceil(data.totalCount / limit)}
-              page={currentPage}
-              onChange={handlePageChange}
-              color="primary"
-            />
-          )}
         </>
+      ) : (
+        <NoMatchesFound />
       )}
-      {data && !data.news.length && (
-        <NoNoticesFound>
-          <NoNoticesFoundIcon>
-            <use href={sprite + '#iconPaw'} />
-          </NoNoticesFoundIcon>{' '}
-          No news found{' '}
-          <NoNoticesFoundIcon>
-            <use href={sprite + '#iconPaw'} />
-          </NoNoticesFoundIcon>
-        </NoNoticesFound>
-      )}
+      <StyledPagination
+        count={data ? Math.ceil(data.totalCount / limit) : 0}
+        page={currentPage}
+        onChange={handlePageChange}
+        color="primary"
+      />
       {error && <div>{error.message}</div>}
     </List>
   );

@@ -1,47 +1,29 @@
 import {
   NavContainer,
-  NavLi,
   NavList,
-  StyledLink,
 } from '../NoticesCategoriesNav/NoticesCategoriesNav.styled.js';
+import NavItem from './NavItem';
 import categories from '../NoticesCategoriesNav/categories.js';
 import { useLocation } from 'react-router-dom';
-import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
 import { useSelector } from 'react-redux';
+import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
+
 const { publicCategories, userCategories } = categories;
+
+const generateNavItems = (categories, search) =>
+  categories.map(({ id, to, text }) => (
+    <NavItem key={id} to={to} text={text} search={search} />
+  ));
 
 const NoticesCategoriesNav = () => {
   const { search } = useLocation();
-  const location = useLocation();
   const isAuthenticated = useSelector(selectIsAuthenticated);
 
   return (
     <NavContainer>
-      <NavList>
-        {publicCategories.map(({ id, to, text }) => (
-          <NavLi key={id}>
-            <StyledLink
-              to={{ pathname: to, search }}
-              active={location.pathname === to ? 'true' : undefined}
-            >
-              {text}
-            </StyledLink>
-          </NavLi>
-        ))}
-      </NavList>
+      <NavList>{generateNavItems(publicCategories, search)}</NavList>
       {isAuthenticated && (
-        <NavList>
-          {userCategories.map(({ id, to, text }) => (
-            <NavLi key={id}>
-              <StyledLink
-                to={{ pathname: to, search }}
-                active={location.pathname === to ? 'true' : undefined}
-              >
-                {text}
-              </StyledLink>
-            </NavLi>
-          ))}
-        </NavList>
+        <NavList>{generateNavItems(userCategories, search)}</NavList>
       )}
     </NavContainer>
   );

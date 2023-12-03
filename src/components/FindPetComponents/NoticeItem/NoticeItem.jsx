@@ -32,7 +32,7 @@ const NoticeItem = ({
   sex,
   location,
   age,
-  avatarUrl,
+  avatarURL,
   userFavoritesArr,
   showDelete,
 }) => {
@@ -105,7 +105,7 @@ const NoticeItem = ({
   return (
     <ItemContainer key={id}>
       <TopPart>
-        <ItemImg src={avatarUrl} />
+        <ItemImg src={avatarURL} />
         <ItemCategory>{category}</ItemCategory>
 
         <ItemFavoriteBtn type="submit" onClick={handleFavoriteClick}>

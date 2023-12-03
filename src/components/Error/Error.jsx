@@ -20,7 +20,7 @@ export const Error = () => {
     <ErrorSection>
       <Container>
         <DivError>
-          <ErrorH2>Ooops! This page not found :( </ErrorH2>
+          <ErrorH2>Oops! This page not found 😔</ErrorH2>
 
           <ErrorPicture>
             <source
