@@ -66,31 +66,14 @@ function AllNotices() {
         <>
           <NoticeList>
             {data.notices.length > 0 ? (
-              data.notices.map(
-                ({
-                  _id,
-                  title,
-                  category,
-                  date,
-                  sex,
-                  location,
-                  age,
-                  avatarURL,
-                }) => (
-                  <NoticeItem
-                    key={_id}
-                    id={_id}
-                    title={title}
-                    category={category}
-                    date={date}
-                    sex={sex}
-                    location={location}
-                    avatarUrl={avatarURL}
-                    age={age}
-                    userFavoritesArr={userFavorites}
-                  />
-                ),
-              )
+              data.notices.map(({ _id, ...notice }) => (
+                <NoticeItem
+                  key={_id}
+                  id={_id}
+                  {...notice}
+                  userFavoritesArr={userFavorites}
+                />
+              ))
             ) : (
               <NoMatchesFound />
             )}

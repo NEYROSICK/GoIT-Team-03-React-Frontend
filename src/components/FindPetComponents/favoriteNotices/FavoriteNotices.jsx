@@ -1,21 +1,16 @@
-import {
-  NoNoticesFound,
-  NoNoticesFoundIcon,
-} from '../../../ui/NoMatches/AllNotices.styled.js';
-import sprite from '../../../ui/Icons/sprite.svg';
-import Loader from '../../../ui/Loader/Loader.jsx';
-
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import {
   useGetMyFavoriteQuery,
   useGetMeAndPetsQuery,
 } from '../../../redux/API/RTKQueryApi.js';
-import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
-import NoticeItem from '../NoticeItem/NoticeItem';
 import { selectIsAuthenticated } from '../../../redux/auth/selectors.jsx';
-import { useSelector } from 'react-redux';
-import { StyledPagination } from '../../../ui/pagination/StyledPagination.styled.jsx'; // Update the path to your StyledPagination component
-import { useEffect, useState } from 'react';
+import Loader from '../../../ui/Loader/Loader.jsx';
+import NoticeItem from '../NoticeItem/NoticeItem';
+import { NoticeList } from '../../../ui/NoticeList/noticeList.styled';
+import { StyledPagination } from '../../../ui/pagination/StyledPagination.styled.jsx';
+import NoMatchesFound from '../../../ui/NoMatches/NoMatchesFound.jsx';
 
 function FavoriteNotices() {
   const [searchParams] = useSearchParams();
@@ -50,15 +45,12 @@ function FavoriteNotices() {
     },
   });
 
-  let userFavorites = [];
   const isAuthenticated = useSelector(selectIsAuthenticated);
   const { data: userData } = useGetMeAndPetsQuery(undefined, {
     skip: !isAuthenticated,
   });
 
-  if (isAuthenticated && userData && userData.user) {
-    userFavorites = userData.user.favoritesArr;
-  }
+  const userFavorites = (isAuthenticated && userData?.user?.favoritesArr) || [];
 
   const handlePageChange = (event, page) => {
     setCurrentPage(page);
@@ -71,31 +63,16 @@ function FavoriteNotices() {
         <>
           <NoticeList>
             {data.notices.length > 0 ? (
-              data.notices.map(
-                ({ _id, title, category, date, sex, location, avatarURL }) => (
-                  <NoticeItem
-                    key={_id}
-                    id={_id}
-                    title={title}
-                    category={category}
-                    date={date}
-                    sex={sex}
-                    location={location}
-                    avatarUrl={avatarURL}
-                    userFavoritesArr={userFavorites}
-                  />
-                ),
-              )
+              data.notices.map(({ _id, ...notice }) => (
+                <NoticeItem
+                  key={_id}
+                  id={_id}
+                  {...notice}
+                  userFavoritesArr={userFavorites}
+                />
+              ))
             ) : (
-              <NoNoticesFound>
-                <NoNoticesFoundIcon>
-                  <use href={sprite + '#iconPaw'} />
-                </NoNoticesFoundIcon>{' '}
-                No Notices found{' '}
-                <NoNoticesFoundIcon>
-                  <use href={sprite + '#iconPaw'} />
-                </NoNoticesFoundIcon>
-              </NoNoticesFound>
+              <NoMatchesFound />
             )}
           </NoticeList>
 

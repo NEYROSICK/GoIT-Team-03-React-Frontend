@@ -1,8 +1,3 @@
-import {
-  NoNoticesFound,
-  NoNoticesFoundIcon,
-} from '../../ui/NoMatches/AllNotices.styled';
-import sprite from '../../ui/Icons/sprite.svg';
 import Loader from '../../ui/Loader/Loader';
 import NewsItem from '../NewsItem/NewsItem';
 import { List } from './NewsList.styled';
