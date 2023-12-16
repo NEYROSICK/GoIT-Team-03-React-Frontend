@@ -69,6 +69,7 @@ function MyAds() {
                   id={_id}
                   {...notice}
                   userFavoritesArr={userFavorites}
+                  showDelete={true}
                 />
               ))
             ) : (
