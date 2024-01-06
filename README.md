@@ -10,19 +10,24 @@
 
 ## Description
 
-Your Pet is the client-side web application created for pet lovers by a team of
-12 developers with the help of React and Redux libraries. For this project, a
+Your Pet is the client-side adaptive web application for any device screen,
+created for pet lovers by a team of 12 developers with the help of React and
+Redux libraries.
+
+For this project, a
 [REST API](https://github.com/NEYROSICK/GoIT-Team-03-Node-API) was also created
-on Node.js and Express.js framework on
+with Node.js and Express.js framework on
 [separate repository](https://github.com/NEYROSICK/GoIT-Team-03-Node-API) and
 uploaded on [render.com](https://goit-team-03-node.onrender.com/).
+
+![Main page](./src/assets/main-page.jpg)
 
 **Using this application you can:**
 
 - View cards with information about various pets 🐾
 - Filter cards by 3 categories:
   - Pets for sell 💲
-  - Lost/found pets 🕵️
+  - Lost/found pets 🔍
   - Pets in good hands 🎁
 - Filter pets by age or sex ♀️ ♂️
 - Load more cards by clicking on the next page button 🔄
