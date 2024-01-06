@@ -18,8 +18,9 @@ export const BurgerWrapper = styled.div`
   min-height: calc(100% - 68px);
 
   @media (min-width: 768px) {
-    top: 92px;
-    min-height: calc(100% - 92px);
+    top: 0;
+    padding-top: 92px;
+    min-height: 100%;
   }
 
   @media (min-width: 1280px) {

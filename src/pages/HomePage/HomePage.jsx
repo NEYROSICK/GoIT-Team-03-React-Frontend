@@ -14,28 +14,6 @@ const HomePage = () => {
     <FlexContainer>
       <Container>
         <Title>Take good care of your small pets</Title>
-
-        {/* <StyledPicture>
-          <source
-          media="(min-width: 1280px)"
-          srcSet={`${mainImgDesc} 1x, ${mainImgDescRetina} 2x`}
-          type="image/png"
-          alt="desktop image"
-        />
-        <source
-          media="(min-width: 768px)"
-          srcSet={`${mainImgTab} 1x, ${mainImgTabRetina} 2x`}
-          type="image/png"
-          alt="tablet image"
-        />
-        <source
-          media="(max-width: 767px)"
-          srcSet={`${mainImgMobile} 1x, ${mainImgMobileRetina} 2x`}
-          type="image/png"
-          alt="mobile image"
-        />
-          <ImageMainPage srcSet={imgMobile} alt="Pets" />
-        </StyledPicture> */}
         <picture>
           <source
             srcSet={`${imgDesk} 1x, ${imgDesk2x} 2x`}

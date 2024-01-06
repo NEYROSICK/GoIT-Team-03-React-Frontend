@@ -3,7 +3,11 @@ import styled from 'styled-components';
 export const HeaderSection = styled.header`
   position: relative;
   z-index: 100;
-  background-color: var(--clr-bcg);
+  /* background-color: var(--clr-bcg); */
+
+  @media (min-width: 1280px) {
+    background-color: transparent;
+  }
 `;
 
 export const HeaderContainer = styled.div`
