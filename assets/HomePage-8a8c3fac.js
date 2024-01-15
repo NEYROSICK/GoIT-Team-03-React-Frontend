@@ -1,4 +1,4 @@
-import{s as e,j as t,C as n}from"./index-b6c81d7b.js";const a=e.div`
+import{s as e,j as t,C as n}from"./index-7dda0c14.js";const a=e.div`
   min-height: calc(100% - 68px);
 
   @media (min-width: 768px) {
