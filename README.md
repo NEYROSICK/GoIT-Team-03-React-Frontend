@@ -41,7 +41,7 @@ framework on a
 [separate repository](https://github.com/NEYROSICK/GoIT-Team-03-Node-API) and
 uploaded to [render.com](https://goit-team-03-node.onrender.com/).
 
-> [!IMPORTANT ] 
+> [!IMPORTANT] 
 > Due to the use of the `free version` of the Render hosting service, it may take some time before you can `access the backend`, for example, to view cards in the catalog, or to register your private account.
 
 ![Main page](./src/assets/main-page.jpg)
