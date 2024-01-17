@@ -1,6 +1,7 @@
 <p align="center">
   <img src="./src/assets/banner.png" alt="Your pet banner" width="520"/>
 </p>
+
 <p align="center">
   <a href="https://github.com/NEYROSICK/GoIT-Team-03-React-Frontend/graphs/contributors"><img src="https://img.shields.io/github/contributors/neyrosick/GoIT-Team-03-React-Frontend" alt="GitHub last commit"/></a>
   <a href="https://github.com/neyrosick/GoIT-Team-03-React-Frontend/commits"><img src="https://img.shields.io/github/last-commit/neyrosick/GoIT-Team-03-React-Frontend?logo=github" alt="GitHub last commit"/></a>
@@ -15,7 +16,6 @@
   - [Functionalities](#using-this-application-you-can)
 - [Built with](#built-with)
 - [Usage](#usage)
-
   - [Main page](#main-page)
   - [Find pet page](#find-pet-page)
   - [Registration page](#registration-page)
@@ -25,9 +25,7 @@
   - [Adding pet page](#adding-pet-page)
   - [News page](#news-page)
   - [Our friends page](#our-friends-page)
-
 - [Contributing](#contributing)
-
 </details>
 
 ## Description
